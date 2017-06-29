@@ -11,8 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('admin/user/profile');
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/admin/user/profile', function () {
+        return view('admin/user/profile');
+    });
 });
 
 Auth::routes();
