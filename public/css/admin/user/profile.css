@@ -8369,7 +8369,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   min-height: 70px;
-  margin-right: 1rem;
+  margin-right: 1rem !important;
 }
 
 .search-bar-wrapper {
