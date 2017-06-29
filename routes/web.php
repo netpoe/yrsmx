@@ -17,4 +17,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('front.home.index');
+Route::get('/bienvenido/{token}', 'HomeController@welcome')->name('front.home.welcome');
+Route::get('/verification-email-sent', 'HomeController@verificationEmailSent')->name('front.home.verification-email-sent');
+Route::post('/', 'HomeController@register')->name('front.home.register');
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::post('/aplicar/store/{slug}', 'ApplicationController@store')->name('front.application.store');
+    Route::get('/aplicar/seccion/{slug?}/{hasError?}/{message?}', 'ApplicationController@seccion')->name('front.application.seccion');
+    Route::get('/aplicar/completa', 'ApplicationController@completa')->name('front.application.completa');
+});
