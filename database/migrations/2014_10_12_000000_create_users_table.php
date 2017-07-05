@@ -25,9 +25,9 @@ class CreateUsersTable extends Migration
             $table->date('dob')->nullable();
             $table->string('token', 30)->nullable();
             $table->integer('is_verified')->length(1)->default(0);
-            $table->string('referral_code', 7);
+            $table->string('referral_code', 7)->nullable();
             $table->integer('referred_by')->unsigned()->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

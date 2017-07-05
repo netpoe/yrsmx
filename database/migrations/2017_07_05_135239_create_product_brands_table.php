@@ -35,5 +35,7 @@ class CreateProductBrandsTable extends Migration
         Schema::table('product_brands', function (Blueprint $table) {
             $table->dropForeign(['created_by']);
         });
+
+        Schema::dropIfExists('product_brands');
     }
 }

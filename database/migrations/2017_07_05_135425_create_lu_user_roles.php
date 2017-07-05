@@ -26,8 +26,6 @@ class CreateLuUserRoles extends Migration
      */
     public function down()
     {
-        Schema::table('lu_user_roles', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('lu_user_roles');
     }
 }
