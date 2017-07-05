@@ -36,7 +36,13 @@ class CreateRelProductsCategories extends Migration
     public function down()
     {
         Schema::table('rel_products_categories', function (Blueprint $table) {
-            $table->dropForeign(['category_id', 'subcategory_id', 'product_id']);
+            $table->dropForeign(['category_id']);
+        });
+        Schema::table('rel_products_categories', function (Blueprint $table) {
+            $table->dropForeign(['subcategory_id']);
+        });
+        Schema::table('rel_products_categories', function (Blueprint $table) {
+            $table->dropForeign(['product_id']);
         });
 
         Schema::dropIfExists('rel_products_categories');

@@ -36,7 +36,13 @@ class CreateRelProductsOutfitTable extends Migration
     public function down()
     {
         Schema::table('rel_products_outfit', function (Blueprint $table) {
-            $table->dropForeign(['outfit_id', 'product_id', 'user_id']);
+            $table->dropForeign(['outfit_id']);
+        });
+        Schema::table('rel_products_outfit', function (Blueprint $table) {
+            $table->dropForeign(['product_id']);
+        });
+        Schema::table('rel_products_outfit', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
         });
 
         Schema::dropIfExists('rel_products_outfit');

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('head-link')
   <link href="/css/admin/user/profile.css" rel="stylesheet">

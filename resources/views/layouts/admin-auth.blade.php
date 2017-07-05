@@ -9,11 +9,7 @@
     @yield('head-link')
   </head>
   <body>
-    @include('includes/include-search-wrapper')
-    <div class="site-wrapper" id="site-wrapper"> <!-- Body -->
-      @include('includes/include-top-menu')
-      @include('includes/include-header')
-      @include('includes/include-sub-header')
+    <div class="site-wrapper" id="site-wrapper">
       <main class="site-content" role="main">
 
         @yield('content')

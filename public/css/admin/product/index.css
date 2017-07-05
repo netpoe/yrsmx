@@ -8509,15 +8509,3 @@ body {
   margin-bottom: 0.5rem;
   display: block;
 }
-
-.user-profile-grid .card {
-  margin-bottom: 0;
-}
-
-.user-profile-grid .card-block {
-  padding: 0.5rem;
-}
-
-.use-of-proceeds-card .card-block {
-  padding: 0.25rem;
-}

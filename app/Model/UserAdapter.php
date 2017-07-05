@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use App\User;
 use Illuminate\Support\Facades\Hash;
 use App\Model\UserAddressAdapter as UserAddress;
 

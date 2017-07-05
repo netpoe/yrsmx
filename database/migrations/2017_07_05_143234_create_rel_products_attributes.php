@@ -36,7 +36,13 @@ class CreateRelProductsAttributes extends Migration
     public function down()
     {
         Schema::table('rel_products_attributes', function (Blueprint $table) {
-            $table->dropForeign(['attribute_id', 'subattribute_id', 'product_id']);
+            $table->dropForeign(['attribute_id']);
+        });
+        Schema::table('rel_products_attributes', function (Blueprint $table) {
+            $table->dropForeign(['subattribute_id']);
+        });
+        Schema::table('rel_products_attributes', function (Blueprint $table) {
+            $table->dropForeign(['product_id']);
         });
 
         Schema::dropIfExists('rel_products_attributes');

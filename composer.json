@@ -4,10 +4,17 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+    "repositories": [
+      {
+        "type": "vcs",
+        "url":  "git@github.com:EasyBoxModel/Sections.git"
+      }
+    ],
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "easyboxmodel/sections": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -16,7 +23,8 @@
     },
     "autoload": {
         "classmap": [
-            "database"
+            "database",
+            "app/Model"
         ],
         "psr-4": {
             "App\\": "app/"

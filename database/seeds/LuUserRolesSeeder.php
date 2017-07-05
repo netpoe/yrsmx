@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Model\LuUserRole;
 
 class LuUserRolesSeeder extends Seeder
 {
@@ -14,19 +15,19 @@ class LuUserRolesSeeder extends Seeder
     public function run()
     {
         DB::table(self::TABLE)->insert([
-            'role' => 'super-admin',
+            'role' => LuUserRole::SUPER_ADMIN,
         ]);
         DB::table(self::TABLE)->insert([
-            'role' => 'admin',
+            'role' => LuUserRole::ADMIN,
         ]);
         DB::table(self::TABLE)->insert([
-            'role' => 'client',
+            'role' => LuUserRole::CLIENT,
         ]);
         DB::table(self::TABLE)->insert([
-            'role' => 'dealer',
+            'role' => LuUserRole::DEALER,
         ]);
         DB::table(self::TABLE)->insert([
-            'role' => 'distributor',
+            'role' => LuUserRole::DISTRIBUTOR,
         ]);
     }
 }

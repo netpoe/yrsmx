@@ -159,11 +159,9 @@ watchTaskList.push('fileinclude');
 
 gulp.task('browser-sync', function() {
   browserSync.init({
-    server: {
-      baseDir: `${destFolder}`,
-    },
+    proxy: '0.0.0.0:8000',
     port: 3000,
-    open: true,
+    open: false,
   });
 });
 watchTaskList.push('browser-sync');
