@@ -40,3 +40,69 @@
 @import "./resources/sass/common/top-menu";
 @import "./resources/sass/common/search-wrapper";
 @import "./resources/sass/common/user-resources-nav";
+@import "./resources/sass/common/dropzone";
+
+$products-filter-width: 280px;
+.products-wrapper {
+  margin: $container-fluid 0;
+  position: relative;
+  min-height: 100vh;
+  .products-filters {
+    @include position(absolute, 0 null 0 0);
+    padding: get-spacer(3, x);
+    background-color: white;
+    width: $products-filter-width;
+  }
+  .products-list {
+    padding-left: $products-filter-width + 14px;
+  }
+}
+
+$product-item-height: 81px;
+.products-list {
+  .product-item {
+    @include normalize-text;
+    > div {
+      @include box-shadow-default;
+      @include flex-row;
+      border-radius: $border-radius;
+      background-color: white;
+    }
+    .img-wrapper {
+      @include bg-img-block;
+      height: $product-item-height;
+      width: 15%;
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
+    .features {
+      padding: get-spacer(3, x);
+      width: 85%;
+    }
+    .title {
+      font-size: $font-size-h5;
+      color: $gray-dark;
+      display: block;
+    }
+    .categories-nav {
+      margin-bottom: get-spacer(2, y);
+      a {
+        font-size: $font-size-sm;
+      }
+    }
+    .assigned-to {
+      margin-bottom: get-spacer(2, y);
+      color: $gray-light;
+      display: block;
+    }
+    &:hover {
+      .title {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+

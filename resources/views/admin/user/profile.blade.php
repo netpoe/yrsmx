@@ -7,6 +7,144 @@
 @section('content')
   <div class="container-fluid" id="admin-user-profile" v-cloak>
     <div class="row">
+      <ul class="grid-list grid-list-2">
+        <li class="product-item">
+          <div>
+            <div class="img-wrapper" style="background-image: url(/img/products/product-1.jpg)"></div>
+            <div class="features">
+              <a href="#" class="title">Nombre del producto</a>
+              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
+              <small>Categorías</small>
+              <nav class="categories-nav">
+                <a href="#">subcat-1</a> <a href="#">subcat-2</a> <a href="#">subcat-3</a>
+              </nav>
+              <small>Atributos</small>
+              <nav class="categories-nav">
+                <a href="#">subattr-1</a> <a href="#">subattr-2</a> <a href="#">subattr-3</a>
+              </nav>
+            </div>
+          </div>
+        </li>
+        <li class="product-item">
+          <div>
+            <div class="img-wrapper" style="background-image: url(/img/products/product-2.jpg)"></div>
+            <div class="features">
+              <a href="#" class="title">Nombre del producto</a>
+              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
+              <small>Categorías</small>
+              <nav class="categories-nav">
+                <a href="#">subcat-1</a> <a href="#">subcat-2</a> <a href="#">subcat-3</a>
+              </nav>
+              <small>Atributos</small>
+              <nav class="categories-nav">
+                <a href="#">subattr-1</a> <a href="#">subattr-2</a> <a href="#">subattr-3</a>
+              </nav>
+            </div>
+          </div>
+        </li>
+        <li class="product-item">
+          <div>
+            <div class="img-wrapper" style="background-image: url(/img/products/product-3.jpg)"></div>
+            <div class="features">
+              <a href="#" class="title">Nombre del producto</a>
+              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
+              <small>Categorías</small>
+              <nav class="categories-nav">
+                <a href="#">subcat-1</a> <a href="#">subcat-2</a> <a href="#">subcat-3</a>
+              </nav>
+              <small>Atributos</small>
+              <nav class="categories-nav">
+                <a href="#">subattr-1</a> <a href="#">subattr-2</a> <a href="#">subattr-3</a>
+              </nav>
+            </div>
+          </div>
+        </li>
+        <li class="product-item">
+          <div>
+            <div class="img-wrapper" style="background-image: url(/img/products/product-4.jpg)"></div>
+            <div class="features">
+              <a href="#" class="title">Nombre del producto</a>
+              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
+              <small>Categorías</small>
+              <nav class="categories-nav">
+                <a href="#">subcat-1</a> <a href="#">subcat-2</a> <a href="#">subcat-3</a>
+              </nav>
+              <small>Atributos</small>
+              <nav class="categories-nav">
+                <a href="#">subattr-1</a> <a href="#">subattr-2</a> <a href="#">subattr-3</a>
+              </nav>
+            </div>
+          </div>
+        </li>
+        <li class="product-item">
+          <div>
+            <div class="img-wrapper" style="background-image: url(/img/products/product-5.jpg)"></div>
+            <div class="features">
+              <a href="#" class="title">Nombre del producto</a>
+              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
+              <small>Categorías</small>
+              <nav class="categories-nav">
+                <a href="#">subcat-1</a> <a href="#">subcat-2</a> <a href="#">subcat-3</a>
+              </nav>
+              <small>Atributos</small>
+              <nav class="categories-nav">
+                <a href="#">subattr-1</a> <a href="#">subattr-2</a> <a href="#">subattr-3</a>
+              </nav>
+            </div>
+          </div>
+        </li>
+        <li class="product-item">
+          <div>
+            <div class="img-wrapper" style="background-image: url(/img/products/product-6.jpg)"></div>
+            <div class="features">
+              <a href="#" class="title">Nombre del producto</a>
+              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
+              <small>Categorías</small>
+              <nav class="categories-nav">
+                <a href="#">subcat-1</a> <a href="#">subcat-2</a> <a href="#">subcat-3</a>
+              </nav>
+              <small>Atributos</small>
+              <nav class="categories-nav">
+                <a href="#">subattr-1</a> <a href="#">subattr-2</a> <a href="#">subattr-3</a>
+              </nav>
+            </div>
+          </div>
+        </li>
+        <li class="product-item">
+          <div>
+            <div class="img-wrapper" style="background-image: url(/img/products/product-7.jpg)"></div>
+            <div class="features">
+              <a href="#" class="title">Nombre del producto</a>
+              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
+              <small>Categorías</small>
+              <nav class="categories-nav">
+                <a href="#">subcat-1</a> <a href="#">subcat-2</a> <a href="#">subcat-3</a>
+              </nav>
+              <small>Atributos</small>
+              <nav class="categories-nav">
+                <a href="#">subattr-1</a> <a href="#">subattr-2</a> <a href="#">subattr-3</a>
+              </nav>
+            </div>
+          </div>
+        </li>
+        <li class="product-item">
+          <div>
+            <div class="img-wrapper" style="background-image: url(/img/products/product-8.jpg)"></div>
+            <div class="features">
+              <a href="#" class="title">Nombre del producto</a>
+              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
+              <small>Categorías</small>
+              <nav class="categories-nav">
+                <a href="#">subcat-1</a> <a href="#">subcat-2</a> <a href="#">subcat-3</a>
+              </nav>
+              <small>Atributos</small>
+              <nav class="categories-nav">
+                <a href="#">subattr-1</a> <a href="#">subattr-2</a> <a href="#">subattr-3</a>
+              </nav>
+            </div>
+          </div>
+        </li>
+      </ul>
       <div class="col-sm-4">
         <div class="card">
           <div class="card-block">

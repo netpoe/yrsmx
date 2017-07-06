@@ -1,4 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.admin-auth')
+
+@section('head-link')
+  <link href="/css/admin/auth/login.css" rel="stylesheet">
+@endsection
 
 @section('content')
 <div class="container">

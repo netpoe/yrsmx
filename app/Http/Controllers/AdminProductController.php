@@ -10,4 +10,8 @@ class AdminProductController extends Controller
     {
         return view('admin/product/index');
     }
+
+    public function upload()
+    {
+    }
 }
