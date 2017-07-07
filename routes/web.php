@@ -17,8 +17,10 @@
 Route::get('/admin/ingresa', 'AdminAuthController@ingresa')->name('admin.auth.ingresa');
 Route::post('/admin/login', 'AdminAuthController@login')->name('admin.auth.login');
 Route::group(['middleware' => 'auth'], function(){
-    Route::post('/admin/productos/subir', 'AdminProductController@upload')->name('admin.product.upload');
-    Route::get('/admin/productos', 'AdminProductController@index')->name('admin.product.index');
+    Route::post('/admin/productos/subir', 'AdminProductsController@upload')->name('admin.products.upload');
+    Route::post('/admin/productos/create', 'AdminProductsController@create')->name('admin.products.create');
+    Route::get('/admin/productos/catalogo', 'AdminProductsController@catalog')->name('admin.products.catalog');
+    Route::get('/admin/productos/{productId}', 'AdminProductsController@product')->name('admin.products.product');
 });
 
 Auth::routes();

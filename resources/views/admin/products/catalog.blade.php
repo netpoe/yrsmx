@@ -1,33 +1,84 @@
 @extends('layouts.admin')
 
 @section('head-link')
-<link href="/css/admin/product/index.css" rel="stylesheet">
+<link href="/css/admin/products/catalog.css" rel="stylesheet">
 @endsection
 
 @section('site-wrapper')
-  <section id="upload-documents-modal">
+  <section id="upload-products-modal">
     <div>
-      <header class="modal-header">
-        <div>
-          <h3>Asignar imágenes a un producto</h3>
-          <nav>
-            <button class="btn btn-secondary">Cancelar</button>
-            <button class="btn btn-primary">Crear producto</button>
-          </nav>
+      <form method="POST" action="{{ route('admin.products.create') }}">
+        {{ csrf_field() }}
+        <header class="modal-header">
+          <div>
+            <h3>Asigna imágenes a un producto</h3>
+            <p>Selecciona imágenes, da clic en crear producto y después categoriza el producto creado.</p>
+          </div>
+          <div>
+            <nav>
+              <button class="btn btn-secondary">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Crear producto</button>
+            </nav>
+          </div>
+        </header>
+        <div class="modal-body products-list">
+          <ul class="grid-list grid-list-6">
+            <li class="product-item">
+              <div>
+                <input type="checkbox" id="product-id-1" name="product-image">
+                <label for="product-id-1" class="img-wrapper"><img src="/img/products/product-1.jpg" alt=""></label>
+              </div>
+            </li>
+            <li class="product-item">
+              <div>
+                <input type="checkbox" id="product-id-2" name="product-image">
+                <label for="product-id-2" class="img-wrapper"><img src="/img/products/product-2.jpg" alt=""></label>
+              </div>
+            </li>
+            <li class="product-item">
+              <div>
+                <input type="checkbox" id="product-id-3" name="product-image">
+                <label for="product-id-3" class="img-wrapper"><img src="/img/products/product-3.jpg" alt=""></label>
+              </div>
+            </li>
+            <li class="product-item">
+              <div>
+                <input type="checkbox" id="product-id-4" name="product-image">
+                <label for="product-id-4" class="img-wrapper"><img src="/img/products/product-4.jpg" alt=""></label>
+              </div>
+            </li>
+            <li class="product-item">
+              <div>
+                <input type="checkbox" id="product-id-5" name="product-image">
+                <label for="product-id-5" class="img-wrapper"><img src="/img/products/product-5.jpg" alt=""></label>
+              </div>
+            </li>
+            <li class="product-item">
+              <div>
+                <input type="checkbox" id="product-id-6" name="product-image">
+                <label for="product-id-6" class="img-wrapper"><img src="/img/products/product-6.jpg" alt=""></label>
+              </div>
+            </li>
+            <li class="product-item">
+              <div>
+                <input type="checkbox" id="product-id-7" name="product-image">
+                <label for="product-id-7" class="img-wrapper"><img src="/img/products/product-7.jpg" alt=""></label>
+              </div>
+            </li>
+          </ul>
         </div>
-      </header>
-      <div class="modal-body"></div>
-      <footer class="modal-footer"></footer>
+        <footer class="modal-footer"></footer>
+      </form>
     </div>
   </section>
 @endsection
 
 @section('content')
-<div class="container-fluid" id="admin-product-index">
+<div class="container-fluid" id="admin-product-catalog">
   <form
   method="POST"
   enctype="multipart/form-data"
-  action="{{ route('admin.product.upload') }}"
+  action="{{ route('admin.products.upload') }}"
   class="dropzone"
   id="product-upload"></form>
 
@@ -100,7 +151,6 @@
             </div>
           </div>
         </li>
-
       </ul>
     </div>
   </div>
@@ -114,7 +164,7 @@
 <script>
   var defaultMessage = 'Arrastra tus imágenes o <button type="button" class="btn btn-primary btn-sm btn-outline">selecciona imágenes</button>';
   var maxFilesize = 1500;
-  var $uploadDocumentsModal = document.getElementById('upload-documents-modal');
+  var $uploadDocumentsModal = document.getElementById('upload-products-modal');
 
   Dropzone.options.productUpload = {
     dictDefaultMessage: defaultMessage,

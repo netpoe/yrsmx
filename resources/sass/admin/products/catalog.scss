@@ -70,11 +70,18 @@ $product-item-height: 81px;
     }
     .img-wrapper {
       @include bg-img-block;
+      border-radius: $border-radius;
       height: $product-item-height;
+      position: relative;
+      overflow: hidden;
       width: 15%;
       img {
+        border-radius: $border-radius;
         height: auto;
         width: 100%;
+      }
+      &:hover {
+        cursor: pointer;
       }
     }
     .features {
@@ -106,7 +113,7 @@ $product-item-height: 81px;
 }
 
 $modal-header-height: $header-height-control;
-#upload-documents-modal {
+#upload-products-modal {
   @include position(fixed, 0 0 0 0);
   background-color: rgba(black, 0.7);
   padding: get-spacer(5, x);
@@ -117,22 +124,41 @@ $modal-header-height: $header-height-control;
     background-color: white;
   }
   .modal-header,
-  .modal-footer {
-    min-height: $modal-header-height;
-  }
+  .modal-footer {}
   .modal-header {
-    @include flex-column-center;
+    @include flex-row-space-between;
     @include normalize-text;
     border-bottom: 1px solid $gray-lightest;
     > div {
-      @include flex-row-space-between;
+      @include flex-column-center;
+      min-height: $modal-header-height;
       padding: get-spacer(3, y);
     }
+    > div {}
+    nav {}
   }
   .modal-body {
     min-height: 20vh;
   }
   .modal-footer {
     border-top: 1px solid $gray-lightest;
+  }
+  .products-list {
+    padding: $container-fluid;
+    .img-wrapper {
+      height: 195px;
+      width: 100%;
+      margin: 0;
+    }
+    input {
+      visibility: hidden;
+      position: absolute;
+      &:checked + {
+        label {
+          padding: get-spacer(2, x);
+          background-color: $blue;
+        }
+      }
+    }
   }
 }

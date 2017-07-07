@@ -16,6 +16,14 @@ Actualizar catálogo: se pueden subir imágenes en lote, después, se selecciona
 
 `POST admin/productos/catalogo/upload` (modal window)
 
+Asignar imágenes a producto: se seleccionan las imágenes y se asignan a un producto
+
+`POST admin/productos/create?productImages={id,id,id,id}`
+
+Actualizar producto: se asignan categorías y atributos al producto creado
+
+`GET admin/productos/{productId}`
+
 **Usuarios**
 
 Usuarios: muestra los usuarios registrados con sus diferentes estatus, tienen prioridad los usuarios que ya terminaron el cuestionario y que ya verificaron su correo

@@ -8870,13 +8870,21 @@ body {
 .products-list .product-item .img-wrapper {
   background-repeat: no-repeat;
   background-size: 100%;
+  border-radius: 0.25rem;
   height: 81px;
+  position: relative;
+  overflow: hidden;
   width: 15%;
 }
 
 .products-list .product-item .img-wrapper img {
+  border-radius: 0.25rem;
   height: auto;
   width: 100%;
+}
+
+.products-list .product-item .img-wrapper:hover {
+  cursor: pointer;
 }
 
 .products-list .product-item .features {
@@ -8908,7 +8916,7 @@ body {
   text-decoration: underline;
 }
 
-#upload-documents-modal {
+#upload-products-modal {
   position: fixed;
   top: 0;
   right: 0;
@@ -8919,46 +8927,62 @@ body {
   z-index: 100;
 }
 
-#upload-documents-modal > div {
+#upload-products-modal > div {
   border-radius: 0.25rem;
   background-color: white;
 }
 
-#upload-documents-modal .modal-header,
-#upload-documents-modal .modal-footer {
-  min-height: 70px;
-}
-
-#upload-documents-modal .modal-header {
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  display: -ms-flexbox;
-  display: flex;
-  border-bottom: 1px solid #f7f7f9;
-}
-
-#upload-documents-modal .modal-header h1, #upload-documents-modal .modal-header h2, #upload-documents-modal .modal-header h3, #upload-documents-modal .modal-header h4, #upload-documents-modal .modal-header h5, #upload-documents-modal .modal-header h6,
-#upload-documents-modal .modal-header .h1, #upload-documents-modal .modal-header .h2, #upload-documents-modal .modal-header .h3, #upload-documents-modal .modal-header .h4, #upload-documents-modal .modal-header .h5, #upload-documents-modal .modal-header .h6,
-#upload-documents-modal .modal-header h1, #upload-documents-modal .modal-header h2, #upload-documents-modal .modal-header h3, #upload-documents-modal .modal-header h4, #upload-documents-modal .modal-header h5, #upload-documents-modal .modal-header h6, #upload-documents-modal .modal-header p, #upload-documents-modal .modal-header span, #upload-documents-modal .modal-header a, #upload-documents-modal .modal-header em, #upload-documents-modal .modal-header i, #upload-documents-modal .modal-header strong, #upload-documents-modal .modal-header li {
-  margin: 0;
-}
-
-#upload-documents-modal .modal-header > div {
+#upload-products-modal .modal-header {
   -ms-flex-pack: justify;
   justify-content: space-between;
   -ms-flex-direction: row;
   flex-direction: row;
   display: -ms-flexbox;
   display: flex;
+  border-bottom: 1px solid #f7f7f9;
+}
+
+#upload-products-modal .modal-header h1, #upload-products-modal .modal-header h2, #upload-products-modal .modal-header h3, #upload-products-modal .modal-header h4, #upload-products-modal .modal-header h5, #upload-products-modal .modal-header h6,
+#upload-products-modal .modal-header .h1, #upload-products-modal .modal-header .h2, #upload-products-modal .modal-header .h3, #upload-products-modal .modal-header .h4, #upload-products-modal .modal-header .h5, #upload-products-modal .modal-header .h6,
+#upload-products-modal .modal-header h1, #upload-products-modal .modal-header h2, #upload-products-modal .modal-header h3, #upload-products-modal .modal-header h4, #upload-products-modal .modal-header h5, #upload-products-modal .modal-header h6, #upload-products-modal .modal-header p, #upload-products-modal .modal-header span, #upload-products-modal .modal-header a, #upload-products-modal .modal-header em, #upload-products-modal .modal-header i, #upload-products-modal .modal-header strong, #upload-products-modal .modal-header li {
+  margin: 0;
+}
+
+#upload-products-modal .modal-header > div {
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 70px;
   padding: 1rem;
 }
 
-#upload-documents-modal .modal-body {
+#upload-products-modal .modal-body {
   min-height: 20vh;
 }
 
-#upload-documents-modal .modal-footer {
+#upload-products-modal .modal-footer {
   border-top: 1px solid #f7f7f9;
+}
+
+#upload-products-modal .products-list {
+  padding: 15px;
+}
+
+#upload-products-modal .products-list .img-wrapper {
+  height: 195px;
+  width: 100%;
+  margin: 0;
+}
+
+#upload-products-modal .products-list input {
+  visibility: hidden;
+  position: absolute;
+}
+
+#upload-products-modal .products-list input:checked + label {
+  padding: 0.5rem;
+  background-color: #495463;
 }
