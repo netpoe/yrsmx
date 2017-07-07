@@ -4,6 +4,24 @@
 <link href="/css/admin/product/index.css" rel="stylesheet">
 @endsection
 
+@section('site-wrapper')
+  <section id="upload-documents-modal">
+    <div>
+      <header class="modal-header">
+        <div>
+          <h3>Asignar imágenes a un producto</h3>
+          <nav>
+            <button class="btn btn-secondary">Cancelar</button>
+            <button class="btn btn-primary">Crear producto</button>
+          </nav>
+        </div>
+      </header>
+      <div class="modal-body"></div>
+      <footer class="modal-footer"></footer>
+    </div>
+  </section>
+@endsection
+
 @section('content')
 <div class="container-fluid" id="admin-product-index">
   <form
@@ -96,6 +114,7 @@
 <script>
   var defaultMessage = 'Arrastra tus imágenes o <button type="button" class="btn btn-primary btn-sm btn-outline">selecciona imágenes</button>';
   var maxFilesize = 1500;
+  var $uploadDocumentsModal = document.getElementById('upload-documents-modal');
 
   Dropzone.options.productUpload = {
     dictDefaultMessage: defaultMessage,
@@ -113,6 +132,10 @@
 
     resizeWidth: 1024,
     resizeHeight: null,
+
+    addFile: function(file){
+      $uploadDocumentsModal.style.display = 'block';
+    },
   }
 </script>
 @endsection

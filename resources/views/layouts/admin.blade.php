@@ -10,7 +10,9 @@
   </head>
   <body>
     @include('includes/admin/include-search-wrapper')
-    <div class="site-wrapper" id="site-wrapper"> <!-- Body -->
+    <div class="site-wrapper" id="site-wrapper">
+      @yield('site-wrapper')
+
       @include('includes/admin/include-top-menu')
       @include('includes/admin/include-header')
       @include('includes/admin/include-sub-header')
