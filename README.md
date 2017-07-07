@@ -34,6 +34,15 @@ POST admin/outfits/create (returns outfitId)
 POST admin/outfits/{outfitId}/assignProducts?products={id,id,id} (assigns products to outfit and outfit to user)
 ```
 
+### Changelog
 
+Fri Jul  7 08:51:38 2017
+
+* migrations for products
+* migrations for outfits
+* migrations for users
+* migrations for products gallery
+* migrations for outfits gallery
+* products catalog HTML
 
 
