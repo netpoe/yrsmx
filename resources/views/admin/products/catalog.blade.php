@@ -168,6 +168,15 @@
   var maxFilesize = 1500;
   var $uploadProductsModal = document.getElementById('upload-products-modal');
 
+  axios({
+    method: 'POST',
+    baseURL: "{{ route('admin.products.get-unassigned-files') }}",
+  }).then(function(response){
+    console.log(response)
+  }).catch(function(error){
+    console.log(error)
+  })
+
   Dropzone.options.productUpload = {
     dictDefaultMessage: defaultMessage,
     dictFileTooBig: 'filetoobig',

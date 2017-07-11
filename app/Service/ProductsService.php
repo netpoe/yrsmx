@@ -106,14 +106,13 @@ class ProductsService
 
             $content = file_get_contents($file);
 
-            $storage->put($name, $content);
+            $storage->put($name, $content, 'public');
 
             $type = $file->getClientMimeType();
 
             $info[] = [
                 'filename' => $filename,
                 'file_src' => ($storage->exists($name)) ? $storage->url($name) : null,
-                'base64' => 'data:image/' . $type . ';base64,' . base64_encode($content)
             ];
         }
 

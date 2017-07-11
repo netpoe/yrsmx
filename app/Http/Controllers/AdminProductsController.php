@@ -35,10 +35,13 @@ class AdminProductsController extends Controller
 
         $unassignedFiles = $pg->getUnassignedFiles();
 
-        return [
-            'storage' => $storage,
-            'unassignedFiles' => $unassignedFiles,
-        ];
+        return $unassignedFiles;
+    }
+
+    public function getUnassignedFiles(ProductsGallery $pg)
+    {
+        error_log('HERE');
+        return $pg->getUnassignedFiles();
     }
 
     /**
