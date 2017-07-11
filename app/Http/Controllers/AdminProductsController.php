@@ -31,8 +31,14 @@ class AdminProductsController extends Controller
 
         $storage = $ps->uploadFiles($files);
 
-        return $pg->storeUnassignedFiles($storage)
-                    ->getUnassignedFiles();
+        $pg->storeUnassignedFiles($storage);
+
+        $unassignedFiles = $pg->getUnassignedFiles();
+
+        return [
+            'storage' => $storage,
+            'unassignedFiles' => $unassignedFiles,
+        ];
     }
 
     /**
