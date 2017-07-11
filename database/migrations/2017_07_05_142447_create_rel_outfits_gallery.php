@@ -16,8 +16,8 @@ class CreateRelOutfitsGallery extends Migration
         Schema::create('rel_outfits_gallery', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('outfit_id')->unsigned()->nullable()->default(null);
-            $table->string('img_src');
-            $table->string('s3_version_hash')->nullable();
+            $table->string('filename');
+            $table->string('file_src');
             $table->integer('is_featured')->length(1)->unsigned()->nullable()->default(0);
             $table->timestamps();
         });

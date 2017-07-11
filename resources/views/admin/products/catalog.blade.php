@@ -172,7 +172,7 @@
     dictDefaultMessage: defaultMessage,
     dictFileTooBig: 'filetoobig',
     dictInvalidFileType: 'invalidfiletype',
-    acceptedFiles: 'image/png,image/jpg,image/jpeg,application/pdf',
+    acceptedFiles: 'image/png,image/jpg,image/jpeg',
     // autoProcessQueue: false,
     headers: {
       "Access-Control-Allow-Origin": '*',

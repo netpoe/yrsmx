@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Service\ProductsService;
+use App\Model\RelProductsGalleryAdapter as ProductsGallery;
 
 class AdminProductsController extends Controller
 {
@@ -24,11 +25,14 @@ class AdminProductsController extends Controller
      *
      * @return Object json
      */
-    public function upload(Request $request, ProductsService $ps)
+    public function upload(Request $request, ProductsService $ps, ProductsGallery $pg)
     {
         $files = $request->file('file');
 
-        return $ps->uploadFiles($files);
+        $storage = $ps->uploadFiles($files);
+
+        return $pg->storeUnassignedFiles($storage)
+                    ->getUnassignedFiles();
     }
 
     /**

@@ -97,24 +97,20 @@ class ProductsService
 
         $disk = $this->getProductsCatalogDisk();
 
+        $storage = Storage::disk($disk);
+
         foreach ($files as $index => $file) {
-            $name = "$date/{$file->getClientOriginalName()}";
+            $filename = $file->getClientOriginalName();
 
-            $storage = Storage::disk($disk)->put($name, file_get_contents($file));
+            $name = "$date/{$filename}";
 
-            $size = (string) $file->getClientSize();
+            $content = file_get_contents($file);
 
-            $type = (string) $file->getClientMimeType();
-
-            $headers = [
-                "Content-Length: $size",
-                "Content-Type: $type",
-            ];
+            $storage->put($name, $content);
 
             $info[] = [
-                'headers' => $headers,
-                'name' => $name,
-                'storage' => (Storage::disk($disk)->exists($name)) ? Storage::disk($disk)->url($name) : null,
+                'filename' => $filename,
+                'file_src' => ($storage->exists($name)) ? $storage->url($name) : null,
             ];
         }
 
