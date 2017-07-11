@@ -11,24 +11,19 @@ class ProductsServiceProvider extends ServiceProvider
     protected $defer = true;
 
     /**
-     * Bootstrap the application services.
-     *
-     * @return void
-     */
-    // public function boot(AwsServiceProvider $aws)
-    // {
-
-    // }
-
-    /**
      * Register the application services.
      *
      * @return void
      */
-    public function register(AwsServiceProvider $aws)
+    public function register()
     {
         $this->app->singleton(ProductsService::class, function ($app) {
-            return new ProductsService($aws);
+            return new ProductsService($app->make('aws'));
         });
+    }
+
+    public function provides()
+    {
+        return [ProductsService::class];
     }
 }

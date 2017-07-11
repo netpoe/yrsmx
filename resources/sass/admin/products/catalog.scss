@@ -118,7 +118,7 @@ $modal-header-height: $header-height-control;
   background-color: rgba(black, 0.7);
   padding: get-spacer(5, x);
   z-index: 100;
-  // display: none;
+  display: none;
   > div {
     border-radius: $border-radius;
     background-color: white;

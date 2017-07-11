@@ -15,9 +15,9 @@ class CreateRelProductsGallery extends Migration
     {
         Schema::create('rel_products_gallery', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('product_id')->unsigned();
+            $table->integer('product_id')->unsigned()->nullable()->default(null);
             $table->string('img_src');
-            $table->string('s3_version_hash');
+            $table->string('s3_version_hash')->nullable();
             $table->integer('is_featured')->length(1)->unsigned()->nullable()->default(0);
             $table->timestamps();
         });

@@ -80,7 +80,9 @@
   enctype="multipart/form-data"
   action="{{ route('admin.products.upload') }}"
   class="dropzone"
-  id="product-upload"></form>
+  id="product-upload">
+    {{ csrf_field() }}
+  </form>
 
   <div class="products-wrapper">
     <div class="products-filters">
@@ -164,14 +166,14 @@
 <script>
   var defaultMessage = 'Arrastra tus imágenes o <button type="button" class="btn btn-primary btn-sm btn-outline">selecciona imágenes</button>';
   var maxFilesize = 1500;
-  var $uploadDocumentsModal = document.getElementById('upload-products-modal');
+  var $uploadProductsModal = document.getElementById('upload-products-modal');
 
   Dropzone.options.productUpload = {
     dictDefaultMessage: defaultMessage,
     dictFileTooBig: 'filetoobig',
     dictInvalidFileType: 'invalidfiletype',
     acceptedFiles: 'image/png,image/jpg,image/jpeg,application/pdf',
-    autoProcessQueue: false,
+    // autoProcessQueue: false,
     headers: {
       "Access-Control-Allow-Origin": '*',
     },
@@ -183,8 +185,11 @@
     resizeWidth: 1024,
     resizeHeight: null,
 
-    addFile: function(file){
-      $uploadDocumentsModal.style.display = 'block';
+    addedFile: function(file){
+      $uploadProductsModal.style.display = 'block';
+    },
+    successmultiple: function(files, response){
+      console.log(files, response);
     },
   }
 </script>

@@ -176,9 +176,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\ProductsServiceProvider::class,
 
         Aws\Laravel\AwsServiceProvider::class,
+        App\Providers\ProductsServiceProvider::class,
 
     ],
 

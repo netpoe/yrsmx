@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Providers\ProductsServiceProvider;
+use App\Service\ProductsService;
 
 class AdminProductsController extends Controller
 {
@@ -24,9 +24,11 @@ class AdminProductsController extends Controller
      *
      * @return Object json
      */
-    public function upload(ProductsServiceProvider $psp)
+    public function upload(Request $request, ProductsService $ps)
     {
-        print_r($psp->get()); exit;
+        $files = $request->file('file');
+
+        return $ps->uploadFiles($files);
     }
 
     /**
