@@ -144,12 +144,6 @@ $modal-header-height: $header-height-control;
     border-top: 1px solid $gray-lightest;
   }
   .products-list {
-    padding: $container-fluid;
-    .img-wrapper {
-      height: 195px;
-      width: 100%;
-      margin: 0;
-    }
     input {
       visibility: hidden;
       position: absolute;
@@ -163,3 +157,14 @@ $modal-header-height: $header-height-control;
   }
 }
 
+#upload-products-modal,
+#admin-products-product {
+  .products-list {
+    padding: $container-fluid;
+    .img-wrapper {
+      height: 195px;
+      width: 100%;
+      margin: 0;
+    }
+  }
+}

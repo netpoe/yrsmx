@@ -23,10 +23,5 @@
       </main>
     </div>
     @yield('footer-scripts')
-    {{-- <script>
-      new Vue({
-        el: '#site-wrapper'
-      })
-    </script> --}}
   </body>
 </html>
