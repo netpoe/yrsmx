@@ -40,7 +40,6 @@ class AdminProductsController extends Controller
 
     public function getUnassignedFiles(ProductsGallery $pg)
     {
-        error_log('HERE');
         return $pg->getUnassignedFiles();
     }
 
@@ -61,8 +60,10 @@ class AdminProductsController extends Controller
      *
      * @return [type]
      */
-    public function create()
+    public function create(Request $request)
     {
+        dd($request->input('product-images'));
+
         return redirect()->route('admin.products.product', ['productId' => 123]);
     }
 }

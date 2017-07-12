@@ -5,72 +5,41 @@
 @endsection
 
 @section('site-wrapper')
-  <section id="upload-products-modal">
-    <div>
-      <form method="POST" action="{{ route('admin.products.create') }}">
-        {{ csrf_field() }}
-        <header class="modal-header">
-          <div>
-            <h3>Asigna imágenes a un producto</h3>
-            <p>Selecciona imágenes, da clic en crear producto y después categoriza el producto creado.</p>
+  {{-- <script type="text/x-template" id="upload-products-modal"> --}}
+    <section id="upload-products-modal">
+      <div>
+        <form method="POST" action="{{ route('admin.products.create') }}">
+          {{ csrf_field() }}
+          <header class="modal-header">
+            <div>
+              <h3>Asigna imágenes a un producto</h3>
+              <p>Selecciona imágenes, da clic en crear producto y después categoriza el producto creado.</p>
+            </div>
+            <div>
+              <nav>
+                <button class="btn btn-secondary">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Crear producto</button>
+              </nav>
+            </div>
+          </header>
+          <div class="modal-body products-list">
+            <ul class="grid-list grid-list-6" v-if="unassignedImages">
+              <li class="product-item" v-for="$item in unassignedImages">
+                <div>
+                  <input type="checkbox" :id="$item.id" name="product-images[]" :value="$item.id">
+                  <label :for="$item.id" class="img-wrapper">
+                    <img :src="$item.file_src" :alt="$item.filename">
+                  </label>
+                </div>
+              </li>
+            </ul>
           </div>
-          <div>
-            <nav>
-              <button class="btn btn-secondary">Cancelar</button>
-              <button type="submit" class="btn btn-primary">Crear producto</button>
-            </nav>
-          </div>
-        </header>
-        <div class="modal-body products-list">
-          <ul class="grid-list grid-list-6">
-            <li class="product-item">
-              <div>
-                <input type="checkbox" id="product-id-1" name="product-image">
-                <label for="product-id-1" class="img-wrapper"><img src="/img/products/product-1.jpg" alt=""></label>
-              </div>
-            </li>
-            <li class="product-item">
-              <div>
-                <input type="checkbox" id="product-id-2" name="product-image">
-                <label for="product-id-2" class="img-wrapper"><img src="/img/products/product-2.jpg" alt=""></label>
-              </div>
-            </li>
-            <li class="product-item">
-              <div>
-                <input type="checkbox" id="product-id-3" name="product-image">
-                <label for="product-id-3" class="img-wrapper"><img src="/img/products/product-3.jpg" alt=""></label>
-              </div>
-            </li>
-            <li class="product-item">
-              <div>
-                <input type="checkbox" id="product-id-4" name="product-image">
-                <label for="product-id-4" class="img-wrapper"><img src="/img/products/product-4.jpg" alt=""></label>
-              </div>
-            </li>
-            <li class="product-item">
-              <div>
-                <input type="checkbox" id="product-id-5" name="product-image">
-                <label for="product-id-5" class="img-wrapper"><img src="/img/products/product-5.jpg" alt=""></label>
-              </div>
-            </li>
-            <li class="product-item">
-              <div>
-                <input type="checkbox" id="product-id-6" name="product-image">
-                <label for="product-id-6" class="img-wrapper"><img src="/img/products/product-6.jpg" alt=""></label>
-              </div>
-            </li>
-            <li class="product-item">
-              <div>
-                <input type="checkbox" id="product-id-7" name="product-image">
-                <label for="product-id-7" class="img-wrapper"><img src="/img/products/product-7.jpg" alt=""></label>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <footer class="modal-footer"></footer>
-      </form>
-    </div>
-  </section>
+          <footer class="modal-footer"></footer>
+        </form>
+      </div>
+    </section>
+  {{-- </script> --}}
+  {{-- <upload-products-modal></upload-products-modal> --}}
 @endsection
 
 @section('content')
@@ -156,27 +125,40 @@
       </ul>
     </div>
   </div>
-
 </div>
 @endsection
 
 @section('footer-scripts')
 <script src="/js/dropzonejs/dropzone.js"></script>
 <script src="/js/axiosjs/axios.min.js"></script>
+<script src="/js/vuejs/vue.{{ env('APP_ENV') == 'local' ? 'dev' : 'prod' }}.js"></script>
+<script src="/js/classes/AdminProductsCatalog.js"></script>
+<script>
+  new Vue({
+    el: '#upload-products-modal',
+    data: {
+      AdminProductsCatalog: new AdminProductsCatalog,
+      unassignedImages: [],
+    },
+    created: function(){
+      this.getUnassignedFiles();
+    },
+    methods: {
+      getUnassignedFiles: function(){
+        var $vm = this;
+
+        $vm.AdminProductsCatalog
+          .getUnassignedFiles("{{ route('admin.products.get-unassigned-files') }}", function(response){
+            $vm.unassignedImages = response.data;
+            $vm.$el.style.display = 'block';
+          });
+      }
+    }
+  });
+</script>
 <script>
   var defaultMessage = 'Arrastra tus imágenes o <button type="button" class="btn btn-primary btn-sm btn-outline">selecciona imágenes</button>';
   var maxFilesize = 1500;
-  var $uploadProductsModal = document.getElementById('upload-products-modal');
-
-  axios({
-    method: 'POST',
-    baseURL: "{{ route('admin.products.get-unassigned-files') }}",
-  }).then(function(response){
-    console.log(response)
-  }).catch(function(error){
-    console.log(error)
-  })
-
   Dropzone.options.productUpload = {
     dictDefaultMessage: defaultMessage,
     dictFileTooBig: 'filetoobig',
@@ -194,9 +176,6 @@
     resizeWidth: 1024,
     resizeHeight: null,
 
-    addedFile: function(file){
-      $uploadProductsModal.style.display = 'block';
-    },
     successmultiple: function(files, response){
       console.log(files, response);
     },

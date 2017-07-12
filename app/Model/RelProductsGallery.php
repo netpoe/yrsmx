@@ -12,8 +12,8 @@ class RelProductsGallery extends Model
     {
         $content = file_get_contents($fileSrc);
 
-        $type = 'image/jpg';
+        $type = 'image/' . substr($fileSrc, -3);
 
-        return 'data:image/' . $type . ';base64,' . base64_encode($content);
+        return 'data:' . $type . ';base64,' . base64_encode($content);
     }
 }
