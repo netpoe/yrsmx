@@ -37,4 +37,15 @@ class RelProductsGalleryAdapter extends RelProductsGallery
     {
         return $this->where('product_id', null)->get();
     }
+
+    public function assignProductToFiles(Array $fileIds = [], ProductsAdapter $product)
+    {
+        $this->whereIn('id', $fileIds)
+            ->update([
+                'product_id' => $product->id
+                'updated_at' => new \DateTime
+                ]);
+
+        return $this;
+    }
 }

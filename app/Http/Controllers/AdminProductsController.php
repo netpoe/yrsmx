@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Service\ProductsService;
 use App\Model\RelProductsGalleryAdapter as ProductsGallery;
+use App\Model\ProductsAdapter as Product;
+use Auth;
 
 class AdminProductsController extends Controller
 {
@@ -60,10 +62,16 @@ class AdminProductsController extends Controller
      *
      * @return [type]
      */
-    public function create(Request $request)
+    public function create(Request $request, ProductsGallery $pg)
     {
-        dd($request->input('product-images'));
+        $product = new Product;
 
-        return redirect()->route('admin.products.product', ['productId' => 123]);
+        $product->uploaded_by = Auth::id();
+
+        $product->save();
+
+        $pg->assignProductToFiles($request->input('product-images'), $product);
+
+        return redirect()->route('admin.products.product', ['productId' => $product->id]);
     }
 }
