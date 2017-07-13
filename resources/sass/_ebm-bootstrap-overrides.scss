@@ -36,3 +36,9 @@
     height: 222px;
   }
 }
+
+.card-block-title {
+  @include bold;
+  margin-bottom: get-spacer(2, y);
+  display: block;
+}

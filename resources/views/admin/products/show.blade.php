@@ -34,19 +34,52 @@
     <div class="col-sm-6">
       <div class="card">
         <div class="card-block">
-          <small>Acciones de producto</small>
+          <small class="card-block-title">Acciones de producto</small>
           <nav>
-            <a href="#" class="card-link">Asignar imágenes</a>
-            <a href="#" class="card-link">Subir imágenes y asignar</a>
-            <a href="#" class="card-link text-danger">Borrar producto</a>
+            <a href="#" class="btn btn-sm btn-secondary">Asignar imágenes</a>
+            <a href="#" class="btn btn-sm btn-secondary">Subir imágenes y asignar</a>
+            <a href="#" class="btn btn-sm btn-danger">Borrar producto</a>
           </nav>
         </div>
       </div>
       <div class="card">
         <div class="card-block">
           <h6>* Este producto todavía no está asignado a un usuario</h6>
-          <h5>Nombre: </h5>
-          <h5>Estatus: </h5>
+          <ul class="product-details-list">
+            <li><span>Nombre:</span> <input type="text" class="form-control form-control-sm"></li>
+            <li><span>Stock:</span> <input type="number" class="form-control form-control-sm"></li>
+            <li><span>Usuarios:</span> <a href="#">#123</a>&nbsp;<a href="#">#324</a></li>
+            <li><span>Órdenes:</span> <a href="#">#123</a>&nbsp;<a href="#">#324</a></li>
+            <li><span>Carritos:</span> <a href="#">#123</a>&nbsp;<a href="#">#324</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-block">
+          <div class="flex-row-space-between">
+            <small class="card-block-title">Categorías</small>
+            <button class="btn btn-sm btn-secondary">Añadir categorías</button>
+          </div>
+          <nav class="categories-nav">
+            <span>cat 1</span>
+            <span>cat 2</span>
+            <span>cat 3</span>
+            <span>cat 4</span>
+          </nav>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-block">
+          <div class="flex-row-space-between">
+            <small class="card-block-title">Atributos</small>
+            <button class="btn btn-sm btn-secondary">Añadir atributos</button>
+          </div>
+          <nav class="categories-nav">
+            <span>attr 1</span>
+            <span>attr 2</span>
+            <span>attr 3</span>
+            <span>attr 4</span>
+          </nav>
         </div>
       </div>
     </div>

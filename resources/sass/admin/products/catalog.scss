@@ -30,6 +30,7 @@
 @import "./resources/sass/ebm-fonts";
 @import "./resources/sass/ebm-bootstrap-overrides";
 @import "./node_modules/ebm/control/ebm-text-responsive-control";
+@import "./node_modules/ebm/control/ebm-flexbox-control";
 @import "./node_modules/ebm/elements/ebm-grid-lists";
 @import "./node_modules/ebm/elements/ebm-icons";
 @import "./resources/sass/ebm-overrides";
@@ -93,12 +94,6 @@ $product-item-height: 81px;
       color: $gray-dark;
       display: block;
     }
-    .categories-nav {
-      margin-bottom: get-spacer(2, y);
-      a {
-        font-size: $font-size-sm;
-      }
-    }
     .assigned-to {
       margin-bottom: get-spacer(2, y);
       color: $gray-light;
@@ -107,6 +102,31 @@ $product-item-height: 81px;
     &:hover {
       .title {
         text-decoration: underline;
+      }
+    }
+  }
+}
+
+.product-details-list {
+  @include list-unstyled;
+  li {
+    @include flex-row;
+    margin-bottom: get-spacer(2, y);
+    span {
+      width: 30%;
+    }
+    input {
+      width: 70%;
+    }
+  }
+}
+
+.categories-nav {
+  a, span {
+    font-size: $font-size-sm;
+    &:not(:last-child) {
+      &:after {
+        content: ' · ';
       }
     }
   }
@@ -144,6 +164,7 @@ $modal-header-height: $header-height-control;
     border-top: 1px solid $gray-lightest;
   }
   .products-list {
+    padding: $container-fluid;
     input {
       visibility: hidden;
       position: absolute;
@@ -158,9 +179,8 @@ $modal-header-height: $header-height-control;
 }
 
 #upload-products-modal,
-#admin-products-product {
+#admin-products-show {
   .products-list {
-    padding: $container-fluid;
     .img-wrapper {
       height: 195px;
       width: 100%;
