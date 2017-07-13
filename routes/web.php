@@ -21,7 +21,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/admin/productos/create', 'AdminProductsController@create')->name('admin.products.create');
     Route::post('/admin/productos/get-unassigned-files', 'AdminProductsController@getUnassignedFiles')->name('admin.products.get-unassigned-files');
     Route::get('/admin/productos/catalogo', 'AdminProductsController@catalog')->name('admin.products.catalog');
-    Route::get('/admin/productos/{productId}', 'AdminProductsController@product')->name('admin.products.product');
+    Route::get('/admin/productos/{productId}', 'AdminProductsController@show')->name('admin.products.show');
 });
 
 Auth::routes();

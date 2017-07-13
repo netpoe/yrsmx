@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="container-fluid" id="admin-products-product">
+<div class="container-fluid" id="admin-products-show">
   <div class="row">
     <div class="col-sm-6 products-list">
       <ul class="grid-list grid-list-3">

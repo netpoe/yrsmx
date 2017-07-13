@@ -51,9 +51,9 @@ class AdminProductsController extends Controller
      *
      * @return [type]
      */
-    public function product($productId)
+    public function show($productId)
     {
-        return view('admin/products/product');
+        return view('admin/products/show');
     }
 
     /**
@@ -72,6 +72,6 @@ class AdminProductsController extends Controller
 
         $pg->assignProductToFiles($request->input('product-images'), $product);
 
-        return redirect()->route('admin.products.product', ['productId' => $product->id]);
+        return redirect()->route('admin.products.show', ['productId' => $product->id]);
     }
 }

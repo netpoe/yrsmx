@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Model;
 
 class RelProductsGalleryAdapter extends RelProductsGallery
@@ -42,7 +41,7 @@ class RelProductsGalleryAdapter extends RelProductsGallery
     {
         $this->whereIn('id', $fileIds)
             ->update([
-                'product_id' => $product->id
+                'product_id' => $product->id,
                 'updated_at' => new \DateTime
                 ]);
 
