@@ -8,6 +8,7 @@ use App\Form\NewQuizForm;
 use App\Model\QuizAdapter as Quiz;
 use Auth;
 use App\Model\UserAdapter as User;
+use App\Factory\QuizFactory;
 
 class QuizController extends Controller
 {
@@ -49,6 +50,26 @@ class QuizController extends Controller
             'started_at' => new \DateTime,
             ]);
 
-        return $quiz;
+        $uiQuiz = QuizFactory::get($user);
+
+        return redirect()
+            ->route('front.quiz.section', [
+                'quiz' => $quiz->id,
+                'slug' => $uiQuiz->getFirstSectionSlug(),
+                ]);
+    }
+
+    public function section(Quiz $quiz, String $slug)
+    {
+        $user = User::find(Auth::id());
+
+        $uiQuiz = QuizFactory::get($user);
+
+        $section = $uiQuiz->getSectionBySlug($slug);
+
+        return view('front/quiz/section', [
+            'section' => $section,
+            'quiz' => $quiz,
+            ]);
     }
 }

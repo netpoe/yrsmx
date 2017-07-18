@@ -32,8 +32,12 @@ Route::group(['middleware' => 'auth'], function(){
  * FRONT QUIZ
  */
 Route::group([], function(){
-    Route::post('/quiz/crear', 'QuizController@create')->name('front.quiz.create');
-    Route::get('/comienza', 'QuizController@new')->name('front.quiz.new');
+    Route::post('/cuestionario/crear', 'QuizController@create')->name('front.quiz.create');
+    Route::get('/cuestionario/comienza', 'QuizController@new')->name('front.quiz.new');
+});
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/cuestionario/{quiz}/seccion/{slug}/{hasError?}/{message?}', 'QuizController@section')->name('front.quiz.section');
 });
 
 /**

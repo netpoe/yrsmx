@@ -45,6 +45,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Model\UserAddressAdapter', 'user_id');
     }
 
+    public function quizzes()
+    {
+        return $this->hasMany(\App\Model\Quiz::class, 'user_id');
+    }
+
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = StringUtil::capitalize($value);

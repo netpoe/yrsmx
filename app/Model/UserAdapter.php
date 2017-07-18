@@ -28,6 +28,11 @@ class UserAdapter extends User
         return $this;
     }
 
+    /**
+     * Creates a new user with a random password so it can be logged in
+     *
+     * return UserAdapter
+     */
     public function new(String $email)
     {
         $this->email = $email;
@@ -44,5 +49,28 @@ class UserAdapter extends User
             ]);
 
         return $this;
+    }
+
+    /**
+     * Gets the last quiz of the user
+     *
+     * @return Eloquent Collection
+     */
+    public function getLastQuiz()
+    {
+        return $this->quizzes()->orderBy('started_at', 'desc')->first();
+    }
+
+    /**
+     * Gets the last completed quiz of the user marked by completed_at
+     *
+     * @return Eloquent Collection
+     */
+    public function getLastCompletedQuiz()
+    {
+        return $this->quizzes()
+            ->whereNotNull('completed_at')
+            ->orderBy('completed_at', 'desc')
+            ->first();
     }
 }

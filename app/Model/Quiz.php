@@ -15,4 +15,9 @@ class Quiz extends Model
         'outfit_type',
         'started_at'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(\App\User::class, 'user_id');
+    }
 }
