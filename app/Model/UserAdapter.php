@@ -28,6 +28,15 @@ class UserAdapter extends User
         return $this;
     }
 
+    public function new(String $email)
+    {
+        $this->email = $email;
+        $this->password = Hash::make(str_random(12));
+        $this->save();
+
+        return $this;
+    }
+
     public function createEmptyAddress()
     {
         UserAddress::create([

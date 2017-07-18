@@ -11,7 +11,10 @@
       {{ csrf_field() }}
 
       @include('fields.radio', ['field' => $form->getField('outfit_type')])
-      @include('fields.text', ['field' => $form->getField('email')])
+
+      @if (!Auth::check())
+        @include('fields.text', ['field' => $form->getField('email')])
+      @endif
 
       <button type="submit" class="btn btn-primary btn-lg">Continuar</button>
     </form>
