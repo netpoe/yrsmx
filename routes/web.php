@@ -16,6 +16,10 @@
  */
 Route::get('/admin/ingresa', 'AdminAuthController@ingresa')->name('admin.auth.ingresa');
 Route::post('/admin/login', 'AdminAuthController@login')->name('admin.auth.login');
+
+/**
+ * ADMIN PRODUCTS CATALOG
+ */
 Route::group(['middleware' => 'auth'], function(){
     Route::post('/admin/productos/subir', 'AdminProductsController@upload')->name('admin.products.upload');
     Route::post('/admin/productos/create', 'AdminProductsController@create')->name('admin.products.create');
@@ -24,6 +28,17 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/admin/productos/{productId}', 'AdminProductsController@show')->name('admin.products.show');
 });
 
+/**
+ * FRONT QUIZ
+ */
+Route::group([], function(){
+    Route::post('/quiz/crear', 'QuizController@create')->name('front.quiz.create');
+    Route::get('/comienza', 'QuizController@new')->name('front.quiz.new');
+});
+
+/**
+ * AUTH
+ */
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('front.home.index');
