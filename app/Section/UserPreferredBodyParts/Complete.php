@@ -5,11 +5,11 @@ namespace App\Section\UserPreferredBodyParts;
 use App\Section\AbstractUserPreferredBodyPartsSection;
 use EBM\Field\Field;
 
-class UserPreferredBodyPartsComplete extends AbstractUserPreferredBodyPartsSection
+class Complete extends AbstractUserPreferredBodyPartsSection
 {
     protected $slug = 'completaste-partes-del-cuerpo';
 
-    protected $template = 'completed-preferred-body-parts';
+    protected $template = 'complete';
 
     public function setFields()
     {

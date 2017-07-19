@@ -5,11 +5,11 @@ namespace App\Section\UserSizes;
 use App\Section\AbstractUserSizesSection;
 use EBM\Field\Field;
 
-class UserSizesComplete extends AbstractUserSizesSection
+class Complete extends AbstractUserSizesSection
 {
     protected $slug = 'completaste-talla';
 
-    protected $template = 'completaste-talla';
+    protected $template = 'complete';
 
     public function setFields()
     {

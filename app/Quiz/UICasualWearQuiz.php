@@ -13,10 +13,10 @@ class UICasualWearQuiz extends AbstractUIQuiz
         \App\Section\UserSizes\UserSkirtSize::class,
         \App\Section\UserSizes\UserPantsSize::class,
         \App\Section\UserSizes\UserShoesSize::class,
-        \App\Section\UserSizes\UserSizesComplete::class,
+        \App\Section\UserSizes\Complete::class,
 
         // User Preferred Body Parts
         \App\Section\UserPreferredBodyParts\BodyParts::class,
-        \App\Section\UserPreferredBodyParts\UserPreferredBodyPartsComplete::class,
+        \App\Section\UserPreferredBodyParts\Complete::class,
     ];
 }
