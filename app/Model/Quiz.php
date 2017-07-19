@@ -20,4 +20,9 @@ class Quiz extends Model
     {
         return $this->belongsTo(\App\User::class, 'user_id');
     }
+
+    public function userSizes()
+    {
+        return $this->hasOne(\App\Model\UserSizes::class, 'quiz_id');
+    }
 }

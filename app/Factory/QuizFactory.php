@@ -67,7 +67,7 @@ class QuizFactory
             throw new \Exception("No uiQuiz instance found for user [$user->id]");
         }
 
-        return new $uiQuiz;
+        return new $uiQuiz($user);
     }
 }
 

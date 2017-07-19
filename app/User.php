@@ -50,6 +50,11 @@ class User extends Authenticatable
         return $this->hasMany(\App\Model\Quiz::class, 'user_id');
     }
 
+    public function sizes()
+    {
+        return $this->hasMany(\App\Model\UserSizes::class, 'user_id');
+    }
+
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = StringUtil::capitalize($value);

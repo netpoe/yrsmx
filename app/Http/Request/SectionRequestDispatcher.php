@@ -23,11 +23,7 @@ class SectionRequestDispatcher extends FormRequest
      */
     public function rules()
     {
-        $slug = $this->slug;
-
-        $UIApplication = request()->getUIApplication();
-
-        $section = $UIApplication->getSectionBySlug($slug);
+        $section = request()->getSection();
 
         $section->setFields();
 
@@ -36,11 +32,7 @@ class SectionRequestDispatcher extends FormRequest
 
     public function messages()
     {
-        $slug = $this->slug;
-
-        $UIApplication = request()->getUIApplication();
-
-        $section = $UIApplication->getSectionBySlug($slug);
+        $section = request()->getSection();
 
         $section->setFields();
 

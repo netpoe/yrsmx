@@ -37,6 +37,7 @@ Route::group([], function(){
 });
 
 Route::group(['middleware' => 'auth'], function(){
+    Route::post('/cuestionario/{quiz}/guardar/{slug}', 'QuizController@store')->name('front.quiz.store');
     Route::get('/cuestionario/{quiz}/seccion/{slug}/{hasError?}/{message?}', 'QuizController@section')->name('front.quiz.section');
 });
 

@@ -3,19 +3,24 @@
 namespace App\Http\Requests;
 
 use Illuminate\Http\Request as BaseRequest;
-use App\UIApplication\AbstractUIApplication;
 use Auth;
-use App\UIApplication\Factory as UIApplicationFactory;
+use App\Factory\QuizFactory;
 use App\Model\UserAdapter as User;
+use App\Quiz\AbstractUIQuiz;
 
 class AppRequest extends BaseRequest
 {
-    public function getUIApplication(): AbstractUIApplication
+    public function getUIQuiz(): AbstractUIQuiz
     {
-        $user = Auth::user();
+        $user = User::find(Auth::id());
 
-        $userAdapter = User::find($user->id);
+        return QuizFactory::get($user);
+    }
 
-        return UIApplicationFactory::get($userAdapter);
+    public function getSection()
+    {
+        $slug = $this->route()->parameter('slug');
+
+        return $this->getUIQuiz()->getSectionBySlug($slug);
     }
 }

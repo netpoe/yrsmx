@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\NewQuizRequest;
+use App\Http\Requests\SectionRequestDispatcher;
 use App\Form\NewQuizForm;
 use App\Model\QuizAdapter as Quiz;
 use Auth;
@@ -50,6 +51,8 @@ class QuizController extends Controller
             'started_at' => new \DateTime,
             ]);
 
+        $quiz->createUserSizes();
+
         $uiQuiz = QuizFactory::get($user);
 
         return redirect()
@@ -59,17 +62,30 @@ class QuizController extends Controller
                 ]);
     }
 
-    public function section(Quiz $quiz, String $slug)
+    public function section(Request $request, Quiz $quiz)
     {
-        $user = User::find(Auth::id());
+        $section = $request->getSection();
 
-        $uiQuiz = QuizFactory::get($user);
-
-        $section = $uiQuiz->getSectionBySlug($slug);
+        $section->setFields();
 
         return view('front/quiz/section', [
             'section' => $section,
             'quiz' => $quiz,
+            ]);
+    }
+
+    public function store(Request $request, SectionRequestDispatcher $dispatcher, Quiz $quiz)
+    {
+        $section = $request->getSection();
+
+        $section->setFields();
+
+        $section->save();
+
+        return redirect()
+            ->route('front.quiz.section', [
+                'quiz' => $quiz->id,
+                'slug' => 'altura-y-peso'
             ]);
     }
 }
