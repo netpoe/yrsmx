@@ -18,11 +18,16 @@ class Quiz extends Model
 
     public function user()
     {
-        return $this->belongsTo(\App\User::class, 'user_id');
+        return $this->belongsTo(\App\Model\UserAdapter::class, 'user_id');
     }
 
     public function userSizes()
     {
-        return $this->hasOne(\App\Model\UserSizes::class, 'quiz_id');
+        return $this->hasOne(\App\Model\UserSizesAdapter::class, 'quiz_id');
+    }
+
+    public function userPreferredBodyParts()
+    {
+        return $this->hasOne(\App\Model\UserPreferredBodyPartsAdapter::class, 'quiz_id');
     }
 }
