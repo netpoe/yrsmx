@@ -16,8 +16,8 @@ class CreateUserSizesTable extends Migration
         Schema::create('user_sizes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('quiz_id')->unsigned();
-            $table->decimal('height', 2, 2)->unsigned()->nullable()->default(null);
-            $table->decimal('weight', 2, 2)->unsigned()->nullable()->default(null);
+            $table->decimal('height', 6, 2)->unsigned()->nullable()->default(null);
+            $table->decimal('weight', 6, 2)->unsigned()->nullable()->default(null);
             $table->string('dress', 4)->nullable()->default(null);
             $table->string('blouse', 4)->nullable()->default(null);
             $table->string('bra', 4)->nullable()->default(null);

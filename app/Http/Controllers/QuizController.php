@@ -82,6 +82,10 @@ class QuizController extends Controller
 
         $section->save();
 
+        if ($section->hasError()) {
+            return redirect()->back()->with('error', $section->getErrorMessage());
+        }
+
         return redirect()
             ->route('front.quiz.section', [
                 'quiz' => $quiz->id,
