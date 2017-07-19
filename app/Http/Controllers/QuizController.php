@@ -74,7 +74,11 @@ class QuizController extends Controller
             ]);
     }
 
-    public function store(Request $request, SectionRequestDispatcher $dispatcher, Quiz $quiz)
+    public function store(
+        Request $request,
+        SectionRequestDispatcher $dispatcher,
+        Quiz $quiz,
+        String $slug)
     {
         $section = $request->getSection();
 
@@ -86,10 +90,12 @@ class QuizController extends Controller
             return redirect()->back()->with('error', $section->getErrorMessage());
         }
 
+        $nextSectionSlug = $request->getUIQuiz()->getNextSectionSlug($slug);
+
         return redirect()
             ->route('front.quiz.section', [
                 'quiz' => $quiz->id,
-                'slug' => 'altura-y-peso'
+                'slug' => $nextSectionSlug
             ]);
     }
 }

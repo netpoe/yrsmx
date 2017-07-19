@@ -2,23 +2,12 @@
 
 namespace App\Section\Common;
 
-use EBM\Section\AbstractBaseSection;
+use App\Section\AbstractQuizSection;
 use EBM\Field\Field;
 
-class UserWeightHeight extends AbstractBaseSection
+class UserWeightHeight extends AbstractQuizSection
 {
     protected $slug = 'altura-y-peso';
-
-    public function setOnPostActionString()
-    {
-        $user = $this->getUIApplication()->getInstance('user');
-
-        $quiz = $user->getLastQuiz();
-
-        $this->onPostActionString = route('front.quiz.store', ['quiz' => $quiz->id, 'slug' => $this->getSlug()]);
-
-        return $this;
-    }
 
     public function setFields()
     {

@@ -5,20 +5,13 @@
     <header class="section-header">
       <div class="container-md">
         <h1>Talla</h1>
-        <h2>Empecemos por lo simple, déjanos saber cuáles son tus medidas</h2>
+        <h2>Bien, ahora selecciona tu talla de vestido</h2>
       </div>
     </header>
     <div class="section-content">
       <div class="container-md">
 
-        <div class="row">
-          <div class="col-sm-6">
-            @include('fields/text', ['field' => $section->getField('weight')])
-          </div>
-          <div class="col-sm-6">
-            @include('fields/text', ['field' => $section->getField('height')])
-          </div>
-        </div>
+        @include('fields/radio', ['field' => $section->getField('dress')])
 
         @if (session()->has('error'))
           <div class="ebm-alert ebm-alert-danger">
