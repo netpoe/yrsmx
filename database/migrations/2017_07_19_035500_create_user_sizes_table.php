@@ -20,7 +20,8 @@ class CreateUserSizesTable extends Migration
             $table->decimal('weight', 6, 2)->unsigned()->nullable()->default(null);
             $table->string('dress', 4)->nullable()->default(null);
             $table->string('blouse', 4)->nullable()->default(null);
-            $table->string('bra', 4)->nullable()->default(null);
+            $table->string('bra_band', 4)->nullable()->default(null);
+            $table->string('bra_cups', 4)->nullable()->default(null);
             $table->string('skirt', 4)->nullable()->default(null);
             $table->string('shoes', 4)->nullable()->default(null);
             $table->string('pants', 4)->nullable()->default(null);
