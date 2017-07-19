@@ -249,12 +249,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/EasyBoxModel/Sections.git",
-                "reference": "4fab60cbc697006207f9d07b644fdfe3110d5097"
+                "reference": "bc5456c8b7037d0f500685e980f171c27c618f65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EasyBoxModel/Sections/zipball/4fab60cbc697006207f9d07b644fdfe3110d5097",
-                "reference": "4fab60cbc697006207f9d07b644fdfe3110d5097",
+                "url": "https://api.github.com/repos/EasyBoxModel/Sections/zipball/bc5456c8b7037d0f500685e980f171c27c618f65",
+                "reference": "bc5456c8b7037d0f500685e980f171c27c618f65",
                 "shasum": ""
             },
             "require-dev": {
@@ -284,7 +284,7 @@
                 "source": "https://github.com/EasyBoxModel/Sections/tree/master",
                 "issues": "https://github.com/EasyBoxModel/Sections/issues"
             },
-            "time": "2017-07-19 04:28:14"
+            "time": "2017-07-19 18:23:03"
         },
         {
             "name": "erusev/parsedown",

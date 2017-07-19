@@ -66,6 +66,21 @@ class QuizController extends Controller
     {
         $section = $request->getSection();
 
+        if (!$section) {
+            $uiQuiz = $request->getUIQuiz();
+
+            if ($uiQuiz->isComplete()) {
+                $uiQuiz->onComplete();
+
+                return redirect()->route('front.quiz.complete');
+            }
+
+            return view('front/quiz/section', [
+                'section' => $uiQuiz->getPendingSection(),
+                'quiz' => $quiz,
+                ]);
+        }
+
         $section->setFields();
 
         return view('front/quiz/section', [
@@ -90,6 +105,8 @@ class QuizController extends Controller
             return redirect()->back()->with('error', $section->getErrorMessage());
         }
 
+        $section->onComplete();
+
         $nextSectionSlug = $request->getUIQuiz()->getNextSectionSlug($slug);
 
         return redirect()
@@ -97,5 +114,10 @@ class QuizController extends Controller
                 'quiz' => $quiz->id,
                 'slug' => $nextSectionSlug
             ]);
+    }
+
+    public function complete()
+    {
+        return view('front/quiz/complete');
     }
 }

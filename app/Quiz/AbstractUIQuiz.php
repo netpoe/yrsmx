@@ -13,4 +13,9 @@ abstract class AbstractUIQuiz extends AbstractUIApplication
 
         $this->addSections($this->sections);
     }
+
+    public function onComplete()
+    {
+        return $this;
+    }
 }
