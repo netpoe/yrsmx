@@ -16,7 +16,7 @@ class CreateUserPreferredBodyPartsTable extends Migration
         Schema::create('user_preferred_body_parts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('quiz_id')->unsigned()->unique();
-            $table->tinyInteger('user_body_type')->unsigned()->nullable()->default(null);
+            $table->tinyInteger('body_type')->unsigned()->nullable()->default(null);
             $table->tinyInteger('thighs')->unsigned()->nullable()->default(null);
             $table->tinyInteger('calves')->unsigned()->nullable()->default(null);
             $table->tinyInteger('butt')->unsigned()->nullable()->default(null);
