@@ -42,3 +42,9 @@
   margin-bottom: get-spacer(2, y);
   display: block;
 }
+
+.form-group {
+  label {
+    font-size: $font-size-h5;
+  }
+}

@@ -76,10 +76,11 @@ class QuizController extends Controller
                 return redirect()->route('front.quiz.complete');
             }
 
-            return view('front/quiz/section', [
-                'section' => $uiQuiz->getPendingSection(),
-                'quiz' => $quiz,
-                ]);
+            return redirect()
+                ->route('front.quiz.section', [
+                    'quiz' => $quiz,
+                    'slug' => $uiQuiz->getPendingSection()->getSlug()
+                    ]);
         }
 
         $section->setFields();

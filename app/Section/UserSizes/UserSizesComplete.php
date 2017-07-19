@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Section\Common;
+namespace App\Section\UserSizes;
 
 use App\Section\AbstractUserSizesSection;
 use EBM\Field\Field;

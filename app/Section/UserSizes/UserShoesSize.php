@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Section\Common;
+namespace App\Section\UserSizes;
 
 use App\Section\AbstractUserSizesSection;
 use EBM\Field\Field;
-use App\Model\UserSizes\BlouseSizes;
+use App\Model\UserSizes\ShoesSizes;
 
-class UserBlouseSize extends AbstractUserSizesSection
+class UserShoesSize extends AbstractUserSizesSection
 {
-    protected $slug = 'talla-de-blusa';
+    protected $slug = 'talla-de-zapatos';
 
-    protected $template = 'talla-de-blusa';
+    protected $template = 'talla-de-zapatos';
 
     public function setFields()
     {
@@ -20,12 +20,12 @@ class UserBlouseSize extends AbstractUserSizesSection
 
         $userSizes = $quiz->userSizes;
 
-        $this->addField('blouse')
+        $this->addField('shoes')
             ->setModel($userSizes)
-            ->setLabel('Selecciona la talla que usas para tus blusas')
+            ->setLabel('Selecciona tu talla preferida de zapatos')
             ->setType(Field::TYPE_RADIO)
             ->required()
-            ->setOptions(BlouseSizes::getOptions())
+            ->setOptions(ShoesSizes::getOptions())
             ->setValueFromDb();
 
         return $this;
@@ -34,7 +34,7 @@ class UserBlouseSize extends AbstractUserSizesSection
     public function getValidationRules(): Array
     {
         return [
-            'blouse' => 'required|alpha',
+            'shoes' => 'required|numeric',
         ];
     }
 }
