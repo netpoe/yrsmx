@@ -23,7 +23,7 @@ class QuizFactory
 
     public static function get(User $user): AbstractUIQuiz
     {
-        $outfitType = $user->getLastQuiz()->outfit_type;
+        $outfitType = $user->getLatestQuiz()->outfit_type;
 
         if (!in_array($outfitType, self::OUTFIT_TYPES)) {
             throw new \Exception("No outfit_type found for user [$user->id]");

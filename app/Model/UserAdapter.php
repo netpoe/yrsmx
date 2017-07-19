@@ -56,7 +56,7 @@ class UserAdapter extends User
      *
      * @return Eloquent Collection
      */
-    public function getLastQuiz()
+    public function getLatestQuiz()
     {
         return $this->quizzes()->orderBy('started_at', 'desc')->first();
     }

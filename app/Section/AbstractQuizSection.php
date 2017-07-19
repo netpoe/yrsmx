@@ -10,10 +10,15 @@ abstract class AbstractQuizSection extends AbstractBaseSection
     {
         $user = $this->getUIApplication()->getInstance('user');
 
-        $quiz = $user->getLastQuiz();
+        $quiz = $this->getUIApplication()->getInstance('quiz');
 
         $this->onPostActionString = route('front.quiz.store', ['quiz' => $quiz->id, 'slug' => $this->getSlug()]);
 
+        return $this;
+    }
+
+    public function onEnter()
+    {
         return $this;
     }
 }

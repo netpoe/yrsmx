@@ -11,11 +11,21 @@ abstract class AbstractUIQuiz extends AbstractUIApplication
     {
         $this->registerInstance('user', $user);
 
+        $quiz = $user->getLatestQuiz();
+
+        $this->registerInstance('quiz', $quiz);
+
         $this->addSections($this->sections);
     }
 
     public function onComplete()
     {
+        $quiz = $this->getInstance('quiz');
+
+        $quiz->completed_at = new \DateTime;
+
+        $quiz->save();
+
         return $this;
     }
 }

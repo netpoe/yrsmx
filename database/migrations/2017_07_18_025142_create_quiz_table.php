@@ -19,6 +19,7 @@ class CreateQuizTable extends Migration
             $table->integer('outfit_type')->length(1)->unsigned();
             $table->datetime('started_at');
             $table->datetime('completed_at')->nullable()->default(null);
+            $table->datetime('user_sizes_completed_ts')->nullable()->default(null);
         });
 
         Schema::table('quiz', function(Blueprint $table){

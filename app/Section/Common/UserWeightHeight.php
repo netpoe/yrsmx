@@ -2,18 +2,20 @@
 
 namespace App\Section\Common;
 
-use App\Section\AbstractQuizSection;
+use App\Section\AbstractUserSizesSection;
 use EBM\Field\Field;
 
-class UserWeightHeight extends AbstractQuizSection
+class UserWeightHeight extends AbstractUserSizesSection
 {
     protected $slug = 'altura-y-peso';
+
+    protected $template = 'altura-y-peso';
 
     public function setFields()
     {
         $user = $this->getUIApplication()->getInstance('user');
 
-        $quiz = $user->getLastQuiz();
+        $quiz = $this->getUIApplication()->getInstance('quiz');
 
         $userSizes = $quiz->userSizes;
 

@@ -2,19 +2,21 @@
 
 namespace App\Section\Common;
 
-use App\Section\AbstractQuizSection;
+use App\Section\AbstractUserSizesSection;
 use EBM\Field\Field;
 use App\Model\UserSizes\BlouseSizes;
 
-class UserBlouseSize extends AbstractQuizSection
+class UserBlouseSize extends AbstractUserSizesSection
 {
     protected $slug = 'talla-de-blusa';
+
+    protected $template = 'talla-de-blusa';
 
     public function setFields()
     {
         $user = $this->getUIApplication()->getInstance('user');
 
-        $quiz = $user->getLastQuiz();
+        $quiz = $this->getUIApplication()->getInstance('quiz');
 
         $userSizes = $quiz->userSizes;
 

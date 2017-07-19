@@ -83,6 +83,8 @@ class QuizController extends Controller
 
         $section->setFields();
 
+        $section->onEnter();
+
         return view('front/quiz/section', [
             'section' => $section,
             'quiz' => $quiz,

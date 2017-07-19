@@ -6,6 +6,6 @@
 
 @section('content')
 
-  @include("front/sections/{$section->getSlug()}", ['section' => $section])
+  @include("front/sections/{$section->getTemplate()}", ['section' => $section])
 
 @endsection
