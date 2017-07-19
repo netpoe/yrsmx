@@ -7,5 +7,6 @@ class UICasualWearQuiz extends AbstractUIQuiz
     public $sections = [
         \App\Section\Common\UserWeightHeight::class,
         \App\Section\Common\UserDressSize::class,
+        \App\Section\Common\UserBlouseSize::class,
     ];
 }
