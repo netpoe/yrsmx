@@ -2,7 +2,6 @@
 
 namespace App\Model\UserSizes;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
 use App\Model\UserSizesAdapter as UserSizes;

@@ -7,7 +7,7 @@ use EBM\Field\Field;
 use App\Model\UserSizes\BraBandSizes;
 use App\Model\UserSizes\BraCupsSizes;
 
-class UserBraSize extends AbstractQuizSection
+class UserBraSizes extends AbstractQuizSection
 {
     protected $slug = 'tallas-de-bra';
 
@@ -21,7 +21,7 @@ class UserBraSize extends AbstractQuizSection
 
         $this->addField('bra_band')
             ->setModel($userSizes)
-            ->setLabel('Selecciona tu talla preferida de Brassieres')
+            ->setLabel('Selecciona tu talla de espalda')
             ->setType(Field::TYPE_RADIO)
             ->required()
             ->setOptions(BraBandSizes::getOptions())
@@ -29,7 +29,7 @@ class UserBraSize extends AbstractQuizSection
 
         $this->addField('bra_cups')
             ->setModel($userSizes)
-            ->setLabel('Selecciona tu talla preferida de Brassieres')
+            ->setLabel('Selecciona tu talla de copa')
             ->setType(Field::TYPE_RADIO)
             ->required()
             ->setOptions(BraCupsSizes::getOptions())
@@ -41,7 +41,8 @@ class UserBraSize extends AbstractQuizSection
     public function getValidationRules(): Array
     {
         return [
-            'blouse' => 'required|alpha',
+            'bra_band' => 'required|numeric',
+            'bra_cups' => 'required|alpha',
         ];
     }
 }

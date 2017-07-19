@@ -8,7 +8,8 @@ class UICasualWearQuiz extends AbstractUIQuiz
         \App\Section\Common\UserWeightHeight::class,
         \App\Section\Common\UserDressSize::class,
         \App\Section\Common\UserBlouseSize::class,
-        // \App\Section\Common\UserBraSize::class,
+        \App\Section\Common\UserBraSizes::class,
         \App\Section\Common\UserSkirtSize::class,
+        \App\Section\Common\UserPantsSize::class,
     ];
 }
