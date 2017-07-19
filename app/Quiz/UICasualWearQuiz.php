@@ -11,5 +11,6 @@ class UICasualWearQuiz extends AbstractUIQuiz
         \App\Section\Common\UserBraSizes::class,
         \App\Section\Common\UserSkirtSize::class,
         \App\Section\Common\UserPantsSize::class,
+        \App\Section\Common\UserShoesSize::class,
     ];
 }
