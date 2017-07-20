@@ -5,6 +5,7 @@ namespace App\Model;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use App\Model\UserAddressAdapter as UserAddress;
+use App\Model\UserInfoAdapter as UserInfo;
 
 class UserAdapter extends User
 {
@@ -38,6 +39,10 @@ class UserAdapter extends User
         $this->email = $email;
         $this->password = Hash::make(str_random(12));
         $this->save();
+
+        UserInfo::create([
+            'user_id' => $this->id,
+            ]);
 
         return $this;
     }

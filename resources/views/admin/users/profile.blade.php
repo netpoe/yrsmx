@@ -6,6 +6,7 @@
 
 @section('content')
   <div class="container-fluid" id="admin-user-profile" v-cloak>
+    <h1>{{ $user->email }}</h1>
     <div class="row">
       <ul class="grid-list grid-list-2">
         <li class="product-item">

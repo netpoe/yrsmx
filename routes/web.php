@@ -12,14 +12,15 @@
 */
 
 const ADMIN_CONTROLLERS = 'App\Http\Controllers\Admin';
-const ADMIN_PRODUCTS_CONTROLLER = ADMIN_CONTROLLERS . '\\' . 'ProductsController';
 const ADMIN_AUTH_CONTROLLER = ADMIN_CONTROLLERS . '\\' . 'AuthController';
+const ADMIN_PRODUCTS_CONTROLLER = ADMIN_CONTROLLERS . '\\' . 'ProductsController';
+const ADMIN_USERS_CONTROLLER = ADMIN_CONTROLLERS . '\\' . 'UsersController';
 
 const FRONT_CONTROLLERS = 'App\Http\Controllers\Front';
 const FRONT_QUIZ_CONTROLLER = FRONT_CONTROLLERS . '\\' . 'QuizController';
 
 /**
- * ADMIN
+ * ADMIN AUTH
  */
 Route::get('/admin/ingresa', ADMIN_AUTH_CONTROLLER . '@ingresa')->name('admin.auth.ingresa');
 Route::post('/admin/login', ADMIN_AUTH_CONTROLLER . '@login')->name('admin.auth.login');
@@ -33,6 +34,14 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/admin/productos/get-unassigned-files', ADMIN_PRODUCTS_CONTROLLER . '@getUnassignedFiles')->name('admin.products.get-unassigned-files');
     Route::get('/admin/productos/catalogo', ADMIN_PRODUCTS_CONTROLLER . '@catalog')->name('admin.products.catalog');
     Route::get('/admin/productos/{productId}', ADMIN_PRODUCTS_CONTROLLER . '@show')->name('admin.products.show');
+});
+
+/**
+ * ADMIN USERS
+ */
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/admin/usuarios', ADMIN_USERS_CONTROLLER . '@index')->name('admin.users.index');
+    Route::get('/admin/usuarios/perfil/{user}', ADMIN_USERS_CONTROLLER . '@profile')->name('admin.users.profile');
 });
 
 /**
@@ -53,6 +62,7 @@ Route::group(['middleware' => 'auth'], function(){
  * AUTH
  */
 Auth::routes();
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/', 'HomeController@index')->name('front.home.index');
 Route::get('/bienvenido/{token}', 'HomeController@welcome')->name('front.home.welcome');

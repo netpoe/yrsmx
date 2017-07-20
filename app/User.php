@@ -47,12 +47,17 @@ class User extends Authenticatable
 
     public function quizzes()
     {
-        return $this->hasMany(\App\Model\Quiz::class, 'user_id');
+        return $this->hasMany(\App\Model\QuizAdapter::class, 'user_id');
     }
 
     public function sizes()
     {
-        return $this->hasMany(\App\Model\UserSizes::class, 'user_id');
+        return $this->hasMany(\App\Model\UserSizesAdapter::class, 'user_id');
+    }
+
+    public function info()
+    {
+        return $this->hasOne(\App\Model\UserInfoAdapter::class, 'user_id');
     }
 
     public function setNameAttribute($value)
