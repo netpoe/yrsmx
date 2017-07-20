@@ -13,6 +13,14 @@
 
         @include('fields/hidden', ['field' => $section->getField('dob')])
 
+        <?php
+          $field = $section->getField('dob');
+          $date = strtotime($field->getValue());
+          $day = date('d', $date);
+          $month = date('m', $date);
+          $year = date('Y', $date);
+          ?>
+
         <ul class="grid-list grid-list-3 grid-list-1-xs">
           <li>
             <fieldset class="form-group">
@@ -20,7 +28,11 @@
               <select onchange="return setDateOfBirth(this)" type="text" id="day" class="form-control form-control-lg">
                 <option value="" disabled>Selecciona una opción</option>
                 @for ($i = 1; $i <= 31; $i++)
-                  <option value="{{ $i }}">{{ $i }}</option>
+                  @if ($i == $day)
+                    <option value="{{ $i }}" selected>{{ $i }}</option>
+                  @else
+                    <option value="{{ $i }}">{{ $i }}</option>
+                  @endif
                 @endfor
               </select>
             </fieldset>
@@ -31,7 +43,11 @@
               <select onchange="return setDateOfBirth(this)" type="text" id="month" class="form-control form-control-lg">
                 <option value="" disabled>Selecciona una opción</option>
                 @for ($i = 1; $i <= 12; $i++)
-                  <option value="{{ $i }}">{{ $i }}</option>
+                  @if ($i == $month)
+                    <option value="{{ $i }}" selected>{{ $i }}</option>
+                  @else
+                    <option value="{{ $i }}">{{ $i }}</option>
+                  @endif
                 @endfor
               </select>
             </fieldset>
@@ -42,7 +58,11 @@
               <select onchange="return setDateOfBirth(this)" type="text" id="year" class="form-control form-control-lg">
                 <option value="" disabled>Selecciona una opción</option>
                 @for ($i = date('Y'); $i >= 1920; $i--)
-                  <option value="{{ $i }}">{{ $i }}</option>
+                  @if ($i == $year)
+                    <option value="{{ $i }}" selected>{{ $i }}</option>
+                  @else
+                    <option value="{{ $i }}">{{ $i }}</option>
+                  @endif
                 @endfor
               </select>
             </fieldset>

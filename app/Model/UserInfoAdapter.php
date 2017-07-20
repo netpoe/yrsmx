@@ -8,4 +8,11 @@ class UserInfoAdapter extends UserInfo
     {
         return "$this->name $this->paternal_last_name $this->maternal_last_name";
     }
+
+    public function age()
+    {
+        $m = new \Moment\Moment($this->dob);
+
+        return $m->fromNow()->getYears() . ' años';
+    }
 }

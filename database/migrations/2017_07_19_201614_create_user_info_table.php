@@ -22,6 +22,8 @@ class CreateUserInfoTable extends Migration
             $table->string('mobile_number', 20)->nullable()->unique();
             $table->integer('gender_id')->length(1)->unsigned()->nullable();
             $table->date('dob')->nullable();
+            $table->string('occupation', 350)->nullable();
+            $table->string('extras', 350)->nullable();
         });
 
         Schema::table('user_info', function(Blueprint $table){

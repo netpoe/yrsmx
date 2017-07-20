@@ -13,11 +13,4 @@ class UserInfo extends Model
     protected $fillable = [
         'user_id',
     ];
-
-    public function getDobAttribute($value)
-    {
-        $m = new \Moment\Moment($value);
-
-        return $m->fromNow()->getYears() . ' años';
-    }
 }
