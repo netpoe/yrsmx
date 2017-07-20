@@ -8,6 +8,7 @@
   $lastCompletedQuiz = $user->getLastCompletedQuiz();
   $userSizes = $lastCompletedQuiz->userSizes;
   $userPreferredBodyParts = $lastCompletedQuiz->userPreferredBodyParts;
+  $userFit = $lastCompletedQuiz->userFit;
 ?>
 
 @section('content')
@@ -117,6 +118,24 @@
         <div class="card">
           <small class="card-block-title">Fit</small>
           <div class="card-block">
+            <ul class="user-details-list">
+              <li>
+                <strong>Parte superior:</strong>
+                <span>{{ $lastCompletedQuiz ? $userFit->upperPartFit($userFit->upper_part_fit) : null }}</span>
+              </li>
+              <li>
+                <strong>Parte inferior:</strong>
+                <span>{{ $lastCompletedQuiz ? $userFit->lowerPartFit($userFit->lower_part_fit) : null }}</span>
+              </li>
+              <li>
+                <strong>Pantalones cadera:</strong>
+                <span>{{ $lastCompletedQuiz ? $userFit->pantsFitHips($userFit->pants_fit_hips) : null }}</span>
+              </li>
+              <li>
+                <strong>Pantalones forma:</strong>
+                <span>{{ $lastCompletedQuiz ? $userFit->pantsFitShape($userFit->pants_fit_shape) : null }}</span>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="card">

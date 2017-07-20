@@ -33,7 +33,7 @@ class Quiz extends Model
 
     public function userFit()
     {
-        return $this->hasOne(\App\Model\UserFit::class, 'quiz_id');
+        return $this->hasOne(\App\Model\UserFitAdapter::class, 'quiz_id');
     }
 
     public function getStartedAtAttribute($value)
