@@ -11,51 +11,45 @@
 |
 */
 
-const ADMIN_CONTROLLERS = 'App\Http\Controllers\Admin';
-const ADMIN_AUTH_CONTROLLER = ADMIN_CONTROLLERS . '\\' . 'AuthController';
-const ADMIN_PRODUCTS_CONTROLLER = ADMIN_CONTROLLERS . '\\' . 'ProductsController';
-const ADMIN_USERS_CONTROLLER = ADMIN_CONTROLLERS . '\\' . 'UsersController';
-
-const FRONT_CONTROLLERS = 'App\Http\Controllers\Front';
-const FRONT_QUIZ_CONTROLLER = FRONT_CONTROLLERS . '\\' . 'QuizController';
-
 /**
  * ADMIN AUTH
  */
-Route::get('/admin/ingresa', ADMIN_AUTH_CONTROLLER . '@ingresa')->name('admin.auth.ingresa');
-Route::post('/admin/login', ADMIN_AUTH_CONTROLLER . '@login')->name('admin.auth.login');
+Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function(){
+    Route::get('/admin/ingresa', 'AuthController@ingresa')->name('admin.auth.ingresa');
+    Route::post('/admin/login', 'AuthController@login')->name('admin.auth.login');
+});
 
 /**
  * ADMIN PRODUCTS CATALOG
  */
-Route::group(['middleware' => 'auth'], function(){
-    Route::post('/admin/productos/subir', ADMIN_PRODUCTS_CONTROLLER . '@upload')->name('admin.products.upload');
-    Route::post('/admin/productos/create', ADMIN_PRODUCTS_CONTROLLER . '@create')->name('admin.products.create');
-    Route::post('/admin/productos/get-unassigned-files', ADMIN_PRODUCTS_CONTROLLER . '@getUnassignedFiles')->name('admin.products.get-unassigned-files');
-    Route::get('/admin/productos/catalogo', ADMIN_PRODUCTS_CONTROLLER . '@catalog')->name('admin.products.catalog');
-    Route::get('/admin/productos/{productId}', ADMIN_PRODUCTS_CONTROLLER . '@show')->name('admin.products.show');
+Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function(){
+    Route::post('/admin/productos/subir', 'ProductsController@upload')->name('admin.products.upload');
+    Route::post('/admin/productos/create', 'ProductsController@create')->name('admin.products.create');
+    Route::post('/admin/productos/get-unassigned-files', 'ProductsController@getUnassignedFiles')->name('admin.products.get-unassigned-files');
+    Route::get('/admin/productos/catalogo', 'ProductsController@catalog')->name('admin.products.catalog');
+    Route::get('/admin/productos/{productId}', 'ProductsController@show')->name('admin.products.show');
 });
 
 /**
  * ADMIN USERS
  */
-Route::group(['middleware' => 'auth'], function(){
-    Route::get('/admin/usuarios', ADMIN_USERS_CONTROLLER . '@index')->name('admin.users.index');
-    Route::get('/admin/usuarios/perfil/{user}', ADMIN_USERS_CONTROLLER . '@profile')->name('admin.users.profile');
+Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function(){
+    Route::get('/admin/usuarios', 'UsersController@index')->name('admin.users.index');
+    Route::get('/admin/usuarios/perfil/{user}', 'UsersController@profile')->name('admin.users.profile');
 });
 
 /**
  * FRONT QUIZ
  */
-Route::group([], function(){
-    Route::post('/cuestionario/crear', FRONT_QUIZ_CONTROLLER . '@create')->name('front.quiz.create');
-    Route::get('/cuestionario/comienza', FRONT_QUIZ_CONTROLLER . '@new')->name('front.quiz.new');
+Route::group(['namespace' => 'Front'], function(){
+    Route::post('/cuestionario/crear', 'QuizController@create')->name('front.quiz.create');
+    Route::get('/cuestionario/comienza', 'QuizController@new')->name('front.quiz.new');
 });
 
-Route::group(['middleware' => 'auth'], function(){
-    Route::post('/cuestionario/{quiz}/guardar/{slug}', FRONT_QUIZ_CONTROLLER . '@store')->name('front.quiz.store');
-    Route::get('/cuestionario/{quiz}/seccion/{slug?}', FRONT_QUIZ_CONTROLLER . '@section')->name('front.quiz.section');
-    Route::get('/cuestionario/completo', FRONT_QUIZ_CONTROLLER . '@complete')->name('front.quiz.complete');
+Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
+    Route::post('/cuestionario/{quiz}/guardar/{slug}', 'QuizController@store')->name('front.quiz.store');
+    Route::get('/cuestionario/{quiz}/seccion/{slug?}', 'QuizController@section')->name('front.quiz.section');
+    Route::get('/cuestionario/completo', 'QuizController@complete')->name('front.quiz.complete');
 });
 
 /**

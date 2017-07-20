@@ -49,7 +49,7 @@ class QuizController extends Controller
         $quiz = Quiz::create([
             'user_id' => $user->id,
             'outfit_type' => $request->outfit_type,
-            'started_at' => new \DateTime,
+            'started_at' => (new \Moment\Moment())->subtractHours(5)->format(\Moment\Moment::NO_TZ_MYSQL),
             ]);
 
         $quiz->createUserSizes()

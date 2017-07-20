@@ -1,205 +1,71 @@
 @extends('layouts.admin')
 
 @section('head-link')
-  <link href="/css/admin/user/profile.css" rel="stylesheet">
+  <link href="/css/admin/users/profile.css" rel="stylesheet">
 @endsection
 
 @section('content')
-  <div class="container-fluid" id="admin-user-profile" v-cloak>
-    <h1>{{ $user->email }}</h1>
+  <div class="container-fluid" id="admin-user-profile">
     <div class="row">
-      <ul class="grid-list grid-list-2">
-        <li class="product-item">
-          <div>
-            <div class="img-wrapper" style="background-image: url(/img/products/product-1.jpg)"></div>
-            <div class="features">
-              <a href="#" class="title">Nombre del producto</a>
-              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
-              <small>Categorías</small>
-              <nav class="categories-nav">
-                <a href="#">subcat-1</a> <a href="#">subcat-2</a> <a href="#">subcat-3</a>
-              </nav>
-              <small>Atributos</small>
-              <nav class="categories-nav">
-                <a href="#">subattr-1</a> <a href="#">subattr-2</a> <a href="#">subattr-3</a>
-              </nav>
-            </div>
-          </div>
-        </li>
-        <li class="product-item">
-          <div>
-            <div class="img-wrapper" style="background-image: url(/img/products/product-2.jpg)"></div>
-            <div class="features">
-              <a href="#" class="title">Nombre del producto</a>
-              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
-              <small>Categorías</small>
-              <nav class="categories-nav">
-                <a href="#">subcat-1</a> <a href="#">subcat-2</a> <a href="#">subcat-3</a>
-              </nav>
-              <small>Atributos</small>
-              <nav class="categories-nav">
-                <a href="#">subattr-1</a> <a href="#">subattr-2</a> <a href="#">subattr-3</a>
-              </nav>
-            </div>
-          </div>
-        </li>
-        <li class="product-item">
-          <div>
-            <div class="img-wrapper" style="background-image: url(/img/products/product-3.jpg)"></div>
-            <div class="features">
-              <a href="#" class="title">Nombre del producto</a>
-              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
-              <small>Categorías</small>
-              <nav class="categories-nav">
-                <a href="#">subcat-1</a> <a href="#">subcat-2</a> <a href="#">subcat-3</a>
-              </nav>
-              <small>Atributos</small>
-              <nav class="categories-nav">
-                <a href="#">subattr-1</a> <a href="#">subattr-2</a> <a href="#">subattr-3</a>
-              </nav>
-            </div>
-          </div>
-        </li>
-        <li class="product-item">
-          <div>
-            <div class="img-wrapper" style="background-image: url(/img/products/product-4.jpg)"></div>
-            <div class="features">
-              <a href="#" class="title">Nombre del producto</a>
-              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
-              <small>Categorías</small>
-              <nav class="categories-nav">
-                <a href="#">subcat-1</a> <a href="#">subcat-2</a> <a href="#">subcat-3</a>
-              </nav>
-              <small>Atributos</small>
-              <nav class="categories-nav">
-                <a href="#">subattr-1</a> <a href="#">subattr-2</a> <a href="#">subattr-3</a>
-              </nav>
-            </div>
-          </div>
-        </li>
-        <li class="product-item">
-          <div>
-            <div class="img-wrapper" style="background-image: url(/img/products/product-5.jpg)"></div>
-            <div class="features">
-              <a href="#" class="title">Nombre del producto</a>
-              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
-              <small>Categorías</small>
-              <nav class="categories-nav">
-                <a href="#">subcat-1</a> <a href="#">subcat-2</a> <a href="#">subcat-3</a>
-              </nav>
-              <small>Atributos</small>
-              <nav class="categories-nav">
-                <a href="#">subattr-1</a> <a href="#">subattr-2</a> <a href="#">subattr-3</a>
-              </nav>
-            </div>
-          </div>
-        </li>
-        <li class="product-item">
-          <div>
-            <div class="img-wrapper" style="background-image: url(/img/products/product-6.jpg)"></div>
-            <div class="features">
-              <a href="#" class="title">Nombre del producto</a>
-              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
-              <small>Categorías</small>
-              <nav class="categories-nav">
-                <a href="#">subcat-1</a> <a href="#">subcat-2</a> <a href="#">subcat-3</a>
-              </nav>
-              <small>Atributos</small>
-              <nav class="categories-nav">
-                <a href="#">subattr-1</a> <a href="#">subattr-2</a> <a href="#">subattr-3</a>
-              </nav>
-            </div>
-          </div>
-        </li>
-        <li class="product-item">
-          <div>
-            <div class="img-wrapper" style="background-image: url(/img/products/product-7.jpg)"></div>
-            <div class="features">
-              <a href="#" class="title">Nombre del producto</a>
-              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
-              <small>Categorías</small>
-              <nav class="categories-nav">
-                <a href="#">subcat-1</a> <a href="#">subcat-2</a> <a href="#">subcat-3</a>
-              </nav>
-              <small>Atributos</small>
-              <nav class="categories-nav">
-                <a href="#">subattr-1</a> <a href="#">subattr-2</a> <a href="#">subattr-3</a>
-              </nav>
-            </div>
-          </div>
-        </li>
-        <li class="product-item">
-          <div>
-            <div class="img-wrapper" style="background-image: url(/img/products/product-8.jpg)"></div>
-            <div class="features">
-              <a href="#" class="title">Nombre del producto</a>
-              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
-              <small>Categorías</small>
-              <nav class="categories-nav">
-                <a href="#">subcat-1</a> <a href="#">subcat-2</a> <a href="#">subcat-3</a>
-              </nav>
-              <small>Atributos</small>
-              <nav class="categories-nav">
-                <a href="#">subattr-1</a> <a href="#">subattr-2</a> <a href="#">subattr-3</a>
-              </nav>
-            </div>
-          </div>
-        </li>
-      </ul>
-      <div class="col-sm-4">
+      <div class="col-sm-7">
         <div class="card">
+          <small class="card-block-title">Cuestionarios ({{ $user->quizzes->count() }})</small>
+          <div class="card-block card-block-scroll">
+            @foreach ($user->quizzes as $quiz)
+              <ul class="user-details-list">
+                <li><strong>ID:</strong><span>{{ $quiz->id }}</span></li>
+                <li><strong>Status:</strong><span>{{ $quiz->status() }}</span></li>
+                <li><strong>Fecha de comienzo:</strong><span>{{ $quiz->started_at }}</span></li>
+              </ul>
+            @endforeach
+          </div>
+        </div>
+        <div class="card">
+          <small class="card-block-title">Tallas</small>
           <div class="card-block">
-            <h4 class="card-title"></h4>
-            <h6></h6>
+          </div>
+        </div>
+        <div class="card">
+          <small class="card-block-title">Cuerpo</small>
+          <div class="card-block">
+          </div>
+        </div>
+        <div class="card">
+          <small class="card-block-title">Fit</small>
+          <div class="card-block">
+          </div>
+        </div>
+        <div class="card">
+          <small class="card-block-title">Estilo</small>
+          <div class="card-block">
+          </div>
+        </div>
+        <div class="card">
+          <small class="card-block-title">Redes sociales</small>
+          <div class="card-block">
           </div>
         </div>
       </div>
-      <div class="col-sm-8">
-        <ul class="grid-list grid-list-4 grid-list-1-xs grid-list-2-sm user-profile-grid">
-          <li>
-            <article class="card">
-              <div class="card-block"></div>
-            </article>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-block">
-        <nav class="user-resources-nav">
-          <small>Acciones</small>
-          <a href="#" class="card-link">accion</a>
-          <a href="#" class="card-link">accion</a>
-          <a href="#" class="card-link">accion</a>
-        </nav>
+      <div class="col-sm-5">
+        <div class="card">
+          <small class="card-block-title">Acciones</small>
+          <div class="card-block">
+            <nav class="user-resources-nav">
+              <a href="#" class="btn btn-sm btn-secondary">Asignar outfit</a>
+            </nav>
+          </div>
+        </div>
+        <div class="card">
+          <small class="card-block-title">Datos personales</small>
+          <div class="card-block">
+            <ul class="user-details-list">
+              <li><strong>Nombre:</strong><span>{{ $user->info->fullName() }}</span></li>
+              <li><strong>Email:</strong><span>{{ $user->email }}</span></li>
+              <li><strong>Edad:</strong><span>{{ $user->info->dob }}</span></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-@endsection
-
-@section('footer-scripts')
-  <script src="https://unpkg.com/vue"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-  <script>
-    var app = new Vue({
-      el: '#admin-user-profile',
-      data: {},
-      created: function(){
-        // this.getProfiles();
-      },
-      methods: {
-        getProfiles: function(){
-          var vm = this;
-          var url = "";
-          axios.get(url)
-          .then(function(response){
-            console.log(response);
-          }).catch(function(error){
-            console.log(error);
-          });
-        },
-      }
-    })
-  </script>
 @endsection

@@ -36,12 +36,34 @@ class QuizAdapter extends Quiz
         return $this;
     }
 
-    public static function completed()
+    public function status()
     {
-        return DB::table('quiz')
-                    ->join('users', 'users.id', '=', 'quiz.user_id')
-                    ->whereNotNull('quiz.completed_at')
-                    ->groupBy('users.id')
-                    ->get();
+        if ($this->completed_at) {
+            return 'completado';
+        }
+
+        if ($this->user_fit) {
+            return 'fit';
+        }
+
+        if ($this->user_preferred_body_parts_completed_ts) {
+            return 'partes del cuerpo';
+        }
+
+        if ($this->user_sizes_completed_ts) {
+            return 'tallas';
+        }
+
+        return 'pendiente';
     }
 }
+
+
+
+
+
+
+
+
+
+

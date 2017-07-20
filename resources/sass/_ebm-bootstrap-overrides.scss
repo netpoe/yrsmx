@@ -33,14 +33,25 @@
 .card-block {
   &.card-block-scroll {
     overflow: scroll;
-    height: 222px;
+    max-height: 180px;
   }
 }
 
 .card-block-title {
   @include bold;
-  margin-bottom: get-spacer(2, y);
+  border-bottom: 1px solid $gray-lightest;
   display: block;
+  padding: get-spacer(2, y);
+}
+
+.card-title-wrapper {
+  @include flex-row-space-between;
+  border-bottom: 1px solid $gray-lightest;
+  padding: get-spacer(2, y);
+  .card-block-title {
+    border-bottom: none;
+    padding: 0;
+  }
 }
 
 .form-group {

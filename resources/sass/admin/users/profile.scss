@@ -41,17 +41,15 @@
 @import "./resources/sass/common/search-wrapper";
 @import "./resources/sass/common/user-resources-nav";
 
-.user-profile-grid {
-  .card {
-    margin-bottom: 0;
-  }
-  .card-block {
-    padding: get-spacer(2, x);
-  }
-}
-
-.use-of-proceeds-card {
-  .card-block {
-    padding: get-spacer(1, y);
+.user-details-list {
+  @include list-unstyled;
+  margin-bottom: get-spacer(3, y);
+  li {
+    @include flex-row;
+    margin-bottom: get-spacer(2, y);
+    strong {
+      width: 35%;
+    }
+    span {}
   }
 }

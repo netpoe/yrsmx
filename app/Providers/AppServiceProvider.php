@@ -14,7 +14,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        ini_set('date.timezone', 'America/Mexico_City');
+        date_default_timezone_set('America/Mexico_City');
+
         Schema::defaultStringLength(191);
+
+        \Moment\Moment::setDefaultTimezone('UTC');
+
+        \Moment\Moment::setLocale('es_ES');
     }
 
     /**

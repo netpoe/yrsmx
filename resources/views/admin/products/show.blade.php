@@ -33,8 +33,8 @@
     </div>
     <div class="col-sm-6">
       <div class="card">
+        <small class="card-block-title">Acciones de producto</small>
         <div class="card-block">
-          <small class="card-block-title">Acciones de producto</small>
           <nav>
             <a href="#" class="btn btn-sm btn-secondary">Asignar imágenes</a>
             <a href="#" class="btn btn-sm btn-secondary">Subir imágenes y asignar</a>
@@ -55,11 +55,11 @@
         </div>
       </div>
       <div class="card">
+        <div class="card-title-wrapper">
+          <small class="card-block-title">Categorías</small>
+          <button class="btn btn-sm btn-secondary">Añadir categorías</button>
+        </div>
         <div class="card-block">
-          <div class="flex-row-space-between">
-            <small class="card-block-title">Categorías</small>
-            <button class="btn btn-sm btn-secondary">Añadir categorías</button>
-          </div>
           <nav class="categories-nav">
             <span>cat 1</span>
             <span>cat 2</span>
@@ -70,8 +70,8 @@
       </div>
       <div class="card">
         <div class="card-block">
+          <small class="card-block-title">Atributos</small>
           <div class="flex-row-space-between">
-            <small class="card-block-title">Atributos</small>
             <button class="btn btn-sm btn-secondary">Añadir atributos</button>
           </div>
           <nav class="categories-nav">

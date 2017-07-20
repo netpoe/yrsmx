@@ -78,4 +78,12 @@ class UserAdapter extends User
             ->orderBy('completed_at', 'desc')
             ->first();
     }
+
+    public function completed()
+    {
+        return $this->join('quiz', 'quiz.user_id', '=', 'users.id')
+                    ->whereNotNull('quiz.completed_at')
+                    ->groupBy('quiz.user_id')
+                    ->get();
+    }
 }
