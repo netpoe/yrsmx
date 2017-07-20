@@ -19,5 +19,8 @@ class UICasualWearQuiz extends AbstractUIQuiz
         \App\Section\UserPreferredBodyParts\BodyParts::class,
         \App\Section\UserPreferredBodyParts\BodyType::class,
         \App\Section\UserPreferredBodyParts\Complete::class,
+
+        // User Fit
+        \App\Section\UserFit\UpperPartFit::class,
     ];
 }

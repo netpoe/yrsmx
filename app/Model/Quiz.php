@@ -30,4 +30,9 @@ class Quiz extends Model
     {
         return $this->hasOne(\App\Model\UserPreferredBodyPartsAdapter::class, 'quiz_id');
     }
+
+    public function userFit()
+    {
+        return $this->hasOne(\App\Model\UserFit::class, 'quiz_id');
+    }
 }
