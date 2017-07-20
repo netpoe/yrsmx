@@ -4,6 +4,7 @@ namespace App\Section\UserPreferredBodyParts;
 
 use App\Section\AbstractUserPreferredBodyPartsSection;
 use EBM\Field\Field;
+use App\Util\DateTimeUtil;
 
 class Complete extends AbstractUserPreferredBodyPartsSection
 {
@@ -20,7 +21,7 @@ class Complete extends AbstractUserPreferredBodyPartsSection
     {
         $quiz = $this->getUIApplication()->getInstance('quiz');
 
-        $quiz->user_preferred_body_parts_completed_ts = new \DateTime;
+        $quiz->user_preferred_body_parts_completed_ts = DateTimeUtil::DBNOW();
 
         $quiz->save();
 

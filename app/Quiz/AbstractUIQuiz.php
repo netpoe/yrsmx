@@ -4,6 +4,7 @@ namespace App\Quiz;
 
 use EBM\UIApplication\AbstractUIApplication;
 use App\Model\UserAdapter as User;
+use App\Util\DateTimeUtil;
 
 abstract class AbstractUIQuiz extends AbstractUIApplication
 {
@@ -22,7 +23,7 @@ abstract class AbstractUIQuiz extends AbstractUIApplication
     {
         $quiz = $this->getInstance('quiz');
 
-        $quiz->completed_at = new \DateTime;
+        $quiz->completed_at = DateTimeUtil::DBNOW();
 
         $quiz->save();
 

@@ -4,6 +4,7 @@ namespace App\Section\UserSizes;
 
 use App\Section\AbstractUserSizesSection;
 use EBM\Field\Field;
+use App\Util\DateTimeUtil;
 
 class Complete extends AbstractUserSizesSection
 {
@@ -20,7 +21,7 @@ class Complete extends AbstractUserSizesSection
     {
         $quiz = $this->getUIApplication()->getInstance('quiz');
 
-        $quiz->user_sizes_completed_ts = new \DateTime;
+        $quiz->user_sizes_completed_ts = DateTimeUtil::DBNOW();
 
         $quiz->save();
 

@@ -11,6 +11,7 @@ use App\Model\QuizAdapter as Quiz;
 use Auth;
 use App\Model\UserAdapter as User;
 use App\Factory\QuizFactory;
+use App\Util\DateTimeUtil;
 
 class QuizController extends Controller
 {
@@ -49,7 +50,7 @@ class QuizController extends Controller
         $quiz = Quiz::create([
             'user_id' => $user->id,
             'outfit_type' => $request->outfit_type,
-            'started_at' => (new \Moment\Moment())->subtractHours(5)->format(\Moment\Moment::NO_TZ_MYSQL),
+            'started_at' => DateTimeUtil::DBNOW(),
             ]);
 
         $quiz->createUserSizes()
