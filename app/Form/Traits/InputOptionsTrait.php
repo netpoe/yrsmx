@@ -24,4 +24,17 @@ trait InputOptionsTrait
 
         return static::OPTIONS;
     }
+
+    public static function getOptionsValue($key)
+    {
+        $options = static::OPTIONS;
+
+        foreach ($options as $option) {
+            if ($option['key'] == $key) {
+                return $option['value'];
+            }
+        }
+
+        return null;
+    }
 }
