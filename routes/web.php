@@ -11,35 +11,42 @@
 |
 */
 
+const ADMIN_CONTROLLERS = 'App\Http\Controllers\Admin';
+const ADMIN_PRODUCTS_CONTROLLER = ADMIN_CONTROLLERS . '\\' . 'ProductsController';
+const ADMIN_AUTH_CONTROLLER = ADMIN_CONTROLLERS . '\\' . 'AuthController';
+
+const FRONT_CONTROLLERS = 'App\Http\Controllers\Front';
+const FRONT_QUIZ_CONTROLLER = FRONT_CONTROLLERS . '\\' . 'QuizController';
+
 /**
  * ADMIN
  */
-Route::get('/admin/ingresa', 'AdminAuthController@ingresa')->name('admin.auth.ingresa');
-Route::post('/admin/login', 'AdminAuthController@login')->name('admin.auth.login');
+Route::get('/admin/ingresa', ADMIN_AUTH_CONTROLLER . '@ingresa')->name('admin.auth.ingresa');
+Route::post('/admin/login', ADMIN_AUTH_CONTROLLER . '@login')->name('admin.auth.login');
 
 /**
  * ADMIN PRODUCTS CATALOG
  */
 Route::group(['middleware' => 'auth'], function(){
-    Route::post('/admin/productos/subir', 'AdminProductsController@upload')->name('admin.products.upload');
-    Route::post('/admin/productos/create', 'AdminProductsController@create')->name('admin.products.create');
-    Route::post('/admin/productos/get-unassigned-files', 'AdminProductsController@getUnassignedFiles')->name('admin.products.get-unassigned-files');
-    Route::get('/admin/productos/catalogo', 'AdminProductsController@catalog')->name('admin.products.catalog');
-    Route::get('/admin/productos/{productId}', 'AdminProductsController@show')->name('admin.products.show');
+    Route::post('/admin/productos/subir', ADMIN_PRODUCTS_CONTROLLER . '@upload')->name('admin.products.upload');
+    Route::post('/admin/productos/create', ADMIN_PRODUCTS_CONTROLLER . '@create')->name('admin.products.create');
+    Route::post('/admin/productos/get-unassigned-files', ADMIN_PRODUCTS_CONTROLLER . '@getUnassignedFiles')->name('admin.products.get-unassigned-files');
+    Route::get('/admin/productos/catalogo', ADMIN_PRODUCTS_CONTROLLER . '@catalog')->name('admin.products.catalog');
+    Route::get('/admin/productos/{productId}', ADMIN_PRODUCTS_CONTROLLER . '@show')->name('admin.products.show');
 });
 
 /**
  * FRONT QUIZ
  */
 Route::group([], function(){
-    Route::post('/cuestionario/crear', 'QuizController@create')->name('front.quiz.create');
-    Route::get('/cuestionario/comienza', 'QuizController@new')->name('front.quiz.new');
+    Route::post('/cuestionario/crear', FRONT_QUIZ_CONTROLLER . '@create')->name('front.quiz.create');
+    Route::get('/cuestionario/comienza', FRONT_QUIZ_CONTROLLER . '@new')->name('front.quiz.new');
 });
 
 Route::group(['middleware' => 'auth'], function(){
-    Route::post('/cuestionario/{quiz}/guardar/{slug}', 'QuizController@store')->name('front.quiz.store');
-    Route::get('/cuestionario/{quiz}/seccion/{slug?}', 'QuizController@section')->name('front.quiz.section');
-    Route::get('/cuestionario/completo', 'QuizController@complete')->name('front.quiz.complete');
+    Route::post('/cuestionario/{quiz}/guardar/{slug}', FRONT_QUIZ_CONTROLLER . '@store')->name('front.quiz.store');
+    Route::get('/cuestionario/{quiz}/seccion/{slug?}', FRONT_QUIZ_CONTROLLER . '@section')->name('front.quiz.section');
+    Route::get('/cuestionario/completo', FRONT_QUIZ_CONTROLLER . '@complete')->name('front.quiz.complete');
 });
 
 /**
@@ -51,9 +58,3 @@ Route::get('/', 'HomeController@index')->name('front.home.index');
 Route::get('/bienvenido/{token}', 'HomeController@welcome')->name('front.home.welcome');
 Route::get('/verification-email-sent', 'HomeController@verificationEmailSent')->name('front.home.verification-email-sent');
 Route::post('/', 'HomeController@register')->name('front.home.register');
-
-Route::group(['middleware' => 'auth'], function(){
-    Route::post('/aplicar/store/{slug}', 'ApplicationController@store')->name('front.application.store');
-    Route::get('/aplicar/seccion/{slug?}/{hasError?}/{message?}', 'ApplicationController@seccion')->name('front.application.seccion');
-    Route::get('/aplicar/completa', 'ApplicationController@completa')->name('front.application.completa');
-});

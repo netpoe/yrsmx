@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Service\ProductsService;
 use App\Model\RelProductsGalleryAdapter as ProductsGallery;
 use App\Model\ProductsAdapter as Product;
 use Auth;
 
-class AdminProductsController extends Controller
+class ProductsController extends Controller
 {
     /**
      * Catálogo: muestra los productos en stock con imágenes. Hay un filtro especial que muestra las imágenes sin productos asignados

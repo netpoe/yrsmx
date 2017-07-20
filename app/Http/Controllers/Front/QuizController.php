@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Front;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\NewQuizRequest;
 use App\Http\Requests\SectionRequestDispatcher;
@@ -27,7 +28,7 @@ class QuizController extends Controller
 
     /**
      * The front.quiz.new view sends an email and outfit_type to create a new Quiz
-     * User will be registered and she will be able to choose a password on email verification
+     * User will be registered and she will be able to choose a password after email verification
      */
     public function create(NewQuizRequest $request)
     {
@@ -51,9 +52,9 @@ class QuizController extends Controller
             'started_at' => new \DateTime,
             ]);
 
-        $quiz->createUserSizes();
-        $quiz->createUserPreferredBodyParts();
-        $quiz->createUserFit();
+        $quiz->createUserSizes()
+            ->createUserPreferredBodyParts()
+            ->createUserFit();
 
         $uiQuiz = QuizFactory::get($user);
 
@@ -64,6 +65,11 @@ class QuizController extends Controller
                 ]);
     }
 
+    /**
+     * Renders the sections of the selected UIQuiz
+     * If the URL has no section slug, then check if the Quiz is complete and send to the complete action
+     * else keep rendering the missing sections
+     */
     public function section(Request $request, Quiz $quiz)
     {
         $section = $request->getSection();
@@ -94,6 +100,11 @@ class QuizController extends Controller
             ]);
     }
 
+    /**
+     * Validates and saves the section fields
+     * If on save error renders a section error
+     * if success, redirects to the next section
+     */
     public function store(
         Request $request,
         SectionRequestDispatcher $dispatcher,
@@ -121,8 +132,20 @@ class QuizController extends Controller
             ]);
     }
 
+    /**
+     * Renders the completed quiz page
+     * This page will show the user if she has verified its emails
+     * and her referral link
+     */
     public function complete()
     {
         return view('front/quiz/complete');
     }
 }
+
+
+
+
+
+
+
