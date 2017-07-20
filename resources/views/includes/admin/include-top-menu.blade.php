@@ -12,13 +12,17 @@
     <div class="top-menu-item">
       <div><a href="{{ route('admin.users.index') }}">Usuarios</a></div>
       <ul class="top-menu-dropdown">
-        <li class="top-menu-sub-item"><a href="#">Listos para selección</a></li>
+        <li class="top-menu-sub-item"><a href="{{ route('admin.users.index', ['status' => 'quiz-completed']) }}">Listos para selección</a></li>
       </ul>
+    </div>
+    <div class="top-menu-item">
+      <div><a href="#">Cuestionarios</a></div>
+      <ul class="top-menu-dropdown"> </ul>
     </div>
   </div>
   <div class="top-menu-right">
     <div class="top-menu-item">
-      <div><a href="{{ url('/logout') }}">Salir</a></div>
+      <div><a href="{{ route('logout') }}">Salir</a></div>
     </div>
   </div>
 </header>

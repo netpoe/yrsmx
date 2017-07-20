@@ -62,7 +62,7 @@ Route::group(['middleware' => 'auth'], function(){
  * AUTH
  */
 Auth::routes();
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::get('/', 'HomeController@index')->name('front.home.index');
 Route::get('/bienvenido/{token}', 'HomeController@welcome')->name('front.home.welcome');
