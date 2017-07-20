@@ -22,5 +22,8 @@ class UICasualWearQuiz extends AbstractUIQuiz
 
         // User Fit
         \App\Section\UserFit\UpperPartFit::class,
+        \App\Section\UserFit\LowerPartFit::class,
+        \App\Section\UserFit\PantsFit::class,
+        \App\Section\UserFit\Complete::class,
     ];
 }
