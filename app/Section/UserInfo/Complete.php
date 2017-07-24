@@ -21,7 +21,7 @@ class Complete extends AbstractUserInfoSection
     {
         $quiz = $this->getUIApplication()->getInstance('quiz');
 
-        $quiz->user_info = DateTimeUtil::DBNOW();
+        $quiz->user_info_completed_ts = DateTimeUtil::DBNOW();
 
         $quiz->save();
 

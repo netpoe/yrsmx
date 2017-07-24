@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Section\UserFit;
+namespace App\Section\UserStyle;
 
-use App\Section\AbstractUserFitSection;
+use App\Section\AbstractUserStyleSection;
+use EBM\Field\Field;
 use App\Util\DateTimeUtil;
 
-class Complete extends AbstractUserFitSection
+class Complete extends AbstractUserStyleSection
 {
-    protected $slug = 'completaste-fit';
+    protected $slug = 'completaste-estilo';
 
     protected $template = 'complete';
 
@@ -20,7 +21,7 @@ class Complete extends AbstractUserFitSection
     {
         $quiz = $this->getUIApplication()->getInstance('quiz');
 
-        $quiz->user_fit_completed_ts = DateTimeUtil::DBNOW();
+        $quiz->user_style_completed_ts = DateTimeUtil::DBNOW();
 
         $quiz->save();
 

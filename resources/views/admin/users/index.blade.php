@@ -7,8 +7,8 @@
 @section('content')
   <div class="container-fluid" id="admin-user-index">
     <div class="card">
+      <small class="card-block-title">Filtrar usuarios ({{ $users->count() }})</small>
       <div class="card-block">
-        <small class="card-block-title">Filtrar usuarios ({{ $users->count() }})</small>
         <nav class="user-resources-nav">
           <a href="{{ route('admin.users.index', ['status' => 'registered']) }}" class="card-link">Registrados</a>
           <a href="{{ route('admin.users.index', ['status' => 'quiz-completed']) }}" class="card-link">Cuestionarios completados</a>
@@ -29,7 +29,7 @@
             <tr>
               <td><a href="{{ route('admin.users.profile', ['user' => $user->id]) }}">{{ $user->id }}</a></td>
               <td><a href="{{ route('admin.users.profile', ['user' => $user->id]) }}">{{ $user->info->name }}</a></td>
-              <td>Terminado</td>
+              <td class="capitalize">{{ $user->getLatestQuiz()->status() }}</td>
             </tr>
           @endforeach
         </tbody>

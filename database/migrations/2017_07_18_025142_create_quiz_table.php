@@ -21,8 +21,9 @@ class CreateQuizTable extends Migration
             $table->datetime('completed_at')->nullable()->default(null);
             $table->datetime('user_sizes_completed_ts')->nullable()->default(null);
             $table->datetime('user_preferred_body_parts_completed_ts')->nullable()->default(null);
-            $table->datetime('user_fit')->nullable()->default(null);
-            $table->datetime('user_info')->nullable()->default(null);
+            $table->datetime('user_fit_completed_ts')->nullable()->default(null);
+            $table->datetime('user_info_completed_ts')->nullable()->default(null);
+            $table->datetime('user_style_completed_ts')->nullable()->default(null);
         });
 
         Schema::table('quiz', function(Blueprint $table){

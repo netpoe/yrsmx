@@ -70,8 +70,15 @@
         </ul>
 
         @include('fields/text', ['field' => $section->getField('name')])
-        @include('fields/text', ['field' => $section->getField('paternal_last_name')])
-        @include('fields/text', ['field' => $section->getField('maternal_last_name')])
+
+        <div class="row">
+          <div class="col-sm-6">
+            @include('fields/text', ['field' => $section->getField('paternal_last_name')])
+          </div>
+          <div class="col-sm-6">
+            @include('fields/text', ['field' => $section->getField('maternal_last_name')])
+          </div>
+        </div>
 
         @include('includes/section-error-alert')
 

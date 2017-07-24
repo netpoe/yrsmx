@@ -36,6 +36,11 @@ class Quiz extends Model
         return $this->hasOne(\App\Model\UserFitAdapter::class, 'quiz_id');
     }
 
+    public function userStyle()
+    {
+        return $this->hasOne(\App\Model\UserStyleAdapter::class, 'quiz_id');
+    }
+
     public function getStartedAtAttribute($value)
     {
         $m = new \Moment\Moment($value);

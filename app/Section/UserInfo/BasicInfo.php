@@ -26,7 +26,7 @@ class BasicInfo extends AbstractUserInfoSection
 
         $this->addField('name')
             ->setModel($userInfo)
-            ->setLabel('¿Cómo te llamas?')
+            ->setLabel('¿Cuál es tu primer nombre?')
             ->setType(Field::TYPE_TEXT)
             ->required()
             ->setValueFromDb();
