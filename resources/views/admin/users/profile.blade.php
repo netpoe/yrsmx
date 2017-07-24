@@ -143,10 +143,17 @@
           <small class="card-block-title">Estilo</small>
           <div class="card-block">
             <ul class="user-details-list">
-              <?php $colors = $lastCompletedQuiz ? $userStyle->colors($userStyle->colors) : [] ?>
               <li>
                 <strong>Colores:</strong>
                 <span>{{ $lastCompletedQuiz ? $userStyle->colors($userStyle->colors) : '' }}</span>
+              </li>
+              <li>
+                <strong>Estampados:</strong>
+                <span>{{ $lastCompletedQuiz ? $userStyle->prints($userStyle->prints) : '' }}</span>
+              </li>
+              <li>
+                <strong>Telas:</strong>
+                <span>{{ $lastCompletedQuiz ? $userStyle->fabrics($userStyle->fabrics) : '' }}</span>
               </li>
             </ul>
           </div>

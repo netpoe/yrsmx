@@ -33,6 +33,8 @@ class UICasualWearQuiz extends AbstractUIQuiz
 
         // User style
         \App\Section\UserStyle\Colors::class,
+        \App\Section\UserStyle\Prints::class,
+        \App\Section\UserStyle\Fabrics::class,
         \App\Section\UserStyle\Complete::class,
     ];
 }

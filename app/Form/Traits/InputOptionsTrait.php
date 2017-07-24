@@ -38,11 +38,15 @@ trait InputOptionsTrait
         return null;
     }
 
-    public static function getCheckboxOptionsString(String $str): String
+    public static function getCheckboxOptionsString(String $str = ''): String
     {
-        $options = self::getOptions();
-
         $result = '';
+
+        if (!$str) {
+            return $result;
+        }
+
+        $options = self::getOptions();
 
         foreach (explode('|', $str) as $value) {
             foreach ($options as $option) {
