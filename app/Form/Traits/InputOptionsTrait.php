@@ -27,7 +27,7 @@ trait InputOptionsTrait
 
     public static function getOptionsValue($key)
     {
-        $options = static::OPTIONS;
+        $options = self::getOptions();
 
         foreach ($options as $option) {
             if ($option['key'] == $key) {
@@ -37,4 +37,30 @@ trait InputOptionsTrait
 
         return null;
     }
+
+    public static function getCheckboxOptionsString(String $str): String
+    {
+        $options = self::getOptions();
+
+        $result = '';
+
+        foreach (explode('|', $str) as $value) {
+            foreach ($options as $option) {
+                if ((string) $option['key'] == $value) {
+                    $result .= $option['value'] . ' · ';
+                }
+            }
+        }
+
+        return substr($result, 0, -3);
+    }
 }
+
+
+
+
+
+
+
+
+

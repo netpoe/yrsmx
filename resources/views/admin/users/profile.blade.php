@@ -9,6 +9,7 @@
   $userSizes = $lastCompletedQuiz->userSizes;
   $userPreferredBodyParts = $lastCompletedQuiz->userPreferredBodyParts;
   $userFit = $lastCompletedQuiz->userFit;
+  $userStyle = $lastCompletedQuiz->userStyle;
 ?>
 
 @section('content')
@@ -141,6 +142,13 @@
         <div class="card">
           <small class="card-block-title">Estilo</small>
           <div class="card-block">
+            <ul class="user-details-list">
+              <?php $colors = $lastCompletedQuiz ? $userStyle->colors($userStyle->colors) : [] ?>
+              <li>
+                <strong>Colores:</strong>
+                <span>{{ $lastCompletedQuiz ? $userStyle->colors($userStyle->colors) : '' }}</span>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="card">
