@@ -10,7 +10,7 @@ class Fabrics extends UserStyleAdapter implements InputOptionsContract
 {
     use InputOptionsTrait;
 
-    const ALGODO = 1;
+    const ALGODON = 1;
     const LYCRA = 2;
     const LANA = 3;
     const PANA = 4;
@@ -29,7 +29,7 @@ class Fabrics extends UserStyleAdapter implements InputOptionsContract
 
     const OPTIONS = [
         [
-            'key' => self::ALGODO,
+            'key' => self::ALGODON,
             'value' => 'algodón',
         ],
         [

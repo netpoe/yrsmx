@@ -26,11 +26,19 @@
         </thead>
         <tbody>
           @foreach ($users as $user)
-            <tr>
-              <td><a href="{{ route('admin.users.profile', ['user' => $user->id]) }}">{{ $user->id }}</a></td>
-              <td><a href="{{ route('admin.users.profile', ['user' => $user->id]) }}">{{ $user->info->name }}</a></td>
-              <td class="capitalize">{{ $user->getLatestQuiz()->status() }}</td>
-            </tr>
+            @if ($user->getLatestQuiz()->status() == \App\Model\QuizAdapter::COMPLETE)
+              <tr>
+                <td><a href="{{ route('admin.users.profile', ['user' => $user->id]) }}">{{ $user->id }}</a></td>
+                <td><a href="{{ route('admin.users.profile', ['user' => $user->id]) }}">{{ $user->info->name }}</a></td>
+                <td class="capitalize">{{ $user->getLatestQuiz()->status() }}</td>
+              </tr>
+            @else
+              <tr>
+                <td>{{ $user->id }}</td>
+                <td>{{ $user->info->name }}</td>
+                <td class="capitalize">{{ $user->getLatestQuiz()->status() }}</td>
+              </tr>
+            @endif
           @endforeach
         </tbody>
       </table>

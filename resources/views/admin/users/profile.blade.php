@@ -155,6 +155,10 @@
                 <strong>Telas:</strong>
                 <span>{{ $lastCompletedQuiz ? $userStyle->fabrics($userStyle->fabrics) : '' }}</span>
               </li>
+              <li>
+                <strong>Palabras:</strong>
+                <span>{{ $lastCompletedQuiz ? $userStyle->words($userStyle->words) : '' }}</span>
+              </li>
             </ul>
           </div>
         </div>

@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\DB;
 
 class QuizAdapter extends Quiz
 {
+    const COMPLETE = 'completado';
+    const PENDING = 'pendiente';
+    const USER_STYLE = 'estilo';
+    const USER_INFO = 'datos básicos';
+    const USER_FIT = 'fit';
+    const USER_PREFERRED_BODY_PARTS = 'partes del cuerpo';
+    const USER_SIZES = 'tallas';
+
     public function createUserSizes()
     {
         UserSizes::create([
@@ -49,30 +57,30 @@ class QuizAdapter extends Quiz
     public function status()
     {
         if ($this->completed_at) {
-            return 'completado';
+            return self::COMPLETE;
         }
 
         if ($this->user_style_completed_ts) {
-            return 'estilo';
+            return self::USER_STYLE;
         }
 
         if ($this->user_info_completed_ts) {
-            return 'datos básicos';
+            return self::USER_INFO;
         }
 
         if ($this->user_fit_completed_ts) {
-            return 'fit';
+            return self::USER_FIT;
         }
 
         if ($this->user_preferred_body_parts_completed_ts) {
-            return 'partes del cuerpo';
+            return self::USER_PREFERRED_BODY_PARTS;
         }
 
         if ($this->user_sizes_completed_ts) {
-            return 'tallas';
+            return self::USER_SIZES;
         }
 
-        return 'pendiente';
+        return self::PENDING;
     }
 }
 
