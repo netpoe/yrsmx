@@ -167,6 +167,10 @@
                 <strong>Accesorios:</strong>
                 <span>{{ $lastCompletedQuiz ? $userStyle->accessories($userStyle->accessories) : '' }}</span>
               </li>
+              <li>
+                <strong>Zapatos:</strong>
+                <span>{{ $lastCompletedQuiz ? $userStyle->shoes($userStyle->shoes) : '' }}</span>
+              </li>
             </ul>
           </div>
         </div>
