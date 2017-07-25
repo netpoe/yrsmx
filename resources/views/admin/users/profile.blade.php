@@ -159,6 +159,10 @@
                 <strong>Palabras:</strong>
                 <span>{{ $lastCompletedQuiz ? $userStyle->words($userStyle->words) : '' }}</span>
               </li>
+              <li>
+                <strong>Prendas:</strong>
+                <span>{{ $lastCompletedQuiz ? $userStyle->clothes($userStyle->clothes) : '' }}</span>
+              </li>
             </ul>
           </div>
         </div>

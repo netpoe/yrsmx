@@ -4,13 +4,13 @@ namespace App\Section\UserStyle;
 
 use App\Section\AbstractUserStyleSection;
 use EBM\Field\Field;
-use App\Model\UserStyle\Words as UserWords;
+use App\Model\UserStyle\Clothes as UserClothes;
 
-class Words extends AbstractUserStyleSection
+class Clothes extends AbstractUserStyleSection
 {
-    protected $slug = 'palabras';
+    protected $slug = 'prendas';
 
-    protected $template = 'words';
+    protected $template = 'clothes';
 
     public function setFields()
     {
@@ -20,11 +20,11 @@ class Words extends AbstractUserStyleSection
 
         $userStyle = $quiz->userStyle;
 
-        $this->addField('words')
+        $this->addField('clothes')
             ->setModel($userStyle)
-            ->setLabel('Selecciona 1 o más palabras')
+            ->setLabel('Selecciona 1 o más prendas')
             ->setType(Field::TYPE_CHECKBOX)
-            ->setOptions(UserWords::getOptions())
+            ->setOptions(UserClothes::getOptions())
             ->setValueFromDb();
 
         return $this;
@@ -33,7 +33,7 @@ class Words extends AbstractUserStyleSection
     public function getValidationRules(): Array
     {
         return [
-            'words.*.*' => 'required|array',
+            'clothes.*.*' => 'required|numeric',
         ];
     }
 }
