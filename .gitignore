@@ -11,3 +11,11 @@ Homestead.yaml
 npm-debug.log
 .env
 .DS_STORE
+
+# laradock
+/vms/.idea
+/vms/logs
+/vms/data
+/vms/.env
+/vms/.project
+/vms/.docker-sync
