@@ -6,7 +6,7 @@
 <fieldset class="form-group {{ $errors->has($name) ? ' has-danger' : '' }}">
   <label for="{{ $name }}">{{ $field->getLabel() }}</label>
 
-  <div class="grid-list grid-list-2 grid-list-1-xs grid-list-1-sm">
+  <div class="grid-list {{ isset($gridListClass) ? $gridListClass : 'grid-list-2 grid-list-1-xs grid-list-1-sm' }}">
     @foreach ($field->getOptions() as $option)
       <article class="grid-list-item custom-radio-checkbox">
         <input

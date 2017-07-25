@@ -175,6 +175,10 @@
                 <strong>Joyas:</strong>
                 <span>{{ $lastCompletedQuiz ? $userStyle->jewelry($userStyle->jewelry) : '' }}</span>
               </li>
+              <li>
+                <strong>Riesgo:</strong>
+                <span>{{ $lastCompletedQuiz ? $userStyle->risk($userStyle->risk) : '' }}</span>
+              </li>
             </ul>
           </div>
         </div>
