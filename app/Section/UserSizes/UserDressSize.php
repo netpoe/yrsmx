@@ -34,7 +34,7 @@ class UserDressSize extends AbstractUserSizesSection
     public function getValidationRules(): Array
     {
         return [
-            'dress' => 'required|alpha',
+            'dress.*' => 'required|alpha',
         ];
     }
 }

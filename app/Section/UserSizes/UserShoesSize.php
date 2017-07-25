@@ -34,7 +34,7 @@ class UserShoesSize extends AbstractUserSizesSection
     public function getValidationRules(): Array
     {
         return [
-            'shoes' => 'required|numeric',
+            'shoes.*' => 'required|numeric',
         ];
     }
 }

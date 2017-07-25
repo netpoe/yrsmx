@@ -34,7 +34,7 @@ class UserBlouseSize extends AbstractUserSizesSection
     public function getValidationRules(): Array
     {
         return [
-            'blouse' => 'required|alpha',
+            'blouse.*' => 'required|alpha',
         ];
     }
 }

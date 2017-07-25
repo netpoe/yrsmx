@@ -43,8 +43,8 @@ class UserBraSizes extends AbstractUserSizesSection
     public function getValidationRules(): Array
     {
         return [
-            'bra_band' => 'required|numeric',
-            'bra_cups' => 'required|alpha',
+            'bra_band.*' => 'required|numeric',
+            'bra_cups.*' => 'required|alpha',
         ];
     }
 }
