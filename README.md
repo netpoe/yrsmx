@@ -53,4 +53,11 @@ Fri Jul  7 08:51:38 2017
 * migrations for outfits gallery
 * products catalog HTML
 
+### AWS EC2 Install
+
+* [Install Docker in AWS EC2](http://www.bogotobogo.com/DevOps/Docker/Docker_Install_On_EC2_Ubuntu.php)
+* [Run the laravel installation in the ubuntu EC2 server instance](http://laradock.io/guides/)
+* [Install nodejs, npm and gulp](https://www.saltycrane.com/blog/2015/03/how-install-gulpjs-ubuntu-1410/)
+* [Install nodejs and npm with nvm. Digital Ocean Tut](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server)
+* [Install latest node and npm versions](http://www.hostingadvice.com/how-to/update-node-js-latest-version/)
 
