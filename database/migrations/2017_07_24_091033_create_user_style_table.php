@@ -21,7 +21,7 @@ class CreateUserStyleTable extends Migration
             $table->string('fabrics')->nullable()->default(null);
             $table->string('words')->nullable()->default(null);
             $table->string('clothes')->nullable()->default(null);
-            $table->string('accesories')->nullable()->default(null);
+            $table->string('accessories')->nullable()->default(null);
             $table->string('shoes')->nullable()->default(null);
             $table->string('jewelry')->nullable()->default(null);
             $table->string('risk')->nullable()->default(null);

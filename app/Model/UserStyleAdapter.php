@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-use App\Model\UserStyle\{ Colors, Prints, Fabrics, Words };
+use App\Model\UserStyle\{ Colors, Prints, Fabrics, Words, Accessories };
 
 class UserStyleAdapter extends UserStyle
 {
@@ -29,5 +29,10 @@ class UserStyleAdapter extends UserStyle
     public function clothes(String $clothes = '')
     {
         return Words::getCheckboxOptionsString($clothes);
+    }
+
+    public function accessories(String $accessories = '')
+    {
+        return Accessories::getCheckboxOptionsString($accessories);
     }
 }

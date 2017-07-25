@@ -163,6 +163,10 @@
                 <strong>Prendas:</strong>
                 <span>{{ $lastCompletedQuiz ? $userStyle->clothes($userStyle->clothes) : '' }}</span>
               </li>
+              <li>
+                <strong>Accesorios:</strong>
+                <span>{{ $lastCompletedQuiz ? $userStyle->accessories($userStyle->accessories) : '' }}</span>
+              </li>
             </ul>
           </div>
         </div>
