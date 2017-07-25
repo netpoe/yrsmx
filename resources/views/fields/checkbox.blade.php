@@ -15,8 +15,7 @@
           type="{{ $field->getType() }}"
           class="{{ $field->getClass() }}"
           value="{{ old($name) ? old($name) : $option['key'] }}"
-          {{ ($option['key'] == $field->getDividedStringValue((string) $option['key'])) ? 'checked' : '' }}
-          {{ ($field->isRequired() && $loop->index == 0) ? 'required' : '' }}>
+          {{ ($option['key'] == $field->getDividedStringValue((string) $option['key'])) ? 'checked' : '' }}>
         <label for="{{ $id }}[{{ $option['key'] }}]">{{ $option['value'] }}</label>
       </article>
     @endforeach

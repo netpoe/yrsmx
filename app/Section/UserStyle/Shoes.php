@@ -33,7 +33,8 @@ class Shoes extends AbstractUserStyleSection
     public function getValidationRules(): Array
     {
         return [
-            'shoes.*.*' => 'required|arrays',
+            'shoes' => 'required',
+            'shoes.*.*' => 'array',
         ];
     }
 }

@@ -33,7 +33,8 @@ class Colors extends AbstractUserStyleSection
     public function getValidationRules(): Array
     {
         return [
-            'colors' => 'required|array',
+            'colors' => 'required',
+            'colors.*.*' => 'array',
         ];
     }
 }

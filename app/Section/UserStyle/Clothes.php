@@ -33,7 +33,8 @@ class Clothes extends AbstractUserStyleSection
     public function getValidationRules(): Array
     {
         return [
-            'clothes.*.*' => 'required|numeric',
+            'clothes' => 'required',
+            'clothes.*.*' => 'numeric',
         ];
     }
 }

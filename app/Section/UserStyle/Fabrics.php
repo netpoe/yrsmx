@@ -33,7 +33,8 @@ class Fabrics extends AbstractUserStyleSection
     public function getValidationRules(): Array
     {
         return [
-            'fabrics' => 'required|array',
+            'fabrics' => 'required',
+            'fabrics.*.*' => 'array',
         ];
     }
 }

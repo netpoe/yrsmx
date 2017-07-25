@@ -33,7 +33,8 @@ class Accessories extends AbstractUserStyleSection
     public function getValidationRules(): Array
     {
         return [
-            'accessories.*.*' => 'required|arrays',
+            'accessories' => 'required',
+            'accessories.*.*' => 'array',
         ];
     }
 }

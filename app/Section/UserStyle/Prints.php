@@ -33,7 +33,8 @@ class Prints extends AbstractUserStyleSection
     public function getValidationRules(): Array
     {
         return [
-            'prints' => 'required|array',
+            'prints' => 'required',
+            'prints.*.*' => 'array',
         ];
     }
 }
