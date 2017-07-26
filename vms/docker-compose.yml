@@ -203,7 +203,6 @@ services:
       volumes:
         - ${DATA_SAVE_PATH}/mysql:/var/lib/mysql
         - ${MYSQL_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
-        - ./mysql/config:/etc/mysql/conf.d
       ports:
         - "${MYSQL_PORT}:3306"
       networks:
