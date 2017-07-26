@@ -53,6 +53,13 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
 });
 
 /**
+ * FRONT VERIFICATION
+ */
+Route::group(['namespace' => 'Front'], function(){
+    Route::get('/verificacion/{token}', 'VerificationController@verifyEmail')->name('front.verification.verifyEmail');
+});
+
+/**
  * AUTH
  */
 Auth::routes();

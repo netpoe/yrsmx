@@ -12,6 +12,8 @@ use Auth;
 use App\Model\UserAdapter as User;
 use App\Factory\QuizFactory;
 use App\Util\DateTimeUtil;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OnRegisterVerification;
 
 class QuizController extends Controller
 {
@@ -45,6 +47,11 @@ class QuizController extends Controller
             if (!Auth::check()) {
                 return abort(404);
             }
+
+        }
+
+        if (!$user->is_verified) {
+            Mail::to($user)->send(new OnRegisterVerification($user));
         }
 
         $quiz = Quiz::create([

@@ -22,7 +22,6 @@ class UserAdapter extends User
     public function confirmEmail()
     {
         $this->is_verified = true;
-        $this->password = Hash::make(str_random(12));
         $this->token = null;
         $this->save();
 
