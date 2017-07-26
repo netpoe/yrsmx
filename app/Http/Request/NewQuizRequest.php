@@ -25,7 +25,7 @@ class NewQuizRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'outfit_type' => 'required|array',
+            'outfit_type.*' => 'required|array',
         ];
 
         if (!Auth::check()) {

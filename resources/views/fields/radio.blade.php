@@ -11,11 +11,11 @@
       <article class="grid-list-item custom-radio-checkbox">
         <input
           id="{{ $id }}[{{ $option['key'] }}]"
-          name="{{ $name }}[]"
+          name="{{ $name }}"
           type="{{ $field->getType() }}"
           class="{{ $field->getClass() }}"
-          value="{{ old($name) ? old($name) : $option['key'] }}"
-          {{ ($option['key'] === $field->getValue()) ? 'checked' : '' }}
+          value="{{ $option['key'] }}"
+          {{ ($option['key'] === $field->getValue() || (old($name) && old($name) == $option['key'])) ? 'checked' : '' }}
           {{ ($field->isRequired() && $loop->index == 0) ? 'required' : '' }}>
         <label for="{{ $id }}[{{ $option['key'] }}]">{{ $option['value'] }}</label>
       </article>
