@@ -190,4 +190,4 @@ gulp.task('js', jsTaskList);
 gulp.task('watch', watchTaskList);
 
 // Build both CSS and JS tasks in Jenkins build
-gulp.task('default', ['styles', 'js', 'fileinclude']);
+gulp.task('default', ['styles', 'js']);
