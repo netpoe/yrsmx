@@ -9,23 +9,23 @@ use App\Model\UserFit\PantsFitHips;
 
 class UserFitAdapter extends UserFit
 {
-    public function upperPartFit($value)
+    public function upperPartFit()
     {
-        return UpperPartFit::getOptionsValue($value);
+        return UpperPartFit::getOptionsValue($this->upper_part_fit);
     }
 
-    public function lowerPartFit($value)
+    public function lowerPartFit()
     {
-        return LowerPartFit::getOptionsValue($value);
+        return LowerPartFit::getOptionsValue($this->lower_part_fit);
     }
 
-    public function pantsFitShape($value)
+    public function pantsFitShape()
     {
-        return PantsFitShape::getOptionsValue($value);
+        return PantsFitShape::getOptionsValue($this->pants_fit_shape);
     }
 
-    public function pantsFitHips($value)
+    public function pantsFitHips()
     {
-        return PantsFitHips::getOptionsValue($value);
+        return PantsFitHips::getOptionsValue($this->pants_fit_hips);
     }
 }

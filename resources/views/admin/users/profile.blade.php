@@ -40,6 +40,12 @@
               <li><strong>Fecha de finalización:</strong><span>{{ $lastCompletedQuiz->completedAt() }}</span></li>
               <li><strong>Tiempo total de finalización:</strong><span>{{ $lastCompletedQuiz->totalCompletionTime() }}</span></li>
             </ul>
+            <hr>
+            @if ($lastCompletedQuiz->outfit_type == \App\Model\OutfitType::WORK)
+              <ul class="user-details-list">
+                <li><strong>Dress Code:</strong><span>{{ $lastCompletedQuiz->work->dressCode() }}</span></li>
+              </ul>
+            @endif
           </div>
         </div>
         <div class="row">
@@ -136,19 +142,19 @@
             <ul class="user-details-list">
               <li>
                 <strong>Parte superior:</strong>
-                <span>{{ $lastCompletedQuiz ? $userFit->upperPartFit($userFit->upper_part_fit) : null }}</span>
+                <span>{{ $lastCompletedQuiz ? $userFit->upperPartFit() : null }}</span>
               </li>
               <li>
                 <strong>Parte inferior:</strong>
-                <span>{{ $lastCompletedQuiz ? $userFit->lowerPartFit($userFit->lower_part_fit) : null }}</span>
+                <span>{{ $lastCompletedQuiz ? $userFit->lowerPartFit() : null }}</span>
               </li>
               <li>
                 <strong>Pantalones cadera:</strong>
-                <span>{{ $lastCompletedQuiz ? $userFit->pantsFitHips($userFit->pants_fit_hips) : null }}</span>
+                <span>{{ $lastCompletedQuiz ? $userFit->pantsFitHips() : null }}</span>
               </li>
               <li>
                 <strong>Pantalones forma:</strong>
-                <span>{{ $lastCompletedQuiz ? $userFit->pantsFitShape($userFit->pants_fit_shape) : null }}</span>
+                <span>{{ $lastCompletedQuiz ? $userFit->pantsFitShape() : null }}</span>
               </li>
             </ul>
           </div>
@@ -159,39 +165,39 @@
             <ul class="user-details-list">
               <li>
                 <strong>Colores:</strong>
-                <span>{{ $lastCompletedQuiz ? $userStyle->colors($userStyle->colors) : '' }}</span>
+                <span>{{ $lastCompletedQuiz ? $userStyle->colors() : '' }}</span>
               </li>
               <li>
                 <strong>Estampados:</strong>
-                <span>{{ $lastCompletedQuiz ? $userStyle->prints($userStyle->prints) : '' }}</span>
+                <span>{{ $lastCompletedQuiz ? $userStyle->prints() : '' }}</span>
               </li>
               <li>
                 <strong>Telas:</strong>
-                <span>{{ $lastCompletedQuiz ? $userStyle->fabrics($userStyle->fabrics) : '' }}</span>
+                <span>{{ $lastCompletedQuiz ? $userStyle->fabrics() : '' }}</span>
               </li>
               <li>
                 <strong>Palabras:</strong>
-                <span>{{ $lastCompletedQuiz ? $userStyle->words($userStyle->words) : '' }}</span>
+                <span>{{ $lastCompletedQuiz ? $userStyle->words() : '' }}</span>
               </li>
               <li>
                 <strong>Prendas:</strong>
-                <span>{{ $lastCompletedQuiz ? $userStyle->clothes($userStyle->clothes) : '' }}</span>
+                <span>{{ $lastCompletedQuiz ? $userStyle->clothes() : '' }}</span>
               </li>
               <li>
                 <strong>Accesorios:</strong>
-                <span>{{ $lastCompletedQuiz ? $userStyle->accessories($userStyle->accessories) : '' }}</span>
+                <span>{{ $lastCompletedQuiz ? $userStyle->accessories() : '' }}</span>
               </li>
               <li>
                 <strong>Zapatos:</strong>
-                <span>{{ $lastCompletedQuiz ? $userStyle->shoes($userStyle->shoes) : '' }}</span>
+                <span>{{ $lastCompletedQuiz ? $userStyle->shoes() : '' }}</span>
               </li>
               <li>
                 <strong>Joyas:</strong>
-                <span>{{ $lastCompletedQuiz ? $userStyle->jewelry($userStyle->jewelry) : '' }}</span>
+                <span>{{ $lastCompletedQuiz ? $userStyle->jewelry() : '' }}</span>
               </li>
               <li>
                 <strong>Riesgo:</strong>
-                <span>{{ $lastCompletedQuiz ? $userStyle->risk($userStyle->risk) : '' }}</span>
+                <span>{{ $lastCompletedQuiz ? $userStyle->risk() : '' }}</span>
               </li>
             </ul>
           </div>

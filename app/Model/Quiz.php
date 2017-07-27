@@ -45,4 +45,9 @@ class Quiz extends Model
     {
         return $this->hasOne(\App\Model\QuizWorkAdapter::class, 'quiz_id');
     }
+
+    public function getAway()
+    {
+        return $this->hasOne(\App\Model\QuizGetAwayAdapter::class, 'quiz_id');
+    }
 }

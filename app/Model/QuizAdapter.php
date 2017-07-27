@@ -8,6 +8,7 @@ use App\Model\UserFitAdapter as UserFit;
 use App\Model\UserStyleAdapter as UserStyle;
 use App\Model\OutfitType;
 use App\Model\QuizWorkAdapter as QuizWork;
+use App\Model\QuizGetAwayAdapter as QuizGetAway;
 use Illuminate\Support\Facades\DB;
 
 class QuizAdapter extends Quiz
@@ -60,6 +61,12 @@ class QuizAdapter extends Quiz
     {
         if ($this->outfit_type == OutfitType::WORK) {
             QuizWork::create([
+                'quiz_id' => $this->id
+                ]);
+        }
+
+        if ($this->outfit_type == OutfitType::GET_AWAY) {
+            QuizGetAway::create([
                 'quiz_id' => $this->id
                 ]);
         }

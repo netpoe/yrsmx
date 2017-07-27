@@ -4,14 +4,14 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class QuizWork extends Model
+class QuizGetAway extends Model
 {
-    protected $table = 'quiz_work';
+    protected $table = 'quiz_get_away';
 
     public $timestamps = false;
 
     protected $fillable = [
-        'quiz_id'
+        'quiz_id',
     ];
 
     public function quiz()
