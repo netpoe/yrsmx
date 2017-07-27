@@ -14,7 +14,9 @@ class UsersController extends Controller
         $users = User::all();
 
         if ($request->status == 'quiz-completed') {
-            $users = (new User)->completed();
+            $users = $users->filter(function($user){
+                return $user->getLatestQuiz()->status() === Quiz::COMPLETE;
+            });
         }
 
         return view('admin/users/index', ['users' => $users]);
