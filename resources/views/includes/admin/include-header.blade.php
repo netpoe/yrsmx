@@ -4,7 +4,7 @@
       <div class="col-sm-4 header-left">
         <div>
           <a href="#" class="logo-wrapper">
-            @include('includes/admin/logo-konfio')
+            YRSMX
           </a>
           <div class="search-bar-wrapper">
             <button class="btn btn-secondary" id="btn-search-trigger">Buscar: ctrl + s</button>
