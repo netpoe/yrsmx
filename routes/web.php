@@ -14,7 +14,7 @@
 /**
  * ADMIN AUTH
  */
-Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function(){
+Route::group(['namespace' => 'Admin'], function(){
     Route::get('/admin/ingresa', 'AuthController@ingresa')->name('admin.auth.ingresa');
     Route::post('/admin/login', 'AuthController@login')->name('admin.auth.login');
 });
