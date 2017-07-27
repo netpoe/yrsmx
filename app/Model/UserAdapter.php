@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use App\Model\UserAddressAdapter as UserAddress;
 use App\Model\UserInfoAdapter as UserInfo;
+use App\Model\LuUserRole;
 
 class UserAdapter extends User
 {
@@ -76,5 +77,15 @@ class UserAdapter extends User
             ->whereNotNull('completed_at')
             ->orderBy('completed_at', 'desc')
             ->first();
+    }
+
+    /**
+     * [isAdmin The user is a super-admin or admin]
+     * @return boolean [description]
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role->role === LuUserRole::SUPER_ADMIN ||
+                $this->role->role === LuUserRole::ADMIN;
     }
 }

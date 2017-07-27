@@ -22,7 +22,7 @@ Route::group(['namespace' => 'Admin'], function(){
 /**
  * ADMIN PRODUCTS CATALOG
  */
-Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function(){
+Route::group(['middleware' => ['auth', 'auth.admin'], 'namespace' => 'Admin'], function(){
     Route::post('/admin/productos/subir', 'ProductsController@upload')->name('admin.products.upload');
     Route::post('/admin/productos/create', 'ProductsController@create')->name('admin.products.create');
     Route::post('/admin/productos/get-unassigned-files', 'ProductsController@getUnassignedFiles')->name('admin.products.get-unassigned-files');
@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function(){
 /**
  * ADMIN USERS
  */
-Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function(){
+Route::group(['middleware' => ['auth', 'auth.admin'], 'namespace' => 'Admin'], function(){
     Route::get('/admin/usuarios', 'UsersController@index')->name('admin.users.index');
     Route::get('/admin/usuarios/perfil/{user}', 'UsersController@profile')->name('admin.users.profile');
 });

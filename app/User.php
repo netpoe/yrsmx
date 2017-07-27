@@ -56,6 +56,11 @@ class User extends Authenticatable
         return $this->hasOne(\App\Model\UserInfoAdapter::class, 'user_id');
     }
 
+    public function role()
+    {
+        return $this->hasOne(\App\Model\LuUserRole::class, 'id', 'role_id');
+    }
+
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = StringUtil::capitalize($value);
