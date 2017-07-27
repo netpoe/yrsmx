@@ -4,6 +4,8 @@ namespace App\Quiz;
 
 class UICasualWearQuiz extends AbstractUIQuiz
 {
+    protected $quizName = 'casual-wear';
+
     public $sections = [
         // TALLA
         \App\Section\UserSizes\UserWeightHeight::class,

@@ -69,7 +69,7 @@ class QuizController extends Controller
 
         return redirect()
             ->route('front.quiz.section', [
-                'quiz' => $quiz->id,
+                'quizName' => $uiQuiz->getQuizName(),
                 'slug' => $uiQuiz->getFirstSectionSlug(),
                 ]);
     }
@@ -79,12 +79,13 @@ class QuizController extends Controller
      * If the URL has no section slug, then check if the Quiz is complete and send to the complete action
      * else keep rendering the missing sections
      */
-    public function section(Request $request, Quiz $quiz)
+    public function section(Request $request)
     {
         $section = $request->getSection();
 
+        $uiQuiz = $request->getUIQuiz();
+
         if (!$section) {
-            $uiQuiz = $request->getUIQuiz();
 
             if ($uiQuiz->isComplete()) {
                 $uiQuiz->onComplete();
@@ -94,7 +95,7 @@ class QuizController extends Controller
 
             return redirect()
                 ->route('front.quiz.section', [
-                    'quiz' => $quiz,
+                    'quizName' => $uiQuiz->getQuizName(),
                     'slug' => $uiQuiz->getPendingSection()->getSlug()
                     ]);
         }
@@ -105,7 +106,6 @@ class QuizController extends Controller
 
         return view('front/quiz/section', [
             'section' => $section,
-            'quiz' => $quiz,
             ]);
     }
 
@@ -117,7 +117,6 @@ class QuizController extends Controller
     public function store(
         Request $request,
         SectionRequestDispatcher $dispatcher,
-        Quiz $quiz,
         String $slug)
     {
         $section = $request->getSection();
@@ -132,11 +131,13 @@ class QuizController extends Controller
 
         $section->onComplete();
 
-        $nextSectionSlug = $request->getUIQuiz()->getNextSectionSlug($slug);
+        $uiQuiz = $request->getUIQuiz();
+
+        $nextSectionSlug = $uiQuiz->getNextSectionSlug($slug);
 
         return redirect()
             ->route('front.quiz.section', [
-                'quiz' => $quiz->id,
+                'quizName' => $uiQuiz->getQuizName(),
                 'slug' => $nextSectionSlug
             ]);
     }

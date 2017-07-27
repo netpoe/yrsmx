@@ -8,6 +8,12 @@ use App\Util\DateTimeUtil;
 
 abstract class AbstractUIQuiz extends AbstractUIApplication
 {
+    /**
+     * [$quizName The name to be used in the cuestionario route path]
+     * @var string
+     */
+    protected $quizName = '';
+
     public function __construct(User $user)
     {
         $this->registerInstance('user', $user);
@@ -28,5 +34,10 @@ abstract class AbstractUIQuiz extends AbstractUIApplication
         $quiz->save();
 
         return $this;
+    }
+
+    public function getQuizName()
+    {
+        return $this->quizName;
     }
 }

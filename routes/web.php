@@ -47,8 +47,8 @@ Route::group(['namespace' => 'Front'], function(){
 });
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
-    Route::post('/cuestionario/{quiz}/guardar/{slug}', 'QuizController@store')->name('front.quiz.store');
-    Route::get('/cuestionario/{quiz}/seccion/{slug?}', 'QuizController@section')->name('front.quiz.section');
+    Route::post('/cuestionario/guardar/{slug}', 'QuizController@store')->name('front.quiz.store');
+    Route::get('/cuestionario/{quizName}/seccion/{slug?}', 'QuizController@section')->name('front.quiz.section');
     Route::get('/cuestionario/completo', 'QuizController@complete')->name('front.quiz.complete');
 });
 

@@ -34,7 +34,8 @@ class Risk extends AbstractUserStyleSection
     public function getValidationRules(): Array
     {
         return [
-            'risk' => 'required|array',
+            'risk' => 'required',
+            'risk.*' => 'required|array',
         ];
     }
 }

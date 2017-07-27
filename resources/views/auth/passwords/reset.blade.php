@@ -1,5 +1,9 @@
 @extends('layouts.admin-auth')
 
+@section('head-link')
+<link href="/css/admin/auth/login.css" rel="stylesheet">
+@endsection
+
 @section('content')
   <div class="container-sm">
     <h1>Actualiza tu contraseña</h1>

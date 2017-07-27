@@ -1,4 +1,4 @@
-n<form action="{{ $section->getOnPostActionString() }}" method="POST">
+<form action="{{ $section->getOnPostActionString() }}" method="POST">
   {{ csrf_field() }}
 
   <section class="section">
