@@ -63,7 +63,8 @@ class QuizController extends Controller
         $quiz->createUserSizes()
             ->createUserPreferredBodyParts()
             ->createUserFit()
-            ->createUserStyle();
+            ->createUserStyle()
+            ->assignUIQuiz();
 
         $uiQuiz = QuizFactory::get($user);
 

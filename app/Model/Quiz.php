@@ -41,10 +41,8 @@ class Quiz extends Model
         return $this->hasOne(\App\Model\UserStyleAdapter::class, 'quiz_id');
     }
 
-    public function getStartedAtAttribute($value)
+    public function work()
     {
-        $m = new \Moment\Moment($value);
-
-        return $m->calendar();
+        return $this->hasOne(\App\Model\QuizWorkAdapter::class, 'quiz_id');
     }
 }

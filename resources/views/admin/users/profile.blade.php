@@ -22,10 +22,24 @@
             @foreach ($user->quizzes as $quiz)
               <ul class="user-details-list">
                 <li><strong>ID:</strong><span>{{ $quiz->id }}</span></li>
+                <li><strong>Tipo:</strong><span>{{ $quiz->outfitType() }}</span></li>
                 <li><strong>Status:</strong><span>{{ $quiz->status() }}</span></li>
-                <li><strong>Fecha de comienzo:</strong><span>{{ $quiz->started_at }}</span></li>
+                <li><strong>Fecha de comienzo:</strong><span>{{ $quiz->startedAt() }}</span></li>
               </ul>
             @endforeach
+          </div>
+        </div>
+        <div class="card">
+          <small class="card-block-title">Viendo resultados del último cuestionario</small>
+          <div class="card-block">
+            <ul class="user-details-list">
+              <li><strong>ID:</strong><span>{{ $lastCompletedQuiz->id }}</span></li>
+              <li><strong>Tipo:</strong><span>{{ $lastCompletedQuiz->outfitType() }}</span></li>
+              <li><strong>Status:</strong><span>{{ $lastCompletedQuiz->status() }}</span></li>
+              <li><strong>Fecha de comienzo:</strong><span>{{ $lastCompletedQuiz->startedAt() }}</span></li>
+              <li><strong>Fecha de finalización:</strong><span>{{ $lastCompletedQuiz->completedAt() }}</span></li>
+              <li><strong>Tiempo total de finalización:</strong><span>{{ $lastCompletedQuiz->totalCompletionTime() }}</span></li>
+            </ul>
           </div>
         </div>
         <div class="row">
