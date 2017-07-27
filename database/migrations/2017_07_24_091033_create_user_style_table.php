@@ -25,7 +25,6 @@ class CreateUserStyleTable extends Migration
             $table->string('shoes')->nullable()->default(null);
             $table->string('jewelry')->nullable()->default(null);
             $table->string('risk')->nullable()->default(null);
-            $table->timestamps();
         });
 
         Schema::table('user_style', function(Blueprint $table){

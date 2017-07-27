@@ -46,6 +46,11 @@
                 <li><strong>Dress Code:</strong><span>{{ $lastCompletedQuiz->work->dressCode() }}</span></li>
               </ul>
             @endif
+            @if ($lastCompletedQuiz->outfit_type == \App\Model\OutfitType::GET_AWAY)
+              <ul class="user-details-list">
+                <li><strong>Destino:</strong><span>{{ $lastCompletedQuiz->getAway->destination() }}</span></li>
+              </ul>
+            @endif
           </div>
         </div>
         <div class="row">

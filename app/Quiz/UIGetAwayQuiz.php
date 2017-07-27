@@ -31,11 +31,6 @@ class UIGetAwayQuiz extends AbstractUIQuiz
         \App\Section\UserFit\PantsFit::class,
         \App\Section\UserFit\Complete::class,
 
-        // User info
-        \App\Section\UserInfo\BasicInfo::class,
-        \App\Section\UserInfo\ExtraInfo::class,
-        \App\Section\UserInfo\Complete::class,
-
         // User style
         \App\Section\UserStyle\Colors::class,
         \App\Section\UserStyle\Prints::class,
@@ -47,5 +42,10 @@ class UIGetAwayQuiz extends AbstractUIQuiz
         \App\Section\UserStyle\Jewelry::class,
         \App\Section\UserStyle\Risk::class,
         \App\Section\UserStyle\Complete::class,
+
+        // User info
+        \App\Section\UserInfo\BasicInfo::class,
+        \App\Section\UserInfo\ExtraInfo::class,
+        \App\Section\UserInfo\Complete::class,
     ];
 }
