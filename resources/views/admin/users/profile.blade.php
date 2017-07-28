@@ -49,6 +49,10 @@
             @if ($lastCompletedQuiz->outfit_type == \App\Model\OutfitType::GET_AWAY)
               <ul class="user-details-list">
                 <li><strong>Destino:</strong><span>{{ $lastCompletedQuiz->getAway->destination() }}</span></li>
+                <li><strong>Destino:</strong><span>{{ $lastCompletedQuiz->getAway->tripType() }}</span></li>
+                @if ($lastCompletedQuiz->getAway->destination == \App\Model\QuizGetAway\Destination::CITY)
+                  <li><strong>Clima:</strong><span>{{ $lastCompletedQuiz->getAway->weather() }}</span></li>
+                @endif
               </ul>
             @endif
           </div>

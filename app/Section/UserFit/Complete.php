@@ -16,7 +16,7 @@ class Complete extends AbstractUserFitSection
         return $this;
     }
 
-    public function onComplete()
+    public function onEnter()
     {
         $quiz = $this->getUIApplication()->getInstance('quiz');
 
