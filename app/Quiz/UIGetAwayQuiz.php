@@ -9,6 +9,7 @@ class UIGetAwayQuiz extends AbstractUIQuiz
     public $sections = [
         // CUSTOM
         \App\Section\QuizGetAway\Destination::class,
+        \App\Section\QuizGetAway\TripType::class,
 
         // TALLA
         \App\Section\UserSizes\UserWeightHeight::class,

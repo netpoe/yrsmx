@@ -1,3 +1,7 @@
+<?php
+  $displayWeatherField = $section->getViewParams()['displayWeatherField'];
+?>
+
 <form action="{{ $section->getOnPostActionString() }}" method="POST">
   {{ csrf_field() }}
 
@@ -5,13 +9,17 @@
     <header class="section-header">
       <div class="container-md">
         <h1>Trabajo</h1>
-        <h2>¿A dónde te vas de viaje?</h2>
+        <h2>¿Qué tipo de viaje será?</h2>
       </div>
     </header>
     <div class="section-content">
       <div class="container-md">
 
-        @include('fields/radio', ['field' => $section->getField('destination')])
+        @include('fields/radio', ['field' => $section->getField('trip_type')])
+
+        @if ($displayWeatherField)
+          @include('fields/radio', ['field' => $section->getField('weather')])
+        @endif
 
         @include('includes/section-error-alert')
 
