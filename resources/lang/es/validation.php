@@ -117,6 +117,7 @@ return [
 
     'attributes' => [
         'username' => 'usuario',
-        'password' => 'contraseña'
+        'password' => 'contraseña',
+        'password_confirmation' => 'contraseña',
     ],
 ];

@@ -60,24 +60,4 @@ class User extends Authenticatable
     {
         return $this->hasOne(\App\Model\LuUserRole::class, 'id', 'role_id');
     }
-
-    public function setNameAttribute($value)
-    {
-        $this->attributes['name'] = StringUtil::capitalize($value);
-    }
-
-    public function setPaternalLastNameAttribute($value)
-    {
-        $this->attributes['paternal_last_name'] = StringUtil::capitalize($value);
-    }
-
-    public function setMaternalLastNameAttribute($value)
-    {
-        $this->attributes['maternal_last_name'] = StringUtil::capitalize($value);
-    }
-
-    public function setMobileNumberAttribute($value)
-    {
-        $this->attributes['mobile_number'] = StringUtil::cleanPhone($value);
-    }
 }

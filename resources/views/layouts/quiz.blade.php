@@ -18,7 +18,11 @@
             </div>
             <div class="col-sm-4 header-center"></div>
             <div class="col-sm-4 header-right">
-              <a href="{{ route('logout') }}">Guardar y Salir</a>
+              @if (Auth::check())
+                <a href="{{ route('logout') }}">Guardar y Salir</a>
+              @else
+                <a href="{{ route('login') }}">Ingresa</a>
+              @endif
             </div>
           </div>
         </div>
