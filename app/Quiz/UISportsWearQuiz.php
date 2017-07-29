@@ -43,7 +43,6 @@ class UISportsWearQuiz extends AbstractUIQuiz
         // User info
         \App\Section\UserInfo\BasicInfo::class,
         \App\Section\UserInfo\ExtraInfo::class,
-        \App\Section\UserInfo\Password::class,
         \App\Section\UserInfo\Complete::class,
     ];
 }

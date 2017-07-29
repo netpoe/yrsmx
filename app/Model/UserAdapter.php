@@ -88,4 +88,9 @@ class UserAdapter extends User
         return $this->role->role === LuUserRole::SUPER_ADMIN ||
                 $this->role->role === LuUserRole::ADMIN;
     }
+
+    public function hasUpdatedPassword(): bool
+    {
+        return $this->updated_password_ts != null;
+    }
 }

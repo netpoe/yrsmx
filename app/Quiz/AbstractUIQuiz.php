@@ -23,6 +23,19 @@ abstract class AbstractUIQuiz extends AbstractUIApplication
         $this->registerInstance('quiz', $quiz);
 
         $this->addSections($this->sections);
+
+        $this->onConstruct();
+    }
+
+    public function onConstruct()
+    {
+        $user = $this->getInstance('user');
+
+        if (!$user->hasUpdatedPassword()) {
+            $this->addSectionAfter(\App\Section\UserInfo\ExtraInfo::class, \App\Section\UserInfo\Password::class);
+        }
+
+        return $this;
     }
 
     public function onComplete()
