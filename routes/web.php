@@ -12,14 +12,6 @@
 */
 
 /**
- * ADMIN AUTH
- */
-Route::group(['namespace' => 'Admin'], function(){
-    Route::get('/admin/ingresa', 'AuthController@ingresa')->name('admin.auth.ingresa');
-    Route::post('/admin/login', 'AuthController@login')->name('admin.auth.login');
-});
-
-/**
  * ADMIN PRODUCTS CATALOG
  */
 Route::group(['middleware' => ['auth', 'auth.admin'], 'namespace' => 'Admin'], function(){

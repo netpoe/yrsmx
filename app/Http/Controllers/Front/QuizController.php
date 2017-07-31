@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\NewQuizRequest;
 use App\Http\Requests\SectionRequestDispatcher;
-use App\Form\NewQuizForm;
+use App\Form\Front\NewQuizForm;
 use App\Model\QuizAdapter as Quiz;
 use Auth;
 use App\Model\UserAdapter as User;

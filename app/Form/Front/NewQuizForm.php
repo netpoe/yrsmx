@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form;
+namespace App\Form\Front;
 
 use EBM\Form\AbstractBaseForm;
 use EBM\Field\Field;
