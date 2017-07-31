@@ -8,9 +8,11 @@ class LuUserRole extends Model
 {
     protected $table = 'lu_user_roles';
 
-    const SUPER_ADMIN = 'super-admin';
-    const ADMIN = 'admin';
-    const CLIENT = 'client';
-    const DEALER = 'dealer';
-    const DISTRIBUTOR = 'distributor';
+    public $timestamps = false;
+
+    const SUPER_ADMIN = 1;
+    const ADMIN = 2;
+    const CLIENT = 3;
+    const DEALER = 4;
+    const DISTRIBUTOR = 5;
 }
