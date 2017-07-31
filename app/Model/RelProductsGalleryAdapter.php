@@ -37,6 +37,11 @@ class RelProductsGalleryAdapter extends RelProductsGallery
         return $this->where('product_id', null)->get();
     }
 
+    public function getFiles(Int $limit = null)
+    {
+        return $this->limit($limit)->get();
+    }
+
     public function assignProductToFiles(Array $fileIds = [], ProductsAdapter $product)
     {
         $this->whereIn('id', $fileIds)

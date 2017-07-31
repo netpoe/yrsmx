@@ -16,7 +16,7 @@
           </div>
           <div>
             <nav>
-              <button class="btn btn-secondary">Cancelar</button>
+              <button class="btn btn-secondary" @click="close">Cancelar</button>
               <button type="submit" class="btn btn-primary">Crear producto</button>
             </nav>
           </div>
@@ -40,89 +40,33 @@
 @endsection
 
 @section('content')
-<div class="container-fluid" id="admin-product-catalog">
-  <form
-  method="POST"
-  enctype="multipart/form-data"
-  action="{{ route('admin.products.upload') }}"
-  class="dropzone"
-  id="product-upload">
-    {{ csrf_field() }}
-  </form>
+  <div class="container-fluid" id="admin-products-catalog">
+    <form
+    method="POST"
+    enctype="multipart/form-data"
+    action="{{ route('admin.products.upload') }}"
+    class="dropzone"
+    id="product-upload">
+      {{ csrf_field() }}
+    </form>
 
-  <div class="products-wrapper">
-    <div class="products-filters">
-      <h5>Filtrar productos por</h5>
-    </div>
-    <div class="products-list">
-      <ul class="grid-list grid-list-2">
-        <li class="product-item">
-          <div>
-            <div class="img-wrapper"><img src="/img/products/product-1.jpg" alt=""></div>
-            <div class="features">
-              <a href="#" class="title">Nombre del producto</a>
-              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
+    <div class="products-wrapper">
+      <div class="products-filters">
+        <h5>Filtrar productos por</h5>
+      </div>
+      <div class="products-list">
+        <ul class="grid-list grid-list-6 grid-list-4-sm grid-list-2-xs">
+          <li class="product-item" v-for="$product in products">
+            <div>
+              <div class="img-wrapper">
+                <img :src="$product.file_src" :alt="$product.filename">
+              </div>
             </div>
-          </div>
-        </li>
-        <li class="product-item">
-          <div>
-            <div class="img-wrapper"><img src="/img/products/product-1.jpg" alt=""></div>
-            <div class="features">
-              <a href="#" class="title">Nombre del producto</a>
-              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
-            </div>
-          </div>
-        </li>
-        <li class="product-item">
-          <div>
-            <div class="img-wrapper"><img src="/img/products/product-1.jpg" alt=""></div>
-            <div class="features">
-              <a href="#" class="title">Nombre del producto</a>
-              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
-            </div>
-          </div>
-        </li>
-        <li class="product-item">
-          <div>
-            <div class="img-wrapper"><img src="/img/products/product-1.jpg" alt=""></div>
-            <div class="features">
-              <a href="#" class="title">Nombre del producto</a>
-              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
-            </div>
-          </div>
-        </li>
-        <li class="product-item">
-          <div>
-            <div class="img-wrapper"><img src="/img/products/product-1.jpg" alt=""></div>
-            <div class="features">
-              <a href="#" class="title">Nombre del producto</a>
-              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
-            </div>
-          </div>
-        </li>
-        <li class="product-item">
-          <div>
-            <div class="img-wrapper"><img src="/img/products/product-1.jpg" alt=""></div>
-            <div class="features">
-              <a href="#" class="title">Nombre del producto</a>
-              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
-            </div>
-          </div>
-        </li>
-        <li class="product-item">
-          <div>
-            <div class="img-wrapper"><img src="/img/products/product-1.jpg" alt=""></div>
-            <div class="features">
-              <a href="#" class="title">Nombre del producto</a>
-              <small class="assigned-to">Asignado a: <a href="#">#user_id</a></small>
-            </div>
-          </div>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
 @endsection
 
 @section('footer-scripts')
@@ -131,25 +75,56 @@
 <script src="/js/vuejs/vue.{{ env('APP_ENV') == 'local' ? 'dev' : 'prod' }}.js"></script>
 <script src="/js/classes/AdminProductsCatalog.js"></script>
 <script>
-  new Vue({
+  var AdminProductsCatalog = new AdminProductsCatalog;
+
+  var $uploadProductsModal = new Vue({
     el: '#upload-products-modal',
     data: {
-      AdminProductsCatalog: new AdminProductsCatalog,
       unassignedImages: [],
     },
-    created: function(){
-      this.getUnassignedFiles();
-    },
+    created: function(){},
     methods: {
       getUnassignedFiles: function(){
         var $vm = this;
 
-        $vm.AdminProductsCatalog
+        AdminProductsCatalog
           .getUnassignedFiles("{{ route('admin.products.get-unassigned-files') }}", function(response){
             $vm.unassignedImages = response.data;
             $vm.$el.style.display = 'block';
           });
+      },
+      close: function(event){
+        var $vm = this;
+
+        event.preventDefault();
+
+        $vm.$el.style.display = 'none';
       }
+    }
+  });
+</script>
+<script>
+  var $adminProductsCatalog = new Vue({
+    el: '#admin-products-catalog',
+    data: {
+      products: [],
+    },
+    created: function(){
+      this.getFiles({
+        limit: 35
+      });
+    },
+    methods: {
+      getFiles: function(data){
+        var $vm = this;
+
+        AdminProductsCatalog
+          .getFiles("{{ route('admin.products.get-files') }}", data, function(response){
+            response.data.forEach(function(product){
+              $vm.products.push(product);
+            });
+          });
+      },
     }
   });
 </script>
@@ -175,6 +150,9 @@
 
     successmultiple: function(files, response){
       console.log(files, response);
+      console.log($uploadProductsModal);
+
+      $uploadProductsModal.getUnassignedFiles();
     },
   }
 </script>

@@ -46,6 +46,13 @@ class ProductsController extends Controller
         return $pg->getUnassignedFiles();
     }
 
+    public function getFiles(Request $request, ProductsGallery $pg)
+    {
+        $limit = 15;
+
+        return $pg->getFiles($limit);
+    }
+
     /**
      * Actualizar producto: se asignan categorías y atributos al producto creado
      * GET admin/productos/{productId}

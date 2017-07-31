@@ -60,7 +60,7 @@ $products-filter-width: 280px;
   }
 }
 
-$product-item-height: 81px;
+$product-item-height: 160px;
 .products-list {
   .product-item {
     @include normalize-text;
@@ -76,7 +76,7 @@ $product-item-height: 81px;
       height: $product-item-height;
       position: relative;
       overflow: hidden;
-      width: 15%;
+      width: 100%;
       img {
         border-radius: $border-radius;
         height: auto;
