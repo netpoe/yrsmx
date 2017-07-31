@@ -40,22 +40,22 @@
 @endsection
 
 @section('content')
-  <div class="container-fluid" id="admin-products-catalog">
-    <form
-    method="POST"
-    enctype="multipart/form-data"
-    action="{{ route('admin.products.upload') }}"
-    class="dropzone"
-    id="product-upload">
-      {{ csrf_field() }}
-    </form>
-
+  <div id="admin-products-catalog">
     <div class="products-wrapper">
       <div class="products-filters">
         <h5>Filtrar productos por</h5>
       </div>
-      <div class="products-list">
-        <ul class="grid-list grid-list-6 grid-list-4-sm grid-list-2-xs">
+      <div class="products-list-wrapper">
+        <form
+          method="POST"
+          enctype="multipart/form-data"
+          action="{{ route('admin.products.upload') }}"
+          class="dropzone"
+          id="product-upload">
+          {{ csrf_field() }}
+        </form>
+
+        <ul class="grid-list grid-list-6 grid-list-4-sm grid-list-2-xs products-list">
           <li class="product-item" v-for="$product in products">
             <div>
               <div class="img-wrapper">

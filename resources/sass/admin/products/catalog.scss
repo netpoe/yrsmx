@@ -45,8 +45,12 @@
 @import "./resources/sass/common/dropzone";
 
 $products-filter-width: 280px;
+
+.site-content {
+  padding: 0;
+}
+
 .products-wrapper {
-  margin: $container-fluid 0;
   position: relative;
   min-height: 100vh;
   .products-filters {
@@ -55,9 +59,14 @@ $products-filter-width: 280px;
     background-color: white;
     width: $products-filter-width;
   }
-  .products-list {
-    padding-left: $products-filter-width + 14px;
+  .products-list-wrapper {
+    margin-left: $products-filter-width;
+    padding: $container-fluid;
   }
+}
+
+#product-upload {
+  margin-bottom: get-spacer(3, y);
 }
 
 $product-item-height: 160px;
