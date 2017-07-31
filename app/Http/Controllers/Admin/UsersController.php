@@ -11,7 +11,9 @@ class UsersController extends Controller
 {
     public function index(Request $request)
     {
-        $users = User::all();
+        $users = User::all()->filter(function($user){
+            return !$user->isAdmin();
+        });
 
         if ($request->status == 'quiz-completed') {
             $users = $users->filter(function($user){
