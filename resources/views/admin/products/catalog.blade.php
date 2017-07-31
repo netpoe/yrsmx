@@ -46,6 +46,15 @@
         <h5>Filtrar productos por</h5>
       </div>
       <div class="products-list-wrapper">
+        <div class="card">
+          <small class="card-block-title">Acciones</small>
+          <div class="card-block">
+            <nav class="user-resources-nav">
+              <a href="#" class="btn btn-sm btn-primary">Crear producto</a>
+            </nav>
+          </div>
+        </div>
+
         <form
           method="POST"
           enctype="multipart/form-data"

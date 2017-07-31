@@ -15,7 +15,28 @@
 @section('content')
   <div class="container-fluid" id="admin-user-profile">
     <div class="row">
+      <div class="col-sm-5">
+        <div class="card">
+          <small class="card-block-title">Datos personales</small>
+          <div class="card-block">
+            <ul class="user-details-list">
+              <li><strong>Nombre:</strong><span>{{ $user->info->fullName() }}</span></li>
+              <li><strong>Email:</strong><span>{{ $user->email }}</span></li>
+              <li><strong>Edad:</strong><span>{{ $user->info->age() }}</span></li>
+              <li><strong>Celular:</strong><span>{{ $user->info->mobile_number }}</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <div class="col-sm-7">
+        <div class="card">
+          <small class="card-block-title">Acciones</small>
+          <div class="card-block">
+            <nav class="user-resources-nav">
+              <a href="#" class="btn btn-sm btn-primary">Asignar outfit</a>
+            </nav>
+          </div>
+        </div>
         <div class="card">
           <small class="card-block-title">Cuestionarios ({{ $user->quizzes->count() }})</small>
           <div class="card-block card-block-scroll">
@@ -224,27 +245,6 @@
         <div class="card">
           <small class="card-block-title">Redes sociales</small>
           <div class="card-block">
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-5">
-        <div class="card">
-          <small class="card-block-title">Acciones</small>
-          <div class="card-block">
-            <nav class="user-resources-nav">
-              <a href="#" class="btn btn-sm btn-primary">Asignar outfit</a>
-            </nav>
-          </div>
-        </div>
-        <div class="card">
-          <small class="card-block-title">Datos personales</small>
-          <div class="card-block">
-            <ul class="user-details-list">
-              <li><strong>Nombre:</strong><span>{{ $user->info->fullName() }}</span></li>
-              <li><strong>Email:</strong><span>{{ $user->email }}</span></li>
-              <li><strong>Edad:</strong><span>{{ $user->info->age() }}</span></li>
-              <li><strong>Celular:</strong><span>{{ $user->info->mobile_number }}</span></li>
-            </ul>
           </div>
         </div>
       </div>
