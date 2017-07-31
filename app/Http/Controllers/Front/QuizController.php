@@ -20,13 +20,33 @@ class QuizController extends Controller
     /**
      * The user selection determines a quiz type provided by the QuizFactory
      */
-    public function new()
+    public function new(Request $request)
     {
         $form = new NewQuizForm;
 
         $form->setFields();
 
-        return view('front/quiz/new', compact('form'));
+        $user = $this->getUser();
+
+        $userHasPendingQuiz = false;
+
+        $sectionRoute = null;
+
+        if ($user) {
+            $userHasPendingQuiz = $user->hasPendingQuiz();
+
+            if ($userHasPendingQuiz) {
+                $uiQuiz = $request->getUIQuiz();
+
+                $sectionRoute = route('front.quiz.section', [
+                    'quizName' => $uiQuiz->getQuizName(),
+                    'section' => null
+                    ]);
+            }
+
+        }
+
+        return view('front/quiz/new', compact('form', 'userHasPendingQuiz', 'sectionRoute'));
     }
 
     /**
@@ -36,7 +56,7 @@ class QuizController extends Controller
     public function create(NewQuizRequest $request)
     {
         if (Auth::check()) {
-            $user = User::find(Auth::id());
+            $user = $this->getUser();
         } else {
             $user = (new User)->new($request->input('email'));
 

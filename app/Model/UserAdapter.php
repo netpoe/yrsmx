@@ -79,6 +79,11 @@ class UserAdapter extends User
             ->first();
     }
 
+    public function hasPendingQuiz()
+    {
+        return $this->getLatestQuiz()->completed_at === null;
+    }
+
     /**
      * [isAdmin The user is a super-admin or admin]
      * @return boolean [description]

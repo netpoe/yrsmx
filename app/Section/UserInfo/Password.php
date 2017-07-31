@@ -5,6 +5,7 @@ namespace App\Section\UserInfo;
 use App\Section\AbstractUserInfoSection;
 use EBM\Field\Field;
 use App\Form\Strategy\PasswordResetStrategy;
+use App\Util\DateTimeUtil;
 
 class Password extends AbstractUserInfoSection
 {
@@ -30,6 +31,17 @@ class Password extends AbstractUserInfoSection
             ->setType('password')
             ->unset()
             ->required();
+
+        return $this;
+    }
+
+    public function onComplete()
+    {
+        $user = $this->getUIApplication()->getInstance('user');
+
+        $user->updated_password_ts = DateTimeUtil::DBNOW();
+
+        $user->save();
 
         return $this;
     }
