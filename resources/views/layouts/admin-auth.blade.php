@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @yield('head-link')
+
+    @stack('head-link')
   </head>
   <body>
     <div class="site-wrapper" id="site-wrapper">
@@ -16,6 +17,7 @@
 
       </main>
     </div>
-    @yield('footer-scripts')
+
+    @stack('footer-scripts')
   </body>
 </html>

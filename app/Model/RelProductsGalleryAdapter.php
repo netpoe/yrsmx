@@ -39,7 +39,7 @@ class RelProductsGalleryAdapter extends RelProductsGallery
 
     public function getFiles(Int $limit = null)
     {
-        return $this->limit($limit)->get();
+        return $this->whereNotNull('product_id')->limit($limit)->get();
     }
 
     public function assignProductToFiles(Array $fileIds = [], ProductsAdapter $product)

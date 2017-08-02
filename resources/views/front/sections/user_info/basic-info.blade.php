@@ -92,7 +92,7 @@
   </section>
 </form>
 
-@section('footer-scripts')
+@push('footer-scripts')
   <script>
     (function(global){
       $day = document.getElementById('day');
@@ -107,7 +107,7 @@
       }
     })(window)
   </script>
-@endsection
+@endpush
 
 
 

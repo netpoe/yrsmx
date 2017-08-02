@@ -1,16 +1,16 @@
 @extends('layouts.admin')
 
-@section('head-link')
+@push('head-link')
   <link href="/css/admin/users/profile.css" rel="stylesheet">
-@endsection
+@endpush
 
-<?php
+@php
   $lastCompletedQuiz = $user->getLastCompletedQuiz();
   $userSizes = $lastCompletedQuiz->userSizes;
   $userPreferredBodyParts = $lastCompletedQuiz->userPreferredBodyParts;
   $userFit = $lastCompletedQuiz->userFit;
   $userStyle = $lastCompletedQuiz->userStyle;
-?>
+@endphp
 
 @section('content')
   <div class="container-fluid" id="admin-user-profile">

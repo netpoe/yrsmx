@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
-@section('head-link')
+@push('head-link')
   <link href="/css/admin/users/index.css" rel="stylesheet">
-@endsection
+@endpush
 
 @section('content')
   <div class="container-fluid" id="admin-user-index">
