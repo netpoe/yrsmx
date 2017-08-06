@@ -13,6 +13,7 @@ class ProductsAdapter extends Products
         return $this->whereNotIn('products.id', $assignedProducts)
             ->join('rel_products_gallery', 'rel_products_gallery.product_id', 'products.id')
             ->where('stock', '>', 0)
+            ->groupBy('rel_products_gallery.product_id')
             ->get();
     }
 }

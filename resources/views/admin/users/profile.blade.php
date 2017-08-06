@@ -29,8 +29,8 @@
             <ul class="grid-list grid-list-6">
               <li class="product-item" v-for="$product in products">
                 <div>
-                  <input type="checkbox" :id="$product.id" name="products[]" :value="$product.id">
-                  <label :for="$product.id" class="img-wrapper">
+                  <input type="checkbox" :id="$product.product_id" name="products[]" :value="$product.product_id">
+                  <label :for="$product.product_id" class="img-wrapper">
                     <img :src="$product.file_src" :alt="$product.filename">
                   </label>
                 </div>
