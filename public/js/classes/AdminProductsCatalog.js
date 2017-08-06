@@ -28,6 +28,20 @@
         if (onError) onError(error);
       })
     },
+
+    getUnassignedProducts: function(url, data, onSuccess, onError){
+      axios({
+        method: 'POST',
+        baseURL: url,
+        data: data,
+      }).then(function(response){
+        console.log(response)
+        if (onSuccess) onSuccess(response);
+      }).catch(function(error){
+        console.log(error)
+        if (onError) onError(error);
+      })
+    },
   }
 
   global.AdminProductsCatalog = AdminProductsCatalog;

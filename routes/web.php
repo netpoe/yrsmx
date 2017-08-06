@@ -18,9 +18,17 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'namespace' => 'Admin'], f
     Route::post('/admin/productos/subir', 'ProductsController@upload')->name('admin.products.upload');
     Route::post('/admin/productos/create', 'ProductsController@create')->name('admin.products.create');
     Route::post('/admin/productos/get-unassigned-files', 'ProductsController@getUnassignedFiles')->name('admin.products.get-unassigned-files');
+    Route::post('/admin/productos/get-unassigned-products', 'ProductsController@getUnassignedProducts')->name('admin.products.get-unassigned-products');
     Route::post('/admin/productos/get-files', 'ProductsController@getFiles')->name('admin.products.get-files');
     Route::get('/admin/productos/catalogo', 'ProductsController@catalog')->name('admin.products.catalog');
-    Route::get('/admin/productos/{productId?}', 'ProductsController@show')->name('admin.products.show');
+    Route::get('/admin/productos/{product?}', 'ProductsController@show')->name('admin.products.show');
+});
+
+/**
+ * ADMIN OUTFITS
+ */
+Route::group(['middleware' => ['auth', 'auth.admin'], 'namespace' => 'Admin'], function(){
+    Route::post('/admin/outfits/create/{user}', 'OutfitsController@create')->name('admin.outfits.create');
 });
 
 /**

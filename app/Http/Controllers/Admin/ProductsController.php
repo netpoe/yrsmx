@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Service\ProductsService;
 use App\Model\RelProductsGalleryAdapter as ProductsGallery;
 use App\Model\ProductsAdapter as Product;
+use App\Model\RelProductsOutfitAdapter as ProductsOutfit;
 use Auth;
 
 class ProductsController extends Controller
@@ -59,9 +60,14 @@ class ProductsController extends Controller
      *
      * @return [type]
      */
-    public function show($productId)
+    public function show(Product $product)
     {
-        return view('admin/products/show');
+        return view('admin/products/show', ['product' => $product]);
+    }
+
+    public function getUnassignedProducts(Request $request, Product $product)
+    {
+        return $product->getUnassignedProducts();
     }
 
     /**

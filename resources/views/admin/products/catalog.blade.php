@@ -30,10 +30,10 @@
         </form>
 
         <ul class="grid-list grid-list-6 grid-list-4-sm grid-list-2-xs products-list" v-cloak>
-          <li class="product-item" v-for="$product in products">
+          <li class="product-item" v-for="$file in files">
             <div>
-              <a class="img-wrapper" :href="makeProductUrl($product.id)">
-                <img :src="$product.file_src" :alt="$product.filename">
+              <a class="img-wrapper" :href="makeProductUrl($file.product_id)">
+                <img :src="$file.file_src" :alt="$file.filename">
               </a>
             </div>
           </li>
@@ -54,7 +54,7 @@
     window.$adminProductsCatalog = new Vue({
       el: '#admin-products-catalog',
       data: {
-        products: [],
+        files: [],
       },
       created: function(){
         this.getFiles({
@@ -68,7 +68,7 @@
           AdminProductsCatalog
             .getFiles("{{ route('admin.products.get-files') }}", data, function(response){
               response.data.forEach(function(product){
-                $vm.products.push(product);
+                $vm.files.push(product);
               });
             });
         },

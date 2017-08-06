@@ -4,6 +4,46 @@
   <link href="/css/admin/users/profile.css" rel="stylesheet">
 @endpush
 
+@section('site-wrapper')
+  <section id="create-outfit-modal">
+    <div>
+      <form method="POST" action="{{ route('admin.outfits.create', ['user' => $user->id]) }}">
+        {{ csrf_field() }}
+        <header class="modal-header">
+          <div>
+            <h3>Asigna productos a un usuario</h3>
+            <p>Selecciona productos y después da clic en crear outfit.</p>
+          </div>
+          <div>
+            <nav>
+              <button class="btn btn-secondary" @click="close">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Crear outfit</button>
+            </nav>
+          </div>
+        </header>
+        <div class="modal-body products-wrapper">
+          <div class="products-filters">
+            <h5>Filtrar productos por</h5>
+          </div>
+          <div class="products-list">
+            <ul class="grid-list grid-list-6">
+              <li class="product-item" v-for="$product in products">
+                <div>
+                  <input type="checkbox" :id="$product.id" name="products[]" :value="$product.id">
+                  <label :for="$product.id" class="img-wrapper">
+                    <img :src="$product.file_src" :alt="$product.filename">
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <footer class="modal-footer"></footer>
+      </form>
+    </div>
+  </section>
+@endsection
+
 @php
   $lastCompletedQuiz = $user->getLastCompletedQuiz();
   $userSizes = $lastCompletedQuiz->userSizes;
@@ -27,13 +67,36 @@
             </ul>
           </div>
         </div>
+        @foreach ($user->outfits as $outfit)
+          <div class="card">
+            <div class="card-title-wrapper">
+              <small class="card-block-title">Outfit {{ $outfit->id }}</small>
+              <button class="btn btn-sm btn-secondary">Editar outfit</button>
+            </div>
+            <div class="card-block">
+              <ul class="grid-list grid-list-3 products-list">
+                @foreach ($outfit->products as $p)
+                  @foreach ($p->product as $product)
+                    @foreach ($product->files as $file)
+                      <li class="product-item">
+                        <div>
+                          <div class="img-wrapper"><img src="{{ $file->file_src }}" alt="{{ $file->filename }}"></div>
+                        </div>
+                      </li>
+                    @endforeach
+                  @endforeach
+                @endforeach
+              </ul>
+            </div>
+          </div>
+        @endforeach
       </div>
       <div class="col-sm-7">
         <div class="card">
           <small class="card-block-title">Acciones</small>
           <div class="card-block">
             <nav class="user-resources-nav">
-              <a href="#" class="btn btn-sm btn-primary">Asignar outfit</a>
+              <button onclick="return $createOutfitModal.open()" class="btn btn-sm btn-primary">Crear outfit</button>
             </nav>
           </div>
         </div>
@@ -251,3 +314,51 @@
     </div>
   </div>
 @endsection
+
+@push('footer-scripts')
+  <script src="/js/axiosjs/axios.min.js"></script>
+  <script src="/js/vuejs/vue.{{ env('APP_ENV') == 'local' ? 'dev' : 'prod' }}.js"></script>
+  <script src="/js/classes/AdminProductsCatalog.js"></script>
+  <script>
+    window.AdminProductsCatalog = new AdminProductsCatalog;
+
+    window.$createOutfitModal = new Vue({
+      el: '#create-outfit-modal',
+      data: {
+        products: [],
+      },
+      created: function(){},
+      methods: {
+        fetchProducts: function(){
+          var $vm = this;
+
+          var data = {};
+
+          AdminProductsCatalog
+            .getUnassignedProducts("{{ route('admin.products.get-unassigned-products') }}", data, function(response){
+              response.data.forEach(function(product){
+                $vm.products.push(product);
+              });
+            });
+        },
+        open: function(){
+          var $vm = this;
+
+          $vm.$el.style.display = 'block';
+
+          $vm.fetchProducts();
+        },
+        close: function(event){
+          var $vm = this;
+
+          event.preventDefault();
+
+          $vm.products = [];
+
+          $vm.$el.style.display = 'none';
+        },
+      }
+    });
+  </script>
+@endpush
+

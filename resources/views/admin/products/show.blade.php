@@ -9,26 +9,13 @@
     <div class="row">
       <div class="col-sm-6 products-list">
         <ul class="grid-list grid-list-3">
-          <li class="product-item">
-            <div>
-              <div class="img-wrapper"><img src="/img/products/product-1.jpg" alt=""></div>
-            </div>
-          </li>
-          <li class="product-item">
-            <div>
-              <div class="img-wrapper"><img src="/img/products/product-1.jpg" alt=""></div>
-            </div>
-          </li>
-          <li class="product-item">
-            <div>
-              <div class="img-wrapper"><img src="/img/products/product-1.jpg" alt=""></div>
-            </div>
-          </li>
-          <li class="product-item">
-            <div>
-              <div class="img-wrapper"><img src="/img/products/product-1.jpg" alt=""></div>
-            </div>
-          </li>
+          @foreach ($product->files as $file)
+            <li class="product-item">
+              <div>
+                <div class="img-wrapper"><img src="{{ $file->file_src }}" alt="{{ $file->filename }}"></div>
+              </div>
+            </li>
+          @endforeach
         </ul>
       </div>
       <div class="col-sm-6">
@@ -43,8 +30,8 @@
           </div>
         </div>
         <div class="card">
+          <small class="card-block-title">* Este producto todavía no está asignado a un usuario</small>
           <div class="card-block">
-            <h6>* Este producto todavía no está asignado a un usuario</h6>
             <ul class="product-details-list">
               <li><span>Nombre:</span> <input type="text" class="form-control form-control-sm"></li>
               <li><span>Stock:</span> <input type="number" class="form-control form-control-sm"></li>
@@ -86,3 +73,4 @@
     </div>
   </div>
 @endsection
+

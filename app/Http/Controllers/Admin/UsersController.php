@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\UserAdapter as User;
 use App\Model\QuizAdapter as Quiz;
+use App\Model\ProductsAdapter as Product;
+use App\Model\RelProductsOutfitAdapter as ProductsOutfit;
 
 class UsersController extends Controller
 {

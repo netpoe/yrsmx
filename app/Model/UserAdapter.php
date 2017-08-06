@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Model\UserAddressAdapter as UserAddress;
 use App\Model\UserInfoAdapter as UserInfo;
 use App\Model\LuUserRole;
+use App\Model\RelProductsOutfitAdapter as ProductsOutfit;
 
 class UserAdapter extends User
 {
