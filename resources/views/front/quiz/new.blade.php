@@ -1,8 +1,8 @@
 @extends('layouts.quiz')
 
-@section('head-link')
+@push('head-link')
 <link href="/css/front/quiz/new.css" rel="stylesheet">
-@endsection
+@endpush
 
 @section('content')
   <form action="{{ $form->getOnPostActionString() }}" method="POST" id="outfit-type-form">

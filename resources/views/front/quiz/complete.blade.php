@@ -1,8 +1,8 @@
 @extends('layouts.quiz')
 
-@section('head-link')
+@push('head-link')
   <link href="/css/front/quiz/section.css" rel="stylesheet">
-@endsection
+@endpush
 
 @section('content')
   <div class="container" id="front-quiz-new">
