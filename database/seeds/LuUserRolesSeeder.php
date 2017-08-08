@@ -7,6 +7,24 @@ class LuUserRolesSeeder extends Seeder
 {
     const TABLE = 'lu_user_roles';
 
+    const INSERT = [
+        [
+            'role' => LuUserRole::SUPER_ADMIN,
+        ],
+        [
+            'role' => LuUserRole::ADMIN,
+        ],
+        [
+            'role' => LuUserRole::CLIENT,
+        ],
+        [
+            'role' => LuUserRole::DEALER,
+        ],
+        [
+            'role' => LuUserRole::DISTRIBUTOR,
+        ],
+    ];
+
     /**
      * Run the database seeds.
      *
@@ -14,20 +32,8 @@ class LuUserRolesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table(self::TABLE)->insert([
-            'role' => LuUserRole::SUPER_ADMIN,
-        ]);
-        DB::table(self::TABLE)->insert([
-            'role' => LuUserRole::ADMIN,
-        ]);
-        DB::table(self::TABLE)->insert([
-            'role' => LuUserRole::CLIENT,
-        ]);
-        DB::table(self::TABLE)->insert([
-            'role' => LuUserRole::DEALER,
-        ]);
-        DB::table(self::TABLE)->insert([
-            'role' => LuUserRole::DISTRIBUTOR,
-        ]);
+        foreach (self::INSERT as $values) {
+            DB::table(self::TABLE)->insert($values);
+        }
     }
 }

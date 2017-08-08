@@ -16,7 +16,6 @@ class CreateLuProductCategories extends Migration
         Schema::create('lu_product_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('category')->unique();
-            $table->timestamps();
         });
     }
 
