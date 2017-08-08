@@ -14,20 +14,12 @@ class LuProductCategoriesSeeder extends Seeder
      */
     public function run()
     {
-        $insert = [
-            [
-                'category' => LuProductCategories::getOptionsValue(LuProductCategories::TYPE)
-            ],
-            [
-                'category' => LuProductCategories::getOptionsValue(LuProductCategories::BODY_PART)
-            ],
-            [
-                'category' => LuProductCategories::getOptionsValue(LuProductCategories::FIT)
-            ],
-        ];
+        foreach (LuProductCategories::OPTIONS as $option) {
+            $insert = [
+                'category' => $option['value'],
+            ];
 
-        foreach ($insert as $values) {
-            DB::table(self::TABLE)->insert($values);
+            DB::table(self::TABLE)->insert($insert);
         }
     }
 }

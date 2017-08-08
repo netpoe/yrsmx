@@ -12,6 +12,7 @@ class LuProductCategoriesAdapter extends LuProductCategories implements InputOpt
     const TYPE = 1;
     const BODY_PART = 2;
     const FIT = 3;
+    const BODY_TYPE = 4;
 
     const OPTIONS = [
         [
@@ -25,6 +26,10 @@ class LuProductCategoriesAdapter extends LuProductCategories implements InputOpt
         [
             'key' => self::FIT,
             'value' => 'fit',
+        ],
+        [
+            'key' => self::BODY_TYPE,
+            'value' => 'body_type',
         ],
     ];
 }
