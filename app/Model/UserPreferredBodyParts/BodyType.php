@@ -20,27 +20,22 @@ class BodyType extends UserPreferredBodyParts implements InputOptionsContract
         self::TRIANGLE => [
             'key' => self::TRIANGLE,
             'value' => 'Triángulo',
-            'alias' => 'triangulo'
         ],
         self::ELIPTICAL => [
             'key' => self::ELIPTICAL,
             'value' => 'Óvalo',
-            'alias' => 'ovalo'
         ],
         self::INVERTED_TRIANGLE => [
             'key' => self::INVERTED_TRIANGLE,
             'value' => 'Triángulo invertido',
-            'alias' => 'triangulo_invertido'
         ],
         self::RECTANGLE => [
             'key' => self::RECTANGLE,
             'value' => 'Rectángulo',
-            'alias' => 'rectangulo'
         ],
         self::SAND_WATCH => [
             'key' => self::SAND_WATCH,
             'value' => 'Reloj de arena',
-            'alias' => 'reloj_de_arena'
         ],
     ];
 }

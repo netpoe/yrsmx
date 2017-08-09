@@ -23,47 +23,47 @@ class Accessories extends UserStyleAdapter implements InputOptionsContract
     const EARCUFFS = 11;
 
     const OPTIONS = [
-        [
+        self::BOLSAS => [
             'key' => self::BOLSAS,
             'value' => 'bolsas',
         ],
-        [
+        self::LENTES_DE_SOL => [
             'key' => self::LENTES_DE_SOL,
             'value' => 'lentes de sol',
         ],
-        [
+        self::SOMBREROS => [
             'key' => self::SOMBREROS,
             'value' => 'sombreros',
         ],
-        [
+        self::COLLARES => [
             'key' => self::COLLARES,
             'value' => 'collares',
         ],
-        [
+        self::FOULARD => [
             'key' => self::FOULARD,
             'value' => 'foulard',
         ],
-        [
+        self::CINTURONES => [
             'key' => self::CINTURONES,
             'value' => 'cinturones',
         ],
-        [
+        self::PULSERAS => [
             'key' => self::PULSERAS,
             'value' => 'pulseras',
         ],
-        [
+        self::ZAPATOS => [
             'key' => self::ZAPATOS,
             'value' => 'zapatos',
         ],
-        [
+        self::ANILLOS => [
             'key' => self::ANILLOS,
             'value' => 'anillos',
         ],
-        [
+        self::ARETES => [
             'key' => self::ARETES,
             'value' => 'aretes',
         ],
-        [
+        self::EARCUFFS => [
             'key' => self::EARCUFFS,
             'value' => 'earcuffs',
         ],

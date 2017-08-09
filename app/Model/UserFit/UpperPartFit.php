@@ -16,19 +16,19 @@ class UpperPartFit extends UserFit implements InputOptionsContract
     const OVERSIZE = 4;
 
     const OPTIONS = [
-        [
+        self::FIT => [
             'key' => self::FIT,
             'value' => 'Ajustadas',
         ],
-        [
+        self::MID => [
             'key' => self::MID,
             'value' => 'Punto medio',
         ],
-        [
+        self::LOOSE => [
             'key' => self::LOOSE,
             'value' => 'Holgadas',
         ],
-        [
+        self::OVERSIZE => [
             'key' => self::OVERSIZE,
             'value' => 'Grandes',
         ],

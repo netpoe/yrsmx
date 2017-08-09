@@ -21,39 +21,39 @@ class Jewelry extends UserStyleAdapter implements InputOptionsContract
     const BOHO = 9;
 
     const OPTIONS = [
-        [
+        self::ORO => [
             'key' => self::ORO,
             'value' => 'oro',
         ],
-        [
+        self::PLATA => [
             'key' => self::PLATA,
             'value' => 'plata',
         ],
-        [
+        self::FANTASIA => [
             'key' => self::FANTASIA,
             'value' => 'fantasía',
         ],
-        [
+        self::OVERSIZE => [
             'key' => self::OVERSIZE,
             'value' => 'oversize',
         ],
-        [
+        self::DISCRETA => [
             'key' => self::DISCRETA,
             'value' => 'discreta',
         ],
-        [
+        self::MODERNA => [
             'key' => self::MODERNA,
             'value' => 'moderna',
         ],
-        [
+        self::CLASICA => [
             'key' => self::CLASICA,
             'value' => 'clásica',
         ],
-        [
+        self::MINIMAL => [
             'key' => self::MINIMAL,
             'value' => 'minimal',
         ],
-        [
+        self::BOHO => [
             'key' => self::BOHO,
             'value' => 'boho',
         ],

@@ -14,5 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LuUserRolesSeeder::class);
         $this->call(LuProductCategoriesSeeder::class);
         $this->call(LuProductSubcategoriesSeeder::class);
+        $this->call(LuProductAttributesSeeder::class);
+        $this->call(LuProductSubattributesSeeder::class);
     }
 }

@@ -18,27 +18,27 @@ class Shoes extends UserStyleAdapter implements InputOptionsContract
     const BOTAS = 6;
 
     const OPTIONS = [
-        [
+        self::TENNIS => [
             'key' => self::TENNIS,
             'value' => 'tennis',
         ],
-        [
+        self::FLATS => [
             'key' => self::FLATS,
             'value' => 'flats',
         ],
-        [
+        self::SANDALIAS => [
             'key' => self::SANDALIAS,
             'value' => 'sandalias',
         ],
-        [
+        self::TACONES => [
             'key' => self::TACONES,
             'value' => 'tacones',
         ],
-        [
+        self::PLATAFORMAS => [
             'key' => self::PLATAFORMAS,
             'value' => 'plataformas',
         ],
-        [
+        self::BOTAS => [
             'key' => self::BOTAS,
             'value' => 'botas',
         ],

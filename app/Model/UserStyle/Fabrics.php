@@ -28,67 +28,67 @@ class Fabrics extends UserStyleAdapter implements InputOptionsContract
     const POLIESTER = 16;
 
     const OPTIONS = [
-        [
+        self::ALGODON => [
             'key' => self::ALGODON,
             'value' => 'algodón',
         ],
-        [
+        self::LYCRA => [
             'key' => self::LYCRA,
             'value' => 'lycra',
         ],
-        [
+        self::LANA => [
             'key' => self::LANA,
             'value' => 'lana',
         ],
-        [
+        self::PANA => [
             'key' => self::PANA,
             'value' => 'pana',
         ],
-        [
+        self::NEOPRENO => [
             'key' => self::NEOPRENO,
             'value' => 'neopreno',
         ],
-        [
+        self::ENCAJE => [
             'key' => self::ENCAJE,
             'value' => 'encaje',
         ],
-        [
+        self::CACHEMIR => [
             'key' => self::CACHEMIR,
             'value' => 'cachemir',
         ],
-        [
+        self::GABARDINA => [
             'key' => self::GABARDINA,
             'value' => 'gabardina',
         ],
-        [
+        self::TERCIOPELO => [
             'key' => self::TERCIOPELO,
             'value' => 'terciopelo',
         ],
-        [
+        self::NYLON => [
             'key' => self::NYLON,
             'value' => 'nylon',
         ],
-        [
+        self::GASA => [
             'key' => self::GASA,
             'value' => 'gasa',
         ],
-        [
+        self::MEZCLILLA => [
             'key' => self::MEZCLILLA,
             'value' => 'mezclilla',
         ],
-        [
+        self::TUL => [
             'key' => self::TUL,
             'value' => 'tul',
         ],
-        [
+        self::SEDA => [
             'key' => self::SEDA,
             'value' => 'seda',
         ],
-        [
+        self::TACTO_PIEL => [
             'key' => self::TACTO_PIEL,
             'value' => 'tacto piel',
         ],
-        [
+        self::POLIESTER => [
             'key' => self::POLIESTER,
             'value' => 'poliéster',
         ],

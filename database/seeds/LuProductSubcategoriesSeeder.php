@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Model\LuProductCategoriesAdapter as LuProductCategories;
-use App\Model\LuProductSubcategoriesAdapter as LuProductSubcategories;
+
+use App\Model\{
+    LuProductSubcategoriesAdapter as LuProductSubcategories
+};
 
 class LuProductSubcategoriesSeeder extends Seeder
 {
@@ -18,7 +20,8 @@ class LuProductSubcategoriesSeeder extends Seeder
         foreach (LuProductSubcategories::OPTIONS as $option) {
             $insert = [
                 'category_id' => $option['category_id'],
-                'subcategory' => $option['value']
+                'subcategory' => $option['key'],
+                'description' => $option['value']
             ];
 
             DB::table(self::TABLE)->insert($insert);

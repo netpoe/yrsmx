@@ -17,23 +17,23 @@ class PantsFitShape extends UserFit implements InputOptionsContract
     const LEGGINGS = 5;
 
     const OPTIONS = [
-        [
+        self::SKINNY => [
             'key' => self::SKINNY,
             'value' => 'Skinny',
         ],
-        [
+        self::WIDE => [
             'key' => self::WIDE,
             'value' => 'Anchos',
         ],
-        [
+        self::STRAIGHT => [
             'key' => self::STRAIGHT,
             'value' => 'Rectos',
         ],
-        [
+        self::BELL => [
             'key' => self::BELL,
             'value' => 'Acampanados',
         ],
-        [
+        self::LEGGINGS => [
             'key' => self::LEGGINGS,
             'value' => 'Leggings',
         ],
