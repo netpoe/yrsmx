@@ -9,7 +9,6 @@ use App\Model\{
     UserStyle\Colors,
     UserStyle\Prints,
     UserStyle\Accessories,
-    UserStyle\Clothes,
     UserStyle\Fabrics,
     UserStyle\Jewelry,
     UserStyle\Risk,
@@ -21,7 +20,8 @@ use App\Model\{
     UserSizes\DressSizes,
     UserSizes\PantsSizes,
     UserSizes\ShoesSizes,
-    UserSizes\SkirtSizes
+    UserSizes\SkirtSizes,
+    Product\BodyPart
 };
 
 class LuProductSubattributesAdapter extends LuProductSubattributes implements InputOptionsContract
@@ -430,113 +430,6 @@ class LuProductSubattributesAdapter extends LuProductSubattributes implements In
             'key' => Words::ROCKERO,
             'value' => Words::OPTIONS[Words::ROCKERO]['value'],
             'attribute_id' => LuProductAttributes::WORDS,
-        ],
-
-        // ATTR::CLOTHES
-        [
-            'key' => Clothes::VESTIDOS,
-            'value' => Clothes::OPTIONS[Clothes::VESTIDOS]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::CHAMARRAS,
-            'value' => Clothes::OPTIONS[Clothes::CHAMARRAS]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::SHORTS,
-            'value' => Clothes::OPTIONS[Clothes::SHORTS]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::CAMISAS_DE_VESTIR,
-            'value' => Clothes::OPTIONS[Clothes::CAMISAS_DE_VESTIR]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::BLUSAS,
-            'value' => Clothes::OPTIONS[Clothes::BLUSAS]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::PLAYERAS,
-            'value' => Clothes::OPTIONS[Clothes::PLAYERAS]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::GABARDINAS,
-            'value' => Clothes::OPTIONS[Clothes::GABARDINAS]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::SACOS,
-            'value' => Clothes::OPTIONS[Clothes::SACOS]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::FALDAS,
-            'value' => Clothes::OPTIONS[Clothes::FALDAS]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::PANTALONES_CASUALES,
-            'value' => Clothes::OPTIONS[Clothes::PANTALONES_CASUALES]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::TRAJE_SASTRE,
-            'value' => Clothes::OPTIONS[Clothes::TRAJE_SASTRE]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::ABRIGOS,
-            'value' => Clothes::OPTIONS[Clothes::ABRIGOS]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::JUMPSUITS,
-            'value' => Clothes::OPTIONS[Clothes::JUMPSUITS]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::CROP_TOPS,
-            'value' => Clothes::OPTIONS[Clothes::CROP_TOPS]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::LEGGINGS,
-            'value' => Clothes::OPTIONS[Clothes::LEGGINGS]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::PANTALONES_DE_VESTIR,
-            'value' => Clothes::OPTIONS[Clothes::PANTALONES_DE_VESTIR]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::SUETERES,
-            'value' => Clothes::OPTIONS[Clothes::SUETERES]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::JEANS,
-            'value' => Clothes::OPTIONS[Clothes::JEANS]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::TRAJES_DE_BANO,
-            'value' => Clothes::OPTIONS[Clothes::TRAJES_DE_BANO]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::BODIES,
-            'value' => Clothes::OPTIONS[Clothes::BODIES]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
-        ],
-        [
-            'key' => Clothes::BRALETTES,
-            'value' => Clothes::OPTIONS[Clothes::BRALETTES]['value'],
-            'attribute_id' => LuProductAttributes::CLOTHES,
         ],
 
         // ATTR::RISK
@@ -959,6 +852,48 @@ class LuProductSubattributesAdapter extends LuProductSubattributes implements In
             'key' => PantsSizes::SIZE_15,
             'value' => PantsSizes::SIZE_15,
             'attribute_id' => LuProductAttributes::SIZE_PANTS,
+        ],
+
+        // ATTR:BODY_PART
+        [
+            'key' => BodyPart::THIGHS,
+            'value' => BodyPart::OPTIONS[BodyPart::THIGHS]['value'],
+            'attribute_id' => LuProductAttributes::BODY_PART,
+        ],
+        [
+            'key' => BodyPart::CALVES,
+            'value' => BodyPart::OPTIONS[BodyPart::CALVES]['value'],
+            'attribute_id' => LuProductAttributes::BODY_PART,
+        ],
+        [
+            'key' => BodyPart::BUTT,
+            'value' => BodyPart::OPTIONS[BodyPart::BUTT]['value'],
+            'attribute_id' => LuProductAttributes::BODY_PART,
+        ],
+        [
+            'key' => BodyPart::ABDOMEN,
+            'value' => BodyPart::OPTIONS[BodyPart::ABDOMEN]['value'],
+            'attribute_id' => LuProductAttributes::BODY_PART,
+        ],
+        [
+            'key' => BodyPart::HIPS,
+            'value' => BodyPart::OPTIONS[BodyPart::HIPS]['value'],
+            'attribute_id' => LuProductAttributes::BODY_PART,
+        ],
+        [
+            'key' => BodyPart::BREAST,
+            'value' => BodyPart::OPTIONS[BodyPart::BREAST]['value'],
+            'attribute_id' => LuProductAttributes::BODY_PART,
+        ],
+        [
+            'key' => BodyPart::SHOULDERS,
+            'value' => BodyPart::OPTIONS[BodyPart::SHOULDERS]['value'],
+            'attribute_id' => LuProductAttributes::BODY_PART,
+        ],
+        [
+            'key' => BodyPart::ARMS,
+            'value' => BodyPart::OPTIONS[BodyPart::ARMS]['value'],
+            'attribute_id' => LuProductAttributes::BODY_PART,
         ],
     ];
 }

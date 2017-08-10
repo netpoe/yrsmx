@@ -11,8 +11,8 @@ use App\Model\{
     UserFit\UpperPartFit,
     UserFit\PantsFitShape,
     UserFit\PantsFitHips,
-    Product\ProductType,
-    Product\BodyPart
+    UserStyle\Clothes,
+    Product\ProductType
 };
 
 class LuProductSubcategoriesAdapter extends LuProductSubcategories implements InputOptionsContract
@@ -22,81 +22,119 @@ class LuProductSubcategoriesAdapter extends LuProductSubcategories implements In
     const OPTIONS = [
         // CATEGORY::TYPE
         [
-            'key' => ProductType::BRA,
-            'value' => ProductType::OPTIONS[ProductType::BRA]['value'],
+            'key' => Clothes::VESTIDOS,
+            'value' => Clothes::OPTIONS[Clothes::VESTIDOS]['value'],
             'category_id' => LuProductCategories::TYPE,
         ],
         [
-            'key' => ProductType::DRESS,
-            'value' => ProductType::OPTIONS[ProductType::DRESS]['value'],
+            'key' => Clothes::CHAMARRAS,
+            'value' => Clothes::OPTIONS[Clothes::CHAMARRAS]['value'],
             'category_id' => LuProductCategories::TYPE,
         ],
         [
-            'key' => ProductType::SKIRT,
-            'value' => ProductType::OPTIONS[ProductType::SKIRT]['value'],
+            'key' => Clothes::SHORTS,
+            'value' => Clothes::OPTIONS[Clothes::SHORTS]['value'],
             'category_id' => LuProductCategories::TYPE,
         ],
         [
-            'key' => ProductType::SHOES,
-            'value' => ProductType::OPTIONS[ProductType::SHOES]['value'],
+            'key' => Clothes::CAMISAS_DE_VESTIR,
+            'value' => Clothes::OPTIONS[Clothes::CAMISAS_DE_VESTIR]['value'],
             'category_id' => LuProductCategories::TYPE,
         ],
         [
-            'key' => ProductType::PANTS,
-            'value' => ProductType::OPTIONS[ProductType::PANTS]['value'],
+            'key' => Clothes::BLUSAS,
+            'value' => Clothes::OPTIONS[Clothes::BLUSAS]['value'],
             'category_id' => LuProductCategories::TYPE,
         ],
         [
-            'key' => ProductType::ACCESSORY,
-            'value' => ProductType::OPTIONS[ProductType::ACCESSORY]['value'],
+            'key' => Clothes::PLAYERAS,
+            'value' => Clothes::OPTIONS[Clothes::PLAYERAS]['value'],
             'category_id' => LuProductCategories::TYPE,
         ],
         [
-            'key' => ProductType::JEWEL,
-            'value' => ProductType::OPTIONS[ProductType::JEWEL]['value'],
+            'key' => Clothes::GABARDINAS,
+            'value' => Clothes::OPTIONS[Clothes::GABARDINAS]['value'],
             'category_id' => LuProductCategories::TYPE,
         ],
-
-        // CATEGORY::BODY_PART
         [
-            'key' => BodyPart::THIGHS,
-            'value' => BodyPart::OPTIONS[BodyPart::THIGHS]['value'],
-            'category_id' => LuProductCategories::BODY_PART,
+            'key' => Clothes::SACOS,
+            'value' => Clothes::OPTIONS[Clothes::SACOS]['value'],
+            'category_id' => LuProductCategories::TYPE,
         ],
         [
-            'key' => BodyPart::CALVES,
-            'value' => BodyPart::OPTIONS[BodyPart::CALVES]['value'],
-            'category_id' => LuProductCategories::BODY_PART,
+            'key' => Clothes::FALDAS,
+            'value' => Clothes::OPTIONS[Clothes::FALDAS]['value'],
+            'category_id' => LuProductCategories::TYPE,
         ],
         [
-            'key' => BodyPart::BUTT,
-            'value' => BodyPart::OPTIONS[BodyPart::BUTT]['value'],
-            'category_id' => LuProductCategories::BODY_PART,
+            'key' => Clothes::PANTALONES_CASUALES,
+            'value' => Clothes::OPTIONS[Clothes::PANTALONES_CASUALES]['value'],
+            'category_id' => LuProductCategories::TYPE,
         ],
         [
-            'key' => BodyPart::ABDOMEN,
-            'value' => BodyPart::OPTIONS[BodyPart::ABDOMEN]['value'],
-            'category_id' => LuProductCategories::BODY_PART,
+            'key' => Clothes::TRAJE_SASTRE,
+            'value' => Clothes::OPTIONS[Clothes::TRAJE_SASTRE]['value'],
+            'category_id' => LuProductCategories::TYPE,
         ],
         [
-            'key' => BodyPart::HIPS,
-            'value' => BodyPart::OPTIONS[BodyPart::HIPS]['value'],
-            'category_id' => LuProductCategories::BODY_PART,
+            'key' => Clothes::ABRIGOS,
+            'value' => Clothes::OPTIONS[Clothes::ABRIGOS]['value'],
+            'category_id' => LuProductCategories::TYPE,
         ],
         [
-            'key' => BodyPart::BREAST,
-            'value' => BodyPart::OPTIONS[BodyPart::BREAST]['value'],
-            'category_id' => LuProductCategories::BODY_PART,
+            'key' => Clothes::JUMPSUITS,
+            'value' => Clothes::OPTIONS[Clothes::JUMPSUITS]['value'],
+            'category_id' => LuProductCategories::TYPE,
         ],
         [
-            'key' => BodyPart::SHOULDERS,
-            'value' => BodyPart::OPTIONS[BodyPart::SHOULDERS]['value'],
-            'category_id' => LuProductCategories::BODY_PART,
+            'key' => Clothes::CROP_TOPS,
+            'value' => Clothes::OPTIONS[Clothes::CROP_TOPS]['value'],
+            'category_id' => LuProductCategories::TYPE,
         ],
         [
-            'key' => BodyPart::ARMS,
-            'value' => BodyPart::OPTIONS[BodyPart::ARMS]['value'],
-            'category_id' => LuProductCategories::BODY_PART,
+            'key' => Clothes::LEGGINGS,
+            'value' => Clothes::OPTIONS[Clothes::LEGGINGS]['value'],
+            'category_id' => LuProductCategories::TYPE,
+        ],
+        [
+            'key' => Clothes::PANTALONES_DE_VESTIR,
+            'value' => Clothes::OPTIONS[Clothes::PANTALONES_DE_VESTIR]['value'],
+            'category_id' => LuProductCategories::TYPE,
+        ],
+        [
+            'key' => Clothes::SUETERES,
+            'value' => Clothes::OPTIONS[Clothes::SUETERES]['value'],
+            'category_id' => LuProductCategories::TYPE,
+        ],
+        [
+            'key' => Clothes::JEANS,
+            'value' => Clothes::OPTIONS[Clothes::JEANS]['value'],
+            'category_id' => LuProductCategories::TYPE,
+        ],
+        [
+            'key' => Clothes::TRAJES_DE_BANO,
+            'value' => Clothes::OPTIONS[Clothes::TRAJES_DE_BANO]['value'],
+            'category_id' => LuProductCategories::TYPE,
+        ],
+        [
+            'key' => Clothes::BODIES,
+            'value' => Clothes::OPTIONS[Clothes::BODIES]['value'],
+            'category_id' => LuProductCategories::TYPE,
+        ],
+        [
+            'key' => Clothes::BRALETTES,
+            'value' => Clothes::OPTIONS[Clothes::BRALETTES]['value'],
+            'category_id' => LuProductCategories::TYPE,
+        ],
+        [
+            'key' => Clothes::ZAPATOS,
+            'value' => Clothes::OPTIONS[Clothes::ZAPATOS]['value'],
+            'category_id' => LuProductCategories::TYPE,
+        ],
+        [
+            'key' => Clothes::ACCESORIOS,
+            'value' => Clothes::OPTIONS[Clothes::ACCESORIOS]['value'],
+            'category_id' => LuProductCategories::TYPE,
         ],
 
         // CATEGORY::BODY_TYPE

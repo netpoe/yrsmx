@@ -31,6 +31,8 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
     const TRAJES_DE_BANO = 19;
     const BODIES = 20;
     const BRALETTES = 21;
+    const ZAPATOS = 22;
+    const ACCESORIOS = 23;
 
     const OPTIONS = [
         self::VESTIDOS => [
@@ -116,6 +118,14 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
         self::BRALETTES => [
             'key' => self::BRALETTES,
             'value' => 'bralettes',
+        ],
+        self::ZAPATOS => [
+            'key' => self::ZAPATOS,
+            'value' => 'zapatos',
+        ],
+        self::ACCESORIOS => [
+            'key' => self::ACCESORIOS,
+            'value' => 'accesorios',
         ],
     ];
 }

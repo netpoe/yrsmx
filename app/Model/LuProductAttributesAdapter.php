@@ -13,18 +13,18 @@ class LuProductAttributesAdapter extends LuProductAttributes implements InputOpt
     const PRINTS = 2;
     const FABRICS = 3;
     const WORDS = 4;
-    const CLOTHES = 5;
-    const RISK = 6;
-    const SHOES = 7;
-    const JEWELRY = 8;
-    const ACCESSORIES = 9;
-    const SIZE_DRESS = 10;
-    const SIZE_BLOUSE = 11;
-    const SIZE_BRA_BAND = 12;
-    const SIZE_BRA_CUPS = 13;
-    const SIZE_SKIRT = 14;
-    const SIZE_SHOES = 15;
-    const SIZE_PANTS = 16;
+    const RISK = 5;
+    const SHOES = 6;
+    const JEWELRY = 7;
+    const ACCESSORIES = 8;
+    const SIZE_DRESS = 9;
+    const SIZE_BLOUSE = 10;
+    const SIZE_BRA_BAND = 11;
+    const SIZE_BRA_CUPS = 12;
+    const SIZE_SKIRT = 13;
+    const SIZE_SHOES = 14;
+    const SIZE_PANTS = 15;
+    const BODY_PART = 16;
 
     const OPTIONS = [
         [
@@ -42,10 +42,6 @@ class LuProductAttributesAdapter extends LuProductAttributes implements InputOpt
         [
             'key' => self::WORDS,
             'value' => 'words',
-        ],
-        [
-            'key' => self::CLOTHES,
-            'value' => 'clothes',
         ],
         [
             'key' => self::RISK,
@@ -90,6 +86,10 @@ class LuProductAttributesAdapter extends LuProductAttributes implements InputOpt
         [
             'key' => self::SIZE_PANTS,
             'value' => 'size_pants',
+        ],
+        [
+            'key' => self::BODY_PART,
+            'value' => 'body_part',
         ],
     ];
 

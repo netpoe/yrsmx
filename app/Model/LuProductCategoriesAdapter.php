@@ -10,21 +10,16 @@ class LuProductCategoriesAdapter extends LuProductCategories implements InputOpt
     use InputOptionsTrait;
 
     const TYPE = 1;
-    const BODY_PART = 2;
-    const LOWER_PART_FIT = 3;
-    const UPPER_PART_FIT = 4;
-    const BODY_TYPE = 5;
-    const PANTS_FIT_SHAPE = 6;
-    const PANTS_FIT_HIPS = 7;
+    const LOWER_PART_FIT = 2;
+    const UPPER_PART_FIT = 3;
+    const BODY_TYPE = 4;
+    const PANTS_FIT_SHAPE = 5;
+    const PANTS_FIT_HIPS = 6;
 
     const OPTIONS = [
         [
             'key' => self::TYPE,
             'value' => 'Tipo de producto',
-        ],
-        [
-            'key' => self::BODY_PART,
-            'value' => 'Partes del cuerpo',
         ],
         [
             'key' => self::LOWER_PART_FIT,
