@@ -88,4 +88,20 @@ class ProductsController extends Controller
 
         return redirect()->route('admin.products.show', ['productId' => $product->id]);
     }
+
+    /**
+     * store    Stores a product configuration using a ProductSection
+     */
+    public function store(Request $request, Product $product)
+    {
+
+    }
+
+    /**
+     * configure    Displays a ProductSection to set its attributes and categories configuration
+     */
+    public function configure(Product $product)
+    {
+
+    }
 }
