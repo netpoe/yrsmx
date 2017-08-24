@@ -2,11 +2,17 @@
 
 namespace App\Entities;
 
+use App\Model\{
+    LuProductSubcategoriesAdapter as LuProductSubcategories
+};
+
 class ProductSubcategory
 {
     public $id;
 
-    public $name;
+    public $key;
+
+    public $description;
 
     public $categoryId;
 
@@ -24,9 +30,14 @@ class ProductSubcategory
             throw new \Exception('Subcategory structure lacks [category_id]');
         }
 
-        $this->id = $values['key'];
+        $this->id = LuProductSubcategories::where('subcategory', $values['key'])
+                                            ->where('category_id', $values['category_id'])
+                                            ->first()
+                                            ->id;
 
-        $this->name = $values['value'];
+        $this->key = $values['key'];
+
+        $this->description = $values['value'];
 
         $this->categoryId = $values['category_id'];
     }

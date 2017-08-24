@@ -19,7 +19,9 @@ use App\Model\{
     LuProductSubcategoriesAdapter as LuProductSubcategories,
     LuProductCategoriesAdapter as LuProductCategories,
     LuProductSubattributesAdapter as LuProductSubattributes,
-    LuProductAttributesAdapter as LuProductAttributes
+    LuProductAttributesAdapter as LuProductAttributes,
+    RelProductsCategoriesAdapter as RelProductsCategories,
+    RelProductsAttributesAdapter as RelProductsAttributes
 };
 
 class ProductsController extends Controller
@@ -104,9 +106,37 @@ class ProductsController extends Controller
     /**
      * store    Stores a product configuration using a ProductSection
      */
-    public function store(Request $request, Product $product)
+    public function store(
+        Request $request,
+        Product $product,
+        RelProductsAttributes $relProductsAttributes,
+        RelProductsCategories $relProductsCategories)
     {
-        print_r($request->all()); exit;
+        if ($request->input('categories')) {
+            foreach ($request->input('categories') as $categoryId => $subcategoryId) {
+                RelProductsCategories::create([
+                    'product_id' => $product->id,
+                    'category_id' => $categoryId,
+                    'subcategory_id' => $subcategoryId,
+                    ]);
+            }
+        }
+
+        if ($request->input('attributes')) {
+            foreach ($request->input('attributes') as $attribute) {
+                foreach ($attribute as $attributeId => $subattribute) {
+                    foreach ($subattribute as $subattributeId) {
+                        RelProductsAttributes::create([
+                            'product_id' => $product->id,
+                            'attribute_id' => $attributeId,
+                            'subattribute_id' => $subattributeId,
+                            ]);
+                    }
+                }
+            }
+        }
+
+        return redirect()->route('admin.products.show', ['product' => $product->id]);
     }
 
     /**

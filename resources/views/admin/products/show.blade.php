@@ -44,7 +44,7 @@
         <div class="card">
           <div class="card-title-wrapper">
             <small class="card-block-title">Categorías</small>
-            <button class="btn btn-sm btn-secondary">Añadir categorías</button>
+            <a href="{{ route('admin.products.classify', ['product' => $product->id]) }}" class="btn btn-sm btn-secondary">Añadir categorías</a>
           </div>
           <div class="card-block">
             <nav class="categories-nav">
@@ -58,7 +58,7 @@
         <div class="card">
           <div class="card-title-wrapper">
             <small class="card-block-title">Atributos</small>
-            <button class="btn btn-sm btn-secondary">Añadir atributos</button>
+            <a href="{{ route('admin.products.classify', ['product' => $product->id]) }}" class="btn btn-sm btn-secondary">Añadir atributos</a>
           </div>
           <div class="card-block">
             <nav class="categories-nav">

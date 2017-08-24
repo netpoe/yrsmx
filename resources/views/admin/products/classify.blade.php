@@ -17,7 +17,7 @@
               @foreach ($category->subcategories() as $subcategory)
                 <li class="grid-list-item">
                   <input type="radio" value="{{ $subcategory->id }}" name="categories[{{ $category->id }}]" id="category[{{ $category->id }}][{{ $subcategory->id }}]">
-                  <label for="category[{{ $category->id }}][{{ $subcategory->id }}]">{{ $subcategory->name }}</label>
+                  <label for="category[{{ $category->id }}][{{ $subcategory->id }}]">{{ $subcategory->description }}</label>
                 </li>
               @endforeach
             </ul>
@@ -32,7 +32,7 @@
               @foreach ($attribute->subattributes() as $subattribute)
                 <li class="grid-list-item">
                   <input type="checkbox" value="{{ $subattribute->id }}" name="attributes[{{ $attribute->id }}][]" id="attribute[{{ $attribute->id }}][{{ $subattribute->id }}]">
-                  <label for="attribute[{{ $attribute->id }}][{{ $subattribute->id }}]">{{ $subattribute->name }}</label>
+                  <label for="attribute[{{ $attribute->id }}][{{ $subattribute->id }}]">{{ $subattribute->description }}</label>
                 </li>
               @endforeach
             </ul>

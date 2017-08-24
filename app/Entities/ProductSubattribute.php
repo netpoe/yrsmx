@@ -2,11 +2,17 @@
 
 namespace App\Entities;
 
+use App\Model\{
+    LuProductSubattributesAdapter as LuProductSubattributes
+};
+
 class ProductSubattribute
 {
     public $id;
 
-    public $name;
+    public $key;
+
+    public $description;
 
     public $attributeId;
 
@@ -24,9 +30,14 @@ class ProductSubattribute
             throw new \Exception('Subattribute structure lacks [attribute_id]');
         }
 
-        $this->id = $values['key'];
+        $this->id = LuProductSubattributes::where('subattribute', $values['key'])
+                                            ->where('attribute_id', $values['attribute_id'])
+                                            ->first()
+                                            ->id;
 
-        $this->name = $values['value'];
+        $this->key = $values['key'];
+
+        $this->description = $values['value'];
 
         $this->attributeId = $values['attribute_id'];
     }
