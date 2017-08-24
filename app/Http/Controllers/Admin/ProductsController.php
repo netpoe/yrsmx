@@ -8,7 +8,8 @@ use App\Service\ProductsService;
 use Auth;
 
 use App\Entities\{
-    ProductCategory
+    ProductCategory,
+    ProductAttribute
 };
 
 use App\Model\{
@@ -16,7 +17,9 @@ use App\Model\{
     ProductsAdapter as Product,
     RelProductsOutfitAdapter as ProductsOutfit,
     LuProductSubcategoriesAdapter as LuProductSubcategories,
-    LuProductCategoriesAdapter as LuProductCategories
+    LuProductCategoriesAdapter as LuProductCategories,
+    LuProductSubattributesAdapter as LuProductSubattributes,
+    LuProductAttributesAdapter as LuProductAttributes
 };
 
 class ProductsController extends Controller
@@ -95,7 +98,7 @@ class ProductsController extends Controller
 
         $pg->assignProductToFiles($request->input('product-images'), $product);
 
-        return redirect()->route('admin.products.show', ['productId' => $product->id]);
+        return redirect()->route('admin.products.classify', ['product' => $product->id]);
     }
 
     /**
@@ -118,11 +121,31 @@ class ProductsController extends Controller
             'bodyType' => (new ProductCategory)->get(LuProductCategories::BODY_TYPE),
             'pantsFitShape' => (new ProductCategory)->get(LuProductCategories::PANTS_FIT_SHAPE),
             'pantsFitHips' => (new ProductCategory)->get(LuProductCategories::PANTS_FIT_HIPS),
-            'outfitType' => (new ProductCategory)->get(LuProductCategories::OUTFIT_TYPE),
+            'accessories' => (new ProductCategory)->get(LuProductCategories::ACCESSORIES),
+            'risk' => (new ProductCategory)->get(LuProductCategories::RISK),
+            'shoes' => (new ProductCategory)->get(LuProductCategories::SHOES),
+            'sizeDress' => (new ProductCategory)->get(LuProductCategories::SIZE_DRESS),
+            'sizeBlouse' => (new ProductCategory)->get(LuProductCategories::SIZE_BLOUSE),
+            'sizeBraBand' => (new ProductCategory)->get(LuProductCategories::SIZE_BRA_BAND),
+            'sizeBraCups' => (new ProductCategory)->get(LuProductCategories::SIZE_BRA_CUPS),
+            'sizeSkirt' => (new ProductCategory)->get(LuProductCategories::SIZE_SKIRT),
+            'sizeShoes' => (new ProductCategory)->get(LuProductCategories::SIZE_SHOES),
+            'sizePants' => (new ProductCategory)->get(LuProductCategories::SIZE_PANTS),
+        ];
+
+        $attributes = [
+            'colors' => (new ProductAttribute)->get(LuProductAttributes::COLORS),
+            'prints' => (new ProductAttribute)->get(LuProductAttributes::PRINTS),
+            'fabrics' => (new ProductAttribute)->get(LuProductAttributes::FABRICS),
+            'words' => (new ProductAttribute)->get(LuProductAttributes::WORDS),
+            'jewelry' => (new ProductAttribute)->get(LuProductAttributes::JEWELRY),
+            'bodyPart' => (new ProductAttribute)->get(LuProductAttributes::BODY_PART),
+            'outfitType' => (new ProductAttribute)->get(LuProductAttributes::OUTFIT_TYPE),
         ];
 
         return view('admin.products.classify', [
             'categories' => $categories,
+            'attributes' => $attributes,
             'product' => $product
         ]);
     }

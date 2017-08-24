@@ -9,15 +9,30 @@
     {{ csrf_field() }}
     <section class="products-wrapper" id="admin-products-classify">
       <div class="products-filters">
-        <h5>Categorizar producto</h5>
+        <h5 class="title">Categorías</h5>
         @foreach ($categories as $category)
           <article class="category-group">
-            <h6>{{ $category->value }}</h6>
+            <h6>{{ $category->name }}</h6>
             <ul class="product-categories grid-list grid-list-2 custom-radio-checkbox">
               @foreach ($category->subcategories() as $subcategory)
                 <li class="grid-list-item">
-                  <input type="radio" value="{{ $subcategory->key }}" name="categories[{{ $category->key }}]" id="category[{{ $category->key }}][{{ $subcategory->key }}]">
-                  <label for="category[{{ $category->key }}][{{ $subcategory->key }}]">{{ $subcategory->value }}</label>
+                  <input type="radio" value="{{ $subcategory->id }}" name="categories[{{ $category->id }}]" id="category[{{ $category->id }}][{{ $subcategory->id }}]">
+                  <label for="category[{{ $category->id }}][{{ $subcategory->id }}]">{{ $subcategory->name }}</label>
+                </li>
+              @endforeach
+            </ul>
+          </article>
+        @endforeach
+
+        <h5 class="title">Atributos</h5>
+        @foreach ($attributes as $attribute)
+          <article class="category-group">
+            <h6>{{ $attribute->name }}</h6>
+            <ul class="product-categories grid-list grid-list-2 custom-radio-checkbox">
+              @foreach ($attribute->subattributes() as $subattribute)
+                <li class="grid-list-item">
+                  <input type="checkbox" value="{{ $subattribute->id }}" name="attributes[{{ $attribute->id }}][]" id="attribute[{{ $attribute->id }}][{{ $subattribute->id }}]">
+                  <label for="attribute[{{ $attribute->id }}][{{ $subattribute->id }}]">{{ $subattribute->name }}</label>
                 </li>
               @endforeach
             </ul>

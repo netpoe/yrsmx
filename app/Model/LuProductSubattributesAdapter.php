@@ -8,20 +8,11 @@ use App\Model\{
     LuProductAttributesAdapter as LuProductAttributes,
     UserStyle\Colors,
     UserStyle\Prints,
-    UserStyle\Accessories,
     UserStyle\Fabrics,
-    UserStyle\Jewelry,
-    UserStyle\Risk,
-    UserStyle\Shoes,
     UserStyle\Words,
-    UserSizes\BlouseSizes,
-    UserSizes\BraBandSizes,
-    UserSizes\BraCupsSizes,
-    UserSizes\DressSizes,
-    UserSizes\PantsSizes,
-    UserSizes\ShoesSizes,
-    UserSizes\SkirtSizes,
-    Product\BodyPart
+    Product\BodyPart,
+    UserStyle\Jewelry,
+    OutfitType
 };
 
 class LuProductSubattributesAdapter extends LuProductSubattributes implements InputOptionsContract
@@ -432,58 +423,46 @@ class LuProductSubattributesAdapter extends LuProductSubattributes implements In
             'attribute_id' => LuProductAttributes::WORDS,
         ],
 
-        // ATTR::RISK
+        // ATTR::BODY_PART
         [
-            'key' => Risk::FIRST,
-            'value' => Risk::OPTIONS[Risk::FIRST]['value'],
-            'attribute_id' => LuProductAttributes::RISK,
+            'key' => BodyPart::THIGHS,
+            'value' => BodyPart::OPTIONS[BodyPart::THIGHS]['value'],
+            'attribute_id' => LuProductAttributes::BODY_PART,
         ],
         [
-            'key' => Risk::TRENDY,
-            'value' => Risk::OPTIONS[Risk::TRENDY]['value'],
-            'attribute_id' => LuProductAttributes::RISK,
+            'key' => BodyPart::CALVES,
+            'value' => BodyPart::OPTIONS[BodyPart::CALVES]['value'],
+            'attribute_id' => LuProductAttributes::BODY_PART,
         ],
         [
-            'key' => Risk::ORIGINAL,
-            'value' => Risk::OPTIONS[Risk::ORIGINAL]['value'],
-            'attribute_id' => LuProductAttributes::RISK,
+            'key' => BodyPart::BUTT,
+            'value' => BodyPart::OPTIONS[BodyPart::BUTT]['value'],
+            'attribute_id' => LuProductAttributes::BODY_PART,
         ],
         [
-            'key' => Risk::CLASSIC,
-            'value' => Risk::OPTIONS[Risk::CLASSIC]['value'],
-            'attribute_id' => LuProductAttributes::RISK,
-        ],
-
-        // ATTR::SHOES
-        [
-            'key' => Shoes::TENNIS,
-            'value' => Shoes::OPTIONS[Shoes::TENNIS]['value'],
-            'attribute_id' => LuProductAttributes::SHOES,
+            'key' => BodyPart::ABDOMEN,
+            'value' => BodyPart::OPTIONS[BodyPart::ABDOMEN]['value'],
+            'attribute_id' => LuProductAttributes::BODY_PART,
         ],
         [
-            'key' => Shoes::FLATS,
-            'value' => Shoes::OPTIONS[Shoes::FLATS]['value'],
-            'attribute_id' => LuProductAttributes::SHOES,
+            'key' => BodyPart::HIPS,
+            'value' => BodyPart::OPTIONS[BodyPart::HIPS]['value'],
+            'attribute_id' => LuProductAttributes::BODY_PART,
         ],
         [
-            'key' => Shoes::SANDALIAS,
-            'value' => Shoes::OPTIONS[Shoes::SANDALIAS]['value'],
-            'attribute_id' => LuProductAttributes::SHOES,
+            'key' => BodyPart::BREAST,
+            'value' => BodyPart::OPTIONS[BodyPart::BREAST]['value'],
+            'attribute_id' => LuProductAttributes::BODY_PART,
         ],
         [
-            'key' => Shoes::TACONES,
-            'value' => Shoes::OPTIONS[Shoes::TACONES]['value'],
-            'attribute_id' => LuProductAttributes::SHOES,
+            'key' => BodyPart::SHOULDERS,
+            'value' => BodyPart::OPTIONS[BodyPart::SHOULDERS]['value'],
+            'attribute_id' => LuProductAttributes::BODY_PART,
         ],
         [
-            'key' => Shoes::PLATAFORMAS,
-            'value' => Shoes::OPTIONS[Shoes::PLATAFORMAS]['value'],
-            'attribute_id' => LuProductAttributes::SHOES,
-        ],
-        [
-            'key' => Shoes::BOTAS,
-            'value' => Shoes::OPTIONS[Shoes::BOTAS]['value'],
-            'attribute_id' => LuProductAttributes::SHOES,
+            'key' => BodyPart::ARMS,
+            'value' => BodyPart::OPTIONS[BodyPart::ARMS]['value'],
+            'attribute_id' => LuProductAttributes::BODY_PART,
         ],
 
         // ATTR::JEWELRY
@@ -533,367 +512,46 @@ class LuProductSubattributesAdapter extends LuProductSubattributes implements In
             'attribute_id' => LuProductAttributes::JEWELRY,
         ],
 
-        // ATTR::ACCESSORIES
+        // ATTR::OUTFIT_TYPE
         [
-            'key' => Accessories::BOLSAS,
-            'value' => Accessories::OPTIONS[Accessories::BOLSAS]['value'],
-            'attribute_id' => LuProductAttributes::ACCESSORIES,
+            'key' => OutfitType::CASUAL_WEAR,
+            'value' => OutfitType::OPTIONS[OutfitType::CASUAL_WEAR]['value'],
+            'attribute_id' => LuProductAttributes::OUTFIT_TYPE,
         ],
         [
-            'key' => Accessories::LENTES_DE_SOL,
-            'value' => Accessories::OPTIONS[Accessories::LENTES_DE_SOL]['value'],
-            'attribute_id' => LuProductAttributes::ACCESSORIES,
+            'key' => OutfitType::BASICS,
+            'value' => OutfitType::OPTIONS[OutfitType::BASICS]['value'],
+            'attribute_id' => LuProductAttributes::OUTFIT_TYPE,
         ],
         [
-            'key' => Accessories::SOMBREROS,
-            'value' => Accessories::OPTIONS[Accessories::SOMBREROS]['value'],
-            'attribute_id' => LuProductAttributes::ACCESSORIES,
+            'key' => OutfitType::WORK,
+            'value' => OutfitType::OPTIONS[OutfitType::WORK]['value'],
+            'attribute_id' => LuProductAttributes::OUTFIT_TYPE,
         ],
         [
-            'key' => Accessories::COLLARES,
-            'value' => Accessories::OPTIONS[Accessories::COLLARES]['value'],
-            'attribute_id' => LuProductAttributes::ACCESSORIES,
+            'key' => OutfitType::GET_AWAY,
+            'value' => OutfitType::OPTIONS[OutfitType::GET_AWAY]['value'],
+            'attribute_id' => LuProductAttributes::OUTFIT_TYPE,
         ],
         [
-            'key' => Accessories::FOULARD,
-            'value' => Accessories::OPTIONS[Accessories::FOULARD]['value'],
-            'attribute_id' => LuProductAttributes::ACCESSORIES,
+            'key' => OutfitType::SPORTS_WEAR,
+            'value' => OutfitType::OPTIONS[OutfitType::SPORTS_WEAR]['value'],
+            'attribute_id' => LuProductAttributes::OUTFIT_TYPE,
         ],
         [
-            'key' => Accessories::CINTURONES,
-            'value' => Accessories::OPTIONS[Accessories::CINTURONES]['value'],
-            'attribute_id' => LuProductAttributes::ACCESSORIES,
+            'key' => OutfitType::MOM_TO_BE,
+            'value' => OutfitType::OPTIONS[OutfitType::MOM_TO_BE]['value'],
+            'attribute_id' => LuProductAttributes::OUTFIT_TYPE,
         ],
         [
-            'key' => Accessories::PULSERAS,
-            'value' => Accessories::OPTIONS[Accessories::PULSERAS]['value'],
-            'attribute_id' => LuProductAttributes::ACCESSORIES,
+            'key' => OutfitType::INTIMATES,
+            'value' => OutfitType::OPTIONS[OutfitType::INTIMATES]['value'],
+            'attribute_id' => LuProductAttributes::OUTFIT_TYPE,
         ],
         [
-            'key' => Accessories::ZAPATOS,
-            'value' => Accessories::OPTIONS[Accessories::ZAPATOS]['value'],
-            'attribute_id' => LuProductAttributes::ACCESSORIES,
-        ],
-        [
-            'key' => Accessories::ANILLOS,
-            'value' => Accessories::OPTIONS[Accessories::ANILLOS]['value'],
-            'attribute_id' => LuProductAttributes::ACCESSORIES,
-        ],
-        [
-            'key' => Accessories::ARETES,
-            'value' => Accessories::OPTIONS[Accessories::ARETES]['value'],
-            'attribute_id' => LuProductAttributes::ACCESSORIES,
-        ],
-        [
-            'key' => Accessories::EARCUFFS,
-            'value' => Accessories::OPTIONS[Accessories::EARCUFFS]['value'],
-            'attribute_id' => LuProductAttributes::ACCESSORIES,
-        ],
-
-        // ATTR::SIZE_DRESS
-        [
-            'key' => DressSizes::ECH,
-            'value' => DressSizes::ECH,
-            'attribute_id' => LuProductAttributes::SIZE_DRESS,
-        ],
-        [
-            'key' => DressSizes::CH,
-            'value' => DressSizes::CH,
-            'attribute_id' => LuProductAttributes::SIZE_DRESS,
-        ],
-        [
-            'key' => DressSizes::M,
-            'value' => DressSizes::M,
-            'attribute_id' => LuProductAttributes::SIZE_DRESS,
-        ],
-        [
-            'key' => DressSizes::G,
-            'value' => DressSizes::G,
-            'attribute_id' => LuProductAttributes::SIZE_DRESS,
-        ],
-        [
-            'key' => DressSizes::EG,
-            'value' => DressSizes::EG,
-            'attribute_id' => LuProductAttributes::SIZE_DRESS,
-        ],
-        [
-            'key' => DressSizes::EEG,
-            'value' => DressSizes::EEG,
-            'attribute_id' => LuProductAttributes::SIZE_DRESS,
-        ],
-
-        // ATTR::SIZE_BLOUSE
-        [
-            'key' => BlouseSizes::ECH,
-            'value' => BlouseSizes::ECH,
-            'attribute_id' => LuProductAttributes::SIZE_BLOUSE,
-        ],
-        [
-            'key' => BlouseSizes::CH,
-            'value' => BlouseSizes::CH,
-            'attribute_id' => LuProductAttributes::SIZE_BLOUSE,
-        ],
-        [
-            'key' => BlouseSizes::M,
-            'value' => BlouseSizes::M,
-            'attribute_id' => LuProductAttributes::SIZE_BLOUSE,
-        ],
-        [
-            'key' => BlouseSizes::G,
-            'value' => BlouseSizes::G,
-            'attribute_id' => LuProductAttributes::SIZE_BLOUSE,
-        ],
-        [
-            'key' => BlouseSizes::EG,
-            'value' => BlouseSizes::EG,
-            'attribute_id' => LuProductAttributes::SIZE_BLOUSE,
-        ],
-        [
-            'key' => BlouseSizes::EEG,
-            'value' => BlouseSizes::EEG,
-            'attribute_id' => LuProductAttributes::SIZE_BLOUSE,
-        ],
-
-        // ATTR::SIZE_BRA_BAND
-        [
-            'key' => BraBandSizes::SIZE_30,
-            'value' => BraBandSizes::SIZE_30,
-            'attribute_id' => LuProductAttributes::SIZE_BRA_BAND,
-        ],
-        [
-            'key' => BraBandSizes::SIZE_32,
-            'value' => BraBandSizes::SIZE_32,
-            'attribute_id' => LuProductAttributes::SIZE_BRA_BAND,
-        ],
-        [
-            'key' => BraBandSizes::SIZE_34,
-            'value' => BraBandSizes::SIZE_34,
-            'attribute_id' => LuProductAttributes::SIZE_BRA_BAND,
-        ],
-        [
-            'key' => BraBandSizes::SIZE_36,
-            'value' => BraBandSizes::SIZE_36,
-            'attribute_id' => LuProductAttributes::SIZE_BRA_BAND,
-        ],
-        [
-            'key' => BraBandSizes::SIZE_38,
-            'value' => BraBandSizes::SIZE_38,
-            'attribute_id' => LuProductAttributes::SIZE_BRA_BAND,
-        ],
-        [
-            'key' => BraBandSizes::SIZE_40,
-            'value' => BraBandSizes::SIZE_40,
-            'attribute_id' => LuProductAttributes::SIZE_BRA_BAND,
-        ],
-        [
-            'key' => BraBandSizes::SIZE_42,
-            'value' => BraBandSizes::SIZE_42,
-            'attribute_id' => LuProductAttributes::SIZE_BRA_BAND,
-        ],
-
-        // ATTR::SIZE_BRA_CUPS
-        [
-            'key' => BraCupsSizes::SIZE_A,
-            'value' => BraCupsSizes::SIZE_A,
-            'attribute_id' => LuProductAttributes::SIZE_BRA_CUPS,
-        ],
-        [
-            'key' => BraCupsSizes::SIZE_C,
-            'value' => BraCupsSizes::SIZE_C,
-            'attribute_id' => LuProductAttributes::SIZE_BRA_CUPS,
-        ],
-        [
-            'key' => BraCupsSizes::SIZE_D,
-            'value' => BraCupsSizes::SIZE_D,
-            'attribute_id' => LuProductAttributes::SIZE_BRA_CUPS,
-        ],
-        [
-            'key' => BraCupsSizes::SIZE_E,
-            'value' => BraCupsSizes::SIZE_E,
-            'attribute_id' => LuProductAttributes::SIZE_BRA_CUPS,
-        ],
-        [
-            'key' => BraCupsSizes::SIZE_F,
-            'value' => BraCupsSizes::SIZE_F,
-            'attribute_id' => LuProductAttributes::SIZE_BRA_CUPS,
-        ],
-        [
-            'key' => BraCupsSizes::SIZE_G,
-            'value' => BraCupsSizes::SIZE_G,
-            'attribute_id' => LuProductAttributes::SIZE_BRA_CUPS,
-        ],
-
-        // ATTR::SIZE_SKIRT
-        [
-            'key' => SkirtSizes::ECH,
-            'value' => SkirtSizes::ECH,
-            'attribute_id' => LuProductAttributes::SIZE_SKIRT,
-        ],
-        [
-            'key' => SkirtSizes::CH,
-            'value' => SkirtSizes::CH,
-            'attribute_id' => LuProductAttributes::SIZE_SKIRT,
-        ],
-        [
-            'key' => SkirtSizes::M,
-            'value' => SkirtSizes::M,
-            'attribute_id' => LuProductAttributes::SIZE_SKIRT,
-        ],
-        [
-            'key' => SkirtSizes::G,
-            'value' => SkirtSizes::G,
-            'attribute_id' => LuProductAttributes::SIZE_SKIRT,
-        ],
-        [
-            'key' => SkirtSizes::EG,
-            'value' => SkirtSizes::EG,
-            'attribute_id' => LuProductAttributes::SIZE_SKIRT,
-        ],
-        [
-            'key' => SkirtSizes::EEG,
-            'value' => SkirtSizes::EEG,
-            'attribute_id' => LuProductAttributes::SIZE_SKIRT,
-        ],
-
-        // ATTR::SIZE_SHOES
-        [
-            'key' => ShoesSizes::SIZE_22,
-            'value' => ShoesSizes::SIZE_22,
-            'attribute_id' => LuProductAttributes::SIZE_SHOES,
-        ],
-        [
-            'key' => ShoesSizes::SIZE_22_5,
-            'value' => ShoesSizes::SIZE_22_5,
-            'attribute_id' => LuProductAttributes::SIZE_SHOES,
-        ],
-        [
-            'key' => ShoesSizes::SIZE_23,
-            'value' => ShoesSizes::SIZE_23,
-            'attribute_id' => LuProductAttributes::SIZE_SHOES,
-        ],
-        [
-            'key' => ShoesSizes::SIZE_23_5,
-            'value' => ShoesSizes::SIZE_23_5,
-            'attribute_id' => LuProductAttributes::SIZE_SHOES,
-        ],
-        [
-            'key' => ShoesSizes::SIZE_24,
-            'value' => ShoesSizes::SIZE_24,
-            'attribute_id' => LuProductAttributes::SIZE_SHOES,
-        ],
-        [
-            'key' => ShoesSizes::SIZE_24_5,
-            'value' => ShoesSizes::SIZE_24_5,
-            'attribute_id' => LuProductAttributes::SIZE_SHOES,
-        ],
-        [
-            'key' => ShoesSizes::SIZE_25,
-            'value' => ShoesSizes::SIZE_25,
-            'attribute_id' => LuProductAttributes::SIZE_SHOES,
-        ],
-        [
-            'key' => ShoesSizes::SIZE_25_5,
-            'value' => ShoesSizes::SIZE_25_5,
-            'attribute_id' => LuProductAttributes::SIZE_SHOES,
-        ],
-        [
-            'key' => ShoesSizes::SIZE_26,
-            'value' => ShoesSizes::SIZE_26,
-            'attribute_id' => LuProductAttributes::SIZE_SHOES,
-        ],
-        [
-            'key' => ShoesSizes::SIZE_26_5,
-            'value' => ShoesSizes::SIZE_26_5,
-            'attribute_id' => LuProductAttributes::SIZE_SHOES,
-        ],
-        [
-            'key' => ShoesSizes::SIZE_27,
-            'value' => ShoesSizes::SIZE_27,
-            'attribute_id' => LuProductAttributes::SIZE_SHOES,
-        ],
-
-        // ATTR::SIZE_PANTS
-        [
-            'key' => PantsSizes::SIZE_1,
-            'value' => PantsSizes::SIZE_1,
-            'attribute_id' => LuProductAttributes::SIZE_PANTS,
-        ],
-        [
-            'key' => PantsSizes::SIZE_3,
-            'value' => PantsSizes::SIZE_3,
-            'attribute_id' => LuProductAttributes::SIZE_PANTS,
-        ],
-        [
-            'key' => PantsSizes::SIZE_5,
-            'value' => PantsSizes::SIZE_5,
-            'attribute_id' => LuProductAttributes::SIZE_PANTS,
-        ],
-        [
-            'key' => PantsSizes::SIZE_7,
-            'value' => PantsSizes::SIZE_7,
-            'attribute_id' => LuProductAttributes::SIZE_PANTS,
-        ],
-        [
-            'key' => PantsSizes::SIZE_9,
-            'value' => PantsSizes::SIZE_9,
-            'attribute_id' => LuProductAttributes::SIZE_PANTS,
-        ],
-        [
-            'key' => PantsSizes::SIZE_11,
-            'value' => PantsSizes::SIZE_11,
-            'attribute_id' => LuProductAttributes::SIZE_PANTS,
-        ],
-        [
-            'key' => PantsSizes::SIZE_13,
-            'value' => PantsSizes::SIZE_13,
-            'attribute_id' => LuProductAttributes::SIZE_PANTS,
-        ],
-        [
-            'key' => PantsSizes::SIZE_15,
-            'value' => PantsSizes::SIZE_15,
-            'attribute_id' => LuProductAttributes::SIZE_PANTS,
-        ],
-
-        // ATTR:BODY_PART
-        [
-            'key' => BodyPart::THIGHS,
-            'value' => BodyPart::OPTIONS[BodyPart::THIGHS]['value'],
-            'attribute_id' => LuProductAttributes::BODY_PART,
-        ],
-        [
-            'key' => BodyPart::CALVES,
-            'value' => BodyPart::OPTIONS[BodyPart::CALVES]['value'],
-            'attribute_id' => LuProductAttributes::BODY_PART,
-        ],
-        [
-            'key' => BodyPart::BUTT,
-            'value' => BodyPart::OPTIONS[BodyPart::BUTT]['value'],
-            'attribute_id' => LuProductAttributes::BODY_PART,
-        ],
-        [
-            'key' => BodyPart::ABDOMEN,
-            'value' => BodyPart::OPTIONS[BodyPart::ABDOMEN]['value'],
-            'attribute_id' => LuProductAttributes::BODY_PART,
-        ],
-        [
-            'key' => BodyPart::HIPS,
-            'value' => BodyPart::OPTIONS[BodyPart::HIPS]['value'],
-            'attribute_id' => LuProductAttributes::BODY_PART,
-        ],
-        [
-            'key' => BodyPart::BREAST,
-            'value' => BodyPart::OPTIONS[BodyPart::BREAST]['value'],
-            'attribute_id' => LuProductAttributes::BODY_PART,
-        ],
-        [
-            'key' => BodyPart::SHOULDERS,
-            'value' => BodyPart::OPTIONS[BodyPart::SHOULDERS]['value'],
-            'attribute_id' => LuProductAttributes::BODY_PART,
-        ],
-        [
-            'key' => BodyPart::ARMS,
-            'value' => BodyPart::OPTIONS[BodyPart::ARMS]['value'],
-            'attribute_id' => LuProductAttributes::BODY_PART,
+            'key' => OutfitType::PARTY_TIME,
+            'value' => OutfitType::OPTIONS[OutfitType::PARTY_TIME]['value'],
+            'attribute_id' => LuProductAttributes::OUTFIT_TYPE,
         ],
     ];
 }

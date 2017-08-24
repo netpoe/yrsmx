@@ -13,83 +13,38 @@ class LuProductAttributesAdapter extends LuProductAttributes implements InputOpt
     const PRINTS = 2;
     const FABRICS = 3;
     const WORDS = 4;
-    const RISK = 5;
-    const SHOES = 6;
-    const JEWELRY = 7;
-    const ACCESSORIES = 8;
-    const SIZE_DRESS = 9;
-    const SIZE_BLOUSE = 10;
-    const SIZE_BRA_BAND = 11;
-    const SIZE_BRA_CUPS = 12;
-    const SIZE_SKIRT = 13;
-    const SIZE_SHOES = 14;
-    const SIZE_PANTS = 15;
-    const BODY_PART = 16;
+    const JEWELRY = 5;
+    const BODY_PART = 6;
+    const OUTFIT_TYPE = 7;
 
     const OPTIONS = [
-        [
+        self::COLORS => [
             'key' => self::COLORS,
-            'value' => 'colors',
+            'value' => 'Colores',
         ],
-        [
+        self::PRINTS => [
             'key' => self::PRINTS,
-            'value' => 'prints',
+            'value' => 'Estampados',
         ],
-        [
+        self::FABRICS => [
             'key' => self::FABRICS,
-            'value' => 'fabrics',
+            'value' => 'Telas',
         ],
-        [
+        self::WORDS => [
             'key' => self::WORDS,
-            'value' => 'words',
+            'value' => 'Palabras',
         ],
-        [
-            'key' => self::RISK,
-            'value' => 'risk',
-        ],
-        [
-            'key' => self::SHOES,
-            'value' => 'shoes',
-        ],
-        [
+        self::JEWELRY => [
             'key' => self::JEWELRY,
-            'value' => 'jewelry',
+            'value' => 'Joyería',
         ],
-        [
-            'key' => self::ACCESSORIES,
-            'value' => 'accessories',
-        ],
-        [
-            'key' => self::SIZE_DRESS,
-            'value' => 'size_dress',
-        ],
-        [
-            'key' => self::SIZE_BLOUSE,
-            'value' => 'size_blouse',
-        ],
-        [
-            'key' => self::SIZE_BRA_BAND,
-            'value' => 'size_bra_band',
-        ],
-        [
-            'key' => self::SIZE_BRA_CUPS,
-            'value' => 'size_bra_cups',
-        ],
-        [
-            'key' => self::SIZE_SKIRT,
-            'value' => 'size_skirt',
-        ],
-        [
-            'key' => self::SIZE_SHOES,
-            'value' => 'size_shoes',
-        ],
-        [
-            'key' => self::SIZE_PANTS,
-            'value' => 'size_pants',
-        ],
-        [
+        self::BODY_PART => [
             'key' => self::BODY_PART,
-            'value' => 'body_part',
+            'value' => 'Parte del cuerpo',
+        ],
+        self::OUTFIT_TYPE => [
+            'key' => self::OUTFIT_TYPE,
+            'value' => 'Outfit',
         ],
     ];
 

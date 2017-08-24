@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Model;
 
 class RelProductsGalleryAdapter extends RelProductsGallery

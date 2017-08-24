@@ -4,9 +4,9 @@ namespace App\Entities;
 
 class ProductSubcategory
 {
-    public $key;
+    public $id;
 
-    public $value;
+    public $name;
 
     public $categoryId;
 
@@ -24,9 +24,9 @@ class ProductSubcategory
             throw new \Exception('Subcategory structure lacks [category_id]');
         }
 
-        $this->key = $values['key'];
+        $this->id = $values['key'];
 
-        $this->value = $values['value'];
+        $this->name = $values['value'];
 
         $this->categoryId = $values['category_id'];
     }

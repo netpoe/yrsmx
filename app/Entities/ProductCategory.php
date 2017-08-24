@@ -11,15 +11,15 @@ class ProductCategory
 {
     public $subcategories = [];
 
-    public $key;
+    public $id;
 
-    public $value;
+    public $name;
 
     public function init(Int $categoryId)
     {
-        $this->key = $categoryId;
+        $this->id = $categoryId;
 
-        $this->value = LuProductCategories::OPTIONS[$categoryId]['value'];
+        $this->name = LuProductCategories::OPTIONS[$categoryId]['value'];
 
         return $this;
     }

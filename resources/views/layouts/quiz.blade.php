@@ -14,11 +14,11 @@
       <header class="header">
         <div class="container">
           <div class="row">
-            <div class="col-sm-4 header-left">
+            <div class="col-4 header-left">
               <a href="#">YOURS</a>
             </div>
-            <div class="col-sm-4 header-center"></div>
-            <div class="col-sm-4 header-right">
+            <div class="col-4 header-center"></div>
+            <div class="col-4 header-right">
               @if (Auth::check())
                 <a href="{{ route('logout') }}">Guardar y Salir</a>
               @else

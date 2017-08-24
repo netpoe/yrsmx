@@ -70,6 +70,15 @@ $products-filter-width: 350px;
 }
 
 .products-filters {
+  padding-top: 0 !important;
+  .title {
+    background-color: $brand-warning;
+    margin-right: - get-spacer(3, x);
+    margin-left: - get-spacer(3, x);
+    padding: get-spacer(3, x);
+    margin-bottom: 0;
+    color: white;
+  }
   .category-group {
     &:nth-child(even) {
       background-color: $gray-lighter;

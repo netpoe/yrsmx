@@ -17,7 +17,16 @@ class LuProductCategoriesAdapter extends LuProductCategories implements InputOpt
     const BODY_TYPE = 4;
     const PANTS_FIT_SHAPE = 5;
     const PANTS_FIT_HIPS = 6;
-    const OUTFIT_TYPE = 7;
+    const ACCESSORIES = 7;
+    const RISK = 8;
+    const SHOES = 9;
+    const SIZE_DRESS = 10;
+    const SIZE_BLOUSE = 11;
+    const SIZE_BRA_BAND = 12;
+    const SIZE_BRA_CUPS = 13;
+    const SIZE_SKIRT = 14;
+    const SIZE_SHOES = 15;
+    const SIZE_PANTS = 16;
 
     const OPTIONS = [
         self::TYPE => [
@@ -44,9 +53,45 @@ class LuProductCategoriesAdapter extends LuProductCategories implements InputOpt
             'key' => self::PANTS_FIT_HIPS,
             'value' => 'Forma del pantalón (caderas)',
         ],
-        self::OUTFIT_TYPE => [
-            'key' => self::OUTFIT_TYPE,
-            'value' => 'Outfit',
+        self::ACCESSORIES => [
+            'key' => self::ACCESSORIES,
+            'value' => 'Accesorios',
+        ],
+        self::RISK => [
+            'key' => self::RISK,
+            'value' => 'Riesgo',
+        ],
+        self::SHOES => [
+            'key' => self::SHOES,
+            'value' => 'Zapatos',
+        ],
+        self::SIZE_DRESS => [
+            'key' => self::SIZE_DRESS,
+            'value' => 'Talla de vestido',
+        ],
+        self::SIZE_BLOUSE => [
+            'key' => self::SIZE_BLOUSE,
+            'value' => 'Talla de blusa',
+        ],
+        self::SIZE_BRA_BAND => [
+            'key' => self::SIZE_BRA_BAND,
+            'value' => 'Talla de bra (espalda)',
+        ],
+        self::SIZE_BRA_CUPS => [
+            'key' => self::SIZE_BRA_CUPS,
+            'value' => 'Talla de bra (copas)',
+        ],
+        self::SIZE_SKIRT => [
+            'key' => self::SIZE_SKIRT,
+            'value' => 'Talla de falda',
+        ],
+        self::SIZE_SHOES => [
+            'key' => self::SIZE_SHOES,
+            'value' => 'Talla de zapatos',
+        ],
+        self::SIZE_PANTS => [
+            'key' => self::SIZE_PANTS,
+            'value' => 'Talla de pantalones',
         ],
     ];
 }
