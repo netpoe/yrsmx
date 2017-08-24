@@ -1,0 +1,19 @@
+.site-content {
+  padding: 0;
+}
+
+.products-wrapper {
+  position: relative;
+  min-height: 100vh;
+  .products-filters {
+    @include position(absolute, 0 null 0 0);
+    width: $products-filter-width;
+    padding: get-spacer(3, x);
+    background-color: white;
+    overflow: scroll;
+  }
+  .products-list-wrapper {
+    margin-left: $products-filter-width;
+    padding: $container-fluid;
+  }
+}

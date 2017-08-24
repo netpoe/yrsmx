@@ -2,8 +2,11 @@
 
 namespace App\Model;
 
-use App\Form\Contract\InputOptionsContract;
-use App\Form\Traits\InputOptionsTrait;
+use App\Form\{
+    Contract\InputOptionsContract,
+    Traits\InputOptionsTrait
+};
+
 use App\Model\{
     LuProductCategoriesAdapter as LuProductCategories,
     UserPreferredBodyParts\BodyType,
@@ -12,7 +15,8 @@ use App\Model\{
     UserFit\PantsFitShape,
     UserFit\PantsFitHips,
     UserStyle\Clothes,
-    Product\ProductType
+    Product\ProductType,
+    OutfitType
 };
 
 class LuProductSubcategoriesAdapter extends LuProductSubcategories implements InputOptionsContract
@@ -250,6 +254,48 @@ class LuProductSubcategoriesAdapter extends LuProductSubcategories implements In
             'key' => PantsFitHips::WAIST,
             'value' => PantsFitHips::OPTIONS[PantsFitHips::WAIST]['value'],
             'category_id' => LuProductCategories::PANTS_FIT_HIPS,
+        ],
+
+        // CATEGORY::OUTFIT_TYPE
+        [
+            'key' => OutfitType::CASUAL_WEAR,
+            'value' => OutfitType::OPTIONS[OutfitType::CASUAL_WEAR]['value'],
+            'category_id' => LuProductCategories::OUTFIT_TYPE,
+        ],
+        [
+            'key' => OutfitType::BASICS,
+            'value' => OutfitType::OPTIONS[OutfitType::BASICS]['value'],
+            'category_id' => LuProductCategories::OUTFIT_TYPE,
+        ],
+        [
+            'key' => OutfitType::WORK,
+            'value' => OutfitType::OPTIONS[OutfitType::WORK]['value'],
+            'category_id' => LuProductCategories::OUTFIT_TYPE,
+        ],
+        [
+            'key' => OutfitType::GET_AWAY,
+            'value' => OutfitType::OPTIONS[OutfitType::GET_AWAY]['value'],
+            'category_id' => LuProductCategories::OUTFIT_TYPE,
+        ],
+        [
+            'key' => OutfitType::SPORTS_WEAR,
+            'value' => OutfitType::OPTIONS[OutfitType::SPORTS_WEAR]['value'],
+            'category_id' => LuProductCategories::OUTFIT_TYPE,
+        ],
+        [
+            'key' => OutfitType::MOM_TO_BE,
+            'value' => OutfitType::OPTIONS[OutfitType::MOM_TO_BE]['value'],
+            'category_id' => LuProductCategories::OUTFIT_TYPE,
+        ],
+        [
+            'key' => OutfitType::INTIMATES,
+            'value' => OutfitType::OPTIONS[OutfitType::INTIMATES]['value'],
+            'category_id' => LuProductCategories::OUTFIT_TYPE,
+        ],
+        [
+            'key' => OutfitType::PARTY_TIME,
+            'value' => OutfitType::OPTIONS[OutfitType::PARTY_TIME]['value'],
+            'category_id' => LuProductCategories::OUTFIT_TYPE,
         ],
     ];
 }

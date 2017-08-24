@@ -20,35 +20,35 @@ class OutfitType extends Model implements InputOptionsContract
     const PARTY_TIME = 8;
 
     const OPTIONS = [
-        [
+        self::CASUAL_WEAR => [
             'key' => self::CASUAL_WEAR,
             'value' => 'Casual Wear',
         ],
-        [
+        self::BASICS => [
             'key' => self::BASICS,
             'value' => 'Basics',
         ],
-        [
+        self::WORK => [
             'key' => self::WORK,
             'value' => 'Work',
         ],
-        [
+        self::GET_AWAY => [
             'key' => self::GET_AWAY,
             'value' => 'Get Away',
         ],
-        [
+        self::SPORTS_WEAR => [
             'key' => self::SPORTS_WEAR,
             'value' => 'Sports Wear',
         ],
-        [
+        self::MOM_TO_BE => [
             'key' => self::MOM_TO_BE,
             'value' => 'Mom To Be',
         ],
-        [
+        self::INTIMATES => [
             'key' => self::INTIMATES,
             'value' => 'Intimates',
         ],
-        [
+        self::PARTY_TIME => [
             'key' => self::PARTY_TIME,
             'value' => 'Party Time',
         ],

@@ -33,6 +33,7 @@
 @import "./node_modules/ebm/control/ebm-text-responsive-control";
 @import "./node_modules/ebm/control/ebm-flexbox-control";
 @import "./node_modules/ebm/elements/ebm-grid-lists";
+@import "./node_modules/ebm/elements/ebm-custom-radio-checkbox";
 @import "./node_modules/ebm/elements/ebm-icons";
 @import "./resources/sass/ebm-overrides";
 @import "./resources/sass/ebm-global";
@@ -42,11 +43,42 @@
 @import "./resources/sass/common/top-menu";
 @import "./resources/sass/common/search-wrapper";
 @import "./resources/sass/common/user-resources-nav";
-@import "./resources/sass/common/dropzone";
-@import "./resources/sass/common/upload-products-modal";
 @import "./resources/sass/common/products-list";
+
+$products-filter-width: 350px;
 @import "./resources/sass/common/products-wrapper";
 
-#product-upload {
-  margin-bottom: get-spacer(3, y);
+.product-categories {
+  label {
+    text-transform: lowercase;
+    padding-bottom: 3px;
+    padding-left: 28px;
+    padding-top: 3px;
+    text-align: left;
+    font-size: 12px;
+  }
+}
+
+#admin-products-classify {
+  .products-list {
+    .img-wrapper {
+      height: auto;
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+
+.products-filters {
+  .category-group {
+    &:nth-child(even) {
+      background-color: $gray-lighter;
+    }
+    margin-right: - get-spacer(3, x);
+    margin-left: - get-spacer(3, x);
+    padding: get-spacer(3, x);
+    h6 {
+      margin-bottom: get-spacer(3, y);
+    }
+  }
 }

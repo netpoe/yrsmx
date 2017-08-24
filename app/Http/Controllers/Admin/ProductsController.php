@@ -5,10 +5,19 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Service\ProductsService;
-use App\Model\RelProductsGalleryAdapter as ProductsGallery;
-use App\Model\ProductsAdapter as Product;
-use App\Model\RelProductsOutfitAdapter as ProductsOutfit;
 use Auth;
+
+use App\Entities\{
+    ProductCategory
+};
+
+use App\Model\{
+    RelProductsGalleryAdapter as ProductsGallery,
+    ProductsAdapter as Product,
+    RelProductsOutfitAdapter as ProductsOutfit,
+    LuProductSubcategoriesAdapter as LuProductSubcategories,
+    LuProductCategoriesAdapter as LuProductCategories
+};
 
 class ProductsController extends Controller
 {
@@ -94,14 +103,27 @@ class ProductsController extends Controller
      */
     public function store(Request $request, Product $product)
     {
-
+        print_r($request->all()); exit;
     }
 
     /**
-     * configure    Displays a ProductSection to set its attributes and categories configuration
+     * classify    Displays a ProductSection to set its attributes and categories configuration
      */
-    public function configure(Product $product)
+    public function classify(Product $product)
     {
+        $categories = [
+            'type' => (new ProductCategory)->get(LuProductCategories::TYPE),
+            'lowerPartFit' => (new ProductCategory)->get(LuProductCategories::LOWER_PART_FIT),
+            'upperPartFit' => (new ProductCategory)->get(LuProductCategories::UPPER_PART_FIT),
+            'bodyType' => (new ProductCategory)->get(LuProductCategories::BODY_TYPE),
+            'pantsFitShape' => (new ProductCategory)->get(LuProductCategories::PANTS_FIT_SHAPE),
+            'pantsFitHips' => (new ProductCategory)->get(LuProductCategories::PANTS_FIT_HIPS),
+            'outfitType' => (new ProductCategory)->get(LuProductCategories::OUTFIT_TYPE),
+        ];
 
+        return view('admin.products.classify', [
+            'categories' => $categories,
+            'product' => $product
+        ]);
     }
 }
