@@ -71,6 +71,7 @@
 }
 
 .categories-nav {
+  margin-bottom: get-spacer(3, y);
   a, span {
     font-size: $font-size-sm;
     &:not(:last-child) {

@@ -76,7 +76,23 @@ class ProductsController extends Controller
      */
     public function show(Product $product)
     {
-        return view('admin/products/show', ['product' => $product]);
+        $attributes = [];
+
+        $product->subattributes->each(function($subattribute) use (&$attributes) {
+            $attributes[$subattribute->attribute->attribute][] = $subattribute->description;
+        });
+
+        $categories = [];
+
+        $product->subcategories->each(function($subcategory) use (&$categories) {
+            $categories[$subcategory->category->category][] = $subcategory->description;
+        });
+
+        return view('admin/products/show', [
+            'product' => $product,
+            'attributes' => $attributes,
+            'categories' => $categories,
+        ]);
     }
 
     public function getUnassignedProducts(Request $request, Product $product)
@@ -123,15 +139,13 @@ class ProductsController extends Controller
         }
 
         if ($request->input('attributes')) {
-            foreach ($request->input('attributes') as $attribute) {
-                foreach ($attribute as $attributeId => $subattribute) {
-                    foreach ($subattribute as $subattributeId) {
-                        RelProductsAttributes::create([
-                            'product_id' => $product->id,
-                            'attribute_id' => $attributeId,
-                            'subattribute_id' => $subattributeId,
-                            ]);
-                    }
+            foreach ($request->input('attributes') as $attributeId => $attribute) {
+                foreach ($attribute as $subattributeId) {
+                    RelProductsAttributes::create([
+                        'product_id' => $product->id,
+                        'attribute_id' => $attributeId,
+                        'subattribute_id' => $subattributeId,
+                        ]);
                 }
             }
         }

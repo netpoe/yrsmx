@@ -47,12 +47,14 @@
             <a href="{{ route('admin.products.classify', ['product' => $product->id]) }}" class="btn btn-sm btn-secondary">Añadir categorías</a>
           </div>
           <div class="card-block">
-            <nav class="categories-nav">
-              <span>cat 1</span>
-              <span>cat 2</span>
-              <span>cat 3</span>
-              <span>cat 4</span>
-            </nav>
+            <ul class="grid-list grid-list-2 grid-list-xs-1">
+              @foreach($categories as $name => $subcategories)
+                <li><h6>{{ $name }}</h6></li>
+                @foreach($subcategories as $subcategory)
+                  <li>{{ $subcategory }}</li>
+                @endforeach
+              @endforeach
+            </ul>
           </div>
         </div>
         <div class="card">
@@ -61,12 +63,14 @@
             <a href="{{ route('admin.products.classify', ['product' => $product->id]) }}" class="btn btn-sm btn-secondary">Añadir atributos</a>
           </div>
           <div class="card-block">
-            <nav class="categories-nav">
-              <span>attr 1</span>
-              <span>attr 2</span>
-              <span>attr 3</span>
-              <span>attr 4</span>
-            </nav>
+            @foreach($attributes as $name => $subattributes)
+              <h6>{{ $name }}</h6>
+              <nav class="categories-nav">
+                @foreach($subattributes as $subattribute)
+                  <span>{{ $subattribute }}</span>
+                @endforeach
+              </nav>
+            @endforeach
           </div>
         </div>
       </div>
