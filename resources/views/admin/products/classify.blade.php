@@ -45,6 +45,7 @@
           <div class="card-block">
             <nav class="user-resources-nav">
               <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+              <a href="{{ route('admin.products.show', ['product' => $product->id]) }}" class="btn btn-secondary">Ver producto</a>
             </nav>
           </div>
         </div>
@@ -52,7 +53,7 @@
           @foreach ($product->files as $file)
             <li class="product-item">
               <div>
-                <div class="img-wrapper"><img src="{{ $file->file_src }}" alt="{{ $file->filename }}"></div>
+                <a href="{{ route('admin.products.show', ['product' => $product->id]) }}" class="img-wrapper"><img src="{{ $file->file_src }}" alt="{{ $file->filename }}"></a>
               </div>
             </li>
           @endforeach

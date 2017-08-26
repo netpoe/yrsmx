@@ -25,6 +25,7 @@
             <nav>
               <a href="#" class="btn btn-sm btn-secondary">Asignar imágenes</a>
               <a href="#" class="btn btn-sm btn-secondary">Subir imágenes y asignar</a>
+              <a href="{{ route('admin.products.classify', ['product' => $product->id]) }}" class="btn btn-sm btn-secondary">Clasificar producto</a>
               <a href="#" class="btn btn-sm btn-danger">Borrar producto</a>
             </nav>
           </div>
