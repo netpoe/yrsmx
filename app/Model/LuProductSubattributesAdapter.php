@@ -554,4 +554,23 @@ class LuProductSubattributesAdapter extends LuProductSubattributes implements In
             'attribute_id' => LuProductAttributes::OUTFIT_TYPE,
         ],
     ];
+
+    /**
+     * getSubattributeId Returns a subattribute_id from lu_product_subattributes
+     * if the subattribute value matches the one from the $key argument
+     * @param  Int    $attributeId the attribute_id where the subattribute belongs to
+     * @param  String $subattribute a class name implementing an InputOptionsContract class
+     * @param  $key an InputOptionsContract::OPTIONS key
+     * @return Int \\ null
+     */
+    public static function getSubattributeId(Int $attributeId, String $subattribute, $key)
+    {
+        $value = $subattribute::getOptionsValue($key);
+
+        $luProductSubattribute = LuProductSubattributes::where('attribute_id', $attributeId)
+                                                        ->where('value', $value)
+                                                        ->first();
+
+        return $luProductSubattribute ? $luProductSubattribute->id : null;
+    }
 }

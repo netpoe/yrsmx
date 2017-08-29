@@ -15,11 +15,29 @@ class ProductCategory
 
     public $name;
 
+    public $subcategoryClass;
+
+    public $subcategory;
+
+    public function __construct(Int $categoryId = null)
+    {
+        $this->id = $categoryId;
+    }
+
     public function init(Int $categoryId)
     {
         $this->id = $categoryId;
 
         $this->name = LuProductCategories::OPTIONS[$categoryId]['value'];
+
+        return $this;
+    }
+
+    public function setProductSubcategory(String $subcategoryClass, $subcategory)
+    {
+        $this->subcategoryClass = $subcategoryClass;
+
+        $this->subcategory = $subcategory;
 
         return $this;
     }

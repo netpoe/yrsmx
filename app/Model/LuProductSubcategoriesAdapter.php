@@ -641,7 +641,15 @@ class LuProductSubcategoriesAdapter extends LuProductSubcategories implements In
         ],
     ];
 
-    public static function getSubcategoryId(Int $categoryId, $subcategory, $key)
+    /**
+     * getSubcategoryId Returns a subcategory_id from lu_product_subcategories
+     * if the subcategory value matches the one from the $key argument
+     * @param  Int    $categoryId the category_id where the subcategory belongs to
+     * @param  String $subcategory a class name implementing an InputOptionsContract class
+     * @param  $key an InputOptionsContract::OPTIONS key
+     * @return Int \\ null
+     */
+    public static function getSubcategoryId(Int $categoryId, String $subcategory, $key)
     {
         $value = $subcategory::getOptionsValue($key);
 

@@ -15,11 +15,29 @@ class ProductAttribute
 
     public $name;
 
+    public $subattributeClass;
+
+    public $subattribute;
+
+    public function __construct(Int $attributeId = null)
+    {
+        $this->id = $attributeId;
+    }
+
     public function init(Int $attributeId)
     {
         $this->id = $attributeId;
 
         $this->name = LuProductAttributes::OPTIONS[$attributeId]['value'];
+
+        return $this;
+    }
+
+    public function setProductSubattribute(String $subattributeClass, $subattribute)
+    {
+        $this->subattributeClass = $subattributeClass;
+
+        $this->subattribute = $subattribute;
 
         return $this;
     }
