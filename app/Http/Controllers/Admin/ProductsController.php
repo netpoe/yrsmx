@@ -124,30 +124,14 @@ class ProductsController extends Controller
      */
     public function store(
         Request $request,
-        Product $product,
-        RelProductsAttributes $relProductsAttributes,
-        RelProductsCategories $relProductsCategories)
+        Product $product)
     {
         if ($request->input('categories')) {
-            foreach ($request->input('categories') as $categoryId => $subcategoryId) {
-                RelProductsCategories::create([
-                    'product_id' => $product->id,
-                    'category_id' => $categoryId,
-                    'subcategory_id' => $subcategoryId,
-                    ]);
-            }
+            $product->assignCategories($request->input('categories'));
         }
 
         if ($request->input('attributes')) {
-            foreach ($request->input('attributes') as $attributeId => $attribute) {
-                foreach ($attribute as $subattributeId) {
-                    RelProductsAttributes::create([
-                        'product_id' => $product->id,
-                        'attribute_id' => $attributeId,
-                        'subattribute_id' => $subattributeId,
-                        ]);
-                }
-            }
+            $product->assignAttributes($request->input('attributes'));
         }
 
         return redirect()->route('admin.products.show', ['product' => $product->id]);

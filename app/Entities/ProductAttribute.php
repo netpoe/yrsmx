@@ -58,4 +58,18 @@ class ProductAttribute
     {
         return $this->subattributes;
     }
+
+    public function subattributesAsInputOptions()
+    {
+        $options = [];
+
+        foreach ($this->subattributes() as $subattribute) {
+            $options[] = [
+                'key' => $subattribute->id,
+                'value' => $subattribute->value
+            ];
+        }
+
+        return $options;
+    }
 }

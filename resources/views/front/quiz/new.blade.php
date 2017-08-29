@@ -31,7 +31,7 @@
 
           @include('fields.radio', ['field' => $form->getField('outfit_type')])
 
-          @if (!Auth::check())
+          @if ($displayEmailField)
             @include('fields.text', ['field' => $form->getField('email')])
           @endif
 

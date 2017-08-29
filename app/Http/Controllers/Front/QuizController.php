@@ -46,7 +46,11 @@ class QuizController extends Controller
 
         }
 
-        return view('front/quiz/new', compact('form', 'userHasPendingQuiz', 'sectionRoute'));
+        $displayEmailField = !Auth::check() || $user->isAdmin();
+
+        $params = compact('form', 'userHasPendingQuiz', 'sectionRoute', 'displayEmailField');
+
+        return view('front/quiz/new', $params);
     }
 
     /**

@@ -82,7 +82,7 @@ class UserAdapter extends User
 
     public function hasPendingQuiz()
     {
-        return $this->getLatestQuiz()->completed_at === null;
+        return $this->getLatestQuiz() && $this->getLatestQuiz()->completed_at === null;
     }
 
     /**
