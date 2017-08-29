@@ -15,7 +15,7 @@ class CreateLuProductAttributes extends Migration
     {
         Schema::create('lu_product_attributes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('attribute')->unique();
+            $table->string('name')->unique();
         });
     }
 

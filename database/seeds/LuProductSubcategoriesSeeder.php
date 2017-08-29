@@ -20,8 +20,7 @@ class LuProductSubcategoriesSeeder extends Seeder
         foreach (LuProductSubcategories::OPTIONS as $option) {
             $insert = [
                 'category_id' => $option['category_id'],
-                'subcategory' => $option['key'],
-                'description' => $option['value']
+                'value' => $option['value'],
             ];
 
             DB::table(self::TABLE)->insert($insert);

@@ -79,13 +79,13 @@ class ProductsController extends Controller
         $attributes = [];
 
         $product->subattributes->each(function($subattribute) use (&$attributes) {
-            $attributes[$subattribute->attribute->attribute][] = $subattribute->description;
+            $attributes[$subattribute->attribute->name][] = $subattribute->value;
         });
 
         $categories = [];
 
         $product->subcategories->each(function($subcategory) use (&$categories) {
-            $categories[$subcategory->category->category][] = $subcategory->description;
+            $categories[$subcategory->category->name][] = $subcategory->value;
         });
 
         return view('admin/products/show', [

@@ -17,7 +17,7 @@
               @foreach ($category->subcategories() as $subcategory)
                 <li class="grid-list-item">
                   <input type="radio" value="{{ $subcategory->id }}" name="categories[{{ $category->id }}]" id="category[{{ $category->id }}][{{ $subcategory->id }}]">
-                  <label for="category[{{ $category->id }}][{{ $subcategory->id }}]">{{ $subcategory->description }}</label>
+                  <label for="category[{{ $category->id }}][{{ $subcategory->id }}]">{{ $subcategory->value }}</label>
                 </li>
               @endforeach
             </ul>
@@ -32,7 +32,7 @@
               @foreach ($attribute->subattributes() as $subattribute)
                 <li class="grid-list-item">
                   <input type="checkbox" value="{{ $subattribute->id }}" name="attributes[{{ $attribute->id }}][]" id="attribute[{{ $attribute->id }}][{{ $subattribute->id }}]">
-                  <label for="attribute[{{ $attribute->id }}][{{ $subattribute->id }}]">{{ $subattribute->description }}</label>
+                  <label for="attribute[{{ $attribute->id }}][{{ $subattribute->id }}]">{{ $subattribute->value }}</label>
                 </li>
               @endforeach
             </ul>
@@ -45,7 +45,7 @@
           <div class="card-block">
             <nav class="user-resources-nav">
               <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
-              <a href="{{ route('admin.products.show', ['product' => $product->id]) }}" class="btn btn-secondary">Ver producto</a>
+              <a href="{{ route('admin.products.show', ['product' => $product->id]) }}" class="btn btn-sm btn-secondary">Ver producto</a>
             </nav>
           </div>
         </div>

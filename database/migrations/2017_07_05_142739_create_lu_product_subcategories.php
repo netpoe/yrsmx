@@ -16,8 +16,7 @@ class CreateLuProductSubcategories extends Migration
         Schema::create('lu_product_subcategories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('category_id')->unsigned();
-            $table->string('subcategory');
-            $table->string('description');
+            $table->string('value');
         });
 
         Schema::table('lu_product_subcategories', function (Blueprint $table) {

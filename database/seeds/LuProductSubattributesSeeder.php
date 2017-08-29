@@ -20,8 +20,7 @@ class LuProductSubattributesSeeder extends Seeder
         foreach (LuProductSubattributes::OPTIONS as $option) {
             $insert = [
                 'attribute_id' => $option['attribute_id'],
-                'subattribute' => $option['key'],
-                'description' => $option['value'],
+                'value' => $option['value'],
             ];
 
             DB::table(self::TABLE)->insert($insert);

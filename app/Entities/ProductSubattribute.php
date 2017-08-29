@@ -12,7 +12,7 @@ class ProductSubattribute
 
     public $key;
 
-    public $description;
+    public $value;
 
     public $attributeId;
 
@@ -30,14 +30,14 @@ class ProductSubattribute
             throw new \Exception('Subattribute structure lacks [attribute_id]');
         }
 
-        $this->id = LuProductSubattributes::where('subattribute', $values['key'])
+        $this->id = LuProductSubattributes::where('value', $values['value'])
                                             ->where('attribute_id', $values['attribute_id'])
                                             ->first()
                                             ->id;
 
         $this->key = $values['key'];
 
-        $this->description = $values['value'];
+        $this->value = $values['value'];
 
         $this->attributeId = $values['attribute_id'];
     }

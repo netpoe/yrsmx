@@ -16,7 +16,7 @@ class LuProductCategoriesSeeder extends Seeder
     {
         foreach (LuProductCategories::OPTIONS as $option) {
             $insert = [
-                'category' => $option['value'],
+                'name' => $option['value'],
             ];
 
             DB::table(self::TABLE)->insert($insert);

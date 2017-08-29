@@ -12,7 +12,7 @@ class ProductSubcategory
 
     public $key;
 
-    public $description;
+    public $value;
 
     public $categoryId;
 
@@ -30,14 +30,14 @@ class ProductSubcategory
             throw new \Exception('Subcategory structure lacks [category_id]');
         }
 
-        $this->id = LuProductSubcategories::where('subcategory', $values['key'])
+        $this->id = LuProductSubcategories::where('value', $values['value'])
                                             ->where('category_id', $values['category_id'])
                                             ->first()
                                             ->id;
 
         $this->key = $values['key'];
 
-        $this->description = $values['value'];
+        $this->value = $values['value'];
 
         $this->categoryId = $values['category_id'];
     }
