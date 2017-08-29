@@ -29,13 +29,7 @@ trait InputOptionsTrait
     {
         $options = self::getOptions();
 
-        foreach ($options as $option) {
-            if ($option['key'] == $key) {
-                return $option['value'];
-            }
-        }
-
-        return null;
+        return $options[$key]['value'] ?? null;
     }
 
     public static function getOptionsKeyValue($key, String $index)

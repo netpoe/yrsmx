@@ -20,35 +20,35 @@ class PantsSizes extends UserSizes implements InputOptionsContract
     const SIZE_15 = 15;
 
     const OPTIONS = [
-        [
+        self::SIZE_1 => [
             'key' => self::SIZE_1,
             'value' => self::SIZE_1,
         ],
-        [
+        self::SIZE_3 => [
             'key' => self::SIZE_3,
             'value' => self::SIZE_3,
         ],
-        [
+        self::SIZE_5 => [
             'key' => self::SIZE_5,
             'value' => self::SIZE_5,
         ],
-        [
+        self::SIZE_7 => [
             'key' => self::SIZE_7,
             'value' => self::SIZE_7,
         ],
-        [
+        self::SIZE_9 => [
             'key' => self::SIZE_9,
             'value' => self::SIZE_9,
         ],
-        [
+        self::SIZE_11 => [
             'key' => self::SIZE_11,
             'value' => self::SIZE_11,
         ],
-        [
+        self::SIZE_13 => [
             'key' => self::SIZE_13,
             'value' => self::SIZE_13,
         ],
-        [
+        self::SIZE_15 => [
             'key' => self::SIZE_15,
             'value' => self::SIZE_15,
         ],

@@ -640,4 +640,22 @@ class LuProductSubcategoriesAdapter extends LuProductSubcategories implements In
             'category_id' => LuProductCategories::SIZE_PANTS,
         ],
     ];
+
+    public static function getSubcategoryId(Int $categoryId, $subcategory, $key)
+    {
+        $value = $subcategory::getOptionsValue($key);
+
+        $luProductSubcategory = LuProductSubcategories::where('category_id', $categoryId)
+                                                        ->where('value', $value)
+                                                        ->first();
+
+        return $luProductSubcategory ? $luProductSubcategory->id : null;
+    }
 }
+
+
+
+
+
+
+

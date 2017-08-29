@@ -19,31 +19,31 @@ class BraBandSizes extends UserSizes implements InputOptionsContract
     const SIZE_42 = 42;
 
     const OPTIONS = [
-        [
+        self::SIZE_30 => [
             'key' => self::SIZE_30,
             'value' => self::SIZE_30,
         ],
-        [
+        self::SIZE_32 => [
             'key' => self::SIZE_32,
             'value' => self::SIZE_32,
         ],
-        [
+        self::SIZE_34 => [
             'key' => self::SIZE_34,
             'value' => self::SIZE_34,
         ],
-        [
+        self::SIZE_36 => [
             'key' => self::SIZE_36,
             'value' => self::SIZE_36,
         ],
-        [
+        self::SIZE_38 => [
             'key' => self::SIZE_38,
             'value' => self::SIZE_38,
         ],
-        [
+        self::SIZE_40 => [
             'key' => self::SIZE_40,
             'value' => self::SIZE_40,
         ],
-        [
+        self::SIZE_42 => [
             'key' => self::SIZE_42,
             'value' => self::SIZE_42,
         ],

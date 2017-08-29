@@ -14,11 +14,11 @@ class GenderId extends UserInfo implements InputOptionsContract
     const FEMALE = 2;
 
     const OPTIONS = [
-        [
+        self::MALE => [
             'key' => self::MALE,
             'value' => 'Masculino',
         ],
-        [
+        self::FEMALE => [
             'key' => self::FEMALE,
             'value' => 'Femenino',
         ]

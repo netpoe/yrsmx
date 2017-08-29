@@ -18,27 +18,27 @@ class BlouseSizes extends UserSizes implements InputOptionsContract
     const EEG = 'EEG';
 
     const OPTIONS = [
-        [
+        self::ECH => [
             'key' => self::ECH,
             'value' => self::ECH,
         ],
-        [
+        self::CH => [
             'key' => self::CH,
             'value' => self::CH,
         ],
-        [
+        self::M => [
             'key' => self::M,
             'value' => self::M,
         ],
-        [
+        self::G => [
             'key' => self::G,
             'value' => self::G,
         ],
-        [
+        self::EG => [
             'key' => self::EG,
             'value' => self::EG,
         ],
-        [
+        self::EEG => [
             'key' => self::EEG,
             'value' => self::EEG,
         ],

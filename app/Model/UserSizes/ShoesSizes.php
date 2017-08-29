@@ -23,47 +23,47 @@ class ShoesSizes extends UserSizes implements InputOptionsContract
     const SIZE_27 = 27;
 
     const OPTIONS = [
-        [
+        self::SIZE_22 => [
             'key' => self::SIZE_22,
             'value' => self::SIZE_22,
         ],
-        [
+        self::SIZE_22_5 => [
             'key' => self::SIZE_22_5,
             'value' => self::SIZE_22_5,
         ],
-        [
+        self::SIZE_23 => [
             'key' => self::SIZE_23,
             'value' => self::SIZE_23,
         ],
-        [
+        self::SIZE_23_5 => [
             'key' => self::SIZE_23_5,
             'value' => self::SIZE_23_5,
         ],
-        [
+        self::SIZE_24 => [
             'key' => self::SIZE_24,
             'value' => self::SIZE_24,
         ],
-        [
+        self::SIZE_24_5 => [
             'key' => self::SIZE_24_5,
             'value' => self::SIZE_24_5,
         ],
-        [
+        self::SIZE_25 => [
             'key' => self::SIZE_25,
             'value' => self::SIZE_25,
         ],
-        [
+        self::SIZE_25_5 => [
             'key' => self::SIZE_25_5,
             'value' => self::SIZE_25_5,
         ],
-        [
+        self::SIZE_26 => [
             'key' => self::SIZE_26,
             'value' => self::SIZE_26,
         ],
-        [
+        self::SIZE_26_5 => [
             'key' => self::SIZE_26_5,
             'value' => self::SIZE_26_5,
         ],
-        [
+        self::SIZE_27 => [
             'key' => self::SIZE_27,
             'value' => self::SIZE_27,
         ],

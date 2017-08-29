@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Faker\Factory as FakerFactory;
 
 use App\Model\{
@@ -66,6 +67,8 @@ class UserWithCompleteCusualWearQuizSeeder extends Seeder
         $user = (new User)->new($email);
 
         $user->updated_password_ts = DateTimeUtil::DBNOW();
+
+        $user->password = Hash::make('test123');
 
         $user->save();
 

@@ -21,6 +21,12 @@ class UserAdapter extends User
         });
     }
 
+    /**
+     * confirmEmail Mark a user token as null
+     * and the is_verified field as true when a user completes the email
+     * verification funnel
+     * @return self
+     */
     public function confirmEmail()
     {
         $this->is_verified = true;
@@ -48,6 +54,11 @@ class UserAdapter extends User
         return $this;
     }
 
+    /**
+     * createEmptyAddress A user may have many addresses,
+     * this method associates an empty user_address row with the user
+     * @return self
+     */
     public function createEmptyAddress()
     {
         UserAddress::create([
@@ -80,6 +91,11 @@ class UserAdapter extends User
             ->first();
     }
 
+    /**
+     * hasPendingQuiz Determine if a user has a pending quiz if it has a quiz
+     * and the quiz has a null completed_ts
+     * @return boolean
+     */
     public function hasPendingQuiz()
     {
         return $this->getLatestQuiz() && $this->getLatestQuiz()->completed_at === null;
@@ -95,6 +111,11 @@ class UserAdapter extends User
                 $this->role_id === LuUserRole::ADMIN;
     }
 
+    /**
+     * hasUpdatedPassword Determine if a user has updated its password
+     * because a random password is generated when it starts a new quiz
+     * @return boolean
+     */
     public function hasUpdatedPassword(): bool
     {
         return $this->updated_password_ts != null;
