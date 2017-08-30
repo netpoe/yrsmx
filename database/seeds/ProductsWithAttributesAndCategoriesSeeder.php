@@ -33,7 +33,9 @@ use App\Model\{
     UserSizes\ShoesSizes,
     UserSizes\SkirtSizes,
     UserStyle\Colors,
+    UserStyle\Shoes,
     UserStyle\Prints,
+    UserStyle\Accessories,
     UserStyle\Fabrics,
     UserStyle\Words,
     Product\BodyPart,
@@ -77,108 +79,97 @@ class ProductsWithAttributesAndCategoriesSeeder extends Seeder
             if ($this->subcategory == Clothes::VESTIDOS) {
                 $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
                 $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_DRESS, DressSizes::class);
-            }
-
-            if ($this->subcategory == Clothes::CHAMARRAS) {
+            } else if ($this->subcategory == Clothes::CHAMARRAS) {
                 $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
-            }
-
-            if ($this->subcategory == Clothes::SHORTS) {
-                $this->shuffleProductSubcategory($product, LuProductCategories::LOWER_PART_FIT, LowerPartFit::class);
-            }
-
-            if ($this->subcategory == Clothes::CAMISAS_DE_VESTIR) {
-                $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
-            }
-
-            if ($this->subcategory == Clothes::BLUSAS) {
-                $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_BLOUSE, BlouseSizes::class);
-                $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
-            }
-
-            if ($this->subcategory == Clothes::PLAYERAS) {
-                $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
-            }
-
-            if ($this->subcategory == Clothes::GABARDINAS) {
-                $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
-            }
-
-            if ($this->subcategory == Clothes::SACOS) {
-                $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
-            }
-
-            if ($this->subcategory == Clothes::FALDAS) {
-                $this->shuffleProductSubcategory($product, LuProductCategories::LOWER_PART_FIT, LowerPartFit::class);
-                $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_SKIRT, SkirtSizes::class);
-            }
-
-            if ($this->subcategory == Clothes::PANTALONES_CASUALES) {
-                $this->shuffleProductSubcategory($product, LuProductCategories::PANTS_FIT_SHAPE, PantsFitShape::class);
-                $this->shuffleProductSubcategory($product, LuProductCategories::PANTS_FIT_HIPS, PantsFitHips::class);
-                $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_PANTS, PantsSizes::class);
-            }
-
-            if ($this->subcategory == Clothes::TRAJE_SASTRE) {
-                $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
-            }
-
-            if ($this->subcategory == Clothes::ABRIGOS) {
-                $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
-            }
-
-            if ($this->subcategory == Clothes::JUMPSUITS) {
                 $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_DRESS, DressSizes::class);
-            }
-
-            if ($this->subcategory == Clothes::CROP_TOPS) {
+            } else if ($this->subcategory == Clothes::SHORTS) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::LOWER_PART_FIT, LowerPartFit::class);
+            } else if ($this->subcategory == Clothes::CAMISAS_DE_VESTIR) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
+                $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_DRESS, DressSizes::class);
+            } else if ($this->subcategory == Clothes::BLUSAS) {
                 $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_BLOUSE, BlouseSizes::class);
-            }
-
-            if ($this->subcategory == Clothes::LEGGINGS) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
+            } else if ($this->subcategory == Clothes::PLAYERAS) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
+                $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_BLOUSE, BlouseSizes::class);
+            } else if ($this->subcategory == Clothes::GABARDINAS) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
+            } else if ($this->subcategory == Clothes::SACOS) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
+            } else if ($this->subcategory == Clothes::FALDAS) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::LOWER_PART_FIT, LowerPartFit::class);
                 $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_SKIRT, SkirtSizes::class);
-            }
-
-            if ($this->subcategory == Clothes::PANTALONES_DE_VESTIR) {
+            } else if ($this->subcategory == Clothes::PANTALONES_CASUALES) {
                 $this->shuffleProductSubcategory($product, LuProductCategories::PANTS_FIT_SHAPE, PantsFitShape::class);
                 $this->shuffleProductSubcategory($product, LuProductCategories::PANTS_FIT_HIPS, PantsFitHips::class);
                 $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_PANTS, PantsSizes::class);
-            }
-
-            if ($this->subcategory == Clothes::SUETERES) {
+            } else if ($this->subcategory == Clothes::TRAJE_SASTRE) {
                 $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
+            } else if ($this->subcategory == Clothes::ABRIGOS) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
+            } else if ($this->subcategory == Clothes::JUMPSUITS) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_DRESS, DressSizes::class);
+            } else if ($this->subcategory == Clothes::CROP_TOPS) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_BLOUSE, BlouseSizes::class);
+            } else if ($this->subcategory == Clothes::LEGGINGS) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_SKIRT, SkirtSizes::class);
+            } else if ($this->subcategory == Clothes::PANTALONES_DE_VESTIR) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::PANTS_FIT_SHAPE, PantsFitShape::class);
+                $this->shuffleProductSubcategory($product, LuProductCategories::PANTS_FIT_HIPS, PantsFitHips::class);
+                $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_PANTS, PantsSizes::class);
+            } else if ($this->subcategory == Clothes::SUETERES) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
+                $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_DRESS, DressSizes::class);
+            } else if ($this->subcategory == Clothes::JEANS) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::PANTS_FIT_SHAPE, PantsFitShape::class);
+                $this->shuffleProductSubcategory($product, LuProductCategories::PANTS_FIT_HIPS, PantsFitHips::class);
+                $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_PANTS, PantsSizes::class);
+            } else if ($this->subcategory == Clothes::TRAJES_DE_BANO) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_SKIRT, SkirtSizes::class);
+            } else if ($this->subcategory == Clothes::BODIES) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_SKIRT, SkirtSizes::class);
+            } else if ($this->subcategory == Clothes::BRALETTES) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_BLOUSE, BlouseSizes::class);
+            } else if ($this->subcategory == Clothes::ZAPATOS) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_BLOUSE, BlouseSizes::class);
+                $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_SHOES, ShoesSizes::class);
+                $this->shuffleProductSubcategory($product, LuProductCategories::SHOES, Shoes::class);
+            } else if ($this->subcategory == Clothes::ACCESORIOS) {
+                $this->shuffleProductSubcategory($product, LuProductCategories::ACCESSORIES, Accessories::class);
             }
 
             $this->shuffleProductSubcategory($product, LuProductCategories::BODY_TYPE, BodyType::class);
+
             $this->shuffleProductSubcategory($product, LuProductCategories::RISK, Risk::class);
 
-                $attribute = new ProductAttribute(LuProductAttributes::COLORS);
-                $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
-                $this->addProductAttributes($product, $attribute, $subattributeIds);
+            $attribute = new ProductAttribute(LuProductAttributes::COLORS);
+            $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
+            $this->addProductAttributes($product, $attribute, $subattributeIds);
 
-                $attribute = new ProductAttribute(LuProductAttributes::PRINTS);
-                $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
-                $this->addProductAttributes($product, $attribute, $subattributeIds);
+            $attribute = new ProductAttribute(LuProductAttributes::PRINTS);
+            $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
+            $this->addProductAttributes($product, $attribute, $subattributeIds);
 
-                $attribute = new ProductAttribute(LuProductAttributes::FABRICS);
-                $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
-                $this->addProductAttributes($product, $attribute, $subattributeIds);
+            $attribute = new ProductAttribute(LuProductAttributes::FABRICS);
+            $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
+            $this->addProductAttributes($product, $attribute, $subattributeIds);
 
-                $attribute = new ProductAttribute(LuProductAttributes::WORDS);
-                $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
-                $this->addProductAttributes($product, $attribute, $subattributeIds);
+            $attribute = new ProductAttribute(LuProductAttributes::WORDS);
+            $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
+            $this->addProductAttributes($product, $attribute, $subattributeIds);
 
-                $attribute = new ProductAttribute(LuProductAttributes::BODY_PART);
-                $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
-                $this->addProductAttributes($product, $attribute, $subattributeIds);
+            $attribute = new ProductAttribute(LuProductAttributes::BODY_PART);
+            $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
+            $this->addProductAttributes($product, $attribute, $subattributeIds);
 
-                $attribute = new ProductAttribute(LuProductAttributes::JEWELRY);
-                $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
-                $this->addProductAttributes($product, $attribute, $subattributeIds);
+            $attribute = new ProductAttribute(LuProductAttributes::JEWELRY);
+            $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
+            $this->addProductAttributes($product, $attribute, $subattributeIds);
 
-                $attribute = new ProductAttribute(LuProductAttributes::OUTFIT_TYPE);
-                $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
-                $this->addProductAttributes($product, $attribute, $subattributeIds);
+            $attribute = new ProductAttribute(LuProductAttributes::OUTFIT_TYPE);
+            $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
+            $this->addProductAttributes($product, $attribute, $subattributeIds);
         }
     }
 
@@ -190,7 +181,9 @@ class ProductsWithAttributesAndCategoriesSeeder extends Seeder
 
         $subcategories = $subcategoryClass::getOptions();
 
-        $subcategory = $subcategories[rand(1, count($subcategories) - 1)]['key'];
+        $i = array_keys($subcategories)[rand(1, count($subcategories) - 1)];
+
+        $subcategory = $subcategories[$i]['key'];
 
         $this->subcategory = $subcategory;
 
