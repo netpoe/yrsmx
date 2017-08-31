@@ -8,15 +8,17 @@ use App\Model\{
 
 class ProductSubattribute
 {
-    public $id;
+    protected $id;
 
-    public $key;
+    protected $class;
 
-    public $value;
+    protected $key;
 
-    public $attributeId;
+    protected $value;
 
-    public function __construct(Array $values)
+    protected $attributeId;
+
+    public function __construct(String $subattribute, Array $values)
     {
         if (!array_key_exists('key', $values)) {
             throw new \Exception('Subattribute structure lacks [key]');
@@ -26,19 +28,83 @@ class ProductSubattribute
             throw new \Exception('Subattribute structure lacks [value]');
         }
 
-        if (!array_key_exists('attribute_id', $values)) {
-            throw new \Exception('Subattribute structure lacks [attribute_id]');
-        }
+        $attributeId = $subattribute::ATTRIBUTE_ID;
 
-        $this->id = LuProductSubattributes::where('attribute_id', $values['attribute_id'])
+        $this->setId(LuProductSubattributes::where('attribute_id', $attributeId)
                                             ->where('value', $values['value'])
                                             ->first()
-                                            ->id;
+                                            ->id);
 
-        $this->key = $values['key'];
+        $this->setClass($subattribute);
 
-        $this->value = $values['value'];
+        $this->setKey($values['key']);
 
-        $this->attributeId = $values['attribute_id'];
+        $this->setValue($values['value']);
+
+        $this->setAttributeId($attributeId);
+    }
+
+    /**
+     * getters / setters
+     */
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    public function getClass()
+    {
+        return $this->class;
+    }
+
+    public function setClass($class)
+    {
+        $this->class = $class;
+
+        return $this;
+    }
+
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    public function setKey($key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    public function getAttributeId()
+    {
+        return $this->attributeId;
+    }
+
+    public function setAttributeId($attributeId)
+    {
+        $this->attributeId = $attributeId;
+
+        return $this;
     }
 }

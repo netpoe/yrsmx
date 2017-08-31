@@ -2,11 +2,6 @@
 
 namespace App\Model;
 
-use App\Form\{
-    Contract\InputOptionsContract,
-    Traits\InputOptionsTrait
-};
-
 use App\Model\{
     LuProductCategoriesAdapter as LuProductCategories,
     UserPreferredBodyParts\BodyType,

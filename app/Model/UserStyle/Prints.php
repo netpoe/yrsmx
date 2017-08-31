@@ -2,13 +2,19 @@
 
 namespace App\Model\UserStyle;
 
-use App\Model\UserStyleAdapter;
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
+
+use App\Model\{
+    UserStyleAdapter,
+    LuProductAttributesAdapter as LuProductAttributes
+};
 
 class Prints extends UserStyleAdapter implements InputOptionsContract
 {
     use InputOptionsTrait;
+
+    const ATTRIBUTE_ID = LuProductAttributes::PRINTS;
 
     const FLORES = 1;
     const GRAFICOS = 2;

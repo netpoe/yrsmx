@@ -2,13 +2,19 @@
 
 namespace App\Model\UserStyle;
 
-use App\Model\UserStyleAdapter;
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
+
+use App\Model\{
+    UserStyleAdapter,
+    LuProductAttributesAdapter as LuProductAttributes
+};
 
 class Jewelry extends UserStyleAdapter implements InputOptionsContract
 {
     use InputOptionsTrait;
+
+    const ATTRIBUTE_ID = LuProductAttributes::JEWELRY;
 
     const ORO = 1;
     const PLATA = 2;

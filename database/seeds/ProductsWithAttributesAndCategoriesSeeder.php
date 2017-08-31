@@ -179,26 +179,17 @@ class ProductsWithAttributesAndCategoriesSeeder extends Seeder
 
     public function shuffleProductSubattributes(Product $product, ProductAttribute $attribute)
     {
-        $subattributes = LuProductSubattributes::getOptions();
-
-        $filtered = array_values(array_filter($subattributes, function($subattribute) use ($attribute, $subattributes) {
-            return $subattribute['attribute_id'] == $attribute->id;
-        }));
+        $subattributes = $attribute->subattributes();
 
         $ids = [];
 
         while (count($ids) < 3) {
-            $i = rand(1, count($filtered) - 1);
+            $i = rand(1, count($subattributes) - 1);
 
-            $value = $filtered[$i]['value'];
+            $subattribute = $subattributes[$i];
 
-            $luProductSubattributeId = LuProductSubattributes::where('attribute_id', $attribute->id)
-                                                        ->where('value', $value)
-                                                        ->first()
-                                                        ->id;
-
-            if (!in_array($luProductSubattributeId, $filtered)) {
-                $ids[] = $luProductSubattributeId;
+            if (!in_array($subattribute->getId(), $ids)) {
+                $ids[] = $subattribute->getId();
             }
         }
 

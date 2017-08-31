@@ -6,9 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
 
+use App\Model\{
+    LuProductAttributesAdapter as LuProductAttributes
+};
+
 class BodyPart extends Model implements InputOptionsContract
 {
     use InputOptionsTrait;
+
+    const ATTRIBUTE_ID = LuProductAttributes::BODY_PART;
 
     const THIGHS = 1;
     const CALVES = 2;
