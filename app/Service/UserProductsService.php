@@ -25,9 +25,43 @@ class UserProductsService
 
         $quiz = $this->user->getLatestQuiz();
 
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::VESTIDOS);
-        $this->shuffleProductSubcategory($product, LuProductCategories::UPPER_PART_FIT, UpperPartFit::class);
-        $this->shuffleProductSubcategory($product, LuProductCategories::SIZE_DRESS, DressSizes::class);
+        // for each Clothes subcategory
+        // check that there is a product_id
+        // IF there is a product_id for a product that:
+        // matches that Cloth subcategories with the user subcategory preferences
+        // and that the product attributes matches the user attribute preferences
+
+        $taxonomy = [
+            [
+                'clothType' => $this->getProductIdFromClothType(Clothes::VESTIDOS),
+                'subcategories' => [
+                    $this->assign(LuProductCategories::UPPER_PART_FIT, UpperPartFit::class, $quiz->userFit->upper_part_fit),
+                    $this->assign(LuProductCategories::SIZE_DRESS, DressSizes::class, $quiz->userSizes->dress),
+                ]
+            ],
+            [
+                'clothType' => $this->getProductIdFromClothType(Clothes::CHAMARRAS),
+                'subcategories' => [
+                    $this->assign(LuProductCategories::UPPER_PART_FIT, UpperPartFit::class, $quiz->userFit->upper_part_fit),
+                    $this->assign(LuProductCategories::SIZE_DRESS, DressSizes::class, $quiz->userSizes->dress),
+                ]
+            ],
+        ];
+
+        $count = 0;
+
+        while ($count <= self::PRODUCTS_COUNT) {
+
+        }
+
+        // TODO
+        // IF Product has stock
+        // AND Product matches user sizes
+
+        // UserProducts::create([
+        //     'user_id' => $this->user->id,
+        //     'product_id' => $productId,
+        //     ]);
 
         $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::CHAMARRAS);
         $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::SHORTS);
@@ -53,6 +87,23 @@ class UserProductsService
         $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::ACCESORIOS);
 
         return $this;
+    }
+
+    public function getProductIdFromClothType($type)
+    {
+        $categoryId = LuProductCategories::TYPE;
+
+        $subcategoryId = LuProductSubcategories::getSubcategoryId(
+                                                    $categoryId,
+                                                    Clothes::class,
+                                                    $type);
+
+        $productId = RelProductsCategories::getProductId(
+                                                $categoryId,
+                                                $subcategoryId
+                                                );
+
+        return $productId;
     }
 
     public function assign(Int $categoryId, $subcategoryClass, $subcategory)
@@ -89,15 +140,6 @@ class UserProductsService
             }
 
             $previousProductId = $productId;
-
-            // TODO
-            // IF Product has stock
-            // AND Product matches user sizes
-
-            UserProducts::create([
-                'user_id' => $this->user->id,
-                'product_id' => $productId,
-                ]);
 
             $count++;
         }

@@ -15,10 +15,6 @@ class ProductCategory
 
     public $name;
 
-    public $subcategoryClass;
-
-    public $subcategory;
-
     public function __construct(Int $categoryId = null)
     {
         $this->id = $categoryId;
@@ -33,25 +29,8 @@ class ProductCategory
         return $this;
     }
 
-    public function setProductSubcategory(String $subcategoryClass, $subcategory)
-    {
-        $this->subcategoryClass = $subcategoryClass;
-
-        $this->subcategory = $subcategory;
-
-        return $this;
-    }
-
     public function addSubcategory(Array $values)
     {
-        if (!array_key_exists('key', $values)) {
-            throw new \Exception('Subcategories structure lacks [key]');
-        }
-
-        if (!array_key_exists('value', $values)) {
-            throw new \Exception('Subcategories structure lacks [value]');
-        }
-
         $this->subcategories[] = new ProductSubcategory($values);
 
         return $this;
@@ -61,7 +40,7 @@ class ProductCategory
     {
         $this->init($categoryId);
 
-        $subcategories = LuProductSubcategories::OPTIONS;
+        $subcategories = LuProductSubcategories::getOptions();
 
         foreach ($subcategories as $subcategory) {
             if ($subcategory['category_id'] == $categoryId) {
