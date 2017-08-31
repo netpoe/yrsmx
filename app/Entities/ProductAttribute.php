@@ -9,17 +9,17 @@ use App\Model\{
 
 class ProductAttribute
 {
-    public $subattributes = [];
+    protected $subattributes = [];
 
-    public $id;
+    protected $id;
 
-    public $name;
+    protected $name;
 
     public function __construct(Int $attributeId = null)
     {
-        $this->id = $attributeId;
+        $this->setId($attributeId);
 
-        $this->name = LuProductAttributes::OPTIONS[$attributeId]['value'];
+        $this->setName(LuProductAttributes::OPTIONS[$attributeId]['value']);
 
         $subattributes = LuProductSubAttributes::SUBATTRIBUTES;
 
@@ -46,6 +46,30 @@ class ProductAttribute
     public function subattributes(): Array
     {
         return $this->subattributes;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setName(String $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId(Int $id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 }
 

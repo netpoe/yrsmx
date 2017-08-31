@@ -201,7 +201,7 @@ class ProductsWithAttributesAndCategoriesSeeder extends Seeder
         foreach ($subattributeIds as $subattributeId) {
             RelProductsAttributes::create([
                 'product_id' => $product->id,
-                'attribute_id' => $attribute->id,
+                'attribute_id' => $attribute->getId(),
                 'subattribute_id' => $subattributeId,
                 ]);
         }

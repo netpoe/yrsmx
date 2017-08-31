@@ -9,17 +9,17 @@ use App\Model\{
 
 class ProductCategory
 {
-    public $subcategories = [];
+    protected $subcategories = [];
 
-    public $id;
+    protected $id;
 
-    public $name;
+    protected $name;
 
     public function __construct(Int $categoryId = null)
     {
-        $this->id = $categoryId;
+        $this->setId($categoryId);
 
-        $this->name = LuProductCategories::OPTIONS[$categoryId]['value'];
+        $this->setName(LuProductCategories::OPTIONS[$categoryId]['value']);
 
         $subcategories = LuProductSubcategories::SUBCATEGORIES;
 
@@ -46,5 +46,29 @@ class ProductCategory
     public function subcategories(): Array
     {
         return $this->subcategories;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setName(String $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId(Int $id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 }

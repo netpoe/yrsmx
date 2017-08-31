@@ -12,12 +12,12 @@
         <h5 class="title">Categorías</h5>
         @foreach ($categories as $category)
           <article class="category-group">
-            <h6>{{ $category->name }}</h6>
+            <h6>{{ $category->getName() }}</h6>
             <ul class="product-categories grid-list grid-list-2 custom-radio-checkbox">
               @foreach ($category->subcategories() as $subcategory)
                 <li class="grid-list-item">
-                  <input type="radio" value="{{ $subcategory->id }}" name="categories[{{ $category->id }}]" id="category[{{ $category->id }}][{{ $subcategory->id }}]">
-                  <label for="category[{{ $category->id }}][{{ $subcategory->id }}]">{{ $subcategory->value }}</label>
+                  <input type="radio" value="{{ $subcategory->getId() }}" name="categories[{{ $category->getId() }}]" id="category[{{ $category->getId() }}][{{ $subcategory->getId() }}]">
+                  <label for="category[{{ $category->getId() }}][{{ $subcategory->getId() }}]">{{ $subcategory->getValue() }}</label>
                 </li>
               @endforeach
             </ul>
@@ -27,12 +27,12 @@
         <h5 class="title">Atributos</h5>
         @foreach ($attributes as $attribute)
           <article class="category-group">
-            <h6>{{ $attribute->name }}</h6>
+            <h6>{{ $attribute->getName() }}</h6>
             <ul class="product-categories grid-list grid-list-2 custom-radio-checkbox">
               @foreach ($attribute->subattributes() as $subattribute)
                 <li class="grid-list-item">
-                  <input type="checkbox" value="{{ $subattribute->id }}" name="attributes[{{ $attribute->id }}][]" id="attribute[{{ $attribute->id }}][{{ $subattribute->id }}]">
-                  <label for="attribute[{{ $attribute->id }}][{{ $subattribute->id }}]">{{ $subattribute->value }}</label>
+                  <input type="checkbox" value="{{ $subattribute->getId() }}" name="attributes[{{ $attribute->getId() }}][]" id="attribute[{{ $attribute->getId() }}][{{ $subattribute->getId() }}]">
+                  <label for="attribute[{{ $attribute->getId() }}][{{ $subattribute->getId() }}]">{{ $subattribute->getValue() }}</label>
                 </li>
               @endforeach
             </ul>

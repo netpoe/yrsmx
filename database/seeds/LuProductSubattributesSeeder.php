@@ -17,13 +17,14 @@ class LuProductSubattributesSeeder extends Seeder
      */
     public function run()
     {
-        foreach (LuProductSubattributes::OPTIONS as $option) {
-            $insert = [
-                'attribute_id' => $option['attribute_id'],
-                'value' => $option['value'],
-            ];
-
-            DB::table(self::TABLE)->insert($insert);
+        foreach (LuProductSubattributes::SUBATTRIBUTES as $subattribute) {
+            foreach ($subattribute::getOptions() as $option) {
+                $insert = [
+                    'attribute_id' => $subattribute::ATTRIBUTE_ID,
+                    'value' => $option['value'],
+                ];
+                DB::table(self::TABLE)->insert($insert);
+            }
         }
     }
 }

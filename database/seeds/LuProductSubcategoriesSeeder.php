@@ -17,13 +17,14 @@ class LuProductSubcategoriesSeeder extends Seeder
      */
     public function run()
     {
-        foreach (LuProductSubcategories::OPTIONS as $option) {
-            $insert = [
-                'category_id' => $option['category_id'],
-                'value' => $option['value'],
-            ];
-
-            DB::table(self::TABLE)->insert($insert);
+        foreach (LuProductSubcategories::SUBCATEGORIES as $subcategory) {
+            foreach ($subcategory::getOptions() as $option) {
+                $insert = [
+                    'category_id' => $subcategory::CATEGORY_ID,
+                    'value' => $option['value'],
+                ];
+                DB::table(self::TABLE)->insert($insert);
+            }
         }
     }
 }
