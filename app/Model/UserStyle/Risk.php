@@ -2,13 +2,19 @@
 
 namespace App\Model\UserStyle;
 
-use App\Model\UserStyleAdapter;
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
+
+use App\Model\{
+    UserStyleAdapter,
+    LuProductCategoriesAdapter as LuProductCategories
+};
 
 class Risk extends UserStyleAdapter implements InputOptionsContract
 {
     use InputOptionsTrait;
+
+    const CATEGORY_ID = LuProductCategories::RISK;
 
     const FIRST = 1;
     const TRENDY = 2;

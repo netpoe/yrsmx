@@ -4,11 +4,17 @@ namespace App\Model\UserSizes;
 
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
-use App\Model\UserSizesAdapter as UserSizes;
+
+use App\Model\{
+    UserSizesAdapter as UserSizes,
+    LuProductCategoriesAdapter as LuProductCategories
+};
 
 class BraBandSizes extends UserSizes implements InputOptionsContract
 {
     use InputOptionsTrait;
+
+    const CATEGORY_ID = LuProductCategories::SIZE_BRA_BAND;
 
     const SIZE_30 = 30;
     const SIZE_32 = 32;

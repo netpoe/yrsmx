@@ -4,11 +4,17 @@ namespace App\Model\UserPreferredBodyParts;
 
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
-use App\Model\UserPreferredBodyPartsAdapter as UserPreferredBodyParts;
+
+use App\Model\{
+    UserPreferredBodyPartsAdapter as UserPreferredBodyParts,
+    LuProductCategoriesAdapter as LuProductCategories
+};
 
 class BodyType extends UserPreferredBodyParts implements InputOptionsContract
 {
     use InputOptionsTrait;
+
+    const CATEGORY_ID = LuProductCategories::BODY_TYPE;
 
     const TRIANGLE = 1;
     const ELIPTICAL = 2;

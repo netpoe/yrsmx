@@ -81,9 +81,9 @@ class ProductsWithAttributesAndCategoriesSeeder extends Seeder
                 $this->shuffleProductSubcategoryDependencies($product);
             }
 
-            $this->shuffleProductSubcategories($product, (new ProductCategory)->get(LuProductCategories::BODY_TYPE)->subcategories());
+            $this->shuffleProductSubcategories($product, (new ProductCategory(LuProductCategories::BODY_TYPE))->subcategories());
 
-            $this->shuffleProductSubcategories($product, (new ProductCategory)->get(LuProductCategories::RISK)->subcategories());
+            $this->shuffleProductSubcategories($product, (new ProductCategory(LuProductCategories::RISK))->subcategories());
 
             $attribute = new ProductAttribute(LuProductAttributes::COLORS);
             $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
@@ -117,7 +117,7 @@ class ProductsWithAttributesAndCategoriesSeeder extends Seeder
 
     public function addRandomClothTypeToProduct(Product $product)
     {
-        $this->category = (new ProductCategory)->get(LuProductCategories::TYPE);
+        $this->category = new ProductCategory(LuProductCategories::TYPE);
 
         $clothes = $this->category->subcategories();
 

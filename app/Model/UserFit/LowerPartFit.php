@@ -2,13 +2,19 @@
 
 namespace App\Model\UserFit;
 
-use App\Model\UserFitAdapter as UserFit;
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
+
+use App\Model\{
+    UserFitAdapter as UserFit,
+    LuProductCategoriesAdapter as LuProductCategories
+};
 
 class LowerPartFit extends UserFit implements InputOptionsContract
 {
     use InputOptionsTrait;
+
+    const CATEGORY_ID = LuProductCategories::LOWER_PART_FIT;
 
     const FIT = 1;
     const MID = 2;

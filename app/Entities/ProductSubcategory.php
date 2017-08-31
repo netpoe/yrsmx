@@ -20,12 +20,8 @@ class ProductSubcategory
 
     protected $dependencies;
 
-    public function __construct(Array $values)
+    public function __construct(String $subcategory, Array $values)
     {
-        if (!array_key_exists('class', $values)) {
-            throw new \Exception('Subcategory structure lacks [class]');
-        }
-
         if (!array_key_exists('key', $values)) {
             throw new \Exception('Subcategory structure lacks [key]');
         }
@@ -34,22 +30,20 @@ class ProductSubcategory
             throw new \Exception('Subcategory structure lacks [value]');
         }
 
-        if (!array_key_exists('category_id', $values)) {
-            throw new \Exception('Subcategory structure lacks [category_id]');
-        }
+        $categoryId = $subcategory::CATEGORY_ID;
 
-        $this->setId(LuProductSubcategories::where('category_id', $values['category_id'])
+        $this->setId(LuProductSubcategories::where('category_id', $categoryId)
                                             ->where('value', $values['value'])
                                             ->first()
                                             ->id);
 
-        $this->setClass($values['class']);
+        $this->setClass($subcategory);
 
         $this->setKey($values['key']);
 
         $this->setValue($values['value']);
 
-        $this->setCategoryId($values['category_id']);
+        $this->setCategoryId($categoryId);
 
         if (isset($values['dependencies'])) {
             $this->setDependencies($values['dependencies']);
@@ -140,7 +134,7 @@ class ProductSubcategory
     public function setDependencies($dependencies)
     {
         $this->dependencies = array_map(function($dependency){
-            return (new ProductCategory)->get($dependency['category']);
+            return new ProductCategory($dependency);
         }, $dependencies);
 
         return $this;

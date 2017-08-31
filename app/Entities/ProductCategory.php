@@ -18,35 +18,27 @@ class ProductCategory
     public function __construct(Int $categoryId = null)
     {
         $this->id = $categoryId;
-    }
-
-    public function init(Int $categoryId)
-    {
-        $this->id = $categoryId;
 
         $this->name = LuProductCategories::OPTIONS[$categoryId]['value'];
 
-        return $this;
-    }
-
-    public function addSubcategory(Array $values)
-    {
-        $this->subcategories[] = new ProductSubcategory($values);
-
-        return $this;
-    }
-
-    public function get(Int $categoryId)
-    {
-        $this->init($categoryId);
-
-        $subcategories = LuProductSubcategories::getOptions();
+        $subcategories = LuProductSubcategories::SUBCATEGORIES;
 
         foreach ($subcategories as $subcategory) {
-            if ($subcategory['category_id'] == $categoryId) {
-                $this->addSubcategory($subcategory);
+            if (!$subcategory::CATEGORY_ID) {
+                throw new \Exception('Subcategory has no CATEGORY_ID constant associated to it');
+            }
+
+            if ($subcategory::CATEGORY_ID == $categoryId) {
+                foreach ($subcategory::getOptions() as $values) {
+                    $this->addSubcategory($subcategory, $values);
+                }
             }
         }
+    }
+
+    public function addSubcategory(String $subcategory, Array $values)
+    {
+        $this->subcategories[] = new ProductSubcategory($subcategory, $values);
 
         return $this;
     }
