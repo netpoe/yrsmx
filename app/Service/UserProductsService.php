@@ -31,28 +31,32 @@ class UserProductsService
         // matches that Cloth subcategories with the user subcategory preferences
         // and that the product attributes matches the user attribute preferences
 
-        $taxonomy = [
-            [
-                'clothType' => $this->getProductIdFromClothType(Clothes::VESTIDOS),
-                'subcategories' => [
-                    $this->assign(LuProductCategories::UPPER_PART_FIT, UpperPartFit::class, $quiz->userFit->upper_part_fit),
-                    $this->assign(LuProductCategories::SIZE_DRESS, DressSizes::class, $quiz->userSizes->dress),
-                ]
-            ],
-            [
-                'clothType' => $this->getProductIdFromClothType(Clothes::CHAMARRAS),
-                'subcategories' => [
-                    $this->assign(LuProductCategories::UPPER_PART_FIT, UpperPartFit::class, $quiz->userFit->upper_part_fit),
-                    $this->assign(LuProductCategories::SIZE_DRESS, DressSizes::class, $quiz->userSizes->dress),
-                ]
-            ],
-        ];
+        // $taxonomies = [
+        //     [
+        //         'clothType' => $this->getProductIdFromClothType(Clothes::VESTIDOS),
+        //         'subcategories' => [
+        //             $this->assign(LuProductCategories::UPPER_PART_FIT, UpperPartFit::class, $quiz->userFit->upper_part_fit),
+        //             $this->assign(LuProductCategories::SIZE_DRESS, DressSizes::class, $quiz->userSizes->dress),
+        //         ]
+        //     ],
+        //     [
+        //         'clothType' => $this->getProductIdFromClothType(Clothes::CHAMARRAS),
+        //         'subcategories' => [
+        //             $this->assign(LuProductCategories::UPPER_PART_FIT, UpperPartFit::class, $quiz->userFit->upper_part_fit),
+        //             $this->assign(LuProductCategories::SIZE_DRESS, DressSizes::class, $quiz->userSizes->dress),
+        //         ]
+        //     ],
+        // ];
 
-        $count = 0;
+        // $productIds = array_map(function($taxonomy){
+        //     $clothTypeHasProductId = $taxonomy
+        // }, $taxonomies);
 
-        while ($count <= self::PRODUCTS_COUNT) {
+        // $count = 0;
 
-        }
+        // while ($count <= self::PRODUCTS_COUNT) {
+
+        // }
 
         // TODO
         // IF Product has stock

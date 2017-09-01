@@ -116,6 +116,11 @@ class QuizAdapter extends Quiz
         return OutfitType::getOptionsValue($this->outfit_type);
     }
 
+    public function isCasualWearQuiz()
+    {
+        return $this->outfit_type == OutfitType::CASUAL_WEAR;
+    }
+
     public function startedAt()
     {
         $m = new \Moment\Moment($this->started_at);

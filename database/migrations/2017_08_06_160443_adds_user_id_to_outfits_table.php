@@ -14,7 +14,7 @@ class AddsUserIdToOutfitsTable extends Migration
     public function up()
     {
         Schema::table('outfits', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned()->after('id');
+            $table->integer('user_id')->unsigned()->nullable()->after('id');
         });
 
         Schema::table('outfits', function(Blueprint $table){

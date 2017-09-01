@@ -13,6 +13,7 @@
     "require": {
         "php": ">=5.6.4",
         "aws/aws-sdk-php-laravel": "~3.0",
+        "doctrine/dbal": "^2.5",
         "easyboxmodel/sections": "dev-master",
         "fightbulc/moment": "^1.26",
         "fzaninotto/faker": "^1.6",
