@@ -2,6 +2,11 @@
 
 namespace App\Service;
 
+use App\Entities\{
+    ProductCategory,
+    ProductSubcategory
+};
+
 use App\Model\{
     UserAdapter as User,
     ProductsAdapter as Products,
@@ -19,78 +24,68 @@ class UserProductsService
 
     protected $user;
 
+    protected $quiz;
+
     public function assignProductsToUser(User $user)
     {
         $this->user = $user;
 
-        $quiz = $this->user->getLatestQuiz();
+        $this->quiz = $this->user->getLatestQuiz();
 
         // for each Clothes subcategory
         // check that there is a product_id
         // IF there is a product_id for a product that:
         // matches that Cloth subcategories with the user subcategory preferences
         // and that the product attributes matches the user attribute preferences
+        //
 
-        // $taxonomies = [
-        //     [
-        //         'clothType' => $this->getProductIdFromClothType(Clothes::VESTIDOS),
-        //         'subcategories' => [
-        //             $this->assign(LuProductCategories::UPPER_PART_FIT, UpperPartFit::class, $quiz->userFit->upper_part_fit),
-        //             $this->assign(LuProductCategories::SIZE_DRESS, DressSizes::class, $quiz->userSizes->dress),
-        //         ]
-        //     ],
-        //     [
-        //         'clothType' => $this->getProductIdFromClothType(Clothes::CHAMARRAS),
-        //         'subcategories' => [
-        //             $this->assign(LuProductCategories::UPPER_PART_FIT, UpperPartFit::class, $quiz->userFit->upper_part_fit),
-        //             $this->assign(LuProductCategories::SIZE_DRESS, DressSizes::class, $quiz->userSizes->dress),
-        //         ]
-        //     ],
-        // ];
+        $this->assignProductIdsToUserFromProductTypeCategory()
+            ->thatMatchesSubcategoryDependencies();
 
-        // $productIds = array_map(function($taxonomy){
-        //     $clothTypeHasProductId = $taxonomy
-        // }, $taxonomies);
+        $category = new ProductCategory(LuProductCategories::TYPE);
 
-        // $count = 0;
+        $productIds = [];
 
-        // while ($count <= self::PRODUCTS_COUNT) {
+        while (count($productIds) <= self::PRODUCTS_COUNT) {
 
-        // }
-
-        // TODO
-        // IF Product has stock
-        // AND Product matches user sizes
-
-        // UserProducts::create([
-        //     'user_id' => $this->user->id,
-        //     'product_id' => $productId,
-        //     ]);
-
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::CHAMARRAS);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::SHORTS);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::CAMISAS_DE_VESTIR);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::BLUSAS);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::PLAYERAS);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::GABARDINAS);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::SACOS);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::FALDAS);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::PANTALONES_CASUALES);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::TRAJE_SASTRE);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::ABRIGOS);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::JUMPSUITS);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::CROP_TOPS);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::LEGGINGS);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::PANTALONES_DE_VESTIR);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::SUETERES);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::JEANS);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::TRAJES_DE_BANO);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::BODIES);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::BRALETTES);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::ZAPATOS);
-        $this->assign(LuProductCategories::TYPE, Clothes::class, Clothes::ACCESORIOS);
+        }
 
         return $this;
+    }
+
+    public $currentProductTypeIndex = 0;
+
+    public function assignProductIdsToUserFromProductTypeCategory()
+    {
+        $category = new ProductCategory(LuProductCategories::TYPE);
+
+        $subcategories = $category->subcategories();
+
+        $currentProductType = $subcategories[$this->currentProductTypeIndex];
+
+        $productId = RelProductsCategories::where('category_id', LuProductCategories::TYPE)
+                                            ->where('subcategory_id', $currentProductType->getId());
+
+        if ($currentProductType->hasDependencies()) {
+            $dependencies = $currentProductType->getDependencies();
+            foreach ($dependencies as $dependency) {
+                $dependencySubcategory = $dependency->getSubcategoryModeName();
+
+                $dependencySubcategoryModelName = get_parent_class($dependencySubcategory);
+
+                $dependencySubcategoryModel = new $dependencySubcategoryModelName;
+
+                $dependencySubcategoryColumn = $dependencySubcategory::COLUMN;
+
+                $quizRelationshipMethodName = $dependencySubcategoryModel->getQuizRelationshipMethodName();
+
+                $value = $this->quiz->$quizRelationshipMethodName->$dependencySubcategoryColumn;
+
+                $productId->where('subcategory_id', )
+            }
+        }
+
+        $productId->first()->product_id;
     }
 
     public function getProductIdFromClothType($type)

@@ -14,6 +14,8 @@ class UserFit extends Model
         'quiz_id'
     ];
 
+    protected $quizRelationshipMethodName = 'userFit';
+
     public function quiz()
     {
         return $this->hasOne(\App\Model\QuizAdapter::class, 'quiz_id');

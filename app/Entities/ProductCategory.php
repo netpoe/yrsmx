@@ -9,11 +9,29 @@ use App\Model\{
 
 class ProductCategory
 {
+    /**
+     * $subcategories The subcategories associated with the category
+     * @var array
+     */
     protected $subcategories = [];
 
+    /**
+     * $id The category id
+     * @var Int
+     */
     protected $id;
 
+    /**
+     * $name The category name
+     * @var String
+     */
     protected $name;
+
+    /**
+     * $subcategoryModelName Subcategory class associated to the category
+     * @var String
+     */
+    protected $subcategoryModelName;
 
     public function __construct(Int $categoryId = null)
     {
@@ -21,18 +39,16 @@ class ProductCategory
 
         $this->setName(LuProductCategories::OPTIONS[$categoryId]['value']);
 
-        $subcategories = LuProductSubcategories::SUBCATEGORIES;
+        $this->setSubcategoryModelName(LuProductCategories::OPTIONS[$categoryId]['subcategory']);
 
-        foreach ($subcategories as $subcategory) {
-            if (!$subcategory::CATEGORY_ID) {
-                throw new \Exception('Subcategory has no CATEGORY_ID constant associated to it');
-            }
+        $subcategory = $this->getSubcategoryModelName();
 
-            if ($subcategory::CATEGORY_ID == $categoryId) {
-                foreach ($subcategory::getOptions() as $values) {
-                    $this->addSubcategory($subcategory, $values);
-                }
-            }
+        if (!$subcategory::CATEGORY_ID) {
+            throw new \Exception('Subcategory has no CATEGORY_ID constant associated to it');
+        }
+
+        foreach ($subcategory::getOptions() as $values) {
+            $this->addSubcategory($subcategory, $values);
         }
     }
 
@@ -68,6 +84,18 @@ class ProductCategory
     public function setId(Int $id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    public function getSubcategoryModelName()
+    {
+        return $this->subcategoryModelName;
+    }
+
+    public function setSubcategoryModelName(String $subcategoryModelName)
+    {
+        $this->subcategoryModelName = $subcategoryModelName;
 
         return $this;
     }

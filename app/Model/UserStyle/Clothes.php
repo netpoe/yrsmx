@@ -202,7 +202,6 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
             'key' => self::ZAPATOS,
             'value' => 'zapatos',
             'dependencies' => [
-                LuProductCategories::SIZE_BLOUSE,
                 LuProductCategories::SIZE_SHOES,
                 LuProductCategories::SHOES,
             ],

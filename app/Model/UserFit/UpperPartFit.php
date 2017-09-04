@@ -16,6 +16,8 @@ class UpperPartFit extends UserFit implements InputOptionsContract
 
     const CATEGORY_ID = LuProductCategories::UPPER_PART_FIT;
 
+    const COLUMN = 'upper_part_fit';
+
     const FIT = 1;
     const MID = 2;
     const LOOSE = 3;

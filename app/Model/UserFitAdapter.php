@@ -9,6 +9,11 @@ use App\Model\UserFit\PantsFitHips;
 
 class UserFitAdapter extends UserFit
 {
+    public function getQuizRelationshipMethodName()
+    {
+        return $this->quizRelationshipMethodName;
+    }
+
     public function upperPartFit()
     {
         return UpperPartFit::getOptionsValue($this->upper_part_fit);
