@@ -13,7 +13,7 @@ abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
 
-    public function getUserWithCompleteCusualWearQuiz()
+    public function getUserWithCompleteCasualWearQuiz()
     {
         $users = User::where('role_id', LuUserRole::CLIENT)->get();
 

@@ -19,7 +19,7 @@ class UserProductsServiceTest extends TestCase
     {
         $userProducsService = new UserProductsService;
 
-        $user = $this->getUserWithCompleteCusualWearQuiz();
+        $user = $this->getUserWithCompleteCasualWearQuiz();
 
         $userProducsService->assignProductsToUser($user);
 
