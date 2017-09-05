@@ -64,7 +64,6 @@ class LuProductAttributesAdapter extends LuProductAttributes implements InputOpt
             'subattribute' => OutfitType::class,
         ],
     ];
-
 }
 
 

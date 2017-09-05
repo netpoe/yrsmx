@@ -2,9 +2,13 @@
 
 namespace App\Section\UserStyle;
 
-use App\Section\AbstractUserStyleSection;
 use EBM\Field\Field;
-use App\Model\UserStyle\Colors as UserColors;
+use App\Section\AbstractUserStyleSection;
+use App\Entities\ProductAttribute;
+
+use App\Model\{
+    LuProductAttributesAdapter as LuProductAttributes
+};
 
 class Colors extends AbstractUserStyleSection
 {
@@ -20,11 +24,13 @@ class Colors extends AbstractUserStyleSection
 
         $userStyle = $quiz->userStyle;
 
+        $colors = new ProductAttribute(LuProductAttributes::COLORS);
+
         $this->addField('colors')
             ->setModel($userStyle)
             ->setLabel('Selecciona 1 o más colores')
             ->setType(Field::TYPE_CHECKBOX)
-            ->setOptions(UserColors::getOptions())
+            ->setOptions($colors->getSubattributesAsInputOptionsArray())
             ->setValueFromDb();
 
         return $this;

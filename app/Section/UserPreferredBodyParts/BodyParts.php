@@ -101,7 +101,7 @@ class BodyParts extends AbstractUserPreferredBodyPartsSection
     {
         return [
             [
-                'key' => NULL,
+                'key' => 0,
                 'value' => 'Disimular',
             ],
             [

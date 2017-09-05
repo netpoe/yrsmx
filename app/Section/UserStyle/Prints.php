@@ -2,9 +2,13 @@
 
 namespace App\Section\UserStyle;
 
-use App\Section\AbstractUserStyleSection;
 use EBM\Field\Field;
-use App\Model\UserStyle\Prints as UserPrints;
+use App\Section\AbstractUserStyleSection;
+use App\Entities\ProductAttribute;
+
+use App\Model\{
+    LuProductAttributesAdapter as LuProductAttributes
+};
 
 class Prints extends AbstractUserStyleSection
 {
@@ -20,11 +24,13 @@ class Prints extends AbstractUserStyleSection
 
         $userStyle = $quiz->userStyle;
 
+        $prints = new ProductAttribute(LuProductAttributes::PRINTS);
+
         $this->addField('prints')
             ->setModel($userStyle)
             ->setLabel('Selecciona 1 o más estampados')
             ->setType(Field::TYPE_CHECKBOX)
-            ->setOptions(UserPrints::getOptions())
+            ->setOptions($prints->getSubattributesAsInputOptionsArray())
             ->setValueFromDb();
 
         return $this;

@@ -2,9 +2,13 @@
 
 namespace App\Section\UserStyle;
 
-use App\Section\AbstractUserStyleSection;
 use EBM\Field\Field;
-use App\Model\UserStyle\Words as UserWords;
+use App\Section\AbstractUserStyleSection;
+use App\Entities\ProductAttribute;
+
+use App\Model\{
+    LuProductAttributesAdapter as LuProductAttributes
+};
 
 class Words extends AbstractUserStyleSection
 {
@@ -20,11 +24,13 @@ class Words extends AbstractUserStyleSection
 
         $userStyle = $quiz->userStyle;
 
+        $words = new ProductAttribute(LuProductAttributes::WORDS);
+
         $this->addField('words')
             ->setModel($userStyle)
             ->setLabel('Selecciona 1 o más palabras')
             ->setType(Field::TYPE_CHECKBOX)
-            ->setOptions(UserWords::getOptions())
+            ->setOptions($words->getSubattributesAsInputOptionsArray())
             ->setValueFromDb();
 
         return $this;

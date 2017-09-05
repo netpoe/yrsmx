@@ -2,9 +2,13 @@
 
 namespace App\Section\UserStyle;
 
-use App\Section\AbstractUserStyleSection;
 use EBM\Field\Field;
-use App\Model\UserStyle\Risk as UserRisk;
+use App\Section\AbstractUserStyleSection;
+use App\Entities\ProductCategory;
+
+use App\Model\{
+    LuProductCategoriesAdapter as LuProductCategories
+};
 
 class Risk extends AbstractUserStyleSection
 {
@@ -20,12 +24,14 @@ class Risk extends AbstractUserStyleSection
 
         $userStyle = $quiz->userStyle;
 
+        $risk = new ProductCategory(LuProductCategories::RISK);
+
         $this->addField('risk')
             ->setModel($userStyle)
             ->setLabel('Selecciona 1 o más opciones')
             ->setType(Field::TYPE_RADIO)
             ->required()
-            ->setOptions(UserRisk::getOptions())
+            ->setOptions($risk->getSubcategorysAsInputOptionsArray())
             ->setValueFromDb();
 
         return $this;

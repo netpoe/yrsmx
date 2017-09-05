@@ -2,10 +2,13 @@
 
 namespace App\Section\UserFit;
 
-use App\Section\AbstractUserFitSection;
 use EBM\Field\Field;
-use App\Model\UserFit\PantsFitHips;
-use App\Model\UserFit\PantsFitShape;
+use App\Section\AbstractUserFitSection;
+use App\Entities\ProductCategory;
+
+use App\Model\{
+    LuProductCategoriesAdapter as LuProductCategories
+};
 
 class PantsFit extends AbstractUserFitSection
 {
@@ -21,12 +24,16 @@ class PantsFit extends AbstractUserFitSection
 
         $userFit = $quiz->userFit;
 
+        $pantsFitShape = new ProductCategory(LuProductCategories::PANTS_FIT_SHAPE);
+
+        $pantsFitHips = new ProductCategory(LuProductCategories::PANTS_FIT_HIPS);
+
         $this->addField('pants_fit_hips')
             ->setModel($userFit)
             ->setLabel('¿Qué forma de pantalones prefieres?')
             ->setType(Field::TYPE_RADIO)
             ->required()
-            ->setOptions(PantsFitHips::getOptions())
+            ->setOptions($pantsFitHips->getSubcategorysAsInputOptionsArray())
             ->setValueFromDb();
 
         $this->addField('pants_fit_shape')
@@ -34,7 +41,7 @@ class PantsFit extends AbstractUserFitSection
             ->setLabel('¿Cómo te acomodan mejor los pantalones?')
             ->setType(Field::TYPE_RADIO)
             ->required()
-            ->setOptions(PantsFitShape::getOptions())
+            ->setOptions($pantsFitShape->getSubcategorysAsInputOptionsArray())
             ->setValueFromDb();
 
         return $this;

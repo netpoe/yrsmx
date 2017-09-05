@@ -2,9 +2,13 @@
 
 namespace App\Section\UserStyle;
 
-use App\Section\AbstractUserStyleSection;
 use EBM\Field\Field;
-use App\Model\UserStyle\Clothes as UserClothes;
+use App\Section\AbstractUserStyleSection;
+use App\Entities\ProductCategory;
+
+use App\Model\{
+    LuProductCategoriesAdapter as LuProductCategories
+};
 
 class Clothes extends AbstractUserStyleSection
 {
@@ -20,11 +24,13 @@ class Clothes extends AbstractUserStyleSection
 
         $userStyle = $quiz->userStyle;
 
+        $clothes = new ProductCategory(LuProductCategories::TYPE);
+
         $this->addField('clothes')
             ->setModel($userStyle)
             ->setLabel('Selecciona 1 o más prendas')
             ->setType(Field::TYPE_CHECKBOX)
-            ->setOptions(UserClothes::getOptions())
+            ->setOptions($clothes->getSubcategorysAsInputOptionsArray())
             ->setValueFromDb();
 
         return $this;

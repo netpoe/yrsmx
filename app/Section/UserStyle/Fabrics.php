@@ -2,9 +2,13 @@
 
 namespace App\Section\UserStyle;
 
-use App\Section\AbstractUserStyleSection;
 use EBM\Field\Field;
-use App\Model\UserStyle\Fabrics as UserFabrics;
+use App\Section\AbstractUserStyleSection;
+use App\Entities\ProductAttribute;
+
+use App\Model\{
+    LuProductAttributesAdapter as LuProductAttributes
+};
 
 class Fabrics extends AbstractUserStyleSection
 {
@@ -20,11 +24,13 @@ class Fabrics extends AbstractUserStyleSection
 
         $userStyle = $quiz->userStyle;
 
+        $fabrics = new ProductAttribute(LuProductAttributes::FABRICS);
+
         $this->addField('fabrics')
             ->setModel($userStyle)
             ->setLabel('Selecciona 1 o más estampados')
             ->setType(Field::TYPE_CHECKBOX)
-            ->setOptions(UserFabrics::getOptions())
+            ->setOptions($fabrics->getSubattributesAsInputOptionsArray())
             ->setValueFromDb();
 
         return $this;
