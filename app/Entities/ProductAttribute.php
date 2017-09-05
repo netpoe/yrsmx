@@ -116,4 +116,25 @@ class ProductAttribute
 
         return $this;
     }
+
+    /**
+     * getRandomSubattributeIds gets a random subcategory_id array
+     * @return Array
+     */
+    public function getRandomSubattributeIds(Int $count = 3): Array
+    {
+        $subattributes = $this->subattributes();
+
+        $ids = [];
+
+        while (count($ids) < $count) {
+            $id = $subattributes[rand(0, count($subattributes) - 1)]->getId();
+
+            if (!in_array($id, $ids)) {
+                $ids[] = $id;
+            }
+        }
+
+        return $ids;
+    }
 }

@@ -7,44 +7,13 @@ use Faker\Factory as FakerFactory;
 use App\Model\{
     UserAdapter as User,
     QuizAdapter as Quiz,
-    OutfitType,
+    OutfitTypeAdapter as OutfitType,
     UserSizesAdapter as UserSizes,
     UserPreferredBodyPartsAdapter as UserPreferredBodyParts,
     UserFitAdapter as UserFit,
-    UserStyleAdapter as UserStyle
-};
-
-use App\Model\UserSizes\{
-    DressSizes,
-    BlouseSizes,
-    BraBandSizes,
-    BraCupsSizes,
-    PantsSizes,
-    ShoesSizes,
-    SkirtSizes
-};
-
-use App\Model\UserPreferredBodyParts\{
-    BodyType
-};
-
-use App\Model\UserFit\{
-    LowerPartFit,
-    PantsFitHips,
-    PantsFitShape,
-    UpperPartFit
-};
-
-use App\Model\UserStyle\{
-    Accessories,
-    Clothes,
-    Colors,
-    Fabrics,
-    Jewelry,
-    Prints,
-    Risk,
-    Shoes,
-    Words
+    UserStyleAdapter as UserStyle,
+    LuProductCategoriesAdapter as LuProductCategories,
+    LuProductAttributesAdapter as LuProductAttributes
 };
 
 use App\Model\UserInfo\{
@@ -52,6 +21,11 @@ use App\Model\UserInfo\{
 };
 
 use App\Util\DateTimeUtil;
+
+use App\Entities\{
+    ProductCategory,
+    ProductAttribute
+};
 
 class UserWithCompleteCusualWearQuizSeeder extends Seeder
 {
@@ -86,18 +60,26 @@ class UserWithCompleteCusualWearQuizSeeder extends Seeder
             ->assignUIQuiz();
 
 
+        $dressSizes = new ProductCategory(LuProductCategories::SIZE_DRESS);
+        $blouseSizes = new ProductCategory(LuProductCategories::SIZE_BLOUSE);
+        $braBandSizes = new ProductCategory(LuProductCategories::SIZE_BRA_BAND);
+        $braCupsSizes = new ProductCategory(LuProductCategories::SIZE_BRA_CUPS);
+        $skirtSizes = new ProductCategory(LuProductCategories::SIZE_SKIRT);
+        $shoeSizes = new ProductCategory(LuProductCategories::SIZE_SHOES);
+        $pantsSizes = new ProductCategory(LuProductCategories::SIZE_PANTS);
+
         UserSizes::unguard();
 
         $quiz->userSizes->update([
             'height' => 1.60,
             'weight' => 67,
-            'dress' => DressSizes::ECH,
-            'blouse' => BlouseSizes::CH,
-            'bra_band' => BraBandSizes::SIZE_30,
-            'bra_cups' => BraCupsSizes::SIZE_A,
-            'skirt' => SkirtSizes::G,
-            'shoes' => ShoesSizes::SIZE_24_5,
-            'pants' => PantsSizes::SIZE_7,
+            'dress' => $dressSizes->getRandomSubcategoryId(),
+            'blouse' => $blouseSizes->getRandomSubcategoryId(),
+            'bra_band' => $braBandSizes->getRandomSubcategoryId(),
+            'bra_cups' => $braCupsSizes->getRandomSubcategoryId(),
+            'skirt' => $skirtSizes->getRandomSubcategoryId(),
+            'shoes' => $shoeSizes->getRandomSubcategoryId(),
+            'pants' => $pantsSizes->getRandomSubcategoryId(),
             ]);
 
         $quiz->user_sizes_completed_ts = DateTimeUtil::DBNOW();
@@ -105,18 +87,22 @@ class UserWithCompleteCusualWearQuizSeeder extends Seeder
         $quiz->save();
 
 
+        $bodyType = new ProductCategory(LuProductCategories::BODY_TYPE);
+        $bodyParts = new ProductAttribute(LuProductAttributes::BODY_PART);
+        $bodyPartsModel = $bodyParts->getSubattributeModelName();
+
         UserPreferredBodyParts::unguard();
 
         $quiz->userPreferredBodyParts->update([
-            'body_type' => BodyType::TRIANGLE,
-            'thighs' => 0,
-            'calves' => 1,
-            'butt' => 0,
-            'abdomen' => 1,
-            'hips' => 0,
-            'breast' => 1,
-            'shoulders' => 0,
-            'arms' => 0,
+            'body_type' => $bodyType->getRandomSubcategoryId(),
+            'thighs' => $this->getRandomBodyPartIdOrZero($bodyParts, $bodyPartsModel::THIGHS),
+            'calves' => $this->getRandomBodyPartIdOrZero($bodyParts, $bodyPartsModel::CALVES),
+            'butt' => $this->getRandomBodyPartIdOrZero($bodyParts, $bodyPartsModel::BUTT),
+            'abdomen' => $this->getRandomBodyPartIdOrZero($bodyParts, $bodyPartsModel::ABDOMEN),
+            'hips' => $this->getRandomBodyPartIdOrZero($bodyParts, $bodyPartsModel::HIPS),
+            'breast' => $this->getRandomBodyPartIdOrZero($bodyParts, $bodyPartsModel::BREAST),
+            'shoulders' => $this->getRandomBodyPartIdOrZero($bodyParts, $bodyPartsModel::SHOULDERS),
+            'arms' => $this->getRandomBodyPartIdOrZero($bodyParts, $bodyPartsModel::ARMS),
             ]);
 
         $quiz->user_preferred_body_parts_completed_ts = DateTimeUtil::DBNOW();
@@ -124,13 +110,18 @@ class UserWithCompleteCusualWearQuizSeeder extends Seeder
         $quiz->save();
 
 
+        $upperPartFit = new ProductCategory(LuProductCategories::UPPER_PART_FIT);
+        $lowerPartFit = new ProductCategory(LuProductCategories::LOWER_PART_FIT);
+        $pantsFitShape = new ProductCategory(LuProductCategories::PANTS_FIT_SHAPE);
+        $pantsFitHips = new ProductCategory(LuProductCategories::PANTS_FIT_HIPS);
+
         UserFit::unguard();
 
         $quiz->userFit->update([
-            'upper_part_fit' => UpperPartFit::FIT,
-            'lower_part_fit' => LowerPartFit::MID,
-            'pants_fit_shape' => PantsFitShape::STRAIGHT,
-            'pants_fit_hips' => PantsFitHips::WAIST,
+            'upper_part_fit' => $upperPartFit->getRandomSubcategoryId(),
+            'lower_part_fit' => $lowerPartFit->getRandomSubcategoryId(),
+            'pants_fit_shape' => $pantsFitShape->getRandomSubcategoryId(),
+            'pants_fit_hips' => $pantsFitHips->getRandomSubcategoryId(),
             ]);
 
         $quiz->user_fit_completed_ts = DateTimeUtil::DBNOW();
@@ -138,18 +129,28 @@ class UserWithCompleteCusualWearQuizSeeder extends Seeder
         $quiz->save();
 
 
+        $colors = new ProductAttribute(LuProductAttributes::COLORS);
+        $prints = new ProductAttribute(LuProductAttributes::PRINTS);
+        $fabrics = new ProductAttribute(LuProductAttributes::FABRICS);
+        $words = new ProductAttribute(LuProductAttributes::WORDS);
+        $clothes = new ProductCategory(LuProductCategories::TYPE);
+        $accessories = new ProductCategory(LuProductCategories::ACCESSORIES);
+        $shoes = new ProductCategory(LuProductCategories::SHOES);
+        $jewelry = new ProductAttribute(LuProductAttributes::JEWELRY);
+        $risk = new ProductCategory(LuProductCategories::RISK);
+
         UserStyle::unguard();
 
         $quiz->userStyle->update([
-            'colors' => Colors::BLANCO,
-            'prints' => Prints::FLORES,
-            'fabrics' => Fabrics::LYCRA,
-            'words' => Words::BOHEMIO,
-            'clothes' => Clothes::VESTIDOS,
-            'accessories' => Accessories::BOLSAS,
-            'shoes' => Shoes::FLATS,
-            'jewelry' => Jewelry::DISCRETA,
-            'risk' => Risk::CLASSIC,
+            'colors' => implode('|', $colors->getRandomSubattributeIds()),
+            'prints' => implode('|', $prints->getRandomSubattributeIds(2)),
+            'fabrics' => implode('|', $fabrics->getRandomSubattributeIds(1)),
+            'words' => implode('|', $words->getRandomSubattributeIds(2)),
+            'clothes' => implode('|', $clothes->getRandomSubcategoryIds()),
+            'accessories' => implode('|', $accessories->getRandomSubcategoryIds(2)),
+            'shoes' => implode('|', $shoes->getRandomSubcategoryIds(1)),
+            'jewelry' => implode('|', $jewelry->getRandomSubattributeIds()),
+            'risk' => $risk->getRandomSubcategoryId(),
             ]);
 
         $quiz->user_style_completed_ts = DateTimeUtil::DBNOW();
@@ -177,5 +178,14 @@ class UserWithCompleteCusualWearQuizSeeder extends Seeder
         $quiz->completed_at = DateTimeUtil::DBNOW();
 
         $quiz->save();
+    }
+
+    public function getRandomBodyPartIdOrZero(ProductAttribute $bodyPartsAttribute, Int $bodyPartKey)
+    {
+        if (rand(0, 1)) {
+            return $bodyPartsAttribute->getSubattributeByKey($bodyPartKey)->getId();
+        }
+
+        return 0;
     }
 }

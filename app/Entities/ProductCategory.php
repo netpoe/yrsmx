@@ -130,4 +130,36 @@ class ProductCategory
             }
         }, $this->subcategories()), [NULL]);
     }
+
+    /**
+     * getRandomSubcategoryId gets a random subcategory_id
+     * @return Int
+     */
+    public function getRandomSubcategoryId(): Int
+    {
+        $subcategories = $this->subcategories();
+
+        return $subcategories[rand(0, count($subcategories) - 1)]->getId();
+    }
+
+    /**
+     * getRandomSubcategoryIds gets a random subcategory_id array
+     * @return Array
+     */
+    public function getRandomSubcategoryIds(Int $count = 3): Array
+    {
+        $subcategories = $this->subcategories();
+
+        $ids = [];
+
+        while (count($ids) < $count) {
+            $id = $subcategories[rand(0, count($subcategories) - 1)]->getId();
+
+            if (!in_array($id, $ids)) {
+                $ids[] = $id;
+            }
+        }
+
+        return $ids;
+    }
 }
