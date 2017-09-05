@@ -64,9 +64,11 @@ class ProductAttribute
         return $this->subattributes;
     }
 
-    public function getSubattributeOptions(): Array
+    public function getSubattributeByKey($key)
     {
-        return $this->getSubattributeModelName()::OPTIONS;
+        return array_values(array_filter($this->subattributes(), function($subattribute) use ($key){
+            return $subattribute->getKey() == $key;
+        }))[0];
     }
 
     public function getSubattributesAsInputOptionsArray(): Array
@@ -113,21 +115,5 @@ class ProductAttribute
         $this->subattributeModelName = $subattributeModelName;
 
         return $this;
-    }
-
-    public function getSubattributeByKey($key)
-    {
-        return array_filter($this->subattributes(), function($subattribute) use ($key) {
-            return $subattribute->getKey() == $key;
-        })[0];
-    }
-
-    public function getSubattributeIdsByUserAnswers(Array $answers)
-    {
-        return array_diff(array_map(function($subattribute) use ($answers) {
-            if (in_array($subattribute->getKey(), $answers)) {
-                return $subattribute->getId();
-            }
-        }, $this->subattributes()), [NULL]);
     }
 }

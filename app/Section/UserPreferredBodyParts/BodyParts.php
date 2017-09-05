@@ -2,14 +2,21 @@
 
 namespace App\Section\UserPreferredBodyParts;
 
-use App\Section\AbstractUserPreferredBodyPartsSection;
 use EBM\Field\Field;
+use App\Section\AbstractUserPreferredBodyPartsSection;
+use App\Entities\ProductAttribute;
+
+use App\Model\{
+    LuProductAttributesAdapter as LuProductAttributes
+};
 
 class BodyParts extends AbstractUserPreferredBodyPartsSection
 {
     protected $slug = 'partes-del-cuerpo';
 
     protected $template = 'body-parts';
+
+    public $bodyPartsAttribute;
 
     public function setFields()
     {
@@ -19,12 +26,16 @@ class BodyParts extends AbstractUserPreferredBodyPartsSection
 
         $userPreferredBodyParts = $quiz->userPreferredBodyParts;
 
+        $this->bodyPartsAttribute = new ProductAttribute(LuProductAttributes::BODY_PART);
+
+        $bodyPartsModel = $this->bodyPartsAttribute->getSubattributeModelName();
+
         $this->addField('thighs')
             ->setModel($userPreferredBodyParts)
             ->setLabel('Muslos')
             ->setType(Field::TYPE_RADIO)
             ->required()
-            ->setOptions(parent::BINARY_OPTIONS)
+            ->setOptions($this->getBodyPartsRadioOptions($bodyPartsModel::THIGHS))
             ->setValueFromDb();
 
         $this->addField('calves')
@@ -32,7 +43,7 @@ class BodyParts extends AbstractUserPreferredBodyPartsSection
             ->setLabel('Pantorrillas')
             ->setType(Field::TYPE_RADIO)
             ->required()
-            ->setOptions(parent::BINARY_OPTIONS)
+            ->setOptions($this->getBodyPartsRadioOptions($bodyPartsModel::CALVES))
             ->setValueFromDb();
 
         $this->addField('abdomen')
@@ -40,7 +51,7 @@ class BodyParts extends AbstractUserPreferredBodyPartsSection
             ->setLabel('Abdomen')
             ->setType(Field::TYPE_RADIO)
             ->required()
-            ->setOptions(parent::BINARY_OPTIONS)
+            ->setOptions($this->getBodyPartsRadioOptions($bodyPartsModel::ABDOMEN))
             ->setValueFromDb();
 
         $this->addField('hips')
@@ -48,7 +59,7 @@ class BodyParts extends AbstractUserPreferredBodyPartsSection
             ->setLabel('Cadera')
             ->setType(Field::TYPE_RADIO)
             ->required()
-            ->setOptions(parent::BINARY_OPTIONS)
+            ->setOptions($this->getBodyPartsRadioOptions($bodyPartsModel::HIPS))
             ->setValueFromDb();
 
         $this->addField('butt')
@@ -56,7 +67,7 @@ class BodyParts extends AbstractUserPreferredBodyPartsSection
             ->setLabel('Pompas')
             ->setType(Field::TYPE_RADIO)
             ->required()
-            ->setOptions(parent::BINARY_OPTIONS)
+            ->setOptions($this->getBodyPartsRadioOptions($bodyPartsModel::BUTT))
             ->setValueFromDb();
 
         $this->addField('shoulders')
@@ -64,7 +75,7 @@ class BodyParts extends AbstractUserPreferredBodyPartsSection
             ->setLabel('Hombros')
             ->setType(Field::TYPE_RADIO)
             ->required()
-            ->setOptions(parent::BINARY_OPTIONS)
+            ->setOptions($this->getBodyPartsRadioOptions($bodyPartsModel::SHOULDERS))
             ->setValueFromDb();
 
         $this->addField('breast')
@@ -72,7 +83,7 @@ class BodyParts extends AbstractUserPreferredBodyPartsSection
             ->setLabel('Busto')
             ->setType(Field::TYPE_RADIO)
             ->required()
-            ->setOptions(parent::BINARY_OPTIONS)
+            ->setOptions($this->getBodyPartsRadioOptions($bodyPartsModel::BREAST))
             ->setValueFromDb();
 
         $this->addField('arms')
@@ -80,9 +91,23 @@ class BodyParts extends AbstractUserPreferredBodyPartsSection
             ->setLabel('Brazos')
             ->setType(Field::TYPE_RADIO)
             ->required()
-            ->setOptions(parent::BINARY_OPTIONS)
+            ->setOptions($this->getBodyPartsRadioOptions($bodyPartsModel::ARMS))
             ->setValueFromDb();
 
         return $this;
+    }
+
+    public function getBodyPartsRadioOptions(Int $bodyPartKey): Array
+    {
+        return [
+            [
+                'key' => NULL,
+                'value' => 'Disimular',
+            ],
+            [
+                'key' => $this->bodyPartsAttribute->getSubattributeByKey($bodyPartKey)->getId(),
+                'value' => 'Resaltar',
+            ],
+        ];
     }
 }
