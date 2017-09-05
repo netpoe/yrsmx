@@ -99,4 +99,20 @@ class ProductCategory
 
         return $this;
     }
+
+    public function getSubcategoryByKey($key)
+    {
+        return array_filter($this->subcategories(), function($subcategory) use ($key) {
+            return $subcategory->getKey() == $key;
+        })[0];
+    }
+
+    public function getSubcategoryIdsByUserAnswers(Array $answers)
+    {
+        return array_diff(array_map(function($subcategory) use ($answers) {
+            if (in_array($subcategory->getKey(), $answers)) {
+                return $subcategory->getId();
+            }
+        }, $this->subcategories()), [NULL]);
+    }
 }

@@ -17,12 +17,12 @@ class UserProductsServiceTest extends TestCase
      */
     public function testAssignProductsToUser()
     {
-        $userProducsService = new UserProductsService;
-
         $user = $this->getUserWithCompleteCasualWearQuiz();
 
-        $userProducsService->assignProductsToUser($user);
+        $userProducsService = new UserProductsService($user);
 
-        $this->assertTrue(true);
+        $userProducsService->assignProductsToUser();
+
+        // $this->assertTrue(true);
     }
 }

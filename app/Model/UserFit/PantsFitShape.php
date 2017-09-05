@@ -16,6 +16,8 @@ class PantsFitShape extends UserFit implements InputOptionsContract
 
     const CATEGORY_ID = LuProductCategories::PANTS_FIT_SHAPE;
 
+    const COLUMN = 'pants_fit_shape';
+
     const SKINNY = 1;
     const WIDE = 2;
     const STRAIGHT = 3;

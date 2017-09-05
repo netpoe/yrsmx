@@ -16,6 +16,8 @@ class BraBandSizes extends UserSizes implements InputOptionsContract
 
     const CATEGORY_ID = LuProductCategories::SIZE_BRA_BAND;
 
+    const COLUMN = 'bra_band';
+
     const SIZE_30 = 30;
     const SIZE_32 = 32;
     const SIZE_34 = 34;

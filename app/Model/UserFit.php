@@ -4,8 +4,15 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserFit extends Model
+use App\Model\{
+    Contracts\HasSubcategoriesContract,
+    Traits\SubcategoriesTrait
+};
+
+class UserFit extends Model implements HasSubcategoriesContract
 {
+    use SubcategoriesTrait;
+
     protected $table = 'user_fit';
 
     public $timestamps = false;

@@ -16,6 +16,8 @@ class BodyType extends UserPreferredBodyParts implements InputOptionsContract
 
     const CATEGORY_ID = LuProductCategories::BODY_TYPE;
 
+    const COLUMN = 'body_type';
+
     const TRIANGLE = 1;
     const ELIPTICAL = 2;
     const INVERTED_TRIANGLE = 3;

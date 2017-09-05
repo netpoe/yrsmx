@@ -16,6 +16,8 @@ class LowerPartFit extends UserFit implements InputOptionsContract
 
     const CATEGORY_ID = LuProductCategories::LOWER_PART_FIT;
 
+    const COLUMN = 'lower_part_fit';
+
     const FIT = 1;
     const MID = 2;
     const LOOSE = 3;

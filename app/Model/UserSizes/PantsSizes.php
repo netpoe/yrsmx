@@ -16,6 +16,8 @@ class PantsSizes extends UserSizes implements InputOptionsContract
 
     const CATEGORY_ID = LuProductCategories::SIZE_PANTS;
 
+    const COLUMN = 'pants';
+
     const SIZE_1 = 1;
     const SIZE_3 = 3;
     const SIZE_5 = 5;

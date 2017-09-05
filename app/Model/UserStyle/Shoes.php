@@ -16,6 +16,8 @@ class Shoes extends UserStyleAdapter implements InputOptionsContract
 
     const CATEGORY_ID = LuProductCategories::SHOES;
 
+    const COLUMN = 'shoes';
+
     const TENNIS = 1;
     const FLATS = 2;
     const SANDALIAS = 3;

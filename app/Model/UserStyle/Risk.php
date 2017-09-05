@@ -16,6 +16,8 @@ class Risk extends UserStyleAdapter implements InputOptionsContract
 
     const CATEGORY_ID = LuProductCategories::RISK;
 
+    const COLUMN = 'risk';
+
     const FIRST = 1;
     const TRENDY = 2;
     const ORIGINAL = 3;

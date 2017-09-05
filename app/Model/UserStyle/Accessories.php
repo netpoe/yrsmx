@@ -16,6 +16,8 @@ class Accessories extends UserStyleAdapter implements InputOptionsContract
 
     const CATEGORY_ID = LuProductCategories::ACCESSORIES;
 
+    const COLUMN = 'accessories';
+
     const BOLSAS = 1;
     const LENTES_DE_SOL = 2;
     const SOMBREROS = 3;

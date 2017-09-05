@@ -16,6 +16,8 @@ class BraCupsSizes extends UserSizes implements InputOptionsContract
 
     const CATEGORY_ID = LuProductCategories::SIZE_BRA_CUPS;
 
+    const COLUMN = 'bra_cups';
+
     const SIZE_A = 'A';
     const SIZE_C = 'C';
     const SIZE_D = 'D';

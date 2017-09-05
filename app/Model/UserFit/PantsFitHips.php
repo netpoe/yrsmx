@@ -16,6 +16,8 @@ class PantsFitHips extends UserFit implements InputOptionsContract
 
     const CATEGORY_ID = LuProductCategories::PANTS_FIT_HIPS;
 
+    const COLUMN = 'pants_fit_hips';
+
     const HIP = 1;
     const MID = 2;
     const WAIST = 3;
