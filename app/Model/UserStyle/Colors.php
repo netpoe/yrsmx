@@ -16,6 +16,8 @@ class Colors extends UserStyleAdapter implements InputOptionsContract
 
     const ATTRIBUTE_ID = LuProductAttributes::COLORS;
 
+    const COLUMN = 'colors';
+
     const BLANCO = 1;
     const CREMA = 2;
     const NUDE = 3;

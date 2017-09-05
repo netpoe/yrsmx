@@ -16,6 +16,8 @@ class Prints extends UserStyleAdapter implements InputOptionsContract
 
     const ATTRIBUTE_ID = LuProductAttributes::PRINTS;
 
+    const COLUMN = 'prints';
+
     const FLORES = 1;
     const GRAFICOS = 2;
     const MILITAR = 3;

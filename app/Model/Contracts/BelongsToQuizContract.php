@@ -2,7 +2,7 @@
 
 namespace App\Model\Contracts;
 
-interface HasSubcategoriesContract
+interface BelongsToQuizContract
 {
     /**
      * getQuizRelationshipMethodName Gets a string with the name of the

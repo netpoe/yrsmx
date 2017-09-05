@@ -2,7 +2,7 @@
 
 namespace App\Model\Traits;
 
-trait SubcategoriesTrait
+trait BelongsToQuizTrait
 {
     public function getQuizRelationshipMethodName(): String
     {

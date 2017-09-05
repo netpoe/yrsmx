@@ -6,9 +6,7 @@ use App\Model\{
     UserFit\UpperPartFit,
     UserFit\LowerPartFit,
     UserFit\PantsFitShape,
-    UserFit\PantsFitHips,
-    Contracts\HasSubcategoriesContract,
-    Traits\SubcategoriesTrait
+    UserFit\PantsFitHips
 };
 
 class UserFitAdapter extends UserFit

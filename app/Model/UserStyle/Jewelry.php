@@ -16,6 +16,8 @@ class Jewelry extends UserStyleAdapter implements InputOptionsContract
 
     const ATTRIBUTE_ID = LuProductAttributes::JEWELRY;
 
+    const COLUMN = 'jewelry';
+
     const ORO = 1;
     const PLATA = 2;
     const FANTASIA = 3;

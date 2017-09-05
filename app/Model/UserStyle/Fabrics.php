@@ -16,6 +16,8 @@ class Fabrics extends UserStyleAdapter implements InputOptionsContract
 
     const ATTRIBUTE_ID = LuProductAttributes::FABRICS;
 
+    const COLUMN = 'fabrics';
+
     const ALGODON = 1;
     const LYCRA = 2;
     const LANA = 3;

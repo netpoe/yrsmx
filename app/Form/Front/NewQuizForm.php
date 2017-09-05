@@ -4,7 +4,13 @@ namespace App\Form\Front;
 
 use EBM\Form\AbstractBaseForm;
 use EBM\Field\Field;
-use App\Model\OutfitType;
+
+use App\Model\{
+    OutfitType,
+    LuProductAttributesAdapter as LuProductAttributes
+};
+
+use App\Entities\ProductAttribute;
 
 class NewQuizForm extends AbstractBaseForm
 {
@@ -17,10 +23,12 @@ class NewQuizForm extends AbstractBaseForm
 
     public function setFields()
     {
+        $outfitType = new ProductAttribute(LuProductAttributes::OUTFIT_TYPE);
+
         $this->addField('outfit_type')
             ->setLabel('¿Qué tipo de outfit buscas?')
             ->setType(Field::TYPE_RADIO)
-            ->setOptions(OutfitType::getOptions())
+            ->setOptions($outfitType->getSubattributesAsInputOptionsArray())
             ->required();
 
         $this->addField('email')

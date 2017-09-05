@@ -5,13 +5,13 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Model\{
-    Contracts\HasSubcategoriesContract,
-    Traits\SubcategoriesTrait
+    Contracts\BelongsToQuizContract,
+    Traits\BelongsToQuizTrait
 };
 
-class UserSizes extends Model implements HasSubcategoriesContract
+class UserSizes extends Model implements BelongsToQuizContract
 {
-    use SubcategoriesTrait;
+    use BelongsToQuizTrait;
 
     protected $table = 'user_sizes';
 

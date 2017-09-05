@@ -106,7 +106,7 @@
             @foreach ($user->quizzes as $quiz)
               <ul class="user-details-list">
                 <li><strong>ID:</strong><span>{{ $quiz->id }}</span></li>
-                <li><strong>Tipo:</strong><span>{{ $quiz->outfitType() }}</span></li>
+                <li><strong>Tipo:</strong><span>{{ $quiz->getOutfitType() }}</span></li>
                 <li><strong>Status:</strong><span>{{ $quiz->status() }}</span></li>
                 <li><strong>Fecha de comienzo:</strong><span>{{ $quiz->startedAt() }}</span></li>
               </ul>
@@ -118,7 +118,7 @@
           <div class="card-block">
             <ul class="user-details-list">
               <li><strong>ID:</strong><span>{{ $lastCompletedQuiz->id }}</span></li>
-              <li><strong>Tipo:</strong><span>{{ $lastCompletedQuiz->outfitType() }}</span></li>
+              <li><strong>Tipo:</strong><span>{{ $lastCompletedQuiz->getOutfitType() }}</span></li>
               <li><strong>Status:</strong><span>{{ $lastCompletedQuiz->status() }}</span></li>
               <li><strong>Fecha de comienzo:</strong><span>{{ $lastCompletedQuiz->startedAt() }}</span></li>
               <li><strong>Fecha de finalización:</strong><span>{{ $lastCompletedQuiz->completedAt() }}</span></li>

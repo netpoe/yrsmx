@@ -16,6 +16,8 @@ class Words extends UserStyleAdapter implements InputOptionsContract
 
     const ATTRIBUTE_ID = LuProductAttributes::WORDS;
 
+    const COLUMN = 'words';
+
     const BOHEMIO = 1;
     const CONSERVADOR = 2;
     const FEMENINO = 3;

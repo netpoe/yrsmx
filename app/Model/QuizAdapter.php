@@ -2,14 +2,17 @@
 
 namespace App\Model;
 
-use App\Model\UserSizesAdapter as UserSizes;
-use App\Model\UserPreferredBodyPartsAdapter as UserPreferredBodyParts;
-use App\Model\UserFitAdapter as UserFit;
-use App\Model\UserStyleAdapter as UserStyle;
-use App\Model\OutfitType;
-use App\Model\QuizWorkAdapter as QuizWork;
-use App\Model\QuizGetAwayAdapter as QuizGetAway;
 use Illuminate\Support\Facades\DB;
+
+use App\Model\{
+    UserSizesAdapter as UserSizes,
+    UserPreferredBodyPartsAdapter as UserPreferredBodyParts,
+    UserFitAdapter as UserFit,
+    UserStyleAdapter as UserStyle,
+    OutfitTypeAdapter as OutfitType,
+    QuizWorkAdapter as QuizWork,
+    QuizGetAwayAdapter as QuizGetAway
+};
 
 class QuizAdapter extends Quiz
 {
@@ -108,10 +111,10 @@ class QuizAdapter extends Quiz
     }
 
     /**
-     * [outfitType Returns an outfit type name form the OPTIONS array]
+     * [getOutfitType Returns an outfit type name form the OPTIONS array]
      * @return [String] outfitType
      */
-    public function outfitType()
+    public function getOutfitType()
     {
         return OutfitType::getOptionsValue($this->outfit_type);
     }

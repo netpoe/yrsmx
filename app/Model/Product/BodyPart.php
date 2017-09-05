@@ -7,10 +7,11 @@ use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
 
 use App\Model\{
-    LuProductAttributesAdapter as LuProductAttributes
+    LuProductAttributesAdapter as LuProductAttributes,
+    UserPreferredBodyPartsAdapter as UserPreferredBodyParts
 };
 
-class BodyPart extends Model implements InputOptionsContract
+class BodyPart extends UserPreferredBodyParts implements InputOptionsContract
 {
     use InputOptionsTrait;
 

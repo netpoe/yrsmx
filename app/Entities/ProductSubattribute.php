@@ -42,6 +42,28 @@ class ProductSubattribute
         $this->setValue($values['value']);
 
         $this->setAttributeId($attributeId);
+
+        $this->setAdditionalProperties($values);
+    }
+
+    /**
+     * setAdditionalProperties If the subattribute has additional option values
+     * add them to the object public properties
+     * @param Array $values
+     */
+    public function setAdditionalProperties(Array $values)
+    {
+        unset($values['key']);
+
+        unset($values['value']);
+
+        if ($values) {
+            foreach ($values as $key => $value) {
+                $this->$key = $value;
+            }
+        }
+
+        return $this;
     }
 
     /**

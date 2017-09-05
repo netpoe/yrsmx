@@ -3,17 +3,35 @@
 namespace App\Entities;
 
 use App\Model\{
-    LuProductAttributesAdapter as LuProductAttributes,
-    LuProductSubAttributesAdapter as LuProductSubAttributes
+    LuProductSubattributesAdapter as LuProductSubattributes,
+    LuProductAttributesAdapter as LuProductAttributes
 };
 
 class ProductAttribute
 {
+    /**
+     * $subattributes The subattributes associated with the attribute
+     * @var array
+     */
     protected $subattributes = [];
 
+    /**
+     * $id The attribute id
+     * @var Int
+     */
     protected $id;
 
+    /**
+     * $name The attribute name
+     * @var String
+     */
     protected $name;
+
+    /**
+     * $subattributeModelName Subattribute class associated to the attribute
+     * @var String
+     */
+    protected $subattributeModelName;
 
     public function __construct(Int $attributeId = null)
     {
@@ -21,18 +39,16 @@ class ProductAttribute
 
         $this->setName(LuProductAttributes::OPTIONS[$attributeId]['value']);
 
-        $subattributes = LuProductSubAttributes::SUBATTRIBUTES;
+        $this->setSubattributeModelName(LuProductAttributes::OPTIONS[$attributeId]['subattribute']);
 
-        foreach ($subattributes as $subattribute) {
-            if (!$subattribute::ATTRIBUTE_ID) {
-                throw new \Exception('Subattribute has no ATTRIBUTE_ID constant associated to it');
-            }
+        $subattribute = $this->getSubattributeModelName();
 
-            if ($subattribute::ATTRIBUTE_ID == $attributeId) {
-                foreach ($subattribute::getOptions() as $values) {
-                    $this->addSubattribute($subattribute, $values);
-                }
-            }
+        if (!$subattribute::ATTRIBUTE_ID) {
+            throw new \Exception('Subattribute has no ATTRIBUTE_ID constant associated to it');
+        }
+
+        foreach ($subattribute::getOptions() as $values) {
+            $this->addSubattribute($subattribute, $values);
         }
     }
 
@@ -46,6 +62,21 @@ class ProductAttribute
     public function subattributes(): Array
     {
         return $this->subattributes;
+    }
+
+    public function getSubattributeOptions(): Array
+    {
+        return $this->getSubattributeModelName()::OPTIONS;
+    }
+
+    public function getSubattributesAsInputOptionsArray(): Array
+    {
+        return array_map(function($subattribute){
+            return [
+                'key' => $subattribute->getId(),
+                'value' => $subattribute->getValue(),
+            ];
+        }, $this->subattributes());
     }
 
     public function getName()
@@ -71,5 +102,32 @@ class ProductAttribute
 
         return $this;
     }
-}
 
+    public function getSubattributeModelName()
+    {
+        return $this->subattributeModelName;
+    }
+
+    public function setSubattributeModelName(String $subattributeModelName)
+    {
+        $this->subattributeModelName = $subattributeModelName;
+
+        return $this;
+    }
+
+    public function getSubattributeByKey($key)
+    {
+        return array_filter($this->subattributes(), function($subattribute) use ($key) {
+            return $subattribute->getKey() == $key;
+        })[0];
+    }
+
+    public function getSubattributeIdsByUserAnswers(Array $answers)
+    {
+        return array_diff(array_map(function($subattribute) use ($answers) {
+            if (in_array($subattribute->getKey(), $answers)) {
+                return $subattribute->getId();
+            }
+        }, $this->subattributes()), [NULL]);
+    }
+}

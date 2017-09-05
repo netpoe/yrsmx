@@ -80,7 +80,7 @@ class QuizController extends Controller
 
         $quiz = Quiz::create([
             'user_id' => $user->id,
-            'outfit_type' => $request->outfit_type[0],
+            'outfit_type' => $request->outfit_type,
             'started_at' => DateTimeUtil::DBNOW(),
             ]);
 
