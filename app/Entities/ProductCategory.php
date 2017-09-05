@@ -59,6 +59,21 @@ class ProductCategory
         return $this;
     }
 
+    public function getSubcategoryOptions(): Array
+    {
+        return $this->getSubcategoryModelName()::OPTIONS;
+    }
+
+    public function getSubcategorysAsInputOptionsArray(): Array
+    {
+        return array_map(function($subcategory){
+            return [
+                'key' => $subcategory->getId(),
+                'value' => $subcategory->getValue(),
+            ];
+        }, $this->subcategories());
+    }
+
     public function subcategories(): Array
     {
         return $this->subcategories;

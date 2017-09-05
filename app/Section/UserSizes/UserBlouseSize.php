@@ -2,9 +2,13 @@
 
 namespace App\Section\UserSizes;
 
-use App\Section\AbstractUserSizesSection;
 use EBM\Field\Field;
-use App\Model\UserSizes\BlouseSizes;
+use App\Section\AbstractUserSizesSection;
+use App\Entities\ProductCategory;
+
+use App\Model\{
+    LuProductCategoriesAdapter as LuProductCategories
+};
 
 class UserBlouseSize extends AbstractUserSizesSection
 {
@@ -20,12 +24,14 @@ class UserBlouseSize extends AbstractUserSizesSection
 
         $userSizes = $quiz->userSizes;
 
+        $blouseSizes = new ProductCategory(LuProductCategories::SIZE_BLOUSE);
+
         $this->addField('blouse')
             ->setModel($userSizes)
             ->setLabel('Selecciona la talla que usas para tus blusas')
             ->setType(Field::TYPE_RADIO)
             ->required()
-            ->setOptions(BlouseSizes::getOptions())
+            ->setOptions($blouseSizes->getSubcategorysAsInputOptionsArray())
             ->setValueFromDb();
 
         return $this;

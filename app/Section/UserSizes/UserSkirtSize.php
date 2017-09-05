@@ -4,7 +4,11 @@ namespace App\Section\UserSizes;
 
 use App\Section\AbstractUserSizesSection;
 use EBM\Field\Field;
-use App\Model\UserSizes\SkirtSizes;
+use App\Entities\ProductCategory;
+
+use App\Model\{
+    LuProductCategoriesAdapter as LuProductCategories
+};
 
 class UserSkirtSize extends AbstractUserSizesSection
 {
@@ -20,12 +24,14 @@ class UserSkirtSize extends AbstractUserSizesSection
 
         $userSizes = $quiz->userSizes;
 
+        $skirtSizes = new ProductCategory(LuProductCategories::SIZE_SKIRT);
+
         $this->addField('skirt')
             ->setModel($userSizes)
             ->setLabel('Selecciona tu talla preferida para las faldas')
             ->setType(Field::TYPE_RADIO)
             ->required()
-            ->setOptions(SkirtSizes::getOptions())
+            ->setOptions($skirtSizes->getSubcategorysAsInputOptionsArray())
             ->setValueFromDb();
 
         return $this;

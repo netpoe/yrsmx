@@ -2,10 +2,13 @@
 
 namespace App\Section\UserSizes;
 
-use App\Section\AbstractUserSizesSection;
 use EBM\Field\Field;
-use App\Model\UserSizes\BraBandSizes;
-use App\Model\UserSizes\BraCupsSizes;
+use App\Section\AbstractUserSizesSection;
+use App\Entities\ProductCategory;
+
+use App\Model\{
+    LuProductCategoriesAdapter as LuProductCategories
+};
 
 class UserBraSizes extends AbstractUserSizesSection
 {
@@ -21,12 +24,16 @@ class UserBraSizes extends AbstractUserSizesSection
 
         $userSizes = $quiz->userSizes;
 
+        $braBandSizes = new ProductCategory(LuProductCategories::SIZE_BRA_BAND);
+
+        $braCupsSizes = new ProductCategory(LuProductCategories::SIZE_BRA_CUPS);
+
         $this->addField('bra_band')
             ->setModel($userSizes)
             ->setLabel('Selecciona tu talla de espalda')
             ->setType(Field::TYPE_RADIO)
             ->required()
-            ->setOptions(BraBandSizes::getOptions())
+            ->setOptions($braBandSizes->getSubcategorysAsInputOptionsArray())
             ->setValueFromDb();
 
         $this->addField('bra_cups')
@@ -34,7 +41,7 @@ class UserBraSizes extends AbstractUserSizesSection
             ->setLabel('Selecciona tu talla de copa')
             ->setType(Field::TYPE_RADIO)
             ->required()
-            ->setOptions(BraCupsSizes::getOptions())
+            ->setOptions($braCupsSizes->getSubcategorysAsInputOptionsArray())
             ->setValueFromDb();
 
         return $this;
