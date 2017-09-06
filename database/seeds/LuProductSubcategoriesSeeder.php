@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 
 use App\Model\{
-    LuProductSubcategoriesAdapter as LuProductSubcategories
+    LuProductCategoriesAdapter as LuProductCategories
 };
 
 class LuProductSubcategoriesSeeder extends Seeder
@@ -17,7 +17,8 @@ class LuProductSubcategoriesSeeder extends Seeder
      */
     public function run()
     {
-        foreach (LuProductSubcategories::SUBCATEGORIES as $subcategory) {
+        foreach (LuProductCategories::getOptions() as $category) {
+            $subcategory = $category['subcategory'];
             foreach ($subcategory::getOptions() as $option) {
                 $insert = [
                     'category_id' => $subcategory::CATEGORY_ID,

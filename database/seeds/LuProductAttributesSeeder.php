@@ -14,7 +14,7 @@ class LuProductAttributesSeeder extends Seeder
      */
     public function run()
     {
-        foreach (LuProductAttributes::OPTIONS as $option) {
+        foreach (LuProductAttributes::getOptions() as $option) {
             $insert = [
                 'name' => $option['value'],
             ];

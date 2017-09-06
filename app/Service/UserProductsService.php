@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Log;
 
 use App\Entities\{
@@ -82,24 +83,24 @@ class UserProductsService
         $builder = RelProductsCategories::where('category_id', LuProductCategories::TYPE)
                                         ->where('subcategory_id', $currentProductType->getId());
 
-        $relProductCategories = $builder->get();
+        $productsCollection = $builder->get();
 
         // There's no product with this Cloth subcategory
-        if ($relProductCategories->isEmpty()) {
+        if ($productsCollection->isEmpty()) {
             error_log("No products of type: [{$currentProductType->getValue()} ({$currentProductType->getId()})] found for user: [{$this->user->id}]");
             Log::info("No products of type: [{$currentProductType->getValue()} ({$currentProductType->getId()})] found for user: [{$this->user->id}]");
             return $this->assignProductsToUser();
         }
 
-        error_log("Found [{$relProductCategories->count()}] products of type: [{$currentProductType->getValue()} ({$currentProductType->getId()})] for user: [{$this->user->id}]");
-        Log::info("Found [{$relProductCategories->count()}] products of type: [{$currentProductType->getValue()} ({$currentProductType->getId()})] for user: [{$this->user->id}]");
+        error_log("Found [{$productsCollection->count()}] products of type: [{$currentProductType->getValue()} ({$currentProductType->getId()})] for user: [{$this->user->id}]");
+        Log::info("Found [{$productsCollection->count()}] products of type: [{$currentProductType->getValue()} ({$currentProductType->getId()})] for user: [{$this->user->id}]");
 
-        $this->findSubcategories($currentProductType, $builder);
+        $this->findSubcategories($currentProductType, $productsCollection);
 
         return $this->assignProductsToUser();
     }
 
-    public function findSubcategories(ProductSubcategory $currentProductType, Builder $builder)
+    public function findSubcategories(ProductSubcategory $currentProductType, Collection $productsCollection)
     {
         if ($currentProductType->hasDependencies()) {
             $dependencies = $currentProductType->getDependencies();
@@ -117,20 +118,24 @@ class UserProductsService
 
                 $userAnswerValue = $this->quiz->$quizRelationshipMethodName->$dependencySubcategoryColumn;
 
-                $subcategoryKeys = explode('|', $userAnswerValue);
+                $subcategoriesIds = explode('|', $userAnswerValue);
 
                 error_log("Looking for products of category: [{$dependency->getName()} ({$dependency->getId()})] for user: [{$this->user->id}]");
                 Log::info("Looking for products of category: [{$dependency->getName()} ({$dependency->getId()})] for user: [{$this->user->id}]");
 
-                $subcategoriesIds = $dependency->getSubcategoryIdsByUserAnswers($subcategoryKeys);
+                // var_dump($dependencySubcategoryModel->getTable(), $dependencySubcategoryColumn, $subcategoriesIds);
 
-                var_dump('subcategoryKeys', $subcategoryKeys);
-                print_r($subcategoriesIds);
+                $matchingProducts = RelProductsCategories::where('category_id', $dependency->getId())
+                                        ->whereIn('subcategory_id', $subcategoriesIds)
+                                        ->get();
 
-                // $relProductCategories = $builder
-                //                         ->where('category_id', $dependency->getId())
-                //                         ->whereIn('subcategory_id', $dependency->getSubcategoryIdsByUserAnswers($subcategoryKeys))
-                //                         ->get();
+                if (!$matchingProducts->isEmpty()) {
+                    $matchingProducts->each(function($product) use ($productsCollection) {
+                        $productsCollection->push($product);
+                    });
+                    // print_r($matchingProducts);
+                    print_r($productsCollection);
+                }
 
                 // print_r($relProductCategories); exit;
                 // $productIds = array_map(function($value) use ($currentProductType, $dependency) {
