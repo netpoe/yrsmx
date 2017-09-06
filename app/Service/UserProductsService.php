@@ -32,6 +32,8 @@ class UserProductsService
 
     public $currentProductTypeIndex = -1;
 
+    public $productsCollection;
+
     public function __construct(User $user)
     {
         $this->user = $user;
@@ -77,34 +79,47 @@ class UserProductsService
 
         $currentProductType = $subcategories[$this->currentProductTypeIndex];
 
-        error_log("Looking for products of type: [{$currentProductType->getValue()} ({$currentProductType->getId()})] for user: [{$this->user->id}]");
-        Log::info("Looking for products of type: [{$currentProductType->getValue()} ({$currentProductType->getId()})] for user: [{$this->user->id}]");
+        error_log("Looking for products of TYPE: [{$currentProductType->getValue()} (ID {$currentProductType->getId()})] for user: [{$this->user->id}]");
+        Log::info("Looking for products of TYPE: [{$currentProductType->getValue()} (ID {$currentProductType->getId()})] for user: [{$this->user->id}]");
 
-        $builder = RelProductsCategories::where('category_id', LuProductCategories::TYPE)
-                                        ->where('subcategory_id', $currentProductType->getId());
-
-        $productsCollection = $builder->get();
+        $this->productsCollection = RelProductsCategories::join('products', 'products.id', 'rel_products_categories.product_id')
+                                        ->where('products.stock', '>', 0)
+                                        ->where('rel_products_categories.category_id', LuProductCategories::TYPE)
+                                        ->where('rel_products_categories.subcategory_id', $currentProductType->getId())
+                                        ->get();
 
         // There's no product with this Cloth subcategory
-        if ($productsCollection->isEmpty()) {
-            error_log("No products of type: [{$currentProductType->getValue()} ({$currentProductType->getId()})] found for user: [{$this->user->id}]");
-            Log::info("No products of type: [{$currentProductType->getValue()} ({$currentProductType->getId()})] found for user: [{$this->user->id}]");
+        if ($this->productsCollection->isEmpty()) {
+            error_log("No products of type: [{$currentProductType->getValue()} (ID {$currentProductType->getId()})] found for user: [{$this->user->id}]");
+            Log::info("No products of type: [{$currentProductType->getValue()} (ID {$currentProductType->getId()})] found for user: [{$this->user->id}]");
             return $this->assignProductsToUser();
         }
 
-        error_log("Found [{$productsCollection->count()}] products of type: [{$currentProductType->getValue()} ({$currentProductType->getId()})] for user: [{$this->user->id}]");
-        Log::info("Found [{$productsCollection->count()}] products of type: [{$currentProductType->getValue()} ({$currentProductType->getId()})] for user: [{$this->user->id}]");
+        error_log("> Found [{$this->productsCollection->count()}] products of type: [{$currentProductType->getValue()} (ID {$currentProductType->getId()})] for user: [{$this->user->id}]");
+        Log::info("> Found [{$this->productsCollection->count()}] products of type: [{$currentProductType->getValue()} (ID {$currentProductType->getId()})] for user: [{$this->user->id}]");
 
-        $this->findSubcategories($currentProductType, $productsCollection);
+        if (!$currentProductType->hasDependencies()) {
+            return $this->insertProductIds()
+                        ->assignProductsToUser();
+        }
+
+        $this->findCategoryDependenciesForCurrentProductsCollection($currentProductType);
 
         return $this->assignProductsToUser();
     }
 
-    public function findSubcategories(ProductSubcategory $currentProductType, Collection $productsCollection)
+    public function findCategoryDependenciesForCurrentProductsCollection(ProductSubcategory $currentProductType)
     {
-        if ($currentProductType->hasDependencies()) {
-            $dependencies = $currentProductType->getDependencies();
+        $dependencies = $currentProductType->getDependencies();
 
+        $dependencyCount = count($dependencies);
+
+        error_log("Category [{$currentProductType->getValue()}] dependency count: [# {$dependencyCount}]");
+        Log::info("Category [{$currentProductType->getValue()}] dependency count: [# {$dependencyCount}]");
+
+        $allDependenciesMatch = false;
+
+        $this->productsCollection->each(function($product) use ($dependencies, &$allDependenciesMatch) {
             foreach ($dependencies as $dependency) {
                 $dependencySubcategory = $dependency->getSubcategoryModelName();
 
@@ -120,94 +135,54 @@ class UserProductsService
 
                 $subcategoriesIds = explode('|', $userAnswerValue);
 
-                error_log("Looking for products of category: [{$dependency->getName()} ({$dependency->getId()})] for user: [{$this->user->id}]");
-                Log::info("Looking for products of category: [{$dependency->getName()} ({$dependency->getId()})] for user: [{$this->user->id}]");
+                error_log("Looking for product [ID {$product->product_id}] to have category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
+                Log::info("Looking for product [ID {$product->product_id}] to have category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
 
-                // var_dump($dependencySubcategoryModel->getTable(), $dependencySubcategoryColumn, $subcategoriesIds);
-
-                $matchingProducts = RelProductsCategories::where('category_id', $dependency->getId())
+                $matchingProducts = RelProductsCategories::where('product_id', $product->product_id)
+                                        ->where('category_id', $dependency->getId())
                                         ->whereIn('subcategory_id', $subcategoriesIds)
                                         ->get();
 
-                if (!$matchingProducts->isEmpty()) {
-                    $matchingProducts->each(function($product) use ($productsCollection) {
-                        $productsCollection->push($product);
-                    });
-                    // print_r($matchingProducts);
-                    print_r($productsCollection);
+                if ($matchingProducts->isEmpty()) {
+                    $allDependenciesMatch = false;
+                    error_log("Product [ID {$product->product_id}] has no category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
+                    Log::info("Product [ID {$product->product_id}] has no category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
+                    break;
                 }
 
-                // print_r($relProductCategories); exit;
-                // $productIds = array_map(function($value) use ($currentProductType, $dependency) {
+                $allDependenciesMatch = true;
 
-                //     if ($relProductCategories->first()) {
-                //         return $relProductCategories->first()->product_id;
-                //     }
-                // }, $subcategoryKeys);
+                // var_dump($currentProductType->getValue(), $dependencySubcategoryModel->getTable(), $dependencySubcategoryColumn, $subcategoriesIds);
+                $subcategoriesString = implode('|', $subcategoriesIds);
+
+                error_log(">> Found a product [ID {$product->product_id}] with category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
+                Log::info(">> Found a product [ID {$product->product_id}] with category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
+
+                $matchingProducts->each(function($product) {
+                    $this->productsCollection->push($product);
+                });
             }
+        });
+
+        if ($allDependenciesMatch) {
+            $this->insertProductIds();
         }
+
+        return $this;
     }
 
-    public function getRelProductCategoriesBuilderByTypeAndSubcategoryId(Int $subcategoryId): Builder
+    public function insertProductIds()
     {
-        return RelProductsCategories::where('category_id', LuProductCategories::TYPE)
-                                    ->where('subcategory_id', $subcategoryId);
-    }
+        $productIds = $this->productsCollection->pluck('product_id')->toArray();
 
-    public function getProductIdFromClothType($type)
-    {
-        $categoryId = LuProductCategories::TYPE;
+        print_r(array_unique($productIds));
 
-        $subcategoryId = LuProductSubcategories::getSubcategoryId(
-                                                    $categoryId,
-                                                    Clothes::class,
-                                                    $type);
-
-        $productId = RelProductsCategories::getProductId(
-                                                $categoryId,
-                                                $subcategoryId
-                                                );
-
-        return $productId;
-    }
-
-    public function assign(Int $categoryId, $subcategoryClass, $subcategory)
-    {
-        $count = 0;
-
-        $previousSubcategoryId = null;
-
-        $previousProductId = null;
-
-        while ($count <= self::PRODUCTS_COUNT) {
-            $subcategoryId = LuProductSubcategories::getSubcategoryId(
-                                                    $categoryId,
-                                                    $subcategoryClass,
-                                                    $subcategory);
-
-            if ($subcategoryId && $previousSubcategoryId == $subcategoryId) {
-                $count++; continue;
-            }
-
-            $previousSubcategoryId = $subcategoryId;
-
-            $productId = RelProductsCategories::getProductId(
-                                                $categoryId,
-                                                $subcategoryId
-                                                );
-
-            if (!$productId) {
-                $count++; continue;
-            }
-
-            if ($previousProductId == $productId) {
-                $count++; continue;
-            }
-
-            $previousProductId = $productId;
-
-            $count++;
-        }
+        // foreach (array_unique($productIds) as $productId) {
+        //     UserProducts::insert([
+        //         'user_id' => $this->user->id,
+        //         'product_id' => $productId
+        //         ]);
+        // }
 
         return $this;
     }
