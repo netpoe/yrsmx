@@ -27,4 +27,24 @@ class UserFit extends Model implements BelongsToQuizContract
     {
         return $this->hasOne(\App\Model\QuizAdapter::class, 'quiz_id');
     }
+
+    public function upperPartFit()
+    {
+        return $this->hasOne(\App\Model\LuProductSubcategoriesAdapter::class, 'id', 'upper_part_fit');
+    }
+
+    public function lowerPartFit()
+    {
+        return $this->hasOne(\App\Model\LuProductSubcategoriesAdapter::class, 'id', 'lower_part_fit');
+    }
+
+    public function pantsFitShape()
+    {
+        return $this->hasOne(\App\Model\LuProductSubcategoriesAdapter::class, 'id', 'pants_fit_shape');
+    }
+
+    public function pantsFitHips()
+    {
+        return $this->hasOne(\App\Model\LuProductSubcategoriesAdapter::class, 'id', 'pants_fit_hips');
+    }
 }

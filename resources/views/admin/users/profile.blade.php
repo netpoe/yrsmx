@@ -236,19 +236,19 @@
             <ul class="user-details-list">
               <li>
                 <strong>Parte superior:</strong>
-                <span>{{ $lastCompletedQuiz ? $userFit->upperPartFit() : null }}</span>
+                <span>{{ $lastCompletedQuiz ? $userFit->upperPartFit->value : null }}</span>
               </li>
               <li>
                 <strong>Parte inferior:</strong>
-                <span>{{ $lastCompletedQuiz ? $userFit->lowerPartFit() : null }}</span>
+                <span>{{ $lastCompletedQuiz ? $userFit->lowerPartFit->value : null }}</span>
               </li>
               <li>
                 <strong>Pantalones cadera:</strong>
-                <span>{{ $lastCompletedQuiz ? $userFit->pantsFitHips() : null }}</span>
+                <span>{{ $lastCompletedQuiz ? $userFit->pantsFitHips->value : null }}</span>
               </li>
               <li>
                 <strong>Pantalones forma:</strong>
-                <span>{{ $lastCompletedQuiz ? $userFit->pantsFitShape() : null }}</span>
+                <span>{{ $lastCompletedQuiz ? $userFit->pantsFitShape->value : null }}</span>
               </li>
             </ul>
           </div>

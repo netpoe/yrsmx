@@ -16,10 +16,10 @@ class CreateUserFitTable extends Migration
         Schema::create('user_fit', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('quiz_id')->unsigned()->unique();
-            $table->tinyInteger('upper_part_fit')->unsigned()->nullable()->default(null);
-            $table->tinyInteger('lower_part_fit')->unsigned()->nullable()->default(null);
-            $table->tinyInteger('pants_fit_shape')->unsigned()->nullable()->default(null);
-            $table->tinyInteger('pants_fit_hips')->unsigned()->nullable()->default(null);
+            $table->integer('upper_part_fit')->unsigned()->nullable()->default(null);
+            $table->integer('lower_part_fit')->unsigned()->nullable()->default(null);
+            $table->integer('pants_fit_shape')->unsigned()->nullable()->default(null);
+            $table->integer('pants_fit_hips')->unsigned()->nullable()->default(null);
         });
 
         Schema::table('user_fit', function(Blueprint $table){
