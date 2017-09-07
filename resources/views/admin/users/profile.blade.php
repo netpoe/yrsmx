@@ -273,26 +273,26 @@
                 <strong>Palabras:</strong>
                 <span>{{ $lastCompletedQuiz ? $userStyle->words() : '' }}</span>
               </li>
-              <li>
+              {{-- <li>
                 <strong>Prendas:</strong>
                 <span>{{ $lastCompletedQuiz ? $userStyle->clothes() : '' }}</span>
               </li>
               <li>
                 <strong>Accesorios:</strong>
                 <span>{{ $lastCompletedQuiz ? $userStyle->accessories() : '' }}</span>
-              </li>
-              <li>
+              </li> --}}
+              {{-- <li>
                 <strong>Zapatos:</strong>
                 <span>{{ $lastCompletedQuiz ? $userStyle->shoes() : '' }}</span>
-              </li>
+              </li> --}}
               <li>
                 <strong>Joyas:</strong>
                 <span>{{ $lastCompletedQuiz ? $userStyle->jewelry() : '' }}</span>
               </li>
-              <li>
+              {{-- <li>
                 <strong>Riesgo:</strong>
                 <span>{{ $lastCompletedQuiz ? $userStyle->risk() : '' }}</span>
-              </li>
+              </li> --}}
             </ul>
           </div>
         </div>

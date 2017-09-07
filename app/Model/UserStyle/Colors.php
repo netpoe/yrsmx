@@ -5,14 +5,21 @@ namespace App\Model\UserStyle;
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
 
+use App\Entities\{
+    Contracts\IsSubattributeContract,
+    Traits\IsSubattributeTrait
+};
+
 use App\Model\{
     UserStyleAdapter,
     LuProductAttributesAdapter as LuProductAttributes
 };
 
-class Colors extends UserStyleAdapter implements InputOptionsContract
+class Colors extends UserStyleAdapter
+    implements InputOptionsContract, IsSubattributeContract
 {
     use InputOptionsTrait;
+    use IsSubattributeTrait;
 
     const ATTRIBUTE_ID = LuProductAttributes::COLORS;
 

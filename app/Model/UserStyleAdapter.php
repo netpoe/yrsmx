@@ -8,22 +8,22 @@ class UserStyleAdapter extends UserStyle
 {
     public function colors()
     {
-        return Colors::getCheckboxOptionsString($this->colors);
+        return Colors::getSubattributeValuesString($this->colors);
     }
 
     public function prints()
     {
-        return Prints::getCheckboxOptionsString($this->prints);
+        return Prints::getSubattributeValuesString($this->prints);
     }
 
     public function fabrics()
     {
-        return Fabrics::getCheckboxOptionsString($this->fabrics);
+        return Fabrics::getSubattributeValuesString($this->fabrics);
     }
 
     public function words()
     {
-        return Words::getCheckboxOptionsString($this->words);
+        return Words::getSubattributeValuesString($this->words);
     }
 
     public function clothes()
@@ -43,7 +43,7 @@ class UserStyleAdapter extends UserStyle
 
     public function jewelry()
     {
-        return Jewelry::getCheckboxOptionsString($this->jewelry);
+        return Jewelry::getSubattributeValuesString($this->jewelry);
     }
 
     public function risk()
