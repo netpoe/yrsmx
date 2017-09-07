@@ -50,4 +50,9 @@ class Quiz extends Model
     {
         return $this->hasOne(\App\Model\QuizGetAwayAdapter::class, 'quiz_id');
     }
+
+    public function outfitType()
+    {
+        return $this->hasOne(\App\Model\LuProductSubattributesAdapter::class, 'id', 'outfit_type');
+    }
 }

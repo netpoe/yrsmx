@@ -144,11 +144,6 @@ class QuizAdapter extends Quiz
 
         return $m->from($this->completed_at)->getMinutes() . ' minutos';
     }
-
-    public function outfitType()
-    {
-        return $this;
-    }
 }
 
 

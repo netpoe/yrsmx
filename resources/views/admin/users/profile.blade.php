@@ -106,7 +106,7 @@
             @foreach ($user->quizzes as $quiz)
               <ul class="user-details-list">
                 <li><strong>ID:</strong><span>{{ $quiz->id }}</span></li>
-                <li><strong>Tipo:</strong><span>{{ $quiz->getOutfitType() }}</span></li>
+                <li><strong>Tipo:</strong><span>{{ $quiz->outfitType->value }}</span></li>
                 <li><strong>Status:</strong><span>{{ $quiz->status() }}</span></li>
                 <li><strong>Fecha de comienzo:</strong><span>{{ $quiz->startedAt() }}</span></li>
               </ul>
@@ -118,19 +118,19 @@
           <div class="card-block">
             <ul class="user-details-list">
               <li><strong>ID:</strong><span>{{ $lastCompletedQuiz->id }}</span></li>
-              <li><strong>Tipo:</strong><span>{{ $lastCompletedQuiz->getOutfitType() }}</span></li>
+              <li><strong>Tipo:</strong><span>{{ $lastCompletedQuiz->outfitType->value }}</span></li>
               <li><strong>Status:</strong><span>{{ $lastCompletedQuiz->status() }}</span></li>
               <li><strong>Fecha de comienzo:</strong><span>{{ $lastCompletedQuiz->startedAt() }}</span></li>
               <li><strong>Fecha de finalización:</strong><span>{{ $lastCompletedQuiz->completedAt() }}</span></li>
               <li><strong>Tiempo total de finalización:</strong><span>{{ $lastCompletedQuiz->totalCompletionTime() }}</span></li>
             </ul>
-            @if ($lastCompletedQuiz->outfit_type == \App\Model\OutfitType::WORK)
+            @if ($lastCompletedQuiz->outfit_type == \App\Model\OutfitTypeAdapter::WORK)
               <hr>
               <ul class="user-details-list">
                 <li><strong>Dress Code:</strong><span>{{ $lastCompletedQuiz->work->dressCode() }}</span></li>
               </ul>
             @endif
-            @if ($lastCompletedQuiz->outfit_type == \App\Model\OutfitType::GET_AWAY)
+            @if ($lastCompletedQuiz->outfit_type == \App\Model\OutfitTypeAdapter::GET_AWAY)
               <hr>
               <ul class="user-details-list">
                 <li><strong>Destino:</strong><span>{{ $lastCompletedQuiz->getAway->destination() }}</span></li>
