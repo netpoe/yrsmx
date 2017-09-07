@@ -73,30 +73,16 @@ class UserProductsService
         error_log("Looking for products of TYPE: [{$this->currentProductType->getValue()} (ID {$this->currentProductType->getId()})] for user: [{$this->user->id}]");
         Log::info("Looking for products of TYPE: [{$this->currentProductType->getValue()} (ID {$this->currentProductType->getId()})] for user: [{$this->user->id}]");
 
-        // $this->productsCollection = RelProductsCategories::join('products', 'products.id', 'rel_products_categories.product_id')
-        //                                 ->where('products.stock', '>', 0)
-        //                                 ->where('rel_products_categories.category_id', LuProductCategories::TYPE)
-        //                                 ->where('rel_products_categories.subcategory_id', $this->currentProductType->getId())
-        //                                 ->get();
-
-        // $this->productsCollection = RelProductsCategories::with(['products' => function($query){
-        //     $query->where('stock', '>', 0);
-        // }])
-        // ->where('category_id', LuProductCategories::TYPE)
-        // ->where('subcategory_id', $this->currentProductType->getId())
-        // ->get();
-
-        $productsCollection = Products::with(['categories' => function($query){
+        $this->productsCollection = Products::with(['categories' => function($query){
                 $query
                     ->where('category_id', LuProductCategories::TYPE)
                     ->where('subcategory_id', $this->currentProductType->getId());
             }])
             ->where('stock', '>', 0)
-            ->get();
-
-        $this->productsCollection = $productsCollection->filter(function($product){
-            return !$product->categories->isEmpty();
-        });
+            ->get()
+            ->filter(function($product){
+                return !$product->categories->isEmpty();
+            });
 
         // There's no product with this Cloth subcategory
         if ($this->productsCollection->isEmpty()) {
@@ -118,7 +104,11 @@ class UserProductsService
         if (!$this->productsCollection->isEmpty()) {
             $this->findSubattributeMatchesForCurrentProductsCollection();
         }
-        //     ->insertProductIds();
+
+        if (!$this->productsCollection->isEmpty()) {
+            $this->insertProductIds();
+            print_r(UserProducts::where('user_id', $this->user->id)->get());
+        }
 
         return $this->assignProductsToUser();
     }
@@ -174,6 +164,8 @@ class UserProductsService
     public function findSubattributeMatchesForCurrentProductsCollection()
     {
         $this->productsCollection->each(function($product, $key){
+            $matchingProducts = new Collection;
+
             foreach (LuProductAttributes::getOptions() as $attr) {
                 if ($attr['key'] != LuProductAttributes::BODY_PART) {
                     $attribute = new ProductAttribute($attr['key']);
@@ -193,46 +185,40 @@ class UserProductsService
 
                     $subattributesIds = explode('|', $userAnswerValue);
 
-                    $matchingProducts = $product->attributes()
-                                                ->where('attribute_id', $attribute->getId())
-                                                ->whereIn('subattribute_id', $subattributesIds)
-                                                ->get();
+                    $match = $product->attributes()
+                                    ->where('attribute_id', $attribute->getId())
+                                    ->whereIn('subattribute_id', $subattributesIds)
+                                    ->get();
 
-                    if ($matchingProducts->isEmpty()) {
-                        $this->productsCollection->forget($key);
+                    if ($match->isEmpty()) {
                         error_log("Product [ID {$product->id}] has no attribute: [{$attribute->getName()} (ID {$attribute->getId()})] for user: [{$this->user->id}]");
                         Log::info("Product [ID {$product->id}] has no attribute: [{$attribute->getName()} (ID {$attribute->getId()})] for user: [{$this->user->id}]");
-                        continue;
+                    } else {
+                        $matchingProducts->push($match);
+                        error_log(">>> Found a product [ID {$product->id}] with attribute: [{$attribute->getName()} (ID {$attribute->getId()})] for user: [{$this->user->id}]");
+                        Log::info(">>> Found a product [ID {$product->id}] with attribute: [{$attribute->getName()} (ID {$attribute->getId()})] for user: [{$this->user->id}]");
                     }
-
-                    error_log(">>> Found a product [ID {$product->id}] with attribute: [{$attribute->getName()} (ID {$attribute->getId()})] for user: [{$this->user->id}]");
-                    Log::info(">>> Found a product [ID {$product->id}] with attribute: [{$attribute->getName()} (ID {$attribute->getId()})] for user: [{$this->user->id}]");
-
-                    // print_r($matchingProducts);
-
-                    // print_r($this->productsCollection); exit;
-                    // print_r($subattributesIds);
                 }
             }
-        });
 
-        print_r($this->productsCollection);
+            if ($matchingProducts->isEmpty()) {
+                $this->productsCollection->forget($key);
+            }
+        });
 
         return $this;
     }
 
     public function insertProductIds()
     {
-        $productIds = $this->productsCollection->pluck('product_id')->toArray();
+        $productIds = $this->productsCollection->pluck('id')->toArray();
 
-        // print_r(array_unique($productIds));
-
-        // foreach (array_unique($productIds) as $productId) {
-        //     UserProducts::insert([
-        //         'user_id' => $this->user->id,
-        //         'product_id' => $productId
-        //         ]);
-        // }
+        foreach (array_unique($productIds) as $productId) {
+            UserProducts::insert([
+                'user_id' => $this->user->id,
+                'product_id' => $productId
+                ]);
+        }
 
         return $this;
     }
