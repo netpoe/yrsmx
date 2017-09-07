@@ -47,21 +47,6 @@ class UserProductsService
         $this->quiz = $this->user->getLatestQuiz();
     }
 
-    // public function assignProductsToUser()
-    // {
-        // $this->getProductIdsFromUserSelectionByProductTypeCategory();
-
-    //     $category = new ProductCategory(LuProductCategories::TYPE);
-
-    //     $productIds = [];
-
-    //     while (count($productIds) <= self::PRODUCTS_COUNT) {
-
-    //     }
-
-    //     return $this;
-    // }
-
     /**
      * assignProductsToUser
      * for each Clothes subcategory
@@ -88,11 +73,30 @@ class UserProductsService
         error_log("Looking for products of TYPE: [{$this->currentProductType->getValue()} (ID {$this->currentProductType->getId()})] for user: [{$this->user->id}]");
         Log::info("Looking for products of TYPE: [{$this->currentProductType->getValue()} (ID {$this->currentProductType->getId()})] for user: [{$this->user->id}]");
 
-        $this->productsCollection = RelProductsCategories::join('products', 'products.id', 'rel_products_categories.product_id')
-                                        ->where('products.stock', '>', 0)
-                                        ->where('rel_products_categories.category_id', LuProductCategories::TYPE)
-                                        ->where('rel_products_categories.subcategory_id', $this->currentProductType->getId())
-                                        ->get();
+        // $this->productsCollection = RelProductsCategories::join('products', 'products.id', 'rel_products_categories.product_id')
+        //                                 ->where('products.stock', '>', 0)
+        //                                 ->where('rel_products_categories.category_id', LuProductCategories::TYPE)
+        //                                 ->where('rel_products_categories.subcategory_id', $this->currentProductType->getId())
+        //                                 ->get();
+
+        // $this->productsCollection = RelProductsCategories::with(['products' => function($query){
+        //     $query->where('stock', '>', 0);
+        // }])
+        // ->where('category_id', LuProductCategories::TYPE)
+        // ->where('subcategory_id', $this->currentProductType->getId())
+        // ->get();
+
+        $productsCollection = Products::with(['categories' => function($query){
+                $query
+                    ->where('category_id', LuProductCategories::TYPE)
+                    ->where('subcategory_id', $this->currentProductType->getId());
+            }])
+            ->where('stock', '>', 0)
+            ->get();
+
+        $this->productsCollection = $productsCollection->filter(function($product){
+            return !$product->categories->isEmpty();
+        });
 
         // There's no product with this Cloth subcategory
         if ($this->productsCollection->isEmpty()) {
@@ -109,9 +113,12 @@ class UserProductsService
                         ->assignProductsToUser();
         }
 
-        $this->findCategoryDependenciesForCurrentProductsCollection()
-            ->findSubattributeMatchesForCurrentProductsCollection()
-            ->insertProductIds();
+        $this->findCategoryDependenciesForCurrentProductsCollection();
+
+        if (!$this->productsCollection->isEmpty()) {
+            $this->findSubattributeMatchesForCurrentProductsCollection();
+        }
+        //     ->insertProductIds();
 
         return $this->assignProductsToUser();
     }
@@ -125,7 +132,7 @@ class UserProductsService
         error_log("Category [{$this->currentProductType->getValue()}] dependency count: [# {$dependencyCount}]");
         Log::info("Category [{$this->currentProductType->getValue()}] dependency count: [# {$dependencyCount}]");
 
-        $this->productsCollection->each(function($product) use ($dependencies, &$allDependenciesMatch) {
+        $this->productsCollection->each(function($product, $key) use ($dependencies) {
             foreach ($dependencies as $dependency) {
                 $dependencySubcategory = $dependency->getSubcategoryModelName();
 
@@ -141,29 +148,23 @@ class UserProductsService
 
                 $subcategoriesIds = explode('|', $userAnswerValue);
 
-                error_log("Looking for product [ID {$product->product_id}] to have category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
-                Log::info("Looking for product [ID {$product->product_id}] to have category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
+                error_log("Looking for product [ID {$product->id}] to have category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
+                Log::info("Looking for product [ID {$product->id}] to have category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
 
-                $matchingProducts = RelProductsCategories::where('product_id', $product->product_id)
-                                        ->where('category_id', $dependency->getId())
-                                        ->whereIn('subcategory_id', $subcategoriesIds)
-                                        ->get();
+                $matchingProducts = $product->categories()
+                                            ->where('category_id', $dependency->getId())
+                                            ->whereIn('subcategory_id', $subcategoriesIds)
+                                            ->get();
 
                 if ($matchingProducts->isEmpty()) {
-                    error_log("Product [ID {$product->product_id}] has no category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
-                    Log::info("Product [ID {$product->product_id}] has no category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
-                    return $this->assignProductsToUser();
+                    $this->productsCollection->forget($key);
+                    error_log("Product [ID {$product->id}] has no category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
+                    Log::info("Product [ID {$product->id}] has no category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
+                    break;
                 }
 
-                // var_dump($this->currentProductType->getValue(), $dependencySubcategoryModel->getTable(), $dependencySubcategoryColumn, $subcategoriesIds);
-                $subcategoriesString = implode('|', $subcategoriesIds);
-
-                error_log(">> Found a product [ID {$product->product_id}] with category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
-                Log::info(">> Found a product [ID {$product->product_id}] with category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
-
-                $matchingProducts->each(function($product) {
-                    $this->productsCollection->push($product);
-                });
+                error_log(">> Found a product [ID {$product->id}] with category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
+                Log::info(">> Found a product [ID {$product->id}] with category dependency: [{$dependency->getName()} (ID {$dependency->getId()})] for user: [{$this->user->id}]");
             }
         });
 
@@ -172,7 +173,7 @@ class UserProductsService
 
     public function findSubattributeMatchesForCurrentProductsCollection()
     {
-        $this->productsCollection->each(function($product){
+        $this->productsCollection->each(function($product, $key){
             foreach (LuProductAttributes::getOptions() as $attr) {
                 if ($attr['key'] != LuProductAttributes::BODY_PART) {
                     $attribute = new ProductAttribute($attr['key']);
@@ -187,22 +188,35 @@ class UserProductsService
 
                     $userAnswerValue = $this->quiz->$quizRelationshipMethodName()->first()->$subattributeColumn;
 
+                    error_log("Looking for product [ID {$product->id}] to have attribute: [{$attribute->getName()} (ID {$attribute->getId()})] subattributes [{$userAnswerValue}] for user: [{$this->user->id}]");
+                    Log::info("Looking for product [ID {$product->id}] to have attribute: [{$attribute->getName()} (ID {$attribute->getId()})] subattributes [{$userAnswerValue}] for user: [{$this->user->id}]");
+
                     $subattributesIds = explode('|', $userAnswerValue);
 
-                    $matchingProducts = RelProductsAttributes::where('product_id', $product->product_id)
-                                        ->where('attribute_id', $attribute->getId())
-                                        ->orWhereIn('subattribute_id', $subattributesIds)
-                                        ->get();
+                    $matchingProducts = $product->attributes()
+                                                ->where('attribute_id', $attribute->getId())
+                                                ->whereIn('subattribute_id', $subattributesIds)
+                                                ->get();
 
                     if ($matchingProducts->isEmpty()) {
+                        $this->productsCollection->forget($key);
+                        error_log("Product [ID {$product->id}] has no attribute: [{$attribute->getName()} (ID {$attribute->getId()})] for user: [{$this->user->id}]");
+                        Log::info("Product [ID {$product->id}] has no attribute: [{$attribute->getName()} (ID {$attribute->getId()})] for user: [{$this->user->id}]");
                         continue;
                     }
 
-                    print_r($matchingProducts); exit;
+                    error_log(">>> Found a product [ID {$product->id}] with attribute: [{$attribute->getName()} (ID {$attribute->getId()})] for user: [{$this->user->id}]");
+                    Log::info(">>> Found a product [ID {$product->id}] with attribute: [{$attribute->getName()} (ID {$attribute->getId()})] for user: [{$this->user->id}]");
+
+                    // print_r($matchingProducts);
+
+                    // print_r($this->productsCollection); exit;
                     // print_r($subattributesIds);
                 }
             }
         });
+
+        print_r($this->productsCollection);
 
         return $this;
     }
