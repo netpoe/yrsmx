@@ -47,8 +47,9 @@ abstract class AbstractUIQuiz extends AbstractUIApplication
 
         $quiz->save();
 
-        (new UserProductsService)
-            ->assignProductsToUser($this->getInstance('user'));
+        $userProductsService = new UserProductsService($this->getInstance('user'));
+
+        $userProductsService->assignProductsToUser();
 
         return $this;
     }

@@ -28,7 +28,7 @@ trait CreatesApplication
         parent::setUp();
 
         Artisan::call('migrate', ['--seed' => true]);
-        Artisan::call('db:seed', ['--class' => 'UserWithCompleteCusualWearQuizSeeder']);
+        Artisan::call('db:seed', ['--class' => 'UserWithCompleteCasualWearQuizSeeder']);
         Artisan::call('db:seed', ['--class' => 'SuperAdminUserSeeder']);
         Artisan::call('db:seed', ['--class' => 'ProductsWithAttributesAndCategoriesSeeder']);
     }

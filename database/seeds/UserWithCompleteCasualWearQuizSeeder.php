@@ -27,7 +27,7 @@ use App\Entities\{
     ProductAttribute
 };
 
-class UserWithCompleteCusualWearQuizSeeder extends Seeder
+class UserWithCompleteCasualWearQuizSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -47,9 +47,11 @@ class UserWithCompleteCusualWearQuizSeeder extends Seeder
         $user->save();
 
 
+        $outfitType = new ProductAttribute(LuProductAttributes::OUTFIT_TYPE);
+
         $quiz = Quiz::create([
             'user_id' => $user->id,
-            'outfit_type' => OutfitType::CASUAL_WEAR,
+            'outfit_type' => $outfitType->getSubattributeByKey(OutfitType::CASUAL_WEAR)->getId(),
             'started_at' => DateTimeUtil::DBNOW(),
             ]);
 
