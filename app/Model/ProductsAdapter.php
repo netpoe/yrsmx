@@ -48,4 +48,20 @@ class ProductsAdapter extends Products
 
         return $this;
     }
+
+    public function subattributes()
+    {
+        return \App\Model\LuProductSubattributesAdapter::join(
+            'rel_products_attributes', 'rel_products_attributes.subattribute_id', 'lu_product_subattributes.id')
+            ->where('rel_products_attributes.product_id', $this->id)
+            ->get();
+    }
+
+    public function subcategories()
+    {
+        return \App\Model\LuProductSubcategoriesAdapter::join(
+            'rel_products_categories', 'rel_products_categories.subcategory_id', 'lu_product_subcategories.id')
+            ->where('rel_products_categories.product_id', $this->id)
+            ->get();
+    }
 }

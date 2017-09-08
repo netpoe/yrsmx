@@ -61,11 +61,6 @@ class User extends Authenticatable
         return $this->hasOne(\App\Model\LuUserRole::class, 'id', 'role_id');
     }
 
-    // public function products()
-    // {
-    //     return $this->hasMany(\App\Model\RelProductsOutfitAdapter::class, 'user_id');
-    // }
-
     public function outfits()
     {
         return $this->hasMany(\App\Model\OutfitsAdapter::class, 'user_id');

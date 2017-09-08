@@ -67,9 +67,15 @@
             </ul>
           </div>
         </div>
-        @foreach ($user->products as $product)
-          <p>{{ $product->files->first()->file_src }}</p>
-        @endforeach
+        <div class="grid-list grid-list-3 products-list">
+          @foreach ($user->products as $product)
+            <a href="{{ route('admin.products.show', ['product' => $product->id]) }}" class="grid-list-item product-item">
+              <div>
+                <div class="img-wrapper"><img src="{{ $product->files->first()->file_src }}" alt="{{ $product->files->first() }}"></div>
+              </div>
+            </a>
+          @endforeach
+        </div>
       </div>
       <div class="col-sm-7">
         <div class="card">

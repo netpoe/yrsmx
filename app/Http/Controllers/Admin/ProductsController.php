@@ -78,13 +78,13 @@ class ProductsController extends Controller
     {
         $attributes = [];
 
-        $product->subattributes->each(function($subattribute) use (&$attributes) {
+        $product->subattributes()->each(function($subattribute) use (&$attributes) {
             $attributes[$subattribute->attribute->name][] = $subattribute->value;
         });
 
         $categories = [];
 
-        $product->subcategories->each(function($subcategory) use (&$categories) {
+        $product->subcategories()->each(function($subcategory) use (&$categories) {
             $categories[$subcategory->category->name][] = $subcategory->value;
         });
 
