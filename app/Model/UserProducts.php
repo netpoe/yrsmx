@@ -14,9 +14,4 @@ class UserProducts extends Model
         'user_id',
         'product_id',
     ];
-
-    public function products()
-    {
-        return $this->hasMany(\App\Model\ProductsAdapter::class, 'product_id');
-    }
 }

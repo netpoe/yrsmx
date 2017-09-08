@@ -67,28 +67,8 @@
             </ul>
           </div>
         </div>
-        @foreach ($user->outfits as $outfit)
-          <div class="card">
-            <div class="card-title-wrapper">
-              <small class="card-block-title">Outfit {{ $outfit->id }}</small>
-              <button class="btn btn-sm btn-secondary">Editar outfit</button>
-            </div>
-            <div class="card-block">
-              <ul class="grid-list grid-list-3 products-list">
-                @foreach ($outfit->products as $p)
-                  @foreach ($p->product as $product)
-                    @foreach ($product->files as $file)
-                      <li class="product-item">
-                        <div>
-                          <div class="img-wrapper"><img src="{{ $file->file_src }}" alt="{{ $file->filename }}"></div>
-                        </div>
-                      </li>
-                    @endforeach
-                  @endforeach
-                @endforeach
-              </ul>
-            </div>
-          </div>
+        @foreach ($user->products as $product)
+          <p>{{ $product->stock }}</p>
         @endforeach
       </div>
       <div class="col-sm-7">
