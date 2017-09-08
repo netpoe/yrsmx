@@ -28,6 +28,7 @@ class UsersController extends Controller
 
     public function profile(User $user)
     {
+        print_r($user->assignedProducts()->with('products')->get()); exit;
         return view('admin/users/profile', ['user' => $user]);
     }
 }

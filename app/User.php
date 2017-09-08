@@ -70,4 +70,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(\App\Model\OutfitsAdapter::class, 'user_id');
     }
+
+    public function assignedProducts()
+    {
+        return $this->hasMany(\App\Model\UserProductsAdapter::class, 'user_id');
+    }
 }
