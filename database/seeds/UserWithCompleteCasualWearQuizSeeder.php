@@ -21,7 +21,7 @@ class UserWithCompleteCasualWearQuizSeeder extends Seeder
 
         $seeder
             ->setQuizUserSizes()
-            ->setQuizuserPreferredBodyParts()
+            ->setQuizUserPreferredBodyParts()
             ->setUserFit()
             ->setUserStyle()
             ->setUserInfo()

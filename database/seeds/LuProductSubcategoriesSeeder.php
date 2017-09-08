@@ -23,6 +23,7 @@ class LuProductSubcategoriesSeeder extends Seeder
                 $insert = [
                     'category_id' => $subcategory::CATEGORY_ID,
                     'value' => $option['value'],
+                    'key' => $option['key'],
                 ];
                 DB::table(self::TABLE)->insert($insert);
             }

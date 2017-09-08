@@ -17,6 +17,7 @@ class CreateLuProductSubattributes extends Migration
             $table->increments('id');
             $table->integer('attribute_id')->unsigned();
             $table->string('value');
+            $table->string('key');
         });
 
         Schema::table('lu_product_subattributes', function (Blueprint $table) {

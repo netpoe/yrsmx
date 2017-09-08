@@ -97,7 +97,7 @@ class Seeder extends DatabaseSeeder
         return $this;
     }
 
-    public function setQuizuserPreferredBodyParts()
+    public function setQuizUserPreferredBodyParts()
     {
         $bodyType = new ProductCategory(LuProductCategories::BODY_TYPE);
         $bodyParts = new ProductAttribute(LuProductAttributes::BODY_PART);

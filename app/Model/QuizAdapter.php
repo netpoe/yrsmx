@@ -62,13 +62,13 @@ class QuizAdapter extends Quiz
 
     public function assignUIQuiz()
     {
-        if ($this->outfit_type == OutfitType::WORK) {
+        if ($this->outfitType->key == OutfitType::WORK) {
             QuizWork::create([
                 'quiz_id' => $this->id
                 ]);
         }
 
-        if ($this->outfit_type == OutfitType::GET_AWAY) {
+        if ($this->outfitType->key == OutfitType::GET_AWAY) {
             QuizGetAway::create([
                 'quiz_id' => $this->id
                 ]);
@@ -110,18 +110,9 @@ class QuizAdapter extends Quiz
         return self::PENDING;
     }
 
-    /**
-     * [getOutfitType Returns an outfit type name form the OPTIONS array]
-     * @return [String] outfitType
-     */
-    public function getOutfitType()
-    {
-        return OutfitType::getOptionsValue($this->outfit_type);
-    }
-
     public function isCasualWearQuiz()
     {
-        return $this->outfitType->value == OutfitType::getOptionsValue(OutfitType::CASUAL_WEAR);
+        return $this->outfitType->key == OutfitType::CASUAL_WEAR;
     }
 
     public function startedAt()
