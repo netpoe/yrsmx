@@ -68,7 +68,7 @@
           </div>
         </div>
         @foreach ($user->products as $product)
-          <p>{{ $product->stock }}</p>
+          <p>{{ $product->files->first()->file_src }}</p>
         @endforeach
       </div>
       <div class="col-sm-7">
