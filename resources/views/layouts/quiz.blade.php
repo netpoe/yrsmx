@@ -19,11 +19,15 @@
             </div>
             <div class="col-4 header-center"></div>
             <div class="col-4 header-right">
-              @if (Auth::check())
-                <a href="{{ route('logout') }}">Guardar y Salir</a>
-              @else
-                <a href="{{ route('login') }}">Ingresa</a>
-              @endif
+              <nav>
+                @auth
+                  <a href="{{ route('logout') }}">Guardar y Salir</a>
+                  <a href="#">Mi perfil</a>
+                  <a href="#">Carrito</a>
+                @else
+                  <a href="{{ route('login') }}">Ingresa</a>
+                @endauth
+              </nav>
             </div>
           </div>
         </div>

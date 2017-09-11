@@ -26,9 +26,7 @@ class QuizFactory
 
         $outfitType = new ProductAttribute(LuProductAttributes::OUTFIT_TYPE);
 
-        $subattribute = array_filter($outfitType->subattributes(), function($subattribute) use ($outfitTypeId) {
-            return $subattribute->getId() == $outfitTypeId;
-        })[0];
+        $subattribute = $outfitType->getSubattributeById($outfitTypeId);
 
         if (!$subattribute || !$subattribute->uiQuizName) {
             throw new \Exception("No OutfitType subattribute found for outfitTypeId [$outfitTypeId]");

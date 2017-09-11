@@ -12,6 +12,7 @@ services:
 ### Workspace Utilities Container ###########################
 
     workspace:
+      container_name: ${WORKSPACE_CONTAINER_NAME}
       build:
         context: ./workspace
         args:
@@ -55,6 +56,7 @@ services:
 ### PHP-FPM Container #######################################
 
     php-fpm:
+      container_name: ${PHP_FPM_CONTAINER_NAME}
       build:
         context: ./php-fpm
         args:
@@ -110,6 +112,7 @@ services:
 ### Nginx Server Container ##################################
 
     nginx:
+      container_name: ${NGINX_CONTAINER_NAME}
       build:
         context: ./nginx
         args:

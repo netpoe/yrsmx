@@ -71,6 +71,13 @@ class ProductAttribute
         }))[0];
     }
 
+    public function getSubattributeById(Int $id)
+    {
+        return array_values(array_filter($this->subattributes(), function($subattribute) use ($id){
+            return $subattribute->getId() == $id;
+        }))[0];
+    }
+
     public function getSubattributesAsInputOptionsArray(): Array
     {
         return array_map(function($subattribute){

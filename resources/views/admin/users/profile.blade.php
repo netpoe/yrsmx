@@ -4,46 +4,6 @@
   <link href="/css/admin/users/profile.css" rel="stylesheet">
 @endpush
 
-@section('site-wrapper')
-  <section id="create-outfit-modal">
-    <div>
-      <form method="POST" action="{{ route('admin.outfits.create', ['user' => $user->id]) }}">
-        {{ csrf_field() }}
-        <header class="modal-header">
-          <div>
-            <h3>Asigna productos a un usuario</h3>
-            <p>Selecciona productos y después da clic en crear outfit.</p>
-          </div>
-          <div>
-            <nav>
-              <button class="btn btn-secondary" @click="close">Cancelar</button>
-              <button type="submit" class="btn btn-primary">Crear outfit</button>
-            </nav>
-          </div>
-        </header>
-        <div class="modal-body products-wrapper">
-          <div class="products-filters">
-            <h5>Filtrar productos por</h5>
-          </div>
-          <div class="products-list">
-            <ul class="grid-list grid-list-6">
-              <li class="product-item" v-for="$product in products">
-                <div>
-                  <input type="checkbox" :id="$product.product_id" name="products[]" :value="$product.product_id">
-                  <label :for="$product.product_id" class="img-wrapper">
-                    <img :src="$product.file_src" :alt="$product.filename">
-                  </label>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <footer class="modal-footer"></footer>
-      </form>
-    </div>
-  </section>
-@endsection
-
 @php
   $lastCompletedQuiz = $user->getLastCompletedQuiz();
   $userSizes = $lastCompletedQuiz->userSizes;
@@ -81,9 +41,7 @@
         <div class="card">
           <small class="card-block-title">Acciones</small>
           <div class="card-block">
-            <nav class="user-resources-nav">
-              <button onclick="return $createOutfitModal.open()" class="btn btn-sm btn-primary">Crear outfit</button>
-            </nav>
+            <nav class="user-resources-nav"> </nav>
           </div>
         </div>
         <div class="card">
@@ -300,51 +258,3 @@
     </div>
   </div>
 @endsection
-
-@push('footer-scripts')
-  <script src="/js/axiosjs/axios.min.js"></script>
-  <script src="/js/vuejs/vue.{{ env('APP_ENV') == 'local' ? 'dev' : 'prod' }}.js"></script>
-  <script src="/js/classes/AdminProductsCatalog.js"></script>
-  <script>
-    window.AdminProductsCatalog = new AdminProductsCatalog;
-
-    window.$createOutfitModal = new Vue({
-      el: '#create-outfit-modal',
-      data: {
-        products: [],
-      },
-      created: function(){},
-      methods: {
-        fetchProducts: function(){
-          var $vm = this;
-
-          var data = {};
-
-          AdminProductsCatalog
-            .getUnassignedProducts("{{ route('admin.products.get-unassigned-products') }}", data, function(response){
-              response.data.forEach(function(product){
-                $vm.products.push(product);
-              });
-            });
-        },
-        open: function(){
-          var $vm = this;
-
-          $vm.$el.style.display = 'block';
-
-          $vm.fetchProducts();
-        },
-        close: function(event){
-          var $vm = this;
-
-          event.preventDefault();
-
-          $vm.products = [];
-
-          $vm.$el.style.display = 'none';
-        },
-      }
-    });
-  </script>
-@endpush
-

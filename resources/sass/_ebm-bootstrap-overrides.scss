@@ -63,3 +63,14 @@
 .section-header {
   padding: 0;
 }
+
+.header {
+  .header-right {
+    nav {
+      a {
+        margin-left: get-spacer(3, x);
+        display: inline-block;
+      }
+    }
+  }
+}

@@ -23,7 +23,8 @@ use App\Model\{
     LuProductSubcategoriesAdapter as LuProductSubcategories,
     LuProductAttributesAdapter as LuProductAttributes,
     LuProductSubattributesAdapter as LuProductSubattributes,
-    UserStyle\Clothes
+    UserStyle\Clothes,
+    UserOutfitsAdapter as UserOutfits
 };
 
 class UserProductsService
@@ -45,6 +46,10 @@ class UserProductsService
         $this->user = $user;
 
         $this->quiz = $this->user->getLatestQuiz();
+
+        $this->outfit = UserOutfits::create([
+            'user_id' => $this->user->id,
+            ]);
     }
 
     /**
@@ -216,7 +221,8 @@ class UserProductsService
         foreach (array_unique($productIds) as $productId) {
             UserProducts::insert([
                 'user_id' => $this->user->id,
-                'product_id' => $productId
+                'outfit_id' => $this->outfit->id,
+                'product_id' => $productId,
                 ]);
         }
 
