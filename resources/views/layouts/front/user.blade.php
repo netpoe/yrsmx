@@ -20,16 +20,8 @@
             <div class="col-4 header-center"></div>
             <div class="col-4 header-right">
               <nav>
-                @auth
-                  <a href="{{ route('logout') }}">Guardar y Salir</a>
-                  <a href="#">Mi perfil</a>
-                  @if (Auth::user()->latestOutfit())
-                    <a href="{{ route('front.user.latest-outfit', ['user' => Auth::id(), 'outfit' => Auth::user()->latestOutfit()->id]) }}">Ver mi outfit</a>
-                  @endif
-                  <a href="#">Carrito</a>
-                @else
-                  <a href="{{ route('login') }}">Ingresa</a>
-                @endauth
+                <a href="#">Mi perfil</a>
+                <a href="#">Carrito</a>
               </nav>
             </div>
           </div>

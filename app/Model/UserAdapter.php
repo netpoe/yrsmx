@@ -120,4 +120,9 @@ class UserAdapter extends User
     {
         return $this->updated_password_ts != null;
     }
+
+    public function latestOutfit()
+    {
+        return $this->outfits()->orderBy('created_at', 'desc')->first();
+    }
 }

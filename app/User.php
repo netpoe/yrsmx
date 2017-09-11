@@ -61,11 +61,6 @@ class User extends Authenticatable
         return $this->hasOne(\App\Model\LuUserRole::class, 'id', 'role_id');
     }
 
-    public function outfits()
-    {
-        return $this->hasMany(\App\Model\OutfitsAdapter::class, 'user_id');
-    }
-
     public function products()
     {
         return $this->hasManyThrough(
@@ -74,5 +69,10 @@ class User extends Authenticatable
             'user_id',
             'id'
             );
+    }
+
+    public function outfits()
+    {
+        return $this->hasMany(\App\Model\UserOutfitsAdapter::class, 'user_id');
     }
 }

@@ -56,6 +56,13 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
 });
 
 /**
+ * FRONT USER
+ */
+Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
+    Route::get('/usuario/{user}/outfit/{outfit}', 'UserController@latestOutfit')->name('front.user.latest-outfit');
+});
+
+/**
  * FRONT VERIFICATION
  */
 Route::group(['namespace' => 'Front'], function(){
