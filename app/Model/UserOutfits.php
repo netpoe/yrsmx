@@ -20,6 +20,7 @@ class UserOutfits extends Model
     {
         return Products::join('user_products', 'user_products.product_id', 'products.id')
                     ->where('user_products.outfit_id', $this->id)
+                    ->with(['categories', 'attributes'])
                     ->get();
     }
 }

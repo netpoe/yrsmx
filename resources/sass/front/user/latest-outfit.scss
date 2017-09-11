@@ -39,3 +39,16 @@
 @import "./node_modules/ebm/modules/ebm-header";
 @import "./node_modules/ebm/elements/ebm-alerts";
 @import "./resources/sass/common/products-list";
+
+.products-list {
+  .product-item {
+    > div {
+      background-color: transparent;
+      box-shadow: none;
+      border: none;
+    }
+    .img-wrapper {
+      height: auto;
+    }
+  }
+}

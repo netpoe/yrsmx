@@ -22,6 +22,7 @@
               <nav>
                 <a href="#">Mi perfil</a>
                 <a href="#">Carrito</a>
+                <a href="{{ route('logout') }}">Salir</a>
               </nav>
             </div>
           </div>

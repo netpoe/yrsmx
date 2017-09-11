@@ -6,7 +6,7 @@
 
 @section('content')
   <div class="container">
-    <div class="grid-list grid-list-3 products-list">
+    <div class="grid-list grid-list-5 products-list">
       @foreach ($user->latestOutfit()->products() as $product)
         <a href="#" class="grid-list-item product-item">
           <div>
