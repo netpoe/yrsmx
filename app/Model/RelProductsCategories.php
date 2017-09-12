@@ -18,4 +18,9 @@ class RelProductsCategories extends Model
     {
         return $this->belongsTo(\App\Model\ProductsAdapter::class, 'product_id');
     }
+
+    public function subcategory()
+    {
+        return $this->hasOne(\App\Model\LuProductSubcategoriesAdapter::class, 'id', 'subcategory_id');
+    }
 }

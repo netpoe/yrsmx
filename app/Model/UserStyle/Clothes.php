@@ -47,6 +47,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
                 LuProductCategories::UPPER_PART_FIT,
                 LuProductCategories::SIZE_DRESS,
             ],
+            'zIndex' => 20,
+            'positionTop' => 0,
+            'positionLeft' => 0,
         ],
         self::CHAMARRAS => [
             'key' => self::CHAMARRAS,
@@ -55,13 +58,19 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
                 LuProductCategories::UPPER_PART_FIT,
                 LuProductCategories::SIZE_DRESS,
             ],
+            'zIndex' => 20,
+            'positionTop' => 0,
+            'positionLeft' => 50,
         ],
         self::SHORTS => [
             'key' => self::SHORTS,
             'value' => 'shorts',
             'dependencies' => [
                 LuProductCategories::LOWER_PART_FIT,
-            ]
+            ],
+            'zIndex' => 20,
+            'positionTop' => 50,
+            'positionLeft' => 0,
         ],
         self::CAMISAS_DE_VESTIR => [
             'key' => self::CAMISAS_DE_VESTIR,
@@ -70,6 +79,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
                 LuProductCategories::UPPER_PART_FIT,
                 LuProductCategories::SIZE_DRESS,
             ],
+            'zIndex' => 20,
+            'positionTop' => 0,
+            'positionLeft' => 50,
         ],
         self::BLUSAS => [
             'key' => self::BLUSAS,
@@ -78,6 +90,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
                 LuProductCategories::SIZE_BLOUSE,
                 LuProductCategories::UPPER_PART_FIT,
             ],
+            'zIndex' => 20,
+            'positionTop' => 0,
+            'positionLeft' => 0,
         ],
         self::PLAYERAS => [
             'key' => self::PLAYERAS,
@@ -86,6 +101,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
                 LuProductCategories::UPPER_PART_FIT,
                 LuProductCategories::SIZE_BLOUSE,
             ],
+            'zIndex' => 20,
+            'positionTop' => 0,
+            'positionLeft' => 0,
         ],
         self::GABARDINAS => [
             'key' => self::GABARDINAS,
@@ -93,6 +111,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
             'dependencies' => [
                 LuProductCategories::UPPER_PART_FIT,
             ],
+            'zIndex' => 20,
+            'positionTop' => 0,
+            'positionLeft' => 50,
         ],
         self::SACOS => [
             'key' => self::SACOS,
@@ -100,6 +121,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
             'dependencies' => [
                 LuProductCategories::UPPER_PART_FIT,
             ],
+            'zIndex' => 20,
+            'positionTop' => 0,
+            'positionLeft' => 50,
         ],
         self::FALDAS => [
             'key' => self::FALDAS,
@@ -108,6 +132,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
                 LuProductCategories::LOWER_PART_FIT,
                 LuProductCategories::SIZE_SKIRT,
             ],
+            'zIndex' => 20,
+            'positionTop' => 50,
+            'positionLeft' => 0,
         ],
         self::PANTALONES_CASUALES => [
             'key' => self::PANTALONES_CASUALES,
@@ -117,6 +144,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
                 LuProductCategories::PANTS_FIT_HIPS,
                 LuProductCategories::SIZE_PANTS,
             ],
+            'zIndex' => 20,
+            'positionTop' => 50,
+            'positionLeft' => 0,
         ],
         self::TRAJE_SASTRE => [
             'key' => self::TRAJE_SASTRE,
@@ -124,6 +154,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
             'dependencies' => [
                 LuProductCategories::UPPER_PART_FIT,
             ],
+            'zIndex' => 20,
+            'positionTop' => 0,
+            'positionLeft' => 50,
         ],
         self::ABRIGOS => [
             'key' => self::ABRIGOS,
@@ -131,6 +164,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
             'dependencies' => [
                 LuProductCategories::UPPER_PART_FIT,
             ],
+            'zIndex' => 20,
+            'positionTop' => 0,
+            'positionLeft' => 50,
         ],
         self::JUMPSUITS => [
             'key' => self::JUMPSUITS,
@@ -138,6 +174,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
             'dependencies' => [
                 LuProductCategories::SIZE_DRESS,
             ],
+            'zIndex' => 20,
+            'positionTop' => 30,
+            'positionLeft' => 50,
         ],
         self::CROP_TOPS => [
             'key' => self::CROP_TOPS,
@@ -145,6 +184,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
             'dependencies' => [
                 LuProductCategories::SIZE_BLOUSE,
             ],
+            'zIndex' => 15,
+            'positionTop' => 0,
+            'positionLeft' => 0,
         ],
         self::LEGGINGS => [
             'key' => self::LEGGINGS,
@@ -152,6 +194,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
             'dependencies' => [
                 LuProductCategories::SIZE_SKIRT,
             ],
+            'zIndex' => 20,
+            'positionTop' => 50,
+            'positionLeft' => 50,
         ],
         self::PANTALONES_DE_VESTIR => [
             'key' => self::PANTALONES_DE_VESTIR,
@@ -161,6 +206,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
                 LuProductCategories::PANTS_FIT_HIPS,
                 LuProductCategories::SIZE_PANTS,
             ],
+            'zIndex' => 20,
+            'positionTop' => 50,
+            'positionLeft' => 0,
         ],
         self::SUETERES => [
             'key' => self::SUETERES,
@@ -169,6 +217,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
                 LuProductCategories::UPPER_PART_FIT,
                 LuProductCategories::SIZE_DRESS,
             ],
+            'zIndex' => 20,
+            'positionTop' => 0,
+            'positionLeft' => 50,
         ],
         self::JEANS => [
             'key' => self::JEANS,
@@ -178,6 +229,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
                 LuProductCategories::PANTS_FIT_HIPS,
                 LuProductCategories::SIZE_PANTS,
             ],
+            'zIndex' => 20,
+            'positionTop' => 50,
+            'positionLeft' => 0,
         ],
         self::TRAJES_DE_BANO => [
             'key' => self::TRAJES_DE_BANO,
@@ -185,6 +239,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
             'dependencies' => [
                 LuProductCategories::SIZE_SKIRT,
             ],
+            'zIndex' => 20,
+            'positionTop' => 50,
+            'positionLeft' => 0,
         ],
         self::BODIES => [
             'key' => self::BODIES,
@@ -192,6 +249,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
             'dependencies' => [
                 LuProductCategories::SIZE_SKIRT,
             ],
+            'zIndex' => 20,
+            'positionTop' => 30,
+            'positionLeft' => 50,
         ],
         self::BRALETTES => [
             'key' => self::BRALETTES,
@@ -199,6 +259,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
             'dependencies' => [
                 LuProductCategories::SIZE_BLOUSE,
             ],
+            'zIndex' => 20,
+            'positionTop' => 20,
+            'positionLeft' => 50,
         ],
         self::ZAPATOS => [
             'key' => self::ZAPATOS,
@@ -207,6 +270,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
                 LuProductCategories::SIZE_SHOES,
                 LuProductCategories::SHOES,
             ],
+            'zIndex' => 20,
+            'positionTop' => 100,
+            'positionLeft' => 50,
         ],
         self::ACCESORIOS => [
             'key' => self::ACCESORIOS,
@@ -214,6 +280,9 @@ class Clothes extends UserStyleAdapter implements InputOptionsContract
             'dependencies' => [
                 LuProductCategories::ACCESSORIES,
             ],
+            'zIndex' => 20,
+            'positionTop' => 40,
+            'positionLeft' => 100,
         ],
     ];
 }

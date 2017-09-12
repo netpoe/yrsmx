@@ -115,6 +115,20 @@ class ProductCategory
         return $this;
     }
 
+    public function getSubcategoryByKey($key)
+    {
+        return array_values(array_filter($this->subcategories(), function($subcategory) use ($key){
+            return $subcategory->getKey() == $key;
+        }))[0];
+    }
+
+    public function getSubcategoryById(Int $id)
+    {
+        return array_values(array_filter($this->subcategories(), function($subcategory) use ($id){
+            return $subcategory->getId() == $id;
+        }))[0];
+    }
+
     /**
      * getRandomSubcategoryId gets a random subcategory_id
      * @return Int

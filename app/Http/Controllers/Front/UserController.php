@@ -18,6 +18,11 @@ class UserController extends Controller
      */
     public function latestOutfit(User $user, UserOutfits $outfit)
     {
-        return view('front.user.latest-outfit', ['user' => $user]);
+        // print_r($user->latestOutfit()->shuffleProductsAndMakeOutfits());
+
+        return view('front.user.latest-outfit', [
+            'user' => $user,
+            'userOutfits' => $user->latestOutfit()->shuffleProductsAndMakeOutfits()->getOutfits(),
+            ]);
     }
 }

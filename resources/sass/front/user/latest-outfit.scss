@@ -41,14 +41,21 @@
 @import "./resources/sass/common/products-list";
 
 .products-list {
-  .product-item {
+  .outfit-item {
     > div {
       background-color: transparent;
+      position: relative;
       box-shadow: none;
+      height: 420px;
       border: none;
     }
     .img-wrapper {
+      position: absolute;
       height: auto;
+      img {
+        height: auto;
+        width: 50%;
+      }
     }
   }
 }
