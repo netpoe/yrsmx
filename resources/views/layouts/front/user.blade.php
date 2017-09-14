@@ -28,6 +28,9 @@
           </div>
         </div>
       </header>
+
+      @yield('sub-header')
+
       <main class="site-content" role="main">
 
         @yield('content')

@@ -43,19 +43,67 @@
 .products-list {
   .outfit-item {
     > div {
-      background-color: transparent;
-      position: relative;
-      box-shadow: none;
-      height: 420px;
-      border: none;
+      @include flex-column;
     }
+    .top {
+      border-bottom: 1px solid $gray-lightest;
+      padding: get-spacer(2, y);
+      text-align: right;
+    }
+    .center {
+      position: relative;
+      height: 560px;
+    }
+    .right {}
     .img-wrapper {
       position: absolute;
-      height: auto;
+      height: 50%;
+      width: 50%;
+      &:hover {
+        background-color: $gray-lightest;
+        label {
+          color: $brand-info;
+        }
+      }
+      input {
+        position: absolute;
+        opacity: 0;
+        &:checked + label {
+          color: $brand-info;
+        }
+      }
+      label {
+        @include position(absolute, get-spacer(2, y) null null get-spacer(2, y));
+        background-repeat: no-repeat;
+        background-size: contain;
+        font-size: $font-size-h3;
+        height: 100%;
+        width: 100%;
+        &:hover {
+          cursor: pointer;
+        }
+      }
       img {
         height: auto;
-        width: 50%;
+        width: 100%;
       }
     }
+  }
+}
+
+.sub-header {
+  .left,
+  .center,
+  .right {
+    @include flex-column-center;
+    min-height: $header-height-control / 2;
+    padding: get-spacer(1, y) 0;
+  }
+  .left {}
+  .center {
+    text-align: center;
+  }
+  .right {
+    text-align: right;
   }
 }

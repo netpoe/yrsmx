@@ -4,18 +4,46 @@
 <link href="/css/front/user/latest-outfit.css" rel="stylesheet">
 @endpush
 
+@section('sub-header')
+  <header class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 left"></div>
+        <div class="col-sm-4 center"></div>
+        <div class="col-sm-4 right">
+          <nav>
+            <a href="{{ route('front.user.latest-outfit', ['user' => $user, 'outfit' => $user->latestOutfit()]) }}"
+              class="btn btn-info">Shuffle!</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+@endsection
+
 @section('content')
   <div class="container">
     <div class="grid-list grid-list-3 products-list">
       @foreach ($userOutfits as $outfit)
-        <div href="#" class="grid-list-item outfit-item">
+        <div href="#" class="grid-list-item product-item outfit-item">
           <div>
-            @foreach ($outfit as $product)
-              <div class="img-wrapper"
-                style="z-index: {{ $product->subcategory->zIndex }}; top: {{ $product->subcategory->positionTop }}%; left: {{ $product->subcategory->positionLeft }}%">
-                <img src="{{ $product->files->first()->file_src }}" alt="{{ $product->files->first()->filename }}">
-              </div>
-            @endforeach
+            <div class="top">
+              <a href="#" class="btn btn-sm btn-danger">Agregar todo el outfit <i class="icon-chevron-right"></i></a>
+            </div>
+            <div class="center">
+              @foreach ($outfit as $product)
+                <div class="img-wrapper"
+                  style="z-index: {{ $product->subcategory->zIndex }}; top: {{ $product->subcategory->positionTop }}%; left: {{ $product->subcategory->positionLeft }}%">
+                  <input type="checkbox" id="products[{{ $product->id }}]" name="{{ $product->files->first()->filename }}" value="{{ $product->id }}">
+                  <label
+                    for="products[{{$product->id}}]"
+                    style="background-image: url({{ $product->files->first()->file_src }})">
+                    <i class="icon-checkmark-circle"></i>
+                  </label>
+                </div>
+              @endforeach
+            </div>
+            <div class="bottom"></div>
           </div>
         </div>
       @endforeach
