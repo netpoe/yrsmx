@@ -11,6 +11,15 @@
   </head>
   <body>
     <div class="site-wrapper" id="site-wrapper">
+      <header class="top-menu">
+        <div class="top-menu-left"></div>
+        <div class="top-menu-right">
+          <div class="top-menu-item">
+            <div><a href="{{ route('logout') }}">Salir</a></div>
+          </div>
+        </div>
+      </header>
+
       <header class="header">
         <div class="container">
           <div class="row">
@@ -22,7 +31,6 @@
               <nav>
                 <a href="#">Mi perfil</a>
                 <a href="#">Carrito</a>
-                <a href="{{ route('logout') }}">Salir</a>
               </nav>
             </div>
           </div>

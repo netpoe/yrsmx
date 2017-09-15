@@ -5,7 +5,8 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Model\{
-    ProductsAdapter as Products
+    ProductsAdapter as Products,
+    UserProductsAdapter as UserProducts
 };
 
 class UserOutfits extends Model
@@ -18,9 +19,7 @@ class UserOutfits extends Model
 
     public function products()
     {
-        return Products::join('user_products', 'user_products.product_id', 'products.id')
-                    ->where('user_products.outfit_id', $this->id)
-                    ->with(['categories', 'attributes'])
-                    ->get();
+        return UserProducts::join('products', 'products.id', 'user_products.product_id')
+                        ->where('user_products.outfit_id', $this->id);
     }
 }

@@ -59,7 +59,16 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
  * FRONT USER
  */
 Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
-    Route::get('/usuario/{user}/outfit/{outfit}', 'UserController@latestOutfit')->name('front.user.latest-outfit');
+    Route::get('/usuario/seleccion-mas-reciente', 'UserController@latestOutfit')->name('front.user.latest-outfit');
+    Route::get('/usuario/carrito', 'UserController@cart')->name('front.user.cart');
+});
+
+/**
+ * FRONT CART
+ */
+Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
+    Route::post('/cart/add-products-to-cart', 'CartController@addProductsToCart')->name('front.cart.add-products-to-cart');
+    Route::get('/carrito', 'CartController@show')->name('front.cart.show');
 });
 
 /**

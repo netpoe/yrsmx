@@ -63,6 +63,8 @@ class ProductSubcategory
 
         unset($values['value']);
 
+        unset($values['dependencies']);
+
         if ($values) {
             foreach ($values as $key => $value) {
                 $this->$key = $value;

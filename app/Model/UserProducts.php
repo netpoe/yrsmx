@@ -14,5 +14,6 @@ class UserProducts extends Model
         'user_id',
         'outfit_id',
         'product_id',
+        'cart_id',
     ];
 }

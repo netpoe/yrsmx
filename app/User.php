@@ -75,4 +75,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(\App\Model\UserOutfitsAdapter::class, 'user_id');
     }
+
+    public function carts()
+    {
+        return $this->hasMany(\App\Model\UserCartsAdapter::class, 'user_id');
+    }
 }

@@ -24,7 +24,8 @@ use App\Model\{
     LuProductAttributesAdapter as LuProductAttributes,
     LuProductSubattributesAdapter as LuProductSubattributes,
     UserStyle\Clothes,
-    UserOutfitsAdapter as UserOutfits
+    UserOutfitsAdapter as UserOutfits,
+    UserCartsAdapter as UserCarts
 };
 
 class UserProductsService
@@ -50,6 +51,10 @@ class UserProductsService
         $this->outfit = UserOutfits::create([
             'user_id' => $this->user->id,
             ]);
+
+        UserCarts::create([
+            'user_id' => $this->user->id,
+        ]);
     }
 
     /**

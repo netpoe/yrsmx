@@ -7,7 +7,8 @@ use App\Entities\ProductCategory;
 
 use App\Model\{
     LuProductCategoriesAdapter as LuProductCategories,
-    UserStyle\Clothes
+    UserStyle\Clothes,
+    ProductsAdapter as Products
 };
 
 class UserOutfitsAdapter extends UserOutfits
@@ -69,7 +70,7 @@ class UserOutfitsAdapter extends UserOutfits
 
     public function shuffleProductsAndMakeOutfits()
     {
-        $this->products = $this->products()->shuffle();
+        $this->products = $this->products()->get()->shuffle();
 
         $this->productTypes = new ProductCategory(LuProductCategories::TYPE);
 
@@ -94,7 +95,7 @@ class UserOutfitsAdapter extends UserOutfits
 
         for ($i = 0; $i < count($types)-1; $i++) {
             $this->products->each(function($product, $key) use (&$currentOutfit, $types, $i) {
-                $this->currentProduct = $product;
+                $this->currentProduct = Products::find($product->product_id);
 
                 if ($this->productBelongsTo($types[$i])) {
                     $this->currentProduct->relations = [];

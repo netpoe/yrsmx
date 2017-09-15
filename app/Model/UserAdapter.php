@@ -125,4 +125,9 @@ class UserAdapter extends User
     {
         return $this->outfits()->orderBy('created_at', 'desc')->first();
     }
+
+    public function latestCart()
+    {
+        return $this->carts()->orderBy('created_at', 'desc')->first();
+    }
 }

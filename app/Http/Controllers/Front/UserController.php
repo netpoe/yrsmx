@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Front;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Http\Controllers\Controller;
 
 use App\Model\{
     UserAdapter as User,
-    UserOutfitsAdapter as UserOutfits
+    UserOutfitsAdapter as UserOutfits,
+    UserProductsAdapter as UserProducts
 };
 
 class UserController extends Controller
@@ -16,9 +18,9 @@ class UserController extends Controller
      * latestOutfit Displays the user latest outfit selection
      * @return view
      */
-    public function latestOutfit(User $user, UserOutfits $outfit)
+    public function latestOutfit()
     {
-        // print_r($user->latestOutfit()->shuffleProductsAndMakeOutfits());
+        $user = Auth::user();
 
         return view('front.user.latest-outfit', [
             'user' => $user,
