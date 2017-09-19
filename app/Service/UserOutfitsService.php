@@ -104,7 +104,7 @@ class UserOutfitsService
 
         for ($i = 0; $i < count($types)-1; $i++) {
             $this->products->each(function($product, $key) use (&$currentOutfit, $types, $i) {
-                $this->currentProduct = Products::find($product->product_id);
+                $this->currentProduct = $product;
 
                 if ($this->productBelongsTo($types[$i])) {
                     $this->currentProduct->relations = [];

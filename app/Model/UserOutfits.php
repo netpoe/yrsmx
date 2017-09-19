@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 use App\Model\{
     ProductsAdapter as Products,
@@ -19,7 +20,8 @@ class UserOutfits extends Model
 
     public function products()
     {
-        return UserProducts::join('products', 'products.id', 'user_products.product_id')
-                        ->where('user_products.outfit_id', $this->id);
+        return Products::join('user_products', 'user_products.product_id', 'products.id')
+                        ->where('user_products.outfit_id', $this->id)
+                        ->select('products.*', 'user_products.cart_id', 'user_products.amount');
     }
 }

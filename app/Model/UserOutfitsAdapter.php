@@ -24,6 +24,8 @@ class UserOutfitsAdapter extends UserOutfits
 
     public function getProductsInCart()
     {
-        return $this->products()->whereNotNull('cart_id')->get();
+        return $this->products()
+                    ->whereNotNull('cart_id')
+                    ->get();
     }
 }

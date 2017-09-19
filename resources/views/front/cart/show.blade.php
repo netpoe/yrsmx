@@ -9,7 +9,9 @@
     <div class="cart-products-list">
       @foreach ($productsInCart as $product)
         <article class="product">
-          <div class="img-wrapper"></div>
+          <div class="img-wrapper">
+            <img src="{{ $product->files->first()->file_src }}" alt="{{ $product->files->first()->filename }}">
+          </div>
           <div class="info"></div>
           <div class="actions">
             {{ $product->amount }}
