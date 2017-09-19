@@ -44,7 +44,10 @@ class CartController extends Controller
             $user->latestOutfit()
                 ->products()
                 ->whereIn('product_id', $products)
-                ->update(['cart_id' => $user->latestCart()->id]);
+                ->update([
+                    'cart_id' => $user->latestCart()->id,
+                    'amount' => 1,
+                ]);
         }
 
         return redirect()->route('front.cart.show');

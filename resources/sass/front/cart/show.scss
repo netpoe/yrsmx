@@ -40,56 +40,93 @@
 @import "./node_modules/ebm/elements/ebm-alerts";
 
 @import "./resources/sass/common/top-menu";
-@import "./resources/sass/common/products-list";
 @import "./resources/sass/common/sub-header";
 
-.products-list {
-  .outfit-item {
+.cart-products-list {
+  border-radius: $border-radius;
+  background-color: white;
+  .product {
+    @include flex-row;
+    border-bottom: 1px solid $gray-lightest;
+  }
+  .img-wrapper,
+  .info,
+  .actions {
+    @include flex-column-center;
+    padding: get-spacer(3, y);
+    position: relative;
+    min-height: 120px;
     > div {
-      @include flex-column;
-    }
-    .top {
-      border-bottom: 1px solid $gray-lightest;
-      padding: get-spacer(2, y);
-      text-align: right;
-    }
-    .center {
+      @include flex-row;
       position: relative;
-      height: 560px;
     }
-    .right {}
-    .img-wrapper {
-      position: absolute;
-      height: 50%;
-      width: 50%;
-      &:hover {
-        background-color: $gray-lightest;
-        label {
-          color: $brand-info;
-        }
-      }
-      input {
-        position: absolute;
-        opacity: 0;
-        &:checked + label {
-          color: $brand-info;
-        }
-      }
-      label {
-        @include position(absolute, get-spacer(2, y) null null get-spacer(2, y));
-        background-repeat: no-repeat;
-        background-size: contain;
-        font-size: $font-size-h3;
+  }
+  .img-wrapper {
+    width: 20%;
+    > div {
+      @include bg-img-block;
+      @include position(absolute, 0 0 0 0);
+      margin-right: get-spacer(3, y);
+      margin-left: get-spacer(3, y);
+      background-size: contain;
+      height: 100%;
+    }
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+  .info {
+    width: 40%;
+  }
+  .actions {
+    > div {
+      @include flex-row-end;
+    }
+    width: 40%;
+    .amount-wrapper,
+    .remove-item {
+      padding: 0 get-spacer(2, x);
+    }
+    .amount-wrapper {
+      width: 75%;
+    }
+    .remove-item {
+      position: relative;
+      width: 25%;
+      > div {
+        @include position(absolute, 0 0 0 0);
+        @include flex-column-center;
+        text-align: center;
         height: 100%;
-        width: 100%;
         &:hover {
+          color: $brand-danger;
           cursor: pointer;
         }
       }
-      img {
-        height: auto;
-        width: 100%;
+      i {
+        font-size: $font-size-h3;
       }
     }
+  }
+}
+
+.cart-checkout-block {
+  border-radius: $border-radius;
+  background-color: white;
+  > div {
+    padding: get-spacer(3, y);
+  }
+  .top {
+    border-bottom: 1px solid $gray-lightest;
+  }
+  .center {
+    .title {}
+    .amount {
+      text-align: right;
+    }
+  }
+  .bottom {
+    border-top: 1px solid $gray-lightest;
   }
 }

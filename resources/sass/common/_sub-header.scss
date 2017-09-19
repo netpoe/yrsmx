@@ -1,0 +1,17 @@
+.sub-header {
+  .left,
+  .center,
+  .right {
+    @include flex-column-center;
+    min-height: $header-height-control / 2;
+    padding-bottom: get-spacer(1, y);
+    padding-top: get-spacer(1, y);
+  }
+  .left {}
+  .center {
+    text-align: center;
+  }
+  .right {
+    text-align: right;
+  }
+}
