@@ -11,7 +11,7 @@ class NumberUtil
         $this->number = $number;
     }
 
-    public function get()
+    public function raw()
     {
         return $this->number;
     }

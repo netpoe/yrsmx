@@ -40,7 +40,7 @@ class CartController extends Controller
      * @param Request $request [description]
      * @return redirect
      */
-    public function addProductsToCart(Request $request)
+    public function addProducts(Request $request)
     {
         $user = Auth::user();
 
@@ -53,6 +53,23 @@ class CartController extends Controller
                 ->update([
                     'cart_id' => $user->latestCart()->id,
                     'amount' => 1,
+                ]);
+        }
+
+        return redirect()->route('front.cart.show');
+    }
+
+    public function removeProduct(Request $request)
+    {
+        $user = Auth::user();
+
+        if ($request->productId) {
+            $user->latestOutfit()
+                ->products()
+                ->where('product_id', $request->productId)
+                ->update([
+                    'cart_id' => null,
+                    'amount' => 0,
                 ]);
         }
 

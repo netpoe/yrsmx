@@ -5,7 +5,7 @@
 @endpush
 
 @section('sub-header')
-  <form action="{{ route('front.cart.add-products-to-cart') }}" method="POST">
+  <form action="{{ route('front.cart.add-products') }}" method="POST">
     {{ csrf_field() }}
     <header class="sub-header">
       <div class="container">

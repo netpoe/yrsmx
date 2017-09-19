@@ -43,7 +43,7 @@ class Cart
 
     public function getTotalPlusTaxes()
     {
-        $total = $this->getSubtotal()->get() - $this->getDiscount()->get();
+        $total = $this->getSubtotal()->raw() - $this->getDiscount()->raw();
 
         $total = $total * (1 + self::TAX_RATE);
 

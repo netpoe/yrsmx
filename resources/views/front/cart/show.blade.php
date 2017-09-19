@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-sm-4 left">
           <nav>
-            <a href="{{ route('front.user.latest-outfit') }}" class="btn btn-info"><i class="icon-chevron-left"></i> Regresar</a>
+            <a href="{{ route('front.user.latest-outfit') }}"><i class="icon-chevron-left"></i> Regresar</a>
           </nav>
         </div>
         <div class="col-sm-4 center"></div>
@@ -25,33 +25,39 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-8">
-        <div class="cart-products-list">
-          @foreach ($productsInCart as $product)
-            <article class="product">
-              <div class="img-wrapper">
-                <div style="background-image: url({{ $product->files->first()->file_src }})"></div>
-              </div>
-              <div class="info">
-                <div>
-                  <p class="name">{{ $product->files->first()->filename }}</p>
-                  <p class="price">Precio: {{ $product->price()->toCurrency() }}</p>
-                  @if ($product->discount()->toPercentageString())
-                    <p class="discount">Descuento: {{ $product->discount()->toPercentageString() }}</p>
-                  @endif
+        @if ($productsInCart->isEmpty())
+          <p>No hay productos qué mostrar</p>
+        @else
+          <div class="cart-products-list">
+            @foreach ($productsInCart as $product)
+              <article class="product">
+                <div class="img-wrapper">
+                  <div style="background-image: url({{ $product->files->first()->file_src }})"></div>
                 </div>
-              </div>
-              <div class="actions">
-                <div>
-                  <div class="remove-item">
-                    <div>
-                      <i class="icon-cross-circle"></i>
+                <div class="info">
+                  <div>
+                    <p class="name">{{ $product->name }}</p>
+                    <p class="price">Precio: {{ $product->price()->toCurrency() }}</p>
+                    @if ($product->discount()->toPercentageString())
+                      <p class="discount">Descuento: {{ $product->discount()->toPercentageString() }}</p>
+                    @endif
+                  </div>
+                </div>
+                <div class="actions">
+                  <div>
+                    <div class="remove-item">
+                      <form action="{{ route('front.cart.remove-product') }}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="productId" value="{{ $product->id }}">
+                        <button type="submit" class="btn btn-remove-item"><i class="icon-cross-circle"></i></button>
+                      </form>
                     </div>
                   </div>
                 </div>
-              </div>
-            </article>
-          @endforeach
-        </div>
+              </article>
+            @endforeach
+          </div>
+        @endif
       </div>
       <div class="col-sm-4">
         <div class="cart-checkout-block">
