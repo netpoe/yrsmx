@@ -24,7 +24,7 @@
                   <a href="{{ route('logout') }}">Guardar y Salir</a>
                   <a href="#">Mi perfil</a>
                   @if (Auth::user()->latestOutfit())
-                    <a href="{{ route('front.user.latest-outfit', ['user' => Auth::id(), 'outfit' => Auth::user()->latestOutfit()->id]) }}">Ver mi outfit</a>
+                    <a href="{{ route('front.user.latest-outfit') }}">Ver mi outfit</a>
                   @endif
                   <a href="#">Carrito</a>
                 @else

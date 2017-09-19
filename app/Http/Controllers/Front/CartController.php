@@ -23,7 +23,9 @@ class CartController extends Controller
     {
         $user = Auth::user();
 
-        return view('front.cart.show');
+        $productsInCart = $user->latestOutfit()->getProductsInCart();
+
+        return view('front.cart.show', compact('user', 'productsInCart'));
     }
 
     /**

@@ -6,7 +6,17 @@
 
 @section('content')
   <div class="container">
-
+    <div class="cart-products-list">
+      @foreach ($productsInCart as $product)
+        <article class="product">
+          <div class="img-wrapper"></div>
+          <div class="info"></div>
+          <div class="actions">
+            {{ $product->amount }}
+          </div>
+        </article>
+      @endforeach
+    </div>
   </div>
 @endsection
 
