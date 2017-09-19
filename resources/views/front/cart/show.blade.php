@@ -33,7 +33,11 @@
               </div>
               <div class="info">
                 <div>
-                  {{ $product->files->first()->filename }}
+                  <p class="name">{{ $product->files->first()->filename }}</p>
+                  <p class="price">Precio: {{ $product->price()->toCurrency() }}</p>
+                  @if ($product->discount()->toPercentageString())
+                    <p class="discount">Descuento: {{ $product->discount()->toPercentageString() }}</p>
+                  @endif
                 </div>
               </div>
               <div class="actions">
@@ -60,31 +64,24 @@
                 <h2 class="title">Subtotal:</h2>
               </div>
               <div class="col-sm-6">
-                <h2 class="amount">$800.00</h2>
+                <h2 class="amount">{{ $cart->getSubtotal()->toCurrency() }}</h2>
               </div>
             </div>
             <div class="row">
               <div class="col-sm-6">
-                <h2 class="title">Descuentos:</h2>
+                <h2 class="title">Descuento:</h2>
               </div>
               <div class="col-sm-6">
-                <h2 class="amount">$800.00</h2>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <h2 class="title">Impuestos:</h2>
-              </div>
-              <div class="col-sm-6">
-                <h2 class="amount">$800.00</h2>
+                <h2 class="amount">{{ $cart->getDiscount()->toCurrency() }}</h2>
               </div>
             </div>
             <div class="row">
               <div class="col-sm-6">
                 <h2 class="title">Total:</h2>
+                <small>(IVA del 16% incluído)</small>
               </div>
               <div class="col-sm-6">
-                <h2 class="amount">$800.00</h2>
+                <h2 class="amount">{{ $cart->getTotalPlusTaxes()->toCurrency() }}</h2>
               </div>
             </div>
           </div>

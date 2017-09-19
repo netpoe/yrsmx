@@ -152,9 +152,14 @@ class ProductsWithAttributesAndCategoriesSeeder extends Seeder
 
     public function createProduct(String $fileSrc)
     {
+        $cost = rand(50, 500);
+
         $product = Product::create([
             'stock' => rand(1, 5),
             'uploaded_by' => 1,
+            'cost' => $cost,
+            'price' => $cost * (1 + (rand(3, 25) / 100)),
+            'discount' => rand(0, 1) ? (rand(3, 25) / 100) : null,
             ]);
 
         RelProductsGallery::create([

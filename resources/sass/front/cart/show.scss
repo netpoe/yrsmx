@@ -57,7 +57,6 @@
     position: relative;
     min-height: 120px;
     > div {
-      @include flex-row;
       position: relative;
     }
   }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Http\Controllers\Controller;
 
+use App\Entities\Cart;
+
 use App\Model\{
     UserAdapter as User,
     UserOutfitsAdapter as UserOutfits,
@@ -25,7 +27,11 @@ class CartController extends Controller
 
         $productsInCart = $user->latestOutfit()->getProductsInCart();
 
-        return view('front.cart.show', compact('user', 'productsInCart'));
+        $cart = new Cart($productsInCart);
+
+        $params = compact('user', 'productsInCart', 'cart');
+
+        return view('front.cart.show', $params);
     }
 
     /**

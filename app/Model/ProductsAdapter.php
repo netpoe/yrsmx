@@ -8,6 +8,8 @@ use App\Model\{
     RelProductsAttributesAdapter as RelProductsAttributes
 };
 
+use App\Util\NumberUtil;
+
 class ProductsAdapter extends Products
 {
     public function getUnassignedProducts()
@@ -63,5 +65,15 @@ class ProductsAdapter extends Products
             'rel_products_categories', 'rel_products_categories.subcategory_id', 'lu_product_subcategories.id')
             ->where('rel_products_categories.product_id', $this->id)
             ->get();
+    }
+
+    public function price()
+    {
+        return new NumberUtil($this->price);
+    }
+
+    public function discount()
+    {
+        return new NumberUtil($this->discount);
     }
 }

@@ -89,6 +89,7 @@ class UserProductsService
                     ->where('subcategory_id', $this->currentProductType->getId());
             }])
             ->where('stock', '>', 0)
+            ->whereNotNull('cost')
             ->get()
             ->filter(function($product){
                 return !$product->categories->isEmpty();
