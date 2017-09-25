@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LuProductSubcategoriesSeeder::class);
         $this->call(LuProductAttributesSeeder::class);
         $this->call(LuProductSubattributesSeeder::class);
+        $this->call(LuAddressCountriesSeeder::class);
+        $this->call(LuAddressStatesSeeder::class);
     }
 }

@@ -73,6 +73,14 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
 });
 
 /**
+ * FRONT SHIPPING
+ */
+Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
+    Route::post('/shipping/add-address', 'ShippingController@addAddress')->name('front.shipping.add-address');
+    Route::get('/envio', 'ShippingController@show')->name('front.shipping.show');
+});
+
+/**
  * FRONT VERIFICATION
  */
 Route::group(['namespace' => 'Front'], function(){

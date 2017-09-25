@@ -33,12 +33,7 @@ class User extends Authenticatable
 
     public function addresses()
     {
-        return $this->hasMany('\App\Model\UserAddressAdapter', 'user_id', 'id');
-    }
-
-    public function address()
-    {
-        return $this->hasMany('App\Model\UserAddressAdapter', 'user_id');
+        return $this->hasMany(\App\Model\UserAddressAdapter::class, 'user_id', 'id');
     }
 
     public function quizzes()

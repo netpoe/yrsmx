@@ -92,7 +92,7 @@
             </div>
           </div>
           <div class="bottom">
-            <button class="btn btn-primary btn-lg btn-block">Continuar <i class="icon-chevron-right"></i></button>
+            <a href="{{ route('front.shipping.show') }}" class="btn btn-primary btn-lg btn-block">Continuar <i class="icon-chevron-right"></i></a>
           </div>
         </div>
       </div>
