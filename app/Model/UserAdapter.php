@@ -61,11 +61,9 @@ class UserAdapter extends User
      */
     public function createEmptyAddress()
     {
-        UserAddress::create([
+        return UserAddress::create([
             'user_id' => $this->id
             ]);
-
-        return $this;
     }
 
     /**

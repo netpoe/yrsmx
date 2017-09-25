@@ -119,5 +119,12 @@ return [
         'username' => 'usuario',
         'password' => 'contraseña',
         'password_confirmation' => 'contraseña',
+        'zip_code' => 'código postal',
+        'interior' => 'no. interior',
+        'country_id' => 'país',
+        'state_id' => 'estado',
+        'city' => 'ciudad',
+        'street' => 'calle y núm.',
+        'neighborhood' => 'colonia',
     ],
 ];

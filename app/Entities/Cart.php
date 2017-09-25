@@ -5,6 +5,7 @@ namespace App\Entities;
 use Illuminate\Database\Eloquent\Collection;
 
 use App\Util\NumberUtil;
+use App\Model\UserCartsAdapter as UserCart;
 
 class Cart
 {
@@ -12,9 +13,29 @@ class Cart
 
     public $products;
 
-    public function __construct(Collection $products)
+    public $userCart;
+
+    public function __construct(Collection $products, UserCart $userCart = null)
     {
         $this->products = $products;
+
+        $this->userCart = $userCart;
+    }
+
+    public function hasShippingAddress(): bool
+    {
+        return $this->userCart && $this->userCart->userAddress;
+    }
+
+    public function getShipping()
+    {
+        $subtotal = 0;
+
+        if (!$this->hasShippingAddress()) {
+            return new NumberUtil($subtotal);
+        }
+
+        return new NumberUtil($subtotal);
     }
 
     public function getSubtotal()

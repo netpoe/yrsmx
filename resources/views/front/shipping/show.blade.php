@@ -28,46 +28,45 @@
         <div class="card">
           <small class="card-block-title">Opciones de envío</small>
           <div class="card-block">
+            <form action="{{ $userAddressForm->getOnPostActionString() }}" method="POST">
+              {{ csrf_field() }}
+
+              <div class="row">
+                <div class="col-sm-4">
+                  @include('fields/select', ['field' => $userAddressForm->getField('country_id')])
+                </div>
+                <div class="col-sm-4">
+                  @include('fields/select', ['field' => $userAddressForm->getField('state_id')])
+                </div>
+                <div class="col-sm-4">
+                  @include('fields/text', ['field' => $userAddressForm->getField('zip_code')])
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-7">
+                  @include('fields/text', ['field' => $userAddressForm->getField('street')])
+                </div>
+                <div class="col-sm-5">
+                  @include('fields/text', ['field' => $userAddressForm->getField('interior')])
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  @include('fields/text', ['field' => $userAddressForm->getField('city')])
+                </div>
+                <div class="col-sm-6">
+                  @include('fields/text', ['field' => $userAddressForm->getField('neighborhood')])
+                </div>
+              </div>
+
+              <fieldset class="form-group">
+                <button type="submit" class="btn btn-lg btn-secondary btn-block">Agregar dirección de envío</button>
+              </fieldset>
+            </form>
             @if ($user->addresses->isEmpty())
               <h5>No tienes direcciones de envío. Agrega una:</h5>
-              <form action="{{ $userAddressForm->getOnPostActionString() }}" method="POST">
-                {{ csrf_field() }}
-
-                <div class="row">
-                  <div class="col-sm-4">
-                    @include('fields/select', ['field' => $userAddressForm->getField('country_id')])
-                  </div>
-                  <div class="col-sm-4">
-                    @include('fields/select', ['field' => $userAddressForm->getField('state_id')])
-                  </div>
-                  <div class="col-sm-4">
-                    @include('fields/text', ['field' => $userAddressForm->getField('zip_code')])
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-sm-7">
-                    @include('fields/text', ['field' => $userAddressForm->getField('street')])
-                  </div>
-                  <div class="col-sm-5">
-                    @include('fields/text', ['field' => $userAddressForm->getField('interior')])
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-sm-6">
-                    @include('fields/text', ['field' => $userAddressForm->getField('city')])
-                  </div>
-                  <div class="col-sm-6">
-                    @include('fields/text', ['field' => $userAddressForm->getField('neighborhood')])
-                  </div>
-                </div>
-
-                <fieldset class="form-group">
-                  <button type="submit" class="btn btn-lg btn-secondary btn-block">Agregar dirección de envío</button>
-                </fieldset>
-
-              </form>
             @else
             @endif
           </div>
@@ -100,7 +99,7 @@
                 <h2 class="title">Envío:</h2>
               </div>
               <div class="col-sm-6">
-                <h2 class="amount">{{ $cart->getDiscount()->toCurrency() }}</h2>
+                <h2 class="amount">{{ $cart->getShipping()->toCurrency() }}</h2>
               </div>
             </div>
             <div class="row">
@@ -114,7 +113,9 @@
             </div>
           </div>
           <div class="bottom">
-            <button class="btn btn-primary btn-lg btn-block">Continuar <i class="icon-chevron-right"></i></button>
+            <button
+              class="btn btn-primary btn-lg btn-block"
+              @if (!$cart->hasShippingAddress()) disabled="true" @endif>Continuar <i class="icon-chevron-right"></i></button>
           </div>
         </div>
       </div>

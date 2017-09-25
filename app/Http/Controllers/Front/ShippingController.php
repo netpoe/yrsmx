@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Entities\Cart;
 use App\Form\Front\ShippingAddressForm;
+use App\Util\DateTimeUtil;
+use App\Http\Request\ShippingAddressRequest;
 
 class ShippingController extends Controller
 {
@@ -16,7 +18,7 @@ class ShippingController extends Controller
 
         $productsInCart = $user->latestOutfit()->getProductsInCart();
 
-        $cart = new Cart($productsInCart);
+        $cart = new Cart($productsInCart, $user->latestCart());
 
         $userAddressForm = new ShippingAddressForm;
 
@@ -27,8 +29,29 @@ class ShippingController extends Controller
         return view('front.shipping.show', $params);
     }
 
-    public function addAddress(Request $request)
+    public function addAddress(ShippingAddressRequest $request)
     {
+        $user = Auth::user();
 
+        $userAddress = $user->createEmptyAddress();
+
+        $userAddress->fill([
+            'country_id' => $request->country_id,
+            'state_id' => $request->state_id,
+            'zip_code' => $request->zip_code,
+            'city' => $request->city,
+            'street' => $request->street,
+            'interior' => $request->interior,
+            'neighborhood' => $request->neighborhood,
+            'updated_at' => DateTimeUtil::DBNOW(),
+            ])
+            ->save();
+
+        $user->latestCart()
+            ->update([
+                'user_address_id' => $userAddress->id
+            ]);
+
+        return redirect()->route('front.shipping.show');
     }
 }

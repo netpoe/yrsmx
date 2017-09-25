@@ -61,4 +61,24 @@ class ShippingAddressForm extends AbstractBaseForm
 
         return $this;
     }
+
+    public function getValidationRules()
+    {
+        return [
+            'zip_code' => 'required|string|size:5|regex:/\d/',
+            'country_id' => 'required|numeric',
+            'state_id' => 'required|numeric',
+            'city' => 'required|string|max:60',
+            'street' => 'required|string|max:60',
+            'interior' => 'required|string|max:60|regex:/^[a-zA-Z0-9\.\s\-\-1]*$/',
+            'neighborhood' => 'required|string|max:60',
+        ];
+    }
+
+    public function getValidationMessages()
+    {
+        return [
+            'zip_code.size' => 'El código postal debe contener sólo :size dígitos',
+        ];
+    }
 }
