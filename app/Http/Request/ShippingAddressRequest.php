@@ -26,4 +26,13 @@ class ShippingAddressRequest extends FormRequest
     {
         return (new ShippingAddressForm)->getValidationRules();
     }
+
+    public function withValidator($validator)
+    {
+        $validator->after(function($validator){
+            if ($validator->failed()) {
+                $validator->errors()->add('shipping-address-form', 'Something is wrong with this field!');
+            }
+        });
+    }
 }

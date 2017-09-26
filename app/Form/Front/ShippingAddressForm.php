@@ -70,7 +70,7 @@ class ShippingAddressForm extends AbstractBaseForm
             'state_id' => 'required|numeric',
             'city' => 'required|string|max:60',
             'street' => 'required|string|max:60',
-            'interior' => 'required|string|max:60|regex:/^[a-zA-Z0-9\.\s\-\-1]*$/',
+            'interior' => 'string|nullable|max:60|regex:/^[a-zA-Z0-9\.\s\-\-1]*$/',
             'neighborhood' => 'required|string|max:60',
         ];
     }

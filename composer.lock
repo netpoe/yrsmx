@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "df47cf39a84cf3eef8149220ee3dd47d",
-    "content-hash": "d32174b4940ead7ee3e859f4ae937bdb",
+    "hash": "9c5fa68fa5a2dc42e91d1c2236cb592e",
+    "content-hash": "5f5c7dd77578615c821b320ec9a8621b",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1723,6 +1723,47 @@
                 "time"
             ],
             "time": "2017-01-16 07:55:07"
+        },
+        {
+            "name": "netpoe/estafeta-api",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/netpoe/estafeta-api.git",
+                "reference": "9cb6f69b9efe82915584af385cbd14f47c911da4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/netpoe/estafeta-api/zipball/9cb6f69b9efe82915584af385cbd14f47c911da4",
+                "reference": "9cb6f69b9efe82915584af385cbd14f47c911da4",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Netpoe\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Netpoe\\Tests\\": "tests/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Gus",
+                    "email": "yo@soygus.com"
+                }
+            ],
+            "description": "API no oficial del cotizador de Estafeta México",
+            "support": {
+                "source": "https://github.com/netpoe/estafeta-api/tree/master",
+                "issues": "https://github.com/netpoe/estafeta-api/issues"
+            },
+            "time": "2017-09-26 17:15:21"
         },
         {
             "name": "nikic/php-parser",
@@ -4697,7 +4738,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "easyboxmodel/sections": 20
+        "easyboxmodel/sections": 20,
+        "netpoe/estafeta-api": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

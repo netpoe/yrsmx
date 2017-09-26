@@ -19,4 +19,14 @@ class UserAddress extends Model
         'neighborhood',
         'updated_at',
     ];
+
+    public function country()
+    {
+        return $this->hasOne(\App\Model\LuAddressCountriesAdapter::class, 'id', 'country_id');
+    }
+
+    public function state()
+    {
+        return $this->hasOne(\App\Model\LuAddressStatesAdapter::class, 'id', 'state_id');
+    }
 }

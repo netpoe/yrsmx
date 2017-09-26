@@ -8,6 +8,10 @@
       {
         "type": "vcs",
         "url":  "git@github.com:EasyBoxModel/Sections.git"
+      },
+      {
+        "type": "vcs",
+        "url":  "git@github.com:netpoe/estafeta-api.git"
       }
     ],
     "require": {
@@ -20,7 +24,8 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "league/flysystem-aws-s3-v3": "^1.0",
-        "swiftmailer/swiftmailer": "^6.0"
+        "swiftmailer/swiftmailer": "^6.0",
+        "netpoe/estafeta-api": "dev-master"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
