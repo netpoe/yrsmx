@@ -154,9 +154,9 @@
               </div>
               <div class="bottom">
                 <nav>
-                  <button
+                  <a href="{{ route('front.checkout.show') }}"
                     class="btn btn-primary btn-lg btn-block"
-                    @if (!$cart->hasShippingAddress()) disabled="true" @endif>Continuar <i class="icon-chevron-right"></i></button>
+                    @if (!$cart->hasShippingAddress()) disabled="true" @endif>Continuar <i class="icon-chevron-right"></i></a>
                 </nav>
               </div>
               <p class="small">Envío e IVA del 16% incluído</p>

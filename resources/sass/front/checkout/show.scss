@@ -43,3 +43,44 @@
 @import "./resources/sass/common/sub-header";
 @import "./resources/sass/common/cart-checkout-block";
 @import "./resources/sass/common/cart-products-list";
+
+.shipping-summary-block {
+  margin-bottom: get-spacer(3, y);
+  .user-address {
+    margin-bottom: 0;
+  }
+}
+
+.cart-products-list {
+  .img-wrapper,
+  .info,
+  .actions {
+    min-height: 70px;
+  }
+  .info {
+    p {
+      margin-bottom: 0;
+    }
+  }
+  .actions {
+    .remove-item {
+      width: 100%;
+    }
+  }
+}
+
+.products-summary-block {
+  margin-bottom: get-spacer(3, y);
+  .product {
+    @include flex-row;
+  }
+  .img-wrapper {
+    width: 30%;
+  }
+  .info {
+    width: 60%;
+  }
+  .actions {
+    width: 30%;
+  }
+}

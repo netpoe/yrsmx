@@ -82,6 +82,13 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
 });
 
 /**
+ * FRONT SHIPPING
+ */
+Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
+    Route::get('/checkout', 'CheckoutController@show')->name('front.checkout.show');
+});
+
+/**
  * FRONT VERIFICATION
  */
 Route::group(['namespace' => 'Front'], function(){
