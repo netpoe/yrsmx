@@ -1,0 +1,21 @@
+.cart-checkout-block {
+  border-radius: $border-radius;
+  background-color: white;
+  .top {
+    border-bottom: 1px solid $gray-lightest;
+  }
+  .center {
+    .title,
+    .amount {
+      font-size: $font-size-h4;
+    }
+    .amount {
+      text-align: right;
+    }
+  }
+  .bottom {
+    border-top: 1px solid $gray-lightest;
+    padding-bottom: get-spacer(3, y);
+    padding-top: get-spacer(3, y);
+  }
+}

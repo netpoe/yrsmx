@@ -8,7 +8,11 @@ class NumberUtil
 
     public function __construct($number)
     {
-        $this->number = $number;
+        if (preg_match('/^\$/', $number)) {
+            $this->number = (float) substr($number, 1);
+        } else {
+            $this->number = (float) $number;
+        }
     }
 
     public function raw()

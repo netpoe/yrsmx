@@ -6,10 +6,17 @@ use Illuminate\Database\Eloquent\Collection;
 
 use App\Util\NumberUtil;
 use App\Model\UserCartsAdapter as UserCart;
+use App\Service\ShippingService;
+
+use Netpoe\EstafetaAPI\{
+    ServiceType
+};
 
 class Cart
 {
     const TAX_RATE = 0.16;
+
+    const DEFAULT_SHIPPING_COST = 250;
 
     public $products;
 
@@ -27,6 +34,19 @@ class Cart
         return $this->userCart && $this->userCart->userAddress;
     }
 
+    public function calcShipping(): ServiceType
+    {
+        $shippingService = new ShippingService;
+
+        $destinyZipCode = $this->userCart->userAddress->zip_code;
+
+        $shippingService->setDestinyZipCode($destinyZipCode);
+
+        $quotation = $shippingService->calcShipping();
+
+        return $quotation->getQuotation()->getGroundShippingCost();
+    }
+
     public function getShipping()
     {
         $subtotal = 0;
@@ -35,7 +55,13 @@ class Cart
             return new NumberUtil($subtotal);
         }
 
-        return new NumberUtil($subtotal);
+        $totalCost = $this->calcShipping()->totalCost;
+
+        if (!$totalCost) {
+            return new NumberUtil(self::DEFAULT_SHIPPING_COST);
+        }
+
+        return new NumberUtil($totalCost);
     }
 
     public function getSubtotal()
@@ -64,7 +90,7 @@ class Cart
 
     public function getTotalPlusTaxes()
     {
-        $total = $this->getSubtotal()->raw() - $this->getDiscount()->raw();
+        $total = $this->getSubtotal()->raw() - $this->getDiscount()->raw() + $this->getShipping()->raw();
 
         $total = $total * (1 + self::TAX_RATE);
 

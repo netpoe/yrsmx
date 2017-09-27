@@ -1730,12 +1730,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/netpoe/estafeta-api.git",
-                "reference": "9cb6f69b9efe82915584af385cbd14f47c911da4"
+                "reference": "6a5b91ac2dcd6f210fc240fbd6f70262db97f6b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netpoe/estafeta-api/zipball/9cb6f69b9efe82915584af385cbd14f47c911da4",
-                "reference": "9cb6f69b9efe82915584af385cbd14f47c911da4",
+                "url": "https://api.github.com/repos/netpoe/estafeta-api/zipball/6a5b91ac2dcd6f210fc240fbd6f70262db97f6b8",
+                "reference": "6a5b91ac2dcd6f210fc240fbd6f70262db97f6b8",
                 "shasum": ""
             },
             "require-dev": {
@@ -1763,7 +1763,7 @@
                 "source": "https://github.com/netpoe/estafeta-api/tree/master",
                 "issues": "https://github.com/netpoe/estafeta-api/issues"
             },
-            "time": "2017-09-26 17:15:21"
+            "time": "2017-09-27 05:05:03"
         },
         {
             "name": "nikic/php-parser",

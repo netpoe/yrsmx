@@ -77,6 +77,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
  */
 Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
     Route::post('/shipping/add-address', 'ShippingController@addAddress')->name('front.shipping.add-address');
+    Route::post('/shipping/set-cart-address', 'ShippingController@setCartAddress')->name('front.shipping.set-cart-address');
     Route::get('/envio', 'ShippingController@show')->name('front.shipping.show');
 });
 

@@ -41,6 +41,7 @@
 
 @import "./resources/sass/common/top-menu";
 @import "./resources/sass/common/sub-header";
+@import "./resources/sass/common/cart-checkout-block";
 
 .cart-products-list {
   border-radius: $border-radius;
@@ -109,25 +110,5 @@
         font-size: $font-size-h3;
       }
     }
-  }
-}
-
-.cart-checkout-block {
-  border-radius: $border-radius;
-  background-color: white;
-  > div {
-    padding: get-spacer(3, y);
-  }
-  .top {
-    border-bottom: 1px solid $gray-lightest;
-  }
-  .center {
-    .title {}
-    .amount {
-      text-align: right;
-    }
-  }
-  .bottom {
-    border-top: 1px solid $gray-lightest;
   }
 }

@@ -29,6 +29,18 @@ class ShippingController extends Controller
         return view('front.shipping.show', $params);
     }
 
+    public function setCartAddress(Request $request)
+    {
+        $user = Auth::user();
+
+        $user->latestCart()
+            ->update([
+                'user_address_id' => $request->input('user-address-id'),
+            ]);
+
+        return redirect()->route('front.shipping.show');
+    }
+
     public function addAddress(ShippingAddressRequest $request)
     {
         $user = Auth::user();

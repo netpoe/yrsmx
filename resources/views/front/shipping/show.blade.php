@@ -34,28 +34,33 @@
                 <button class="btn btn-secondary" onclick="return displayAddressForm(this)">Agregar dirección de envío</button>
               </nav>
             @else
-              <form action="">
+              <form action="{{ route('front.shipping.set-cart-address') }}" method="POST">
+                {{ csrf_field() }}
                 <fieldset class="form-group">
-                  <label for="user-address">Dirección de envío:</label>
-                  <select name="user-address" id="" class="form-control form-control-lg">
+                  <label for="user-address-id">Dirección de envío:</label>
+                  <select name="user-address-id" id="" class="form-control form-control-lg">
                     @foreach ($user->addresses as $address)
-                      <option value="{{ $address->id }}">{{ $address->toString() }}</option>
+                      @if ($user->latestCart()->user_address_id == $address->id)
+                        <option value="{{ $address->id }}" selected="true">{{ $address->toString() }}</option>
+                      @else
+                        <option value="{{ $address->id }}">{{ $address->toString() }}</option>
+                      @endif
                     @endforeach
                   </select>
                 </fieldset>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <nav>
+                      <button type="button" class="btn btn-link" onclick="return displayAddressForm(this)">Agregar dirección de envío</button>
+                    </nav>
+                  </div>
+                  <div class="col-sm-6 text-right">
+                    <nav>
+                      <button type="submit" class="btn btn-primary btn-lg">Seleccionar esta dirección de envío</button>
+                    </nav>
+                  </div>
+                </div>
               </form>
-              <div class="row">
-                <div class="col-sm-6">
-                  <nav>
-                    <button class="btn btn-link" onclick="return displayAddressForm(this)">Agregar dirección de envío</button>
-                  </nav>
-                </div>
-                <div class="col-sm-6 text-right">
-                  <nav>
-                    <button class="btn btn-primary btn-lg">Seleccionar ésta dirección de envío</button>
-                  </nav>
-                </div>
-              </div>
             @endif
 
             <div class="shipping-address-wrapper"
@@ -96,7 +101,7 @@
                 <fieldset class="form-group">
                   <div class="row">
                     <div class="col-sm-6">
-                      <button class="btn btn-secondary btn-lg" onclick="return hideAddressForm(this)">Cancelar</button>
+                      <button type="button" class="btn btn-secondary btn-lg" onclick="return hideAddressForm(this)">Cancelar</button>
                     </div>
                     <div class="col-sm-6 text-right">
                       <button type="submit" class="btn btn-lg btn-secondary">Agregar dirección de envío</button>
@@ -109,49 +114,54 @@
         </div>
       </div>
       <div class="col-sm-4">
-        <div class="cart-checkout-block">
-          <div class="top">
-            <h1>Confirma tu compra</h1>
-          </div>
-          <div class="center">
-            <div class="row">
-              <div class="col-sm-6">
-                <h2 class="title">Subtotal:</h2>
+        <div class="card">
+          <small class="card-block-title">Confirma tu compra</small>
+          <div class="card-block">
+            <div class="cart-checkout-block">
+              <div class="center">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h2 class="title">Subtotal:</h2>
+                  </div>
+                  <div class="col-sm-6">
+                    <h2 class="amount">{{ $cart->getSubtotal()->toCurrency() }}</h2>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h2 class="title">Descuento:</h2>
+                  </div>
+                  <div class="col-sm-6">
+                    <h2 class="amount">{{ $cart->getDiscount()->toCurrency() }}</h2>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h2 class="title">Envío *:</h2>
+                  </div>
+                  <div class="col-sm-6">
+                    <h2 class="amount">{{ $cart->getShipping()->toCurrency() }}</h2>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h2 class="title">Total:</h2>
+                  </div>
+                  <div class="col-sm-6">
+                    <h2 class="amount">{{ $cart->getTotalPlusTaxes()->toCurrency() }}</h2>
+                  </div>
+                </div>
               </div>
-              <div class="col-sm-6">
-                <h2 class="amount">{{ $cart->getSubtotal()->toCurrency() }}</h2>
+              <div class="bottom">
+                <nav>
+                  <button
+                    class="btn btn-primary btn-lg btn-block"
+                    @if (!$cart->hasShippingAddress()) disabled="true" @endif>Continuar <i class="icon-chevron-right"></i></button>
+                </nav>
               </div>
+              <p class="small">Envío e IVA del 16% incluído</p>
+              <p class="small">* El envío es realizado por Estafeta Terrestre, de 2 a 3 días hábiles</p>
             </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <h2 class="title">Descuento:</h2>
-              </div>
-              <div class="col-sm-6">
-                <h2 class="amount">{{ $cart->getDiscount()->toCurrency() }}</h2>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <h2 class="title">Envío:</h2>
-              </div>
-              <div class="col-sm-6">
-                <h2 class="amount">{{ $cart->getShipping()->toCurrency() }}</h2>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <h2 class="title">Total:</h2>
-                <small>(IVA del 16% incluído)</small>
-              </div>
-              <div class="col-sm-6">
-                <h2 class="amount">{{ $cart->getTotalPlusTaxes()->toCurrency() }}</h2>
-              </div>
-            </div>
-          </div>
-          <div class="bottom">
-            <button
-              class="btn btn-primary btn-lg btn-block"
-              @if (!$cart->hasShippingAddress()) disabled="true" @endif>Continuar <i class="icon-chevron-right"></i></button>
           </div>
         </div>
       </div>
