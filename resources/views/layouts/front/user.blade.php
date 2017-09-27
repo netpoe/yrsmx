@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @stack('head-link')
+    @stack('head-scripts')
   </head>
   <body>
     <div class="site-wrapper" id="site-wrapper">

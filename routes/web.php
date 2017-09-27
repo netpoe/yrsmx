@@ -82,9 +82,10 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
 });
 
 /**
- * FRONT SHIPPING
+ * FRONT CHECKOUT
  */
 Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
+    Route::post('/checkout/process-payment', 'CheckoutController@processPayment')->name('front.checkout.process-payment');
     Route::get('/checkout', 'CheckoutController@show')->name('front.checkout.show');
 });
 

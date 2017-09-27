@@ -73,6 +73,6 @@ class CartController extends Controller
                 ]);
         }
 
-        return redirect()->route('front.cart.show');
+        return redirect()->back();
     }
 }

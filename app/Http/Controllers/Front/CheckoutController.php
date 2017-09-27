@@ -23,4 +23,9 @@ class CheckoutController extends Controller
 
         return view('front.checkout.show', $params);
     }
+
+    public function processPayment(Request $request)
+    {
+        print_r($request->all()); exit;
+    }
 }
