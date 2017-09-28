@@ -8,8 +8,8 @@ use Netpoe\EstafetaAPI\{
     ServiceType
 };
 
- class ShippingService
- {
+class ShippingService
+{
     const ORIGIN_ZIP_CODE = '03200';
 
     const WEIGHT = 28;
@@ -59,4 +59,4 @@ use Netpoe\EstafetaAPI\{
 
         return $this;
     }
- }
+}

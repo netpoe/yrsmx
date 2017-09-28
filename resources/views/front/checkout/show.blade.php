@@ -131,6 +131,7 @@
 @endsection
 
 @push('footer-scripts')
+  <script src="/js/axiosjs/axios.min.js"></script>
   {{-- PAYPAL --}}
   <script>
     paypal.Button.render({
@@ -145,7 +146,7 @@
           payment: {
             transactions: [
               {
-                amount: { total: {{ $cart->getTotalPlusTaxes()->raw() }}, currency: 'MXN' }
+                amount: { total: {{ $cart->getTotalPlusTaxes()->round() }}, currency: 'MXN' }
               }
             ]
           }
@@ -160,6 +161,16 @@
       onAuthorize: function(data, actions) {
         return actions.payment.execute().then(function(payment) {
           console.log(payment);
+          payment.paymentType = "{{ \App\Model\OrdersAdapter::TYPE_PAYPAL }}";
+          axios({
+            url: "{{ route('front.orders.store') }}",
+            data: payment,
+            method: 'POST',
+          }).then(function(response){
+            console.log(response);
+          }).catch(function(error){
+            console.log(error);
+          });
         });
       }
     }, '#paypal-button');

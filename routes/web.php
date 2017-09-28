@@ -90,6 +90,13 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
 });
 
 /**
+ * FRONT ORDERS
+ */
+Route::group(['middleware' => 'auth', 'namespace' => 'Front'], function(){
+    Route::post('/orders/store', 'OrdersController@store')->name('front.orders.store');
+});
+
+/**
  * FRONT VERIFICATION
  */
 Route::group(['namespace' => 'Front'], function(){
