@@ -15,6 +15,11 @@ class NumberUtil
         }
     }
 
+    public function round()
+    {
+        return number_format($this->number, 2);
+    }
+
     public function raw()
     {
         return $this->number;
