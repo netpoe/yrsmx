@@ -146,7 +146,7 @@
           payment: {
             transactions: [
               {
-                amount: { total: {{ $cart->getTotalPlusTaxes()->round() }}, currency: 'MXN' }
+                amount: { total: '{{ $cart->getTotalPlusTaxes()->round() }}', currency: 'MXN' }
               }
             ]
           }
@@ -170,6 +170,10 @@
             console.log(response);
           }).catch(function(error){
             console.log(error);
+            var paymentErrorAlert = new EbmAlert;
+            paymentErrorAlert.display('danger',
+              'Hubo un error creando tu orden',
+              'No te preocupes, tu pago ya fue realizado con éxito, pero tuvimos un problema al registrar tu orden. Te contactaremos cuanto antes.');
           });
         });
       }

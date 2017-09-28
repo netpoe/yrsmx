@@ -8,6 +8,8 @@ class OrderTypePayPal extends Model
 {
     protected $table = 'order_type_paypal';
 
+    public $timestamps = false;
+
     protected $fillable = [
         'order_id',
         'payment_id',
