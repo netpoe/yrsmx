@@ -16,7 +16,7 @@
 
       @include('includes/admin/include-top-menu')
       @include('includes/admin/include-header')
-      @include('includes/admin/include-sub-header')
+      {{-- @include('includes/admin/include-sub-header') --}}
       <main class="site-content" role="main">
 
         @yield('content')

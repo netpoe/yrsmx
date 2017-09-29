@@ -40,23 +40,4 @@
 @import "./resources/sass/common/header";
 @import "./resources/sass/common/top-menu";
 @import "./resources/sass/common/search-wrapper";
-@import "./resources/sass/common/user-resources-nav";
-@import "./resources/sass/common/create-outfit-modal";
-@import "./resources/sass/common/products-list";
 @import "./resources/sass/common/user-details-list";
-
-$products-filter-width: 280px;
-.products-wrapper {
-  background-color: $gray-lightest;
-  position: relative;
-  min-height: 80vh;
-  .products-filters {
-    @include position(absolute, 0 null 0 0);
-    padding: get-spacer(3, x);
-    background-color: white;
-    width: $products-filter-width;
-  }
-  .products-list {
-    margin-left: $products-filter-width;
-  }
-}

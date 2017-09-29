@@ -56,7 +56,7 @@ class OrdersService
             'user_id' => $this->user->id,
             'cart_id' => $this->cart->id,
             'address_id' => $this->cart->user_address_id,
-            'status_id' => LuOrderStatus::STATUS_PAID,
+            'status_id' => LuOrderStatus::PAID,
             'payment_type' => $this->paymentType,
         ]);
 

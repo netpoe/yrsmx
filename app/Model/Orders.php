@@ -17,4 +17,19 @@ class Orders extends Model
         'warehouse_id',
         'delivered_at',
     ];
+
+    public function status()
+    {
+        return $this->hasOne(\App\Model\LuOrderStatusAdapter::class, 'id', 'status_id');
+    }
+
+    public function address()
+    {
+        return $this->hasOne(\App\Model\UserAddressAdapter::class, 'id', 'address_id');
+    }
+
+    public function user()
+    {
+        return $this->hasOne(\App\Model\UserAdapter::class, 'id', 'user_id');
+    }
 }

@@ -42,6 +42,14 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'namespace' => 'Admin'], f
 });
 
 /**
+ * ADMIN ORDERS
+ */
+Route::group(['middleware' => ['auth', 'auth.admin'], 'namespace' => 'Admin'], function(){
+    Route::get('/admin/ordenes', 'OrdersController@index')->name('admin.orders.index');
+    Route::get('/admin/orden/{order}', 'OrdersController@show')->name('admin.orders.show');
+});
+
+/**
  * FRONT QUIZ
  */
 Route::group(['namespace' => 'Front'], function(){

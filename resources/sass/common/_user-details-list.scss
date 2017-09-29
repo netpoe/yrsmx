@@ -1,0 +1,14 @@
+.user-details-list {
+  @include list-unstyled;
+  margin-bottom: get-spacer(3, y);
+  li {
+    @include flex-row;
+    margin-bottom: get-spacer(2, y);
+    strong {
+      width: 35%;
+    }
+    span {
+      width: 65%;
+    }
+  }
+}

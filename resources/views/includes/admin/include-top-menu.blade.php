@@ -10,6 +10,13 @@
       </ul>
     </div>
     <div class="top-menu-item">
+      <div><a href="{{ route('admin.orders.index') }}">Órdenes</a></div>
+      <ul class="top-menu-dropdown">
+        <li class="top-menu-sub-item"><a href="{{ route('admin.orders.index', ['status' => \App\Model\LuOrderStatusAdapter::PAID]) }}">Pagadas / Pendientes</a></li>
+        <li class="top-menu-sub-item"><a href="{{ route('admin.orders.index', ['status' => \App\Model\LuOrderStatusAdapter::IN_TRANSIT]) }}">En tránsito</a></li>
+      </ul>
+    </div>
+    <div class="top-menu-item">
       <div><a href="{{ route('admin.users.index') }}">Usuarios</a></div>
       <ul class="top-menu-dropdown">
         <li class="top-menu-sub-item"><a href="{{ route('admin.users.index', ['status' => 'quiz-completed']) }}">Listos para selección</a></li>

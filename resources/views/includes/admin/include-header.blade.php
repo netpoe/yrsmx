@@ -6,9 +6,9 @@
           <a href="#" class="logo-wrapper">
             YRSMX
           </a>
-          <div class="search-bar-wrapper">
+          {{-- <div class="search-bar-wrapper">
             <button class="btn btn-secondary" id="btn-search-trigger">Buscar: ctrl + s</button>
-          </div>
+          </div> --}}
         </div>
       </div>
       <div class="col-4 header-center"></div>
