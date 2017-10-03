@@ -60,7 +60,8 @@
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize"
-        ]
+        ],
+        "start": "cd yrsmxdock; docker-compose up -d nginx"
     },
     "config": {
         "preferred-install": "dist",

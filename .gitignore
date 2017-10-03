@@ -13,9 +13,9 @@ npm-debug.log
 .DS_STORE
 
 # laradock
-/vms/.idea
-/vms/logs
-/vms/data
-/vms/.env
-/vms/.project
-/vms/.docker-sync
+/yrsmxdock/.idea
+/yrsmxdock/logs
+/yrsmxdock/data
+/yrsmxdock/.env
+/yrsmxdock/.project
+/yrsmxdock/.docker-sync
