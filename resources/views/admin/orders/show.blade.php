@@ -13,6 +13,10 @@
           <div class="card-block">
             <ul class="user-details-list">
               <li><strong>Estatus:</strong><span>{{ $order->status->value }}</span></li>
+              <li><strong>Subtotal:</strong><span>{{ $order->getCart()->getSubtotal()->toCurrency() }}</span></li>
+              <li><strong>Descuento:</strong><span>{{ $order->getCart()->getDiscount()->toCurrency() }}</span></li>
+              <li><strong>Envío:</strong><span>{{ $order->getCart()->getShipping()->toCurrency() }}</span></li>
+              <li><strong>Total:</strong><span>{{ $order->getCart()->getTotalPlusTaxes()->toCurrency() }}</span></li>
             </ul>
           </div>
         </div>
