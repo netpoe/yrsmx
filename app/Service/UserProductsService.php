@@ -17,8 +17,6 @@ use App\Model\{
     UserAdapter as User,
     ProductsAdapter as Products,
     UserProductsAdapter as UserProducts,
-    RelProductsCategoriesAdapter as RelProductsCategories,
-    RelProductsAttributesAdapter as RelProductsAttributes,
     LuProductCategoriesAdapter as LuProductCategories,
     LuProductSubcategoriesAdapter as LuProductSubcategories,
     LuProductAttributesAdapter as LuProductAttributes,

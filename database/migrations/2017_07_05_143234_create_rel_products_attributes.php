@@ -13,7 +13,7 @@ class CreateRelProductsAttributes extends Migration
      */
     public function up()
     {
-        Schema::create('rel_products_attributes', function (Blueprint $table) {
+        Schema::create('products_attributes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id')->unsigned();
             $table->integer('attribute_id')->unsigned();
@@ -21,7 +21,7 @@ class CreateRelProductsAttributes extends Migration
             $table->timestamps();
         });
 
-        Schema::table('rel_products_attributes', function (Blueprint $table) {
+        Schema::table('products_attributes', function (Blueprint $table) {
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('attribute_id')->references('id')->on('lu_product_attributes');
             $table->foreign('subattribute_id')->references('id')->on('lu_product_subattributes');
@@ -35,16 +35,16 @@ class CreateRelProductsAttributes extends Migration
      */
     public function down()
     {
-        Schema::table('rel_products_attributes', function (Blueprint $table) {
+        Schema::table('products_attributes', function (Blueprint $table) {
             $table->dropForeign(['attribute_id']);
         });
-        Schema::table('rel_products_attributes', function (Blueprint $table) {
+        Schema::table('products_attributes', function (Blueprint $table) {
             $table->dropForeign(['subattribute_id']);
         });
-        Schema::table('rel_products_attributes', function (Blueprint $table) {
+        Schema::table('products_attributes', function (Blueprint $table) {
             $table->dropForeign(['product_id']);
         });
 
-        Schema::dropIfExists('rel_products_attributes');
+        Schema::dropIfExists('products_attributes');
     }
 }

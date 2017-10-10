@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class RelProductsGalleryAdapter extends RelProductsGallery
+class ProductsGalleryAdapter extends ProductsGallery
 {
     public function storeUnassignedFiles(Array $storage = [])
     {

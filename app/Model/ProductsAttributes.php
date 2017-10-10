@@ -4,9 +4,9 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class RelProductsAttributes extends Model
+class ProductsAttributes extends Model
 {
-    protected $table = 'rel_products_attributes';
+    protected $table = 'products_attributes';
 
     protected $fillable = [
         'product_id',

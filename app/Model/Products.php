@@ -10,17 +10,17 @@ class Products extends Model
 
     public function files()
     {
-        return $this->hasMany(\App\Model\RelProductsGalleryAdapter::class, 'product_id');
+        return $this->hasMany(\App\Model\ProductsGalleryAdapter::class, 'product_id');
     }
 
     public function attributes()
     {
-        return $this->hasMany(\App\Model\RelProductsAttributesAdapter::class, 'product_id');
+        return $this->hasMany(\App\Model\ProductsAttributesAdapter::class, 'product_id');
     }
 
     public function categories()
     {
-        return $this->hasMany(\App\Model\RelProductsCategoriesAdapter::class, 'product_id');
+        return $this->hasMany(\App\Model\ProductsCategoriesAdapter::class, 'product_id');
     }
 
     public function info()

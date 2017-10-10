@@ -15,8 +15,8 @@ use App\Model\{
     ProductsInfoAdapter as ProductsInfo,
     ProductsCostAdapter as ProductsCost,
     UserProductsAdapter as UserProducts,
-    RelProductsCategoriesAdapter as RelProductsCategories,
-    RelProductsAttributesAdapter as RelProductsAttributes,
+    ProductsCategoriesAdapter as ProductsCategories,
+    ProductsAttributesAdapter as ProductsAttributes,
     LuProductCategoriesAdapter as LuProductCategories,
     LuProductSubcategoriesAdapter as LuProductSubcategories,
     LuProductAttributesAdapter as LuProductAttributes,
@@ -44,7 +44,7 @@ use App\Model\{
     Product\BodyPart,
     UserStyle\Jewelry,
     OutfitType,
-    RelProductsGalleryAdapter as RelProductsGallery
+    ProductsGalleryAdapter as ProductsGallery
 };
 
 class ProductsWithAttributesAndCategoriesSeeder extends Seeder
@@ -172,7 +172,7 @@ class ProductsWithAttributesAndCategoriesSeeder extends Seeder
             'discount' => rand(0, 1) ? (rand(3, 25) / 100) : null,
         ]);
 
-        RelProductsGallery::create([
+        ProductsGallery::create([
             'product_id' => $product->id,
             'file_src' => $fileSrc,
             'filename' => 'product-' . rand(1, 100) . '.png',
@@ -183,7 +183,7 @@ class ProductsWithAttributesAndCategoriesSeeder extends Seeder
 
     public function addProductSubcategory(Product $product, ProductSubcategory $subcategory)
     {
-        RelProductsCategories::create([
+        ProductsCategories::create([
             'product_id' => $product->id,
             'category_id' => $subcategory->getCategoryId(),
             'subcategory_id' => $subcategory->getId(),
@@ -214,7 +214,7 @@ class ProductsWithAttributesAndCategoriesSeeder extends Seeder
     public function addProductAttributes(Product $product, ProductAttribute $attribute, Array $subattributeIds)
     {
         foreach ($subattributeIds as $subattributeId) {
-            RelProductsAttributes::create([
+            ProductsAttributes::create([
                 'product_id' => $product->id,
                 'attribute_id' => $attribute->getId(),
                 'subattribute_id' => $subattributeId,

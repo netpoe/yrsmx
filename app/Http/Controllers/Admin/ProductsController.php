@@ -13,15 +13,13 @@ use App\Entities\{
 };
 
 use App\Model\{
-    RelProductsGalleryAdapter as ProductsGallery,
+    ProductsGalleryAdapter as ProductsGallery,
     ProductsAdapter as Product,
     RelProductsOutfitAdapter as ProductsOutfit,
     LuProductSubcategoriesAdapter as LuProductSubcategories,
     LuProductCategoriesAdapter as LuProductCategories,
     LuProductSubattributesAdapter as LuProductSubattributes,
-    LuProductAttributesAdapter as LuProductAttributes,
-    RelProductsCategoriesAdapter as RelProductsCategories,
-    RelProductsAttributesAdapter as RelProductsAttributes
+    LuProductAttributesAdapter as LuProductAttributes
 };
 
 class ProductsController extends Controller

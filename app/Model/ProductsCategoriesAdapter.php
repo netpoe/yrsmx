@@ -2,11 +2,11 @@
 
 namespace App\Model;
 
-class RelProductsCategoriesAdapter extends RelProductsCategories
+class ProductsCategoriesAdapter extends ProductsCategories
 {
     public static function getProductId(Int $categoryId, Int $subcategoryId)
     {
-        $relProductSubcategory = RelProductsCategories::where('category_id', $categoryId)
+        $relProductSubcategory = ProductsCategories::where('category_id', $categoryId)
                                                 ->where('subcategory_id', $subcategoryId)
                                                 ->first();
 

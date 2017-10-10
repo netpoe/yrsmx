@@ -13,7 +13,7 @@ class CreateRelProductsGallery extends Migration
      */
     public function up()
     {
-        Schema::create('rel_products_gallery', function (Blueprint $table) {
+        Schema::create('products_gallery', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id')->unsigned()->nullable()->default(null);
             $table->string('filename');
@@ -22,7 +22,7 @@ class CreateRelProductsGallery extends Migration
             $table->timestamps();
         });
 
-        Schema::table('rel_products_gallery', function (Blueprint $table) {
+        Schema::table('products_gallery', function (Blueprint $table) {
             $table->foreign('product_id')->references('id')->on('products');
         });
     }
@@ -34,10 +34,10 @@ class CreateRelProductsGallery extends Migration
      */
     public function down()
     {
-        Schema::table('rel_products_gallery', function (Blueprint $table) {
+        Schema::table('products_gallery', function (Blueprint $table) {
             $table->dropForeign(['product_id']);
         });
 
-        Schema::dropIfExists('rel_products_gallery');
+        Schema::dropIfExists('products_gallery');
     }
 }
