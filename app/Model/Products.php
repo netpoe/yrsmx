@@ -22,4 +22,14 @@ class Products extends Model
     {
         return $this->hasMany(\App\Model\RelProductsCategoriesAdapter::class, 'product_id');
     }
+
+    public function info()
+    {
+        return $this->hasOne(\App\Model\ProductsInfoAdapter::class, 'product_id');
+    }
+
+    public function cost()
+    {
+        return $this->hasOne(\App\Model\ProductsCostAdapter::class, 'product_id');
+    }
 }

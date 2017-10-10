@@ -83,13 +83,21 @@ class UserProductsService
         error_log("Looking for products of TYPE: [{$this->currentProductType->getValue()} (ID {$this->currentProductType->getId()})] for user: [{$this->user->id}]");
         Log::info("Looking for products of TYPE: [{$this->currentProductType->getValue()} (ID {$this->currentProductType->getId()})] for user: [{$this->user->id}]");
 
-        $this->productsCollection = Products::with(['categories' => function($query){
+        $this->productsCollection = Products::with([
+            'categories' => function($query){
                 $query
                     ->where('category_id', LuProductCategories::TYPE)
                     ->where('subcategory_id', $this->currentProductType->getId());
-            }])
-            ->where('stock', '>', 0)
-            ->whereNotNull('cost')
+                },
+            'info' => function($query){
+                $query
+                    ->where('stock', '>', 0);
+                },
+            'cost' => function($query){
+                $query
+                    ->whereNotNull('cost');
+                },
+            ])
             ->get()
             ->filter(function($product){
                 return !$product->categories->isEmpty();
