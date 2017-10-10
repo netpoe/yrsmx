@@ -12,6 +12,8 @@ use App\Entities\{
 use App\Model\{
     UserAdapter as User,
     ProductsAdapter as Product,
+    ProductsInfoAdapter as ProductsInfo,
+    ProductsCostAdapter as ProductsCost,
     UserProductsAdapter as UserProducts,
     RelProductsCategoriesAdapter as RelProductsCategories,
     RelProductsAttributesAdapter as RelProductsAttributes,
@@ -155,12 +157,20 @@ class ProductsWithAttributesAndCategoriesSeeder extends Seeder
         $cost = rand(50, 500);
 
         $product = Product::create([
-            'stock' => rand(1, 5),
             'uploaded_by' => 1,
+            ]);
+
+        ProductsInfo::create([
+            'product_id' => $product->id,
+            'stock' => rand(1, 5),
+        ]);
+
+        ProductsCost::create([
+            'product_id' => $product->id,
             'cost' => $cost,
             'price' => $cost * (1 + (rand(3, 25) / 100)),
             'discount' => rand(0, 1) ? (rand(3, 25) / 100) : null,
-            ]);
+        ]);
 
         RelProductsGallery::create([
             'product_id' => $product->id,
