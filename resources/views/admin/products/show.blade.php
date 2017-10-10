@@ -35,7 +35,7 @@
           <div class="card-block">
             <ul class="product-details-list">
               <li><span>Nombre:</span> <input type="text" class="form-control form-control-sm"></li>
-              <li><span>Stock ({{ $product->stock }}):</span> <input type="number" class="form-control form-control-sm"></li>
+              <li><span>Stock ({{ $product->info->stock }}):</span> <input type="number" class="form-control form-control-sm"></li>
               <li><span>Usuarios:</span> <a href="#">#123</a>&nbsp;<a href="#">#324</a></li>
               <li><span>Órdenes:</span> <a href="#">#123</a>&nbsp;<a href="#">#324</a></li>
               <li><span>Carritos:</span> <a href="#">#123</a>&nbsp;<a href="#">#324</a></li>
