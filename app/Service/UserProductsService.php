@@ -21,7 +21,7 @@ use App\Model\{
     LuProductSubcategoriesAdapter as LuProductSubcategories,
     LuProductAttributesAdapter as LuProductAttributes,
     LuProductSubattributesAdapter as LuProductSubattributes,
-    UserStyle\Clothes,
+    User\Style\Clothes,
     UserOutfitsAdapter as UserOutfits,
     UserCartsAdapter as UserCarts
 };

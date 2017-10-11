@@ -4,12 +4,12 @@ namespace App\Model;
 
 use App\Model\{
     LuProductAttributesAdapter as LuProductAttributes,
-    UserStyle\Colors,
-    UserStyle\Prints,
-    UserStyle\Fabrics,
-    UserStyle\Words,
+    User\Style\Colors,
+    User\Style\Prints,
+    User\Style\Fabrics,
+    User\Style\Words,
     Product\BodyPart,
-    UserStyle\Jewelry,
+    User\Style\Jewelry,
     OutfitType
 };
 

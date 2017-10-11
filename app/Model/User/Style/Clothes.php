@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model\UserStyle;
+namespace App\Model\User\Style;
 
-use App\Model\UserStyleAdapter;
+use App\Model\User\UserStyleAdapter;
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
 use App\Model\LuProductCategoriesAdapter as LuProductCategories;

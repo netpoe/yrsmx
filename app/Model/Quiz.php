@@ -38,7 +38,7 @@ class Quiz extends Model
 
     public function userStyle()
     {
-        return $this->hasOne(\App\Model\UserStyleAdapter::class, 'quiz_id');
+        return $this->hasOne(\App\Model\User\UserStyleAdapter::class, 'quiz_id');
     }
 
     public function work()

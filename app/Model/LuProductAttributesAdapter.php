@@ -6,11 +6,11 @@ use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
 
 use App\Model\{
-    UserStyle\Colors,
-    UserStyle\Prints,
-    UserStyle\Fabrics,
-    UserStyle\Words,
-    UserStyle\Jewelry,
+    User\Style\Colors,
+    User\Style\Prints,
+    User\Style\Fabrics,
+    User\Style\Words,
+    User\Style\Jewelry,
     OutfitTypeAdapter as OutfitType,
     Product\BodyPart
 };

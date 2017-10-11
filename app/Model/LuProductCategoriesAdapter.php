@@ -8,13 +8,13 @@ use App\Form\{
 };
 
 use App\Model\{
-    UserStyle\Clothes,
+    User\Style\Clothes,
     User\PreferredBodyParts\BodyType,
     User\Fit\LowerPartFit,
     User\Fit\UpperPartFit,
     User\Fit\PantsFitHips,
     User\Fit\PantsFitShape,
-    UserStyle\Risk,
+    User\Style\Risk,
     User\Sizes\BlouseSizes,
     User\Sizes\BraBandSizes,
     User\Sizes\BraCupsSizes,
@@ -22,8 +22,8 @@ use App\Model\{
     User\Sizes\PantsSizes,
     User\Sizes\ShoesSizes,
     User\Sizes\SkirtSizes,
-    UserStyle\Shoes,
-    UserStyle\Accessories
+    User\Style\Shoes,
+    User\Style\Accessories
 };
 
 class LuProductCategoriesAdapter extends LuProductCategories implements InputOptionsContract

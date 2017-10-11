@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model\UserStyle;
+namespace App\Model\User\Style;
 
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
@@ -11,7 +11,7 @@ use App\Entities\{
 };
 
 use App\Model\{
-    UserStyleAdapter,
+    User\UserStyleAdapter,
     LuProductAttributesAdapter as LuProductAttributes
 };
 

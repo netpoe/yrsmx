@@ -8,7 +8,7 @@ use App\Entities\ProductCategory;
 
 use App\Model\{
     LuProductCategoriesAdapter as LuProductCategories,
-    UserStyle\Clothes,
+    User\Style\Clothes,
     ProductsAdapter as Products,
     UserOutfitsAdapter as UserOutfits
 };

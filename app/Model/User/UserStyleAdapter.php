@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\User;
 
-use App\Model\UserStyle\{ Colors, Prints, Fabrics, Words, Accessories, Shoes, Jewelry, Risk };
+use App\Model\User\Style\{ Colors, Prints, Fabrics, Words, Accessories, Shoes, Jewelry, Risk };
 
 class UserStyleAdapter extends UserStyle
 {
