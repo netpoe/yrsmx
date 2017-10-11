@@ -67,13 +67,13 @@ class ProductsAdapter extends Products
             ->get();
     }
 
-    public function price()
+    public function getPrice()
     {
-        return new NumberUtil($this->price);
+        return new NumberUtil($this->cost->price);
     }
 
-    public function discount()
+    public function getDiscount()
     {
-        return new NumberUtil($this->discount);
+        return new NumberUtil($this->cost->discount);
     }
 }

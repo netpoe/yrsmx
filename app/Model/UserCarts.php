@@ -15,6 +15,6 @@ class UserCarts extends Model
 
     public function userAddress()
     {
-        return $this->hasOne(\App\Model\UserAddressAdapter::class, 'id', 'user_address_id');
+        return $this->hasOne(\App\Model\User\UserAddressAdapter::class, 'id', 'user_address_id');
     }
 }

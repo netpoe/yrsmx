@@ -4,7 +4,7 @@ namespace App\Model;
 
 use App\User;
 use Illuminate\Support\Facades\Hash;
-use App\Model\UserAddressAdapter as UserAddress;
+use App\Model\User\UserAddressAdapter as UserAddress;
 use App\Model\User\UserInfoAdapter as UserInfo;
 use App\Model\LuUserRole;
 use App\Model\RelProductsOutfitAdapter as ProductsOutfit;

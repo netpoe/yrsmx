@@ -69,7 +69,7 @@ class Cart
         $subtotal = 0;
 
         $this->products->each(function($product) use (&$subtotal) {
-            $subtotal += $product->price;
+            $subtotal += $product->cost->price;
         });
 
         return new NumberUtil($subtotal);
@@ -80,8 +80,8 @@ class Cart
         $subtotal = 0;
 
         $this->products->each(function($product) use (&$subtotal) {
-            if ($product->discount) {
-                $subtotal += ($product->price * $product->discount);
+            if ($product->cost->discount) {
+                $subtotal += ($product->cost->price * $product->cost->discount);
             }
         });
 

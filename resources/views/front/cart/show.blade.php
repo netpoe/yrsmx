@@ -40,9 +40,9 @@
                     <div class="info">
                       <div>
                         <p class="name">{{ $product->name }}</p>
-                        <p class="price">Precio: {{ $product->price()->toCurrency() }}</p>
-                        @if ($product->discount()->toPercentageString())
-                          <p class="discount">Descuento: {{ $product->discount()->toPercentageString() }}</p>
+                        <p class="price">Precio: {{ $product->getPrice()->toCurrency() }}</p>
+                        @if ($product->getDiscount()->toPercentageString())
+                          <p class="discount">Descuento: {{ $product->getDiscount()->toPercentageString() }}</p>
                         @endif
                       </div>
                     </div>
