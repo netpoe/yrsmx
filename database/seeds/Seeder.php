@@ -10,7 +10,7 @@ use App\Model\{
     OutfitTypeAdapter as OutfitType,
     UserSizesAdapter as UserSizes,
     UserPreferredBodyPartsAdapter as UserPreferredBodyParts,
-    UserFitAdapter as UserFit,
+    User\UserFitAdapter as UserFit,
     UserStyleAdapter as UserStyle,
     User\Info\GenderId,
     LuProductCategoriesAdapter as LuProductCategories,

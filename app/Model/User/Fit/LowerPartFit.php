@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Model\UserFit;
+namespace App\Model\User\Fit;
 
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
 
 use App\Model\{
-    UserFitAdapter as UserFit,
+    User\UserFitAdapter as UserFit,
     LuProductCategoriesAdapter as LuProductCategories
 };
 
