@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Model\{
     UserSizesAdapter as UserSizes,
-    UserPreferredBodyPartsAdapter as UserPreferredBodyParts,
+    User\UserPreferredBodyPartsAdapter as UserPreferredBodyParts,
     User\UserFitAdapter as UserFit,
     UserStyleAdapter as UserStyle,
     OutfitTypeAdapter as OutfitType,

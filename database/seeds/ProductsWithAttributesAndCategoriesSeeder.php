@@ -22,7 +22,7 @@ use App\Model\{
     LuProductAttributesAdapter as LuProductAttributes,
     LuProductSubattributesAdapter as LuProductSubattributes,
     UserStyle\Clothes,
-    UserPreferredBodyParts\BodyType,
+    User\PreferredBodyParts\BodyType,
     User\Fit\LowerPartFit,
     User\Fit\UpperPartFit,
     User\Fit\PantsFitHips,

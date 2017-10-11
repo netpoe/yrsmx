@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Model\UserPreferredBodyParts;
+namespace App\Model\User\PreferredBodyParts;
 
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
 
 use App\Model\{
-    UserPreferredBodyPartsAdapter as UserPreferredBodyParts,
+    User\UserPreferredBodyPartsAdapter as UserPreferredBodyParts,
     LuProductCategoriesAdapter as LuProductCategories
 };
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\User;
 
-use App\Model\UserPreferredBodyParts\BodyType;
+use App\Model\User\PreferredBodyParts\BodyType;
 
 class UserPreferredBodyPartsAdapter extends UserPreferredBodyParts
 {

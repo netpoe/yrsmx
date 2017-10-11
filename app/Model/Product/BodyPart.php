@@ -8,7 +8,7 @@ use App\Form\Traits\InputOptionsTrait;
 
 use App\Model\{
     LuProductAttributesAdapter as LuProductAttributes,
-    UserPreferredBodyPartsAdapter as UserPreferredBodyParts
+    User\UserPreferredBodyPartsAdapter as UserPreferredBodyParts
 };
 
 class BodyPart extends UserPreferredBodyParts implements InputOptionsContract

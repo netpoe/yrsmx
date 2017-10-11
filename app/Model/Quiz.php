@@ -28,7 +28,7 @@ class Quiz extends Model
 
     public function userPreferredBodyParts()
     {
-        return $this->hasOne(\App\Model\UserPreferredBodyPartsAdapter::class, 'quiz_id');
+        return $this->hasOne(\App\Model\User\UserPreferredBodyPartsAdapter::class, 'quiz_id');
     }
 
     public function userFit()

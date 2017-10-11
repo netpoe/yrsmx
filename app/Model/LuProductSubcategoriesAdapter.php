@@ -4,7 +4,7 @@ namespace App\Model;
 
 use App\Model\{
     LuProductCategoriesAdapter as LuProductCategories,
-    UserPreferredBodyParts\BodyType,
+    User\PreferredBodyParts\BodyType,
     User\Fit\LowerPartFit,
     User\Fit\UpperPartFit,
     User\Fit\PantsFitShape,

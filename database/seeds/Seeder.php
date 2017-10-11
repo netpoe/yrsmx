@@ -9,7 +9,7 @@ use App\Model\{
     QuizAdapter as Quiz,
     OutfitTypeAdapter as OutfitType,
     UserSizesAdapter as UserSizes,
-    UserPreferredBodyPartsAdapter as UserPreferredBodyParts,
+    User\UserPreferredBodyPartsAdapter as UserPreferredBodyParts,
     User\UserFitAdapter as UserFit,
     UserStyleAdapter as UserStyle,
     User\Info\GenderId,

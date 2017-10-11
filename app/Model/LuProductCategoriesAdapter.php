@@ -9,7 +9,7 @@ use App\Form\{
 
 use App\Model\{
     UserStyle\Clothes,
-    UserPreferredBodyParts\BodyType,
+    User\PreferredBodyParts\BodyType,
     User\Fit\LowerPartFit,
     User\Fit\UpperPartFit,
     User\Fit\PantsFitHips,
