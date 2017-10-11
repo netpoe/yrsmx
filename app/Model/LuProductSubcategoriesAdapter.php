@@ -14,13 +14,13 @@ use App\Model\{
     UserStyle\Accessories,
     UserStyle\Risk,
     UserStyle\Shoes,
-    UserSizes\BlouseSizes,
-    UserSizes\BraBandSizes,
-    UserSizes\BraCupsSizes,
-    UserSizes\DressSizes,
-    UserSizes\PantsSizes,
-    UserSizes\ShoesSizes,
-    UserSizes\SkirtSizes
+    User\Sizes\BlouseSizes,
+    User\Sizes\BraBandSizes,
+    User\Sizes\BraCupsSizes,
+    User\Sizes\DressSizes,
+    User\Sizes\PantsSizes,
+    User\Sizes\ShoesSizes,
+    User\Sizes\SkirtSizes
 };
 
 class LuProductSubcategoriesAdapter extends LuProductSubcategories

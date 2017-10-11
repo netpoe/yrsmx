@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Model\UserSizes;
+namespace App\Model\User\Sizes;
 
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
 
 use App\Model\{
-    UserSizesAdapter as UserSizes,
+    User\UserSizesAdapter as UserSizes,
     LuProductCategoriesAdapter as LuProductCategories
 };
 
-class SkirtSizes extends UserSizes implements InputOptionsContract
+class DressSizes extends UserSizes implements InputOptionsContract
 {
     use InputOptionsTrait;
 
-    const CATEGORY_ID = LuProductCategories::SIZE_SKIRT;
+    const CATEGORY_ID = LuProductCategories::SIZE_DRESS;
 
-    const COLUMN = 'skirt';
+    const COLUMN = 'dress';
 
     const ECH = 'ECH';
     const CH = 'CH';

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Model\UserSizes;
+namespace App\Model\User\Sizes;
 
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
 
 use App\Model\{
-    UserSizesAdapter as UserSizes,
+    User\UserSizesAdapter as UserSizes,
     LuProductCategoriesAdapter as LuProductCategories
 };
 

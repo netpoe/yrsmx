@@ -43,7 +43,7 @@ class User extends Authenticatable
 
     public function sizes()
     {
-        return $this->hasMany(\App\Model\UserSizesAdapter::class, 'user_id');
+        return $this->hasMany(\App\Model\User\UserSizesAdapter::class, 'user_id');
     }
 
     public function info()

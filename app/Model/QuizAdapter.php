@@ -5,7 +5,7 @@ namespace App\Model;
 use Illuminate\Support\Facades\DB;
 
 use App\Model\{
-    UserSizesAdapter as UserSizes,
+    User\UserSizesAdapter as UserSizes,
     User\UserPreferredBodyPartsAdapter as UserPreferredBodyParts,
     User\UserFitAdapter as UserFit,
     UserStyleAdapter as UserStyle,

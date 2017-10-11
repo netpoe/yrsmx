@@ -23,7 +23,7 @@ class Quiz extends Model
 
     public function userSizes()
     {
-        return $this->hasOne(\App\Model\UserSizesAdapter::class, 'quiz_id');
+        return $this->hasOne(\App\Model\User\UserSizesAdapter::class, 'quiz_id');
     }
 
     public function userPreferredBodyParts()
