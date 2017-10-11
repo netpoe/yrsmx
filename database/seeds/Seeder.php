@@ -12,7 +12,7 @@ use App\Model\{
     UserPreferredBodyPartsAdapter as UserPreferredBodyParts,
     UserFitAdapter as UserFit,
     UserStyleAdapter as UserStyle,
-    UserInfo\GenderId,
+    User\Info\GenderId,
     LuProductCategoriesAdapter as LuProductCategories,
     LuProductAttributesAdapter as LuProductAttributes
 };

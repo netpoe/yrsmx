@@ -48,7 +48,7 @@ class User extends Authenticatable
 
     public function info()
     {
-        return $this->hasOne(\App\Model\UserInfoAdapter::class, 'user_id');
+        return $this->hasOne(\App\Model\User\UserInfoAdapter::class, 'user_id');
     }
 
     public function role()

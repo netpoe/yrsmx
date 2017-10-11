@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model\UserInfo;
+namespace App\Model\User\Info;
 
-use App\Model\UserInfoAdapter as UserInfo;
+use App\Model\User\UserInfoAdapter as UserInfo;
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
 

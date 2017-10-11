@@ -8,7 +8,7 @@ use Faker\Factory as FakerFactory;
 use App\Model\{
     UserAdapter as User,
     LuUserRole,
-    UserInfoAdapter as UserInfo
+    User\UserInfoAdapter as UserInfo
 };
 
 class SuperAdminUserSeeder extends Seeder
