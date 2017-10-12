@@ -10,7 +10,7 @@ use App\Model\{
     Dictionary\LuProductCategoriesAdapter as LuProductCategories,
     User\Style\Clothes,
     ProductsAdapter as Products,
-    UserOutfitsAdapter as UserOutfits
+    User\UserOutfitsAdapter as UserOutfits
 };
 
 /**

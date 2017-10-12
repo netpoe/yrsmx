@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 
 use App\Model\{
     UserAdapter as User,
-    UserOutfitsAdapter as UserOutfits,
+    User\UserOutfitsAdapter as UserOutfits,
     User\UserProductsAdapter as UserProducts
 };
 

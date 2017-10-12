@@ -22,7 +22,7 @@ use App\Model\{
     Dictionary\LuProductAttributesAdapter as LuProductAttributes,
     Dictionary\LuProductSubattributesAdapter as LuProductSubattributes,
     User\Style\Clothes,
-    UserOutfitsAdapter as UserOutfits,
+    User\UserOutfitsAdapter as UserOutfits,
     User\UserCartsAdapter as UserCarts
 };
 
