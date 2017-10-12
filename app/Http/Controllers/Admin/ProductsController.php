@@ -13,7 +13,7 @@ use App\Entities\{
 };
 
 use App\Model\{
-    ProductsGalleryAdapter as ProductsGallery,
+    Product\ProductsGalleryAdapter as ProductsGallery,
     ProductsAdapter as Product,
     RelProductsOutfitAdapter as ProductsOutfit,
     Dictionary\LuProductSubcategoriesAdapter as LuProductSubcategories,

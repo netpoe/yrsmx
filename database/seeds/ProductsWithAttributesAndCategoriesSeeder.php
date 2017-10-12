@@ -12,11 +12,11 @@ use App\Entities\{
 use App\Model\{
     UserAdapter as User,
     ProductsAdapter as Product,
-    ProductsInfoAdapter as ProductsInfo,
-    ProductsCostAdapter as ProductsCost,
+    Product\ProductsInfoAdapter as ProductsInfo,
+    Product\ProductsCostAdapter as ProductsCost,
     User\UserProductsAdapter as UserProducts,
-    ProductsCategoriesAdapter as ProductsCategories,
-    ProductsAttributesAdapter as ProductsAttributes,
+    Product\ProductsCategoriesAdapter as ProductsCategories,
+    Product\ProductsAttributesAdapter as ProductsAttributes,
     Dictionary\LuProductCategoriesAdapter as LuProductCategories,
     Dictionary\LuProductSubcategoriesAdapter as LuProductSubcategories,
     Dictionary\LuProductAttributesAdapter as LuProductAttributes,
@@ -44,7 +44,7 @@ use App\Model\{
     User\PreferredBodyParts\BodyPart,
     User\Style\Jewelry,
     OutfitType,
-    ProductsGalleryAdapter as ProductsGallery
+    Product\ProductsGalleryAdapter as ProductsGallery
 };
 
 class ProductsWithAttributesAndCategoriesSeeder extends Seeder

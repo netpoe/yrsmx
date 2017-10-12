@@ -4,8 +4,8 @@ namespace App\Model;
 
 use App\Model\{
     RelProductsOutfitAdapter as ProductsOutfit,
-    ProductsCategoriesAdapter as ProductsCategories,
-    ProductsAttributesAdapter as ProductsAttributes
+    Product\ProductsCategoriesAdapter as ProductsCategories,
+    Product\ProductsAttributesAdapter as ProductsAttributes
 };
 
 use App\Util\NumberUtil;
