@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\Quiz;
 
-use App\Model\QuizGetAway\Destination;
-use App\Model\QuizGetAway\TripType;
-use App\Model\QuizGetAway\Weather;
+use App\Model\Quiz\GetAway\Destination;
+use App\Model\Quiz\GetAway\TripType;
+use App\Model\Quiz\GetAway\Weather;
 
 class QuizGetAwayAdapter extends QuizGetAway
 {

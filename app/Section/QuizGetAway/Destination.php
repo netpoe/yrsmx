@@ -4,7 +4,7 @@ namespace App\Section\QuizGetAway;
 
 use App\Section\AbstractQuizGetAwaySection;
 use EBM\Field\Field;
-use App\Model\QuizGetAway\Destination as UserDestination;
+use App\Model\Quiz\GetAway\Destination as UserDestination;
 
 class Destination extends AbstractQuizGetAwaySection
 {

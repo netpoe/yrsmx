@@ -4,9 +4,9 @@ namespace App\Section\QuizGetAway;
 
 use App\Section\AbstractQuizGetAwaySection;
 use EBM\Field\Field;
-use App\Model\QuizGetAway\TripType as UserTripType;
-use App\Model\QuizGetAway\Destination;
-use App\Model\QuizGetAway\Weather;
+use App\Model\Quiz\GetAway\TripType as UserTripType;
+use App\Model\Quiz\GetAway\Destination;
+use App\Model\Quiz\GetAway\Weather;
 
 class TripType extends AbstractQuizGetAwaySection
 {

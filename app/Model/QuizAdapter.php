@@ -11,7 +11,7 @@ use App\Model\{
     User\UserStyleAdapter as UserStyle,
     OutfitTypeAdapter as OutfitType,
     Quiz\QuizWorkAdapter as QuizWork,
-    QuizGetAwayAdapter as QuizGetAway
+    Quiz\QuizGetAwayAdapter as QuizGetAway
 };
 
 class QuizAdapter extends Quiz

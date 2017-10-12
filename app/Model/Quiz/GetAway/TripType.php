@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model\QuizGetAway;
+namespace App\Model\Quiz\GetAway;
 
-use App\Model\QuizGetAwayAdapter;
+use App\Model\Quiz\QuizGetAwayAdapter;
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
 
