@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\Order\Type;
 
 class OrderTypePayPalAdapter extends OrderTypePayPal
 {
