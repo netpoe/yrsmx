@@ -11,7 +11,7 @@ use App\Entities\Cart;
 use App\Model\{
     UserAdapter as User,
     UserOutfitsAdapter as UserOutfits,
-    UserProductsAdapter as UserProducts
+    User\UserProductsAdapter as UserProducts
 };
 
 class CartController extends Controller

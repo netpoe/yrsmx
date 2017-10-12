@@ -14,7 +14,7 @@ use App\Model\{
     ProductsAdapter as Product,
     ProductsInfoAdapter as ProductsInfo,
     ProductsCostAdapter as ProductsCost,
-    UserProductsAdapter as UserProducts,
+    User\UserProductsAdapter as UserProducts,
     ProductsCategoriesAdapter as ProductsCategories,
     ProductsAttributesAdapter as ProductsAttributes,
     Dictionary\LuProductCategoriesAdapter as LuProductCategories,

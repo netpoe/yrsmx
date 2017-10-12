@@ -60,7 +60,7 @@ class User extends Authenticatable
     {
         return $this->hasManyThrough(
             \App\Model\ProductsAdapter::class,
-            \App\Model\UserProductsAdapter::class,
+            \App\Model\User\UserProductsAdapter::class,
             'user_id',
             'id'
             );

@@ -16,7 +16,7 @@ use App\Entities\{
 use App\Model\{
     UserAdapter as User,
     ProductsAdapter as Products,
-    UserProductsAdapter as UserProducts,
+    User\UserProductsAdapter as UserProducts,
     Dictionary\LuProductCategoriesAdapter as LuProductCategories,
     Dictionary\LuProductSubcategoriesAdapter as LuProductSubcategories,
     Dictionary\LuProductAttributesAdapter as LuProductAttributes,

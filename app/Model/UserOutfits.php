@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Model\{
     ProductsAdapter as Products,
-    UserProductsAdapter as UserProducts
+    User\UserProductsAdapter as UserProducts
 };
 
 class UserOutfits extends Model

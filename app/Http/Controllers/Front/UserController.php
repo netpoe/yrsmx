@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Model\{
     UserAdapter as User,
     UserOutfitsAdapter as UserOutfits,
-    UserProductsAdapter as UserProducts
+    User\UserProductsAdapter as UserProducts
 };
 
 class UserController extends Controller
