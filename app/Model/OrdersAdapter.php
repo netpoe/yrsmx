@@ -3,7 +3,7 @@
 namespace App\Model;
 
 use App\Entities\Cart;
-use App\Model\UserCartsAdapter as UserCart;
+use App\Model\User\UserCartsAdapter as UserCart;
 
 class OrdersAdapter extends Orders
 {

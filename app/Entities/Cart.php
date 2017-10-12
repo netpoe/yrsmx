@@ -5,7 +5,7 @@ namespace App\Entities;
 use Illuminate\Database\Eloquent\Collection;
 
 use App\Util\NumberUtil;
-use App\Model\UserCartsAdapter as UserCart;
+use App\Model\User\UserCartsAdapter as UserCart;
 use App\Service\ShippingService;
 
 use Netpoe\EstafetaAPI\{

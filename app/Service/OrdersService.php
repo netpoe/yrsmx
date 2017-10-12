@@ -4,7 +4,7 @@ namespace App\Service;
 
 use App\Model\{
     UserAdapter as User,
-    UserCartsAdapter as UserCarts,
+    User\UserCartsAdapter as UserCarts,
     OrdersAdapter as Orders,
     OrderTypePayPalAdapter as OrderTypePayPal,
     Dictionary\LuOrderStatusAdapter as LuOrderStatus
