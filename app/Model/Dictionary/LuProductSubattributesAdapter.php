@@ -8,7 +8,7 @@ use App\Model\{
     User\Style\Prints,
     User\Style\Fabrics,
     User\Style\Words,
-    Product\BodyPart,
+    User\PreferredBodyParts\BodyPart,
     User\Style\Jewelry,
     OutfitType
 };

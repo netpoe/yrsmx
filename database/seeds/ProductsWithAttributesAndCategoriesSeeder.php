@@ -41,7 +41,7 @@ use App\Model\{
     User\Style\Accessories,
     User\Style\Fabrics,
     User\Style\Words,
-    Product\BodyPart,
+    User\PreferredBodyParts\BodyPart,
     User\Style\Jewelry,
     OutfitType,
     ProductsGalleryAdapter as ProductsGallery

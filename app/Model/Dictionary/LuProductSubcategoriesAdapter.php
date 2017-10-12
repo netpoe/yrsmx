@@ -10,7 +10,6 @@ use App\Model\{
     User\Fit\PantsFitShape,
     User\Fit\PantsFitHips,
     User\Style\Clothes,
-    Product\ProductType,
     User\Style\Accessories,
     User\Style\Risk,
     User\Style\Shoes,

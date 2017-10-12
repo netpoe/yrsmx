@@ -12,7 +12,7 @@ use App\Model\{
     User\Style\Words,
     User\Style\Jewelry,
     OutfitTypeAdapter as OutfitType,
-    Product\BodyPart
+    User\PreferredBodyParts\BodyPart
 };
 
 class LuProductAttributesAdapter extends LuProductAttributes implements InputOptionsContract

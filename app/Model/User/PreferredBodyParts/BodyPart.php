@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model\Product;
+namespace App\Model\User\PreferredBodyParts;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Form\Contract\InputOptionsContract;
