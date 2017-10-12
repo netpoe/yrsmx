@@ -27,13 +27,6 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'namespace' => 'Admin'], f
 });
 
 /**
- * ADMIN OUTFITS
- */
-Route::group(['middleware' => ['auth', 'auth.admin'], 'namespace' => 'Admin'], function(){
-    Route::post('/admin/outfits/create/{user}', 'OutfitsController@create')->name('admin.outfits.create');
-});
-
-/**
  * ADMIN USERS
  */
 Route::group(['middleware' => ['auth', 'auth.admin'], 'namespace' => 'Admin'], function(){

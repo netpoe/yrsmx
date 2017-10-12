@@ -3,7 +3,6 @@
 namespace App\Model;
 
 use App\Model\{
-    RelProductsOutfitAdapter as ProductsOutfit,
     Product\ProductsCategoriesAdapter as ProductsCategories,
     Product\ProductsAttributesAdapter as ProductsAttributes
 };
@@ -12,17 +11,6 @@ use App\Util\NumberUtil;
 
 class ProductsAdapter extends Products
 {
-    public function getUnassignedProducts()
-    {
-        $assignedProducts = ProductsOutfit::pluck('product_id')->all();
-
-        return $this->whereNotIn('products.id', $assignedProducts)
-            ->join('products_gallery', 'products_gallery.product_id', 'products.id')
-            ->where('stock', '>', 0)
-            ->groupBy('products_gallery.product_id')
-            ->get();
-    }
-
     public function assignCategories(Array $categories)
     {
         foreach ($categories as $categoryId => $subcategoryId) {

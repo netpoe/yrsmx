@@ -15,7 +15,6 @@ use App\Entities\{
 use App\Model\{
     Product\ProductsGalleryAdapter as ProductsGallery,
     ProductsAdapter as Product,
-    RelProductsOutfitAdapter as ProductsOutfit,
     Dictionary\LuProductSubcategoriesAdapter as LuProductSubcategories,
     Dictionary\LuProductCategoriesAdapter as LuProductCategories,
     Dictionary\LuProductSubattributesAdapter as LuProductSubattributes,
