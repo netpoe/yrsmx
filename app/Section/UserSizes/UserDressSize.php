@@ -8,7 +8,7 @@ use App\Section\AbstractUserSizesSection;
 use App\Entities\ProductCategory;
 
 use App\Model\{
-    LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\LuProductCategoriesAdapter as LuProductCategories
 };
 
 class UserDressSize extends AbstractUserSizesSection

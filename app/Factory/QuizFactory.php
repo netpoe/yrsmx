@@ -7,7 +7,7 @@ use App\Quiz\AbstractUIQuiz;
 use App\Model\{
     OutfitTypeAdapter as OutfitType,
     UserAdapter as User,
-    LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\LuProductAttributesAdapter as LuProductAttributes
 };
 
 use App\Entities\ProductAttribute;

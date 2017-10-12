@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\Dictionary;
 
 use App\Model\{
-    LuProductAttributesAdapter as LuProductAttributes,
+    Dictionary\LuProductAttributesAdapter as LuProductAttributes,
     User\Style\Colors,
     User\Style\Prints,
     User\Style\Fabrics,

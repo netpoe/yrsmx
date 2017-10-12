@@ -7,7 +7,7 @@ use EBM\Field\Field;
 
 use App\Model\{
     OutfitType,
-    LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\LuProductAttributesAdapter as LuProductAttributes
 };
 
 use App\Entities\ProductAttribute;

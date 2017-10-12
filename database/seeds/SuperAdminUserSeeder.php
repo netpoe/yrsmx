@@ -7,7 +7,7 @@ use Faker\Factory as FakerFactory;
 
 use App\Model\{
     UserAdapter as User,
-    LuUserRole,
+    Dictionary\LuUserRole,
     User\UserInfoAdapter as UserInfo
 };
 

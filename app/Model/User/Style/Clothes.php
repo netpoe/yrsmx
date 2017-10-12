@@ -5,7 +5,7 @@ namespace App\Model\User\Style;
 use App\Model\User\UserStyleAdapter;
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
-use App\Model\LuProductCategoriesAdapter as LuProductCategories;
+use App\Model\Dictionary\LuProductCategoriesAdapter as LuProductCategories;
 
 class Clothes extends UserStyleAdapter implements InputOptionsContract
 {

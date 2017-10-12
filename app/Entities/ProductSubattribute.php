@@ -3,7 +3,7 @@
 namespace App\Entities;
 
 use App\Model\{
-    LuProductSubattributesAdapter as LuProductSubattributes
+    Dictionary\LuProductSubattributesAdapter as LuProductSubattributes
 };
 
 class ProductSubattribute

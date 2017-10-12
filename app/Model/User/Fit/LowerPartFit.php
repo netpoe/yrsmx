@@ -7,7 +7,7 @@ use App\Form\Traits\InputOptionsTrait;
 
 use App\Model\{
     User\UserFitAdapter as UserFit,
-    LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\LuProductCategoriesAdapter as LuProductCategories
 };
 
 class LowerPartFit extends UserFit implements InputOptionsContract

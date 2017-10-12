@@ -7,7 +7,7 @@ use App\Form\Traits\InputOptionsTrait;
 
 use App\Model\{
     User\UserSizesAdapter as UserSizes,
-    LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\LuProductCategoriesAdapter as LuProductCategories
 };
 
 class PantsSizes extends UserSizes implements InputOptionsContract

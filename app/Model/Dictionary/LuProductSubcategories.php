@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\Dictionary;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,6 +12,6 @@ class LuProductSubcategories extends Model
 
     public function category()
     {
-        return $this->hasOne(\App\Model\LuProductCategoriesAdapter::class, 'id', 'category_id');
+        return $this->hasOne(\App\Model\Dictionary\LuProductCategoriesAdapter::class, 'id', 'category_id');
     }
 }

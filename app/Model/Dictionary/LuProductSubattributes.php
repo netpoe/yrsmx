@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\Dictionary;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,6 +12,6 @@ class LuProductSubattributes extends Model
 
     public function attribute()
     {
-        return $this->hasOne(\App\Model\LuProductAttributesAdapter::class, 'id', 'attribute_id');
+        return $this->hasOne(\App\Model\Dictionary\LuProductAttributesAdapter::class, 'id', 'attribute_id');
     }
 }

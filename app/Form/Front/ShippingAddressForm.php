@@ -6,8 +6,8 @@ use EBM\Form\AbstractBaseForm;
 use EBM\Field\Field;
 
 use App\Model\{
-    LuAddressCountriesAdapter as LuAddressCountries,
-    LuAddressStatesAdapter as LuAddressStates
+    Dictionary\LuAddressCountriesAdapter as LuAddressCountries,
+    Dictionary\LuAddressStatesAdapter as LuAddressStates
 };
 
 use App\Entities\ProductAttribute;

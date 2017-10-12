@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\Dictionary;
 
 use App\Model\{
-    LuProductCategoriesAdapter as LuProductCategories,
+    Dictionary\LuProductCategoriesAdapter as LuProductCategories,
     User\PreferredBodyParts\BodyType,
     User\Fit\LowerPartFit,
     User\Fit\UpperPartFit,

@@ -8,7 +8,7 @@ use App\Model\{
     User\UserSizesAdapter as UserSizes,
     User\UserPreferredBodyPartsAdapter as UserPreferredBodyParts,
     User\UserFitAdapter as UserFit,
-    UserStyleAdapter as UserStyle,
+    User\UserStyleAdapter as UserStyle,
     OutfitTypeAdapter as OutfitType,
     QuizWorkAdapter as QuizWork,
     QuizGetAwayAdapter as QuizGetAway

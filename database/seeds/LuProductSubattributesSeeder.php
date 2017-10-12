@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 
 use App\Model\{
-    LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\LuProductAttributesAdapter as LuProductAttributes
 };
 
 class LuProductSubattributesSeeder extends Seeder

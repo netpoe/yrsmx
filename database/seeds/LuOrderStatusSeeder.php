@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Model\LuOrderStatusAdapter as LuOrderStatus;
+use App\Model\Dictionary\LuOrderStatusAdapter as LuOrderStatus;
 
 class LuOrderStatusSeeder extends Seeder
 {

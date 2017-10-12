@@ -7,7 +7,7 @@ use App\Section\AbstractUserPreferredBodyPartsSection;
 use App\Entities\ProductAttribute;
 
 use App\Model\{
-    LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\LuProductAttributesAdapter as LuProductAttributes
 };
 
 class BodyParts extends AbstractUserPreferredBodyPartsSection

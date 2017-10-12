@@ -7,7 +7,7 @@ use App\Section\AbstractUserPreferredBodyPartsSection;
 use App\Entities\ProductCategory;
 
 use App\Model\{
-    LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\LuProductCategoriesAdapter as LuProductCategories
 };
 
 class BodyType extends AbstractUserPreferredBodyPartsSection

@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->hasOne(\App\Model\LuUserRole::class, 'id', 'role_id');
+        return $this->hasOne(\App\Model\Dictionary\LuUserRole::class, 'id', 'role_id');
     }
 
     public function products()

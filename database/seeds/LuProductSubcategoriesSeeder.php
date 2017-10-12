@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 
 use App\Model\{
-    LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\LuProductCategoriesAdapter as LuProductCategories
 };
 
 class LuProductSubcategoriesSeeder extends Seeder

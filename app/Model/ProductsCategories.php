@@ -21,6 +21,6 @@ class ProductsCategories extends Model
 
     public function subcategory()
     {
-        return $this->hasOne(\App\Model\LuProductSubcategoriesAdapter::class, 'id', 'subcategory_id');
+        return $this->hasOne(\App\Model\Dictionary\LuProductSubcategoriesAdapter::class, 'id', 'subcategory_id');
     }
 }

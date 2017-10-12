@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Model\LuProductAttributesAdapter as LuProductAttributes;
+use App\Model\Dictionary\LuProductAttributesAdapter as LuProductAttributes;
 
 class LuProductAttributesSeeder extends Seeder
 {

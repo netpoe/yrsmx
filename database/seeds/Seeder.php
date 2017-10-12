@@ -11,10 +11,10 @@ use App\Model\{
     User\UserSizesAdapter as UserSizes,
     User\UserPreferredBodyPartsAdapter as UserPreferredBodyParts,
     User\UserFitAdapter as UserFit,
-    UserStyleAdapter as UserStyle,
+    User\UserStyleAdapter as UserStyle,
     User\Info\GenderId,
-    LuProductCategoriesAdapter as LuProductCategories,
-    LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\LuProductCategoriesAdapter as LuProductCategories,
+    Dictionary\LuProductAttributesAdapter as LuProductAttributes
 };
 
 use App\Util\DateTimeUtil;

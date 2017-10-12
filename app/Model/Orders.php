@@ -20,7 +20,7 @@ class Orders extends Model
 
     public function status()
     {
-        return $this->hasOne(\App\Model\LuOrderStatusAdapter::class, 'id', 'status_id');
+        return $this->hasOne(\App\Model\Dictionary\LuOrderStatusAdapter::class, 'id', 'status_id');
     }
 
     public function address()

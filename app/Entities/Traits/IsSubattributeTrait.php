@@ -2,7 +2,7 @@
 
 namespace App\Entities\Traits;
 
-use App\Model\LuProductSubattributesAdapter as LuProductSubattributes;
+use App\Model\Dictionary\LuProductSubattributesAdapter as LuProductSubattributes;
 
 trait IsSubattributeTrait
 {

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Model\LuUserRole;
+use App\Model\Dictionary\LuUserRole;
 
 class LuUserRolesSeeder extends Seeder
 {

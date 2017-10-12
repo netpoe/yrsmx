@@ -53,7 +53,7 @@ class ProductsAdapter extends Products
 
     public function subattributes()
     {
-        return \App\Model\LuProductSubattributesAdapter::join(
+        return \App\Model\Dictionary\LuProductSubattributesAdapter::join(
             'products_attributes', 'products_attributes.subattribute_id', 'lu_product_subattributes.id')
             ->where('products_attributes.product_id', $this->id)
             ->get();
@@ -61,7 +61,7 @@ class ProductsAdapter extends Products
 
     public function subcategories()
     {
-        return \App\Model\LuProductSubcategoriesAdapter::join(
+        return \App\Model\Dictionary\LuProductSubcategoriesAdapter::join(
             'products_categories', 'products_categories.subcategory_id', 'lu_product_subcategories.id')
             ->where('products_categories.product_id', $this->id)
             ->get();

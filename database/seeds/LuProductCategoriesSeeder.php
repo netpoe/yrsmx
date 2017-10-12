@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Model\LuProductCategoriesAdapter as LuProductCategories;
+use App\Model\Dictionary\LuProductCategoriesAdapter as LuProductCategories;
 
 class LuProductCategoriesSeeder extends Seeder
 {

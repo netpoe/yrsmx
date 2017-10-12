@@ -16,10 +16,10 @@ use App\Model\{
     ProductsGalleryAdapter as ProductsGallery,
     ProductsAdapter as Product,
     RelProductsOutfitAdapter as ProductsOutfit,
-    LuProductSubcategoriesAdapter as LuProductSubcategories,
-    LuProductCategoriesAdapter as LuProductCategories,
-    LuProductSubattributesAdapter as LuProductSubattributes,
-    LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\LuProductSubcategoriesAdapter as LuProductSubcategories,
+    Dictionary\LuProductCategoriesAdapter as LuProductCategories,
+    Dictionary\LuProductSubattributesAdapter as LuProductSubattributes,
+    Dictionary\LuProductAttributesAdapter as LuProductAttributes
 };
 
 class ProductsController extends Controller

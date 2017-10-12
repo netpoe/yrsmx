@@ -7,7 +7,7 @@ use App\Model\{
     UserCartsAdapter as UserCarts,
     OrdersAdapter as Orders,
     OrderTypePayPalAdapter as OrderTypePayPal,
-    LuOrderStatusAdapter as LuOrderStatus
+    Dictionary\LuOrderStatusAdapter as LuOrderStatus
 };
 
 class OrdersService

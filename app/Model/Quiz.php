@@ -53,6 +53,6 @@ class Quiz extends Model
 
     public function outfitType()
     {
-        return $this->hasOne(\App\Model\LuProductSubattributesAdapter::class, 'id', 'outfit_type');
+        return $this->hasOne(\App\Model\Dictionary\LuProductSubattributesAdapter::class, 'id', 'outfit_type');
     }
 }

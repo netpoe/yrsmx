@@ -8,7 +8,7 @@ use App\Form\{
 };
 
 use App\Model\{
-    LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\LuProductAttributesAdapter as LuProductAttributes
 };
 
 class OutfitTypeAdapter extends OutfitType implements InputOptionsContract

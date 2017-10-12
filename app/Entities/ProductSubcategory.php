@@ -3,7 +3,7 @@
 namespace App\Entities;
 
 use App\Model\{
-    LuProductSubcategoriesAdapter as LuProductSubcategories
+    Dictionary\LuProductSubcategoriesAdapter as LuProductSubcategories
 };
 
 class ProductSubcategory

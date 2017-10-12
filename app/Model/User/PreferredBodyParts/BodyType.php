@@ -7,7 +7,7 @@ use App\Form\Traits\InputOptionsTrait;
 
 use App\Model\{
     User\UserPreferredBodyPartsAdapter as UserPreferredBodyParts,
-    LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\LuProductCategoriesAdapter as LuProductCategories
 };
 
 class BodyType extends UserPreferredBodyParts implements InputOptionsContract

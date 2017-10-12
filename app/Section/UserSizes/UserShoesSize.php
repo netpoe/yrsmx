@@ -7,7 +7,7 @@ use EBM\Field\Field;
 use App\Entities\ProductCategory;
 
 use App\Model\{
-    LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\LuProductCategoriesAdapter as LuProductCategories
 };
 
 class UserShoesSize extends AbstractUserSizesSection

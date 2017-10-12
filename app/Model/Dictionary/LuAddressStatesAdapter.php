@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\Dictionary;
 
 use App\Form\{
     Contract\InputOptionsContract,
@@ -8,7 +8,7 @@ use App\Form\{
 };
 
 use App\Model\{
-    LuAddressCountriesAdapter as LuAddressCountries
+    Dictionary\LuAddressCountriesAdapter as LuAddressCountries
 };
 
 class LuAddressStatesAdapter extends LuAddressStates implements InputOptionsContract

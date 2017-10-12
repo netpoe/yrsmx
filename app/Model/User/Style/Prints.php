@@ -12,7 +12,7 @@ use App\Entities\{
 
 use App\Model\{
     User\UserStyleAdapter,
-    LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\LuProductAttributesAdapter as LuProductAttributes
 };
 
 class Prints extends UserStyleAdapter

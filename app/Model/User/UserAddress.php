@@ -22,11 +22,11 @@ class UserAddress extends Model
 
     public function country()
     {
-        return $this->hasOne(\App\Model\LuAddressCountriesAdapter::class, 'id', 'country_id');
+        return $this->hasOne(\App\Model\Dictionary\LuAddressCountriesAdapter::class, 'id', 'country_id');
     }
 
     public function state()
     {
-        return $this->hasOne(\App\Model\LuAddressStatesAdapter::class, 'id', 'state_id');
+        return $this->hasOne(\App\Model\Dictionary\LuAddressStatesAdapter::class, 'id', 'state_id');
     }
 }

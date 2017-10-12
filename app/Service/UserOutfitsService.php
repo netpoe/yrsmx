@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Collection;
 use App\Entities\ProductCategory;
 
 use App\Model\{
-    LuProductCategoriesAdapter as LuProductCategories,
+    Dictionary\LuProductCategoriesAdapter as LuProductCategories,
     User\Style\Clothes,
     ProductsAdapter as Products,
     UserOutfitsAdapter as UserOutfits

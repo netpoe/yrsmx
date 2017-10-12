@@ -7,7 +7,7 @@ use App\Section\AbstractUserStyleSection;
 use App\Entities\ProductAttribute;
 
 use App\Model\{
-    LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\LuProductAttributesAdapter as LuProductAttributes
 };
 
 class Prints extends AbstractUserStyleSection

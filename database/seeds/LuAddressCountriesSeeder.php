@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Model\LuAddressCountriesAdapter;
+use App\Model\Dictionary\LuAddressCountriesAdapter;
 
 class LuAddressCountriesSeeder extends Seeder
 {
