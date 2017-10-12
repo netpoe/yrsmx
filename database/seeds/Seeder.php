@@ -7,7 +7,7 @@ use Faker\Factory as FakerFactory;
 use App\Model\{
     UserAdapter as User,
     QuizAdapter as Quiz,
-    OutfitTypeAdapter as OutfitType,
+    Outfit\OutfitTypeAdapter as OutfitType,
     User\UserSizesAdapter as UserSizes,
     User\UserPreferredBodyPartsAdapter as UserPreferredBodyParts,
     User\UserFitAdapter as UserFit,

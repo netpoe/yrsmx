@@ -3,7 +3,7 @@
 use App\Service\UserProductsService;
 
 use App\Model\{
-    OutfitTypeAdapter as OutfitType
+    Outfit\OutfitTypeAdapter as OutfitType
 };
 
 class UserWithCompleteCasualWearQuizSeederAndAssignedProducts extends Seeder

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\Outfit;
 
 use App\Form\{
     Contract\InputOptionsContract,

@@ -11,7 +11,7 @@ use App\Model\{
     User\Style\Fabrics,
     User\Style\Words,
     User\Style\Jewelry,
-    OutfitTypeAdapter as OutfitType,
+    Outfit\OutfitTypeAdapter as OutfitType,
     User\PreferredBodyParts\BodyPart
 };
 

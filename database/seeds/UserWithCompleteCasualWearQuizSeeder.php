@@ -1,7 +1,7 @@
 <?php
 
 use App\Model\{
-    OutfitTypeAdapter as OutfitType
+    Outfit\OutfitTypeAdapter as OutfitType
 };
 
 class UserWithCompleteCasualWearQuizSeeder extends Seeder

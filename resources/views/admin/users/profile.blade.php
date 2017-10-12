@@ -68,13 +68,13 @@
               <li><strong>Fecha de finalización:</strong><span>{{ $lastCompletedQuiz->completedAt() }}</span></li>
               <li><strong>Tiempo total de finalización:</strong><span>{{ $lastCompletedQuiz->totalCompletionTime() }}</span></li>
             </ul>
-            @if ($lastCompletedQuiz->outfit_type == \App\Model\OutfitTypeAdapter::WORK)
+            @if ($lastCompletedQuiz->outfit_type == \App\Model\Outfit\OutfitTypeAdapter::WORK)
               <hr>
               <ul class="user-details-list">
                 <li><strong>Dress Code:</strong><span>{{ $lastCompletedQuiz->work->dressCode() }}</span></li>
               </ul>
             @endif
-            @if ($lastCompletedQuiz->outfit_type == \App\Model\OutfitTypeAdapter::GET_AWAY)
+            @if ($lastCompletedQuiz->outfit_type == \App\Model\Outfit\OutfitTypeAdapter::GET_AWAY)
               <hr>
               <ul class="user-details-list">
                 <li><strong>Destino:</strong><span>{{ $lastCompletedQuiz->getAway->destination() }}</span></li>

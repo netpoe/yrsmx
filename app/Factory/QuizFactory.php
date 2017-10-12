@@ -5,7 +5,7 @@ namespace App\Factory;
 use App\Quiz\AbstractUIQuiz;
 
 use App\Model\{
-    OutfitTypeAdapter as OutfitType,
+    Outfit\OutfitTypeAdapter as OutfitType,
     UserAdapter as User,
     Dictionary\LuProductAttributesAdapter as LuProductAttributes
 };
