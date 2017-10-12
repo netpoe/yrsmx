@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\Quiz;
 
-use App\Model\QuizWork\DressCode;
+use App\Model\Quiz\Work\DressCode;
 
 class QuizWorkAdapter extends QuizWork
 {

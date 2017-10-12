@@ -4,7 +4,7 @@ namespace App\Section\QuizWork;
 
 use App\Section\AbstractQuizWorkSection;
 use EBM\Field\Field;
-use App\Model\QuizWork\DressCode as UserDressCode;
+use App\Model\Quiz\Work\DressCode as UserDressCode;
 
 class DressCode extends AbstractQuizWorkSection
 {

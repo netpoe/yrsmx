@@ -10,7 +10,7 @@ use App\Model\{
     User\UserFitAdapter as UserFit,
     User\UserStyleAdapter as UserStyle,
     OutfitTypeAdapter as OutfitType,
-    QuizWorkAdapter as QuizWork,
+    Quiz\QuizWorkAdapter as QuizWork,
     QuizGetAwayAdapter as QuizGetAway
 };
 

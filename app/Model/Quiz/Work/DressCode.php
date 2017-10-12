@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model\QuizWork;
+namespace App\Model\Quiz\Work;
 
-use App\Model\QuizWorkAdapter;
+use App\Model\Quiz\QuizWorkAdapter;
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
 
