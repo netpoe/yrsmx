@@ -7,7 +7,7 @@ use App\Form\{
     Traits\InputOptionsTrait
 };
 
-class LuAddressCountriesAdapter extends LuAddressCountries implements InputOptionsContract
+class DictAddressCountriesAdapter extends DictAddressCountries implements InputOptionsContract
 {
     use InputOptionsTrait;
 

@@ -8,7 +8,7 @@ use App\Form\{
 };
 
 use App\Model\{
-    Dictionary\LuAddressCountriesAdapter as LuAddressCountries
+    Dictionary\DictAddressCountriesAdapter as DictAddressCountries
 };
 
 class LuAddressStatesAdapter extends LuAddressStates implements InputOptionsContract
@@ -16,10 +16,10 @@ class LuAddressStatesAdapter extends LuAddressStates implements InputOptionsCont
     use InputOptionsTrait;
 
     const OPTIONS = [
-        LuAddressCountries::MEXICO => [
+        DictAddressCountries::MEXICO => [
             'key' => 1,
             'value' => 'Ciudad de México',
-            'country_id' => LuAddressCountries::MEXICO
+            'country_id' => DictAddressCountries::MEXICO
         ],
     ];
 }

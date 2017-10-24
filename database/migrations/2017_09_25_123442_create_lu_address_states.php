@@ -20,7 +20,7 @@ class CreateLuAddressStates extends Migration
         });
 
         Schema::table('lu_address_states', function (Blueprint $table) {
-            $table->foreign('country_id')->references('id')->on('lu_address_countries');
+            $table->foreign('country_id')->references('id')->on('dict_address_countries');
         });
     }
 

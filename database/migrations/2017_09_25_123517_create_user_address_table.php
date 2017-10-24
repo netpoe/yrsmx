@@ -28,7 +28,7 @@ class CreateUserAddressTable extends Migration
 
         Schema::table('user_address', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('country_id')->references('id')->on('lu_address_countries');
+            $table->foreign('country_id')->references('id')->on('dict_address_countries');
             $table->foreign('state_id')->references('id')->on('lu_address_states');
         });
     }

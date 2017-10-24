@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLuAddressCountries extends Migration
+class CreateDictAddressCountries extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateLuAddressCountries extends Migration
      */
     public function up()
     {
-        Schema::create('lu_address_countries', function (Blueprint $table) {
+        Schema::create('dict_address_countries', function (Blueprint $table) {
             $table->increments('id');
             $table->string('value')->unique();
         });
@@ -26,6 +26,6 @@ class CreateLuAddressCountries extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lu_address_countries');
+        Schema::dropIfExists('dict_address_countries');
     }
 }

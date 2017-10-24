@@ -6,7 +6,7 @@ use EBM\Form\AbstractBaseForm;
 use EBM\Field\Field;
 
 use App\Model\{
-    Dictionary\LuAddressCountriesAdapter as LuAddressCountries,
+    Dictionary\DictAddressCountriesAdapter as DictAddressCountries,
     Dictionary\LuAddressStatesAdapter as LuAddressStates
 };
 
@@ -26,7 +26,7 @@ class ShippingAddressForm extends AbstractBaseForm
         $this->addField('country_id')
             ->setLabel('País')
             ->setType(Field::TYPE_SELECT)
-            ->setOptions(LuAddressCountries::getOptions())
+            ->setOptions(DictAddressCountries::getOptions())
             ->required();
 
         $this->addField('state_id')

@@ -4,9 +4,9 @@ use Illuminate\Database\Seeder;
 
 use App\Model\Dictionary\DictAddressCountriesAdapter;
 
-class LuAddressStatesSeeder extends Seeder
+class DictAddressCountriesSeeder extends Seeder
 {
-    const TABLE = 'lu_address_states';
+    const TABLE = 'dict_address_countries';
 
     /**
      * Run the database seeds.
@@ -16,8 +16,7 @@ class LuAddressStatesSeeder extends Seeder
     public function run()
     {
         DB::table(self::TABLE)->insert([
-            'country_id' => DictAddressCountriesAdapter::MEXICO,
-            'value' => 'Ciudad de México',
+            'value' => DictAddressCountriesAdapter::OPTIONS[DictAddressCountriesAdapter::MEXICO]['value'],
         ]);
     }
 }
