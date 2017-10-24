@@ -11,8 +11,8 @@
       <div class="card-block">
         <nav class="user-resources-nav">
           <a href="{{ route('admin.orders.index') }}" class="card-link">Todas</a>
-          <a href="{{ route('admin.orders.index', ['status' => \App\Model\Dictionary\LuOrderStatusAdapter::PAID]) }}" class="card-link">Pagadas / Pendientes de envío</a>
-          <a href="{{ route('admin.orders.index', ['status' => \App\Model\Dictionary\LuOrderStatusAdapter::IN_TRANSIT]) }}" class="card-link">En tránsito</a>
+          <a href="{{ route('admin.orders.index', ['status' => \App\Model\Dictionary\DictOrderStatusAdapter::PAID]) }}" class="card-link">Pagadas / Pendientes de envío</a>
+          <a href="{{ route('admin.orders.index', ['status' => \App\Model\Dictionary\DictOrderStatusAdapter::IN_TRANSIT]) }}" class="card-link">En tránsito</a>
         </nav>
       </div>
     </div>

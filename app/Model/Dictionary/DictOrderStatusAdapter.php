@@ -5,7 +5,7 @@ namespace App\Model\Dictionary;
 use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
 
-class LuOrderStatusAdapter extends LuOrderStatus implements InputOptionsContract
+class DictOrderStatusAdapter extends DictOrderStatus implements InputOptionsContract
 {
     use InputOptionsTrait;
 

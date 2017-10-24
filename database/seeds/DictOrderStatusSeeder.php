@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Model\Dictionary\LuOrderStatusAdapter as LuOrderStatus;
+use App\Model\Dictionary\DictOrderStatusAdapter as DictOrderStatus;
 
-class LuOrderStatusSeeder extends Seeder
+class DictOrderStatusSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,8 +13,8 @@ class LuOrderStatusSeeder extends Seeder
      */
     public function run()
     {
-        foreach (LuOrderStatus::getOptions() as $option) {
-            DB::table('lu_order_status')->insert([
+        foreach (DictOrderStatus::getOptions() as $option) {
+            DB::table('dict_order_status')->insert([
                 'value' => $option['value'],
             ]);
         }

@@ -7,7 +7,7 @@ use App\Model\{
     User\UserCartsAdapter as UserCarts,
     OrdersAdapter as Orders,
     Order\Type\OrderTypePayPalAdapter as OrderTypePayPal,
-    Dictionary\LuOrderStatusAdapter as LuOrderStatus
+    Dictionary\DictOrderStatusAdapter as DictOrderStatus
 };
 
 class OrdersService
@@ -56,7 +56,7 @@ class OrdersService
             'user_id' => $this->user->id,
             'cart_id' => $this->cart->id,
             'address_id' => $this->cart->user_address_id,
-            'status_id' => LuOrderStatus::PAID,
+            'status_id' => DictOrderStatus::PAID,
             'payment_type' => $this->paymentType,
         ]);
 

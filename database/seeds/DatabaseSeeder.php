@@ -18,6 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DictProductSubattributesSeeder::class);
         $this->call(DictAddressCountriesSeeder::class);
         $this->call(DictAddressStatesSeeder::class);
-        $this->call(LuOrderStatusSeeder::class);
+        $this->call(DictOrderStatusSeeder::class);
     }
 }

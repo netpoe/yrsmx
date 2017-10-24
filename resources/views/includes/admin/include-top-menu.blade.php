@@ -12,8 +12,8 @@
     <div class="top-menu-item">
       <div><a href="{{ route('admin.orders.index') }}">Órdenes</a></div>
       <ul class="top-menu-dropdown">
-        <li class="top-menu-sub-item"><a href="{{ route('admin.orders.index', ['status' => \App\Model\Dictionary\LuOrderStatusAdapter::PAID]) }}">Pagadas / Pendientes</a></li>
-        <li class="top-menu-sub-item"><a href="{{ route('admin.orders.index', ['status' => \App\Model\Dictionary\LuOrderStatusAdapter::IN_TRANSIT]) }}">En tránsito</a></li>
+        <li class="top-menu-sub-item"><a href="{{ route('admin.orders.index', ['status' => \App\Model\Dictionary\DictOrderStatusAdapter::PAID]) }}">Pagadas / Pendientes</a></li>
+        <li class="top-menu-sub-item"><a href="{{ route('admin.orders.index', ['status' => \App\Model\Dictionary\DictOrderStatusAdapter::IN_TRANSIT]) }}">En tránsito</a></li>
       </ul>
     </div>
     <div class="top-menu-item">
