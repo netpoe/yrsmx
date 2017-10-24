@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 
 use App\Model\{
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories
 };
 
 class LuProductSubcategoriesSeeder extends Seeder
@@ -17,7 +17,7 @@ class LuProductSubcategoriesSeeder extends Seeder
      */
     public function run()
     {
-        foreach (LuProductCategories::getOptions() as $category) {
+        foreach (DictProductCategories::getOptions() as $category) {
             $subcategory = $category['subcategory'];
             foreach ($subcategory::getOptions() as $option) {
                 $insert = [

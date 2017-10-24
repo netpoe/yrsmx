@@ -7,7 +7,7 @@ use App\Section\AbstractUserFitSection;
 use App\Entities\ProductCategory;
 
 use App\Model\{
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories
 };
 
 class UpperPartFit extends AbstractUserFitSection
@@ -24,7 +24,7 @@ class UpperPartFit extends AbstractUserFitSection
 
         $userFit = $quiz->userFit;
 
-        $upperPartFit = new ProductCategory(LuProductCategories::UPPER_PART_FIT);
+        $upperPartFit = new ProductCategory(DictProductCategories::UPPER_PART_FIT);
 
         $this->addField('upper_part_fit')
             ->setModel($userFit)

@@ -7,7 +7,7 @@ use App\Section\AbstractUserSizesSection;
 use App\Entities\ProductCategory;
 
 use App\Model\{
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories
 };
 
 class UserBraSizes extends AbstractUserSizesSection
@@ -24,9 +24,9 @@ class UserBraSizes extends AbstractUserSizesSection
 
         $userSizes = $quiz->userSizes;
 
-        $braBandSizes = new ProductCategory(LuProductCategories::SIZE_BRA_BAND);
+        $braBandSizes = new ProductCategory(DictProductCategories::SIZE_BRA_BAND);
 
-        $braCupsSizes = new ProductCategory(LuProductCategories::SIZE_BRA_CUPS);
+        $braCupsSizes = new ProductCategory(DictProductCategories::SIZE_BRA_CUPS);
 
         $this->addField('bra_band')
             ->setModel($userSizes)

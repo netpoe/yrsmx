@@ -12,10 +12,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(LuUserRolesSeeder::class);
-        $this->call(LuProductCategoriesSeeder::class);
+        $this->call(DictProductCategoriesSeeder::class);
         $this->call(LuProductSubcategoriesSeeder::class);
         $this->call(DictProductAttributesSeeder::class);
-        $this->call(LuProductSubattributesSeeder::class);
+        $this->call(DictProductSubattributesSeeder::class);
         $this->call(DictAddressCountriesSeeder::class);
         $this->call(DictAddressStatesSeeder::class);
         $this->call(LuOrderStatusSeeder::class);

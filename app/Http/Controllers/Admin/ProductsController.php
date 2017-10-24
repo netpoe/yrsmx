@@ -16,8 +16,8 @@ use App\Model\{
     Product\ProductsGalleryAdapter as ProductsGallery,
     ProductsAdapter as Product,
     Dictionary\LuProductSubcategoriesAdapter as LuProductSubcategories,
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories,
-    Dictionary\LuProductSubattributesAdapter as LuProductSubattributes,
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories,
+    Dictionary\DictProductSubattributesAdapter as DictProductSubattributes,
     Dictionary\DictProductAttributesAdapter as DictProductAttributes
 };
 
@@ -140,22 +140,22 @@ class ProductsController extends Controller
     public function classify(Product $product)
     {
         $categories = [
-            'type' => new ProductCategory(LuProductCategories::TYPE),
-            'lowerPartFit' => new ProductCategory(LuProductCategories::LOWER_PART_FIT),
-            'upperPartFit' => new ProductCategory(LuProductCategories::UPPER_PART_FIT),
-            'bodyType' => new ProductCategory(LuProductCategories::BODY_TYPE),
-            'pantsFitShape' => new ProductCategory(LuProductCategories::PANTS_FIT_SHAPE),
-            'pantsFitHips' => new ProductCategory(LuProductCategories::PANTS_FIT_HIPS),
-            'accessories' => new ProductCategory(LuProductCategories::ACCESSORIES),
-            'risk' => new ProductCategory(LuProductCategories::RISK),
-            'shoes' => new ProductCategory(LuProductCategories::SHOES),
-            'sizeDress' => new ProductCategory(LuProductCategories::SIZE_DRESS),
-            'sizeBlouse' => new ProductCategory(LuProductCategories::SIZE_BLOUSE),
-            'sizeBraBand' => new ProductCategory(LuProductCategories::SIZE_BRA_BAND),
-            'sizeBraCups' => new ProductCategory(LuProductCategories::SIZE_BRA_CUPS),
-            'sizeSkirt' => new ProductCategory(LuProductCategories::SIZE_SKIRT),
-            'sizeShoes' => new ProductCategory(LuProductCategories::SIZE_SHOES),
-            'sizePants' => new ProductCategory(LuProductCategories::SIZE_PANTS),
+            'type' => new ProductCategory(DictProductCategories::TYPE),
+            'lowerPartFit' => new ProductCategory(DictProductCategories::LOWER_PART_FIT),
+            'upperPartFit' => new ProductCategory(DictProductCategories::UPPER_PART_FIT),
+            'bodyType' => new ProductCategory(DictProductCategories::BODY_TYPE),
+            'pantsFitShape' => new ProductCategory(DictProductCategories::PANTS_FIT_SHAPE),
+            'pantsFitHips' => new ProductCategory(DictProductCategories::PANTS_FIT_HIPS),
+            'accessories' => new ProductCategory(DictProductCategories::ACCESSORIES),
+            'risk' => new ProductCategory(DictProductCategories::RISK),
+            'shoes' => new ProductCategory(DictProductCategories::SHOES),
+            'sizeDress' => new ProductCategory(DictProductCategories::SIZE_DRESS),
+            'sizeBlouse' => new ProductCategory(DictProductCategories::SIZE_BLOUSE),
+            'sizeBraBand' => new ProductCategory(DictProductCategories::SIZE_BRA_BAND),
+            'sizeBraCups' => new ProductCategory(DictProductCategories::SIZE_BRA_CUPS),
+            'sizeSkirt' => new ProductCategory(DictProductCategories::SIZE_SKIRT),
+            'sizeShoes' => new ProductCategory(DictProductCategories::SIZE_SHOES),
+            'sizePants' => new ProductCategory(DictProductCategories::SIZE_PANTS),
         ];
 
         $attributes = [

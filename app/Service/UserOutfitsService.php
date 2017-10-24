@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Collection;
 use App\Entities\ProductCategory;
 
 use App\Model\{
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories,
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories,
     User\Style\Clothes,
     ProductsAdapter as Products,
     User\UserOutfitsAdapter as UserOutfits
@@ -81,7 +81,7 @@ class UserOutfitsService
     {
         $this->products = $this->userOutfits->products()->get()->shuffle();
 
-        $this->productTypes = new ProductCategory(LuProductCategories::TYPE);
+        $this->productTypes = new ProductCategory(DictProductCategories::TYPE);
 
         while (!$this->products->isEmpty()) {
             $this->outfits[] = $this->getOutfit();

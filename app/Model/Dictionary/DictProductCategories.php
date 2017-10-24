@@ -4,9 +4,9 @@ namespace App\Model\Dictionary;
 
 use Illuminate\Database\Eloquent\Model;
 
-class LuProductCategories extends Model
+class DictProductCategories extends Model
 {
-    protected $table = 'lu_product_categories';
+    protected $table = 'dict_product_categories';
 
     public $timestamps = false;
 }

@@ -7,14 +7,14 @@ use App\Form\Traits\InputOptionsTrait;
 
 use App\Model\{
     User\UserSizesAdapter as UserSizes,
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories
 };
 
 class BraBandSizes extends UserSizes implements InputOptionsContract
 {
     use InputOptionsTrait;
 
-    const CATEGORY_ID = LuProductCategories::SIZE_BRA_BAND;
+    const CATEGORY_ID = DictProductCategories::SIZE_BRA_BAND;
 
     const COLUMN = 'bra_band';
 

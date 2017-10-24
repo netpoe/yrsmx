@@ -17,10 +17,10 @@ use App\Model\{
     User\UserProductsAdapter as UserProducts,
     Product\ProductsCategoriesAdapter as ProductsCategories,
     Product\ProductsAttributesAdapter as ProductsAttributes,
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories,
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories,
     Dictionary\LuProductSubcategoriesAdapter as LuProductSubcategories,
     Dictionary\DictProductAttributesAdapter as DictProductAttributes,
-    Dictionary\LuProductSubattributesAdapter as LuProductSubattributes,
+    Dictionary\DictProductSubattributesAdapter as DictProductSubattributes,
     User\Style\Clothes,
     User\PreferredBodyParts\BodyType,
     User\Fit\LowerPartFit,
@@ -83,9 +83,9 @@ class ProductsWithAttributesAndCategoriesSeeder extends Seeder
                 $this->shuffleProductSubcategoryDependencies($product);
             }
 
-            $this->shuffleProductSubcategories($product, (new ProductCategory(LuProductCategories::BODY_TYPE))->subcategories());
+            $this->shuffleProductSubcategories($product, (new ProductCategory(DictProductCategories::BODY_TYPE))->subcategories());
 
-            $this->shuffleProductSubcategories($product, (new ProductCategory(LuProductCategories::RISK))->subcategories());
+            $this->shuffleProductSubcategories($product, (new ProductCategory(DictProductCategories::RISK))->subcategories());
 
             $attribute = new ProductAttribute(DictProductAttributes::COLORS);
             $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
@@ -119,7 +119,7 @@ class ProductsWithAttributesAndCategoriesSeeder extends Seeder
 
     public function addRandomClothTypeToProduct(Product $product)
     {
-        $this->category = new ProductCategory(LuProductCategories::TYPE);
+        $this->category = new ProductCategory(DictProductCategories::TYPE);
 
         $clothes = $this->category->subcategories();
 

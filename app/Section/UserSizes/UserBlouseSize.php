@@ -7,7 +7,7 @@ use App\Section\AbstractUserSizesSection;
 use App\Entities\ProductCategory;
 
 use App\Model\{
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories
 };
 
 class UserBlouseSize extends AbstractUserSizesSection
@@ -24,7 +24,7 @@ class UserBlouseSize extends AbstractUserSizesSection
 
         $userSizes = $quiz->userSizes;
 
-        $blouseSizes = new ProductCategory(LuProductCategories::SIZE_BLOUSE);
+        $blouseSizes = new ProductCategory(DictProductCategories::SIZE_BLOUSE);
 
         $this->addField('blouse')
             ->setModel($userSizes)

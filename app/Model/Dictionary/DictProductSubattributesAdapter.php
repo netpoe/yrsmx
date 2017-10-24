@@ -13,7 +13,7 @@ use App\Model\{
     OutfitType
 };
 
-class LuProductSubattributesAdapter extends LuProductSubattributes
+class DictProductSubattributesAdapter extends DictProductSubattributes
 {
     const SUBATTRIBUTES = [
         Colors::class, // ATTR::COLORS

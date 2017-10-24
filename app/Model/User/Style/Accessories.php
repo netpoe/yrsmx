@@ -7,14 +7,14 @@ use App\Form\Traits\InputOptionsTrait;
 
 use App\Model\{
     User\UserStyleAdapter,
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories
 };
 
 class Accessories extends UserStyleAdapter implements InputOptionsContract
 {
     use InputOptionsTrait;
 
-    const CATEGORY_ID = LuProductCategories::ACCESSORIES;
+    const CATEGORY_ID = DictProductCategories::ACCESSORIES;
 
     const COLUMN = 'accessories';
 

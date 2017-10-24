@@ -24,7 +24,7 @@ class CreateRelProductsAttributes extends Migration
         Schema::table('products_attributes', function (Blueprint $table) {
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('attribute_id')->references('id')->on('dict_product_attributes');
-            $table->foreign('subattribute_id')->references('id')->on('lu_product_subattributes');
+            $table->foreign('subattribute_id')->references('id')->on('dict_product_subattributes');
         });
     }
 

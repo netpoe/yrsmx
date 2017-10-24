@@ -7,14 +7,14 @@ use App\Form\Traits\InputOptionsTrait;
 
 use App\Model\{
     User\UserFitAdapter as UserFit,
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories
 };
 
 class PantsFitShape extends UserFit implements InputOptionsContract
 {
     use InputOptionsTrait;
 
-    const CATEGORY_ID = LuProductCategories::PANTS_FIT_SHAPE;
+    const CATEGORY_ID = DictProductCategories::PANTS_FIT_SHAPE;
 
     const COLUMN = 'pants_fit_shape';
 

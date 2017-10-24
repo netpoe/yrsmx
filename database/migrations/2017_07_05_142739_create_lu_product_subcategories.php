@@ -21,7 +21,7 @@ class CreateLuProductSubcategories extends Migration
         });
 
         Schema::table('lu_product_subcategories', function (Blueprint $table) {
-            $table->foreign('category_id')->references('id')->on('lu_product_categories');
+            $table->foreign('category_id')->references('id')->on('dict_product_categories');
         });
     }
 

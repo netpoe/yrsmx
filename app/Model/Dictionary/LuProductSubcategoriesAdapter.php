@@ -3,7 +3,7 @@
 namespace App\Model\Dictionary;
 
 use App\Model\{
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories,
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories,
     User\PreferredBodyParts\BodyType,
     User\Fit\LowerPartFit,
     User\Fit\UpperPartFit,

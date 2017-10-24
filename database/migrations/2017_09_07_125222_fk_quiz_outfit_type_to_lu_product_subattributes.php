@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class FkQuizOutfitTypeToLuProductSubattributes extends Migration
+class FkQuizOutfitTypeToDictProductSubattributes extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class FkQuizOutfitTypeToLuProductSubattributes extends Migration
     public function up()
     {
         Schema::table('quiz', function (Blueprint $table) {
-            $table->foreign('outfit_type')->references('id')->on('lu_product_subattributes');
+            $table->foreign('outfit_type')->references('id')->on('dict_product_subattributes');
         });
     }
 

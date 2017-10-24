@@ -6,9 +6,9 @@ use App\Model\{
     Dictionary\DictProductAttributesAdapter as DictProductAttributes
 };
 
-class LuProductSubattributesSeeder extends Seeder
+class DictProductSubattributesSeeder extends Seeder
 {
-    const TABLE = 'lu_product_subattributes';
+    const TABLE = 'dict_product_subattributes';
 
     /**
      * Run the database seeds.

@@ -13,7 +13,7 @@ use App\Model\{
     User\UserFitAdapter as UserFit,
     User\UserStyleAdapter as UserStyle,
     User\Info\GenderId,
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories,
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories,
     Dictionary\DictProductAttributesAdapter as DictProductAttributes
 };
 
@@ -68,13 +68,13 @@ class Seeder extends DatabaseSeeder
 
     public function setQuizUserSizes()
     {
-        $dressSizes = new ProductCategory(LuProductCategories::SIZE_DRESS);
-        $blouseSizes = new ProductCategory(LuProductCategories::SIZE_BLOUSE);
-        $braBandSizes = new ProductCategory(LuProductCategories::SIZE_BRA_BAND);
-        $braCupsSizes = new ProductCategory(LuProductCategories::SIZE_BRA_CUPS);
-        $skirtSizes = new ProductCategory(LuProductCategories::SIZE_SKIRT);
-        $shoeSizes = new ProductCategory(LuProductCategories::SIZE_SHOES);
-        $pantsSizes = new ProductCategory(LuProductCategories::SIZE_PANTS);
+        $dressSizes = new ProductCategory(DictProductCategories::SIZE_DRESS);
+        $blouseSizes = new ProductCategory(DictProductCategories::SIZE_BLOUSE);
+        $braBandSizes = new ProductCategory(DictProductCategories::SIZE_BRA_BAND);
+        $braCupsSizes = new ProductCategory(DictProductCategories::SIZE_BRA_CUPS);
+        $skirtSizes = new ProductCategory(DictProductCategories::SIZE_SKIRT);
+        $shoeSizes = new ProductCategory(DictProductCategories::SIZE_SHOES);
+        $pantsSizes = new ProductCategory(DictProductCategories::SIZE_PANTS);
 
         UserSizes::unguard();
 
@@ -99,7 +99,7 @@ class Seeder extends DatabaseSeeder
 
     public function setQuizUserPreferredBodyParts()
     {
-        $bodyType = new ProductCategory(LuProductCategories::BODY_TYPE);
+        $bodyType = new ProductCategory(DictProductCategories::BODY_TYPE);
         $bodyParts = new ProductAttribute(DictProductAttributes::BODY_PART);
         $bodyPartsModel = $bodyParts->getSubattributeModelName();
 
@@ -126,10 +126,10 @@ class Seeder extends DatabaseSeeder
 
     public function setUserFit()
     {
-        $upperPartFit = new ProductCategory(LuProductCategories::UPPER_PART_FIT);
-        $lowerPartFit = new ProductCategory(LuProductCategories::LOWER_PART_FIT);
-        $pantsFitShape = new ProductCategory(LuProductCategories::PANTS_FIT_SHAPE);
-        $pantsFitHips = new ProductCategory(LuProductCategories::PANTS_FIT_HIPS);
+        $upperPartFit = new ProductCategory(DictProductCategories::UPPER_PART_FIT);
+        $lowerPartFit = new ProductCategory(DictProductCategories::LOWER_PART_FIT);
+        $pantsFitShape = new ProductCategory(DictProductCategories::PANTS_FIT_SHAPE);
+        $pantsFitHips = new ProductCategory(DictProductCategories::PANTS_FIT_HIPS);
 
         UserFit::unguard();
 
@@ -153,11 +153,11 @@ class Seeder extends DatabaseSeeder
         $prints = new ProductAttribute(DictProductAttributes::PRINTS);
         $fabrics = new ProductAttribute(DictProductAttributes::FABRICS);
         $words = new ProductAttribute(DictProductAttributes::WORDS);
-        $clothes = new ProductCategory(LuProductCategories::TYPE);
-        $accessories = new ProductCategory(LuProductCategories::ACCESSORIES);
-        $shoes = new ProductCategory(LuProductCategories::SHOES);
+        $clothes = new ProductCategory(DictProductCategories::TYPE);
+        $accessories = new ProductCategory(DictProductCategories::ACCESSORIES);
+        $shoes = new ProductCategory(DictProductCategories::SHOES);
         $jewelry = new ProductAttribute(DictProductAttributes::JEWELRY);
-        $risk = new ProductCategory(LuProductCategories::RISK);
+        $risk = new ProductCategory(DictProductCategories::RISK);
 
         UserStyle::unguard();
 

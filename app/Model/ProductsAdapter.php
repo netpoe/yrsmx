@@ -41,8 +41,8 @@ class ProductsAdapter extends Products
 
     public function subattributes()
     {
-        return \App\Model\Dictionary\LuProductSubattributesAdapter::join(
-            'products_attributes', 'products_attributes.subattribute_id', 'lu_product_subattributes.id')
+        return \App\Model\Dictionary\DictProductSubattributesAdapter::join(
+            'products_attributes', 'products_attributes.subattribute_id', 'dict_product_subattributes.id')
             ->where('products_attributes.product_id', $this->id)
             ->get();
     }

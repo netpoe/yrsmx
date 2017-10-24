@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Model\Dictionary\LuProductCategoriesAdapter as LuProductCategories;
+use App\Model\Dictionary\DictProductCategoriesAdapter as DictProductCategories;
 
-class LuProductCategoriesSeeder extends Seeder
+class DictProductCategoriesSeeder extends Seeder
 {
-    const TABLE = 'lu_product_categories';
+    const TABLE = 'dict_product_categories';
 
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class LuProductCategoriesSeeder extends Seeder
      */
     public function run()
     {
-        foreach (LuProductCategories::getOptions() as $option) {
+        foreach (DictProductCategories::getOptions() as $option) {
             $insert = [
                 'name' => $option['value'],
             ];

@@ -4,7 +4,7 @@ namespace App\Entities;
 
 use App\Model\{
     Dictionary\LuProductSubcategoriesAdapter as LuProductSubcategories,
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories
 };
 
 class ProductCategory
@@ -37,9 +37,9 @@ class ProductCategory
     {
         $this->setId($categoryId);
 
-        $this->setName(LuProductCategories::OPTIONS[$categoryId]['value']);
+        $this->setName(DictProductCategories::OPTIONS[$categoryId]['value']);
 
-        $this->setSubcategoryModelName(LuProductCategories::OPTIONS[$categoryId]['subcategory']);
+        $this->setSubcategoryModelName(DictProductCategories::OPTIONS[$categoryId]['subcategory']);
 
         $subcategory = $this->getSubcategoryModelName();
 

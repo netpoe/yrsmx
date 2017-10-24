@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLuProductSubattributes extends Migration
+class CreateDictProductSubattributes extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateLuProductSubattributes extends Migration
      */
     public function up()
     {
-        Schema::create('lu_product_subattributes', function (Blueprint $table) {
+        Schema::create('dict_product_subattributes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('attribute_id')->unsigned();
             $table->string('value');
             $table->string('key');
         });
 
-        Schema::table('lu_product_subattributes', function (Blueprint $table) {
+        Schema::table('dict_product_subattributes', function (Blueprint $table) {
             $table->foreign('attribute_id')->references('id')->on('dict_product_attributes');
         });
     }
@@ -32,10 +32,10 @@ class CreateLuProductSubattributes extends Migration
      */
     public function down()
     {
-        Schema::table('lu_product_subattributes', function (Blueprint $table) {
+        Schema::table('dict_product_subattributes', function (Blueprint $table) {
             $table->dropForeign(['attribute_id']);
         });
 
-        Schema::dropIfExists('lu_product_subattributes');
+        Schema::dropIfExists('dict_product_subattributes');
     }
 }

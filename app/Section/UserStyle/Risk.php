@@ -7,7 +7,7 @@ use App\Section\AbstractUserStyleSection;
 use App\Entities\ProductCategory;
 
 use App\Model\{
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories
 };
 
 class Risk extends AbstractUserStyleSection
@@ -24,7 +24,7 @@ class Risk extends AbstractUserStyleSection
 
         $userStyle = $quiz->userStyle;
 
-        $risk = new ProductCategory(LuProductCategories::RISK);
+        $risk = new ProductCategory(DictProductCategories::RISK);
 
         $this->addField('risk')
             ->setModel($userStyle)

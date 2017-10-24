@@ -2,7 +2,7 @@
 
 namespace App\Entities\Traits;
 
-use App\Model\Dictionary\LuProductSubattributesAdapter as LuProductSubattributes;
+use App\Model\Dictionary\DictProductSubattributesAdapter as DictProductSubattributes;
 
 trait IsSubattributeTrait
 {
@@ -38,7 +38,7 @@ trait IsSubattributeTrait
         }
 
         foreach (explode('|', $subattributeIds) as $id) {
-            $result .= LuProductSubattributes::find($id)->value . ' · ';
+            $result .= DictProductSubattributes::find($id)->value . ' · ';
         }
 
         return substr($result, 0, -3);

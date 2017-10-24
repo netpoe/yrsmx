@@ -26,7 +26,7 @@ use App\Model\{
     User\Style\Accessories
 };
 
-class LuProductCategoriesAdapter extends LuProductCategories implements InputOptionsContract
+class DictProductCategoriesAdapter extends DictProductCategories implements InputOptionsContract
 {
     use InputOptionsTrait;
 

@@ -7,14 +7,14 @@ use App\Form\Traits\InputOptionsTrait;
 
 use App\Model\{
     User\UserFitAdapter as UserFit,
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories
 };
 
 class LowerPartFit extends UserFit implements InputOptionsContract
 {
     use InputOptionsTrait;
 
-    const CATEGORY_ID = LuProductCategories::LOWER_PART_FIT;
+    const CATEGORY_ID = DictProductCategories::LOWER_PART_FIT;
 
     const COLUMN = 'lower_part_fit';
 

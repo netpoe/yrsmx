@@ -7,7 +7,7 @@ use App\Section\AbstractUserFitSection;
 use App\Entities\ProductCategory;
 
 use App\Model\{
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories
 };
 
 class PantsFit extends AbstractUserFitSection
@@ -24,9 +24,9 @@ class PantsFit extends AbstractUserFitSection
 
         $userFit = $quiz->userFit;
 
-        $pantsFitShape = new ProductCategory(LuProductCategories::PANTS_FIT_SHAPE);
+        $pantsFitShape = new ProductCategory(DictProductCategories::PANTS_FIT_SHAPE);
 
-        $pantsFitHips = new ProductCategory(LuProductCategories::PANTS_FIT_HIPS);
+        $pantsFitHips = new ProductCategory(DictProductCategories::PANTS_FIT_HIPS);
 
         $this->addField('pants_fit_hips')
             ->setModel($userFit)

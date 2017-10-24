@@ -17,10 +17,10 @@ use App\Model\{
     UserAdapter as User,
     ProductsAdapter as Products,
     User\UserProductsAdapter as UserProducts,
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories,
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories,
     Dictionary\LuProductSubcategoriesAdapter as LuProductSubcategories,
     Dictionary\DictProductAttributesAdapter as DictProductAttributes,
-    Dictionary\LuProductSubattributesAdapter as LuProductSubattributes,
+    Dictionary\DictProductSubattributesAdapter as DictProductSubattributes,
     User\Style\Clothes,
     User\UserOutfitsAdapter as UserOutfits,
     User\UserCartsAdapter as UserCarts
@@ -68,7 +68,7 @@ class UserProductsService
     {
         $this->currentProductTypeIndex++;
 
-        $category = new ProductCategory(LuProductCategories::TYPE);
+        $category = new ProductCategory(DictProductCategories::TYPE);
 
         $subcategories = $category->subcategories();
 
@@ -84,7 +84,7 @@ class UserProductsService
         $this->productsCollection = Products::with([
             'categories' => function($query){
                 $query
-                    ->where('category_id', LuProductCategories::TYPE)
+                    ->where('category_id', DictProductCategories::TYPE)
                     ->where('subcategory_id', $this->currentProductType->getId());
                 },
             'info' => function($query){

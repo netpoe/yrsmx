@@ -7,7 +7,7 @@ use App\Section\AbstractUserPreferredBodyPartsSection;
 use App\Entities\ProductCategory;
 
 use App\Model\{
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories
 };
 
 class BodyType extends AbstractUserPreferredBodyPartsSection
@@ -24,7 +24,7 @@ class BodyType extends AbstractUserPreferredBodyPartsSection
 
         $userPreferredBodyParts = $quiz->userPreferredBodyParts;
 
-        $bodyType = new ProductCategory(LuProductCategories::BODY_TYPE);
+        $bodyType = new ProductCategory(DictProductCategories::BODY_TYPE);
 
         $this->addField('body_type')
             ->setModel($userPreferredBodyParts)

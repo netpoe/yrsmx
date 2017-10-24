@@ -23,7 +23,7 @@ class CreateRelProductsCategories extends Migration
 
         Schema::table('products_categories', function (Blueprint $table) {
             $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('category_id')->references('id')->on('lu_product_categories');
+            $table->foreign('category_id')->references('id')->on('dict_product_categories');
             $table->foreign('subcategory_id')->references('id')->on('lu_product_subcategories');
         });
     }

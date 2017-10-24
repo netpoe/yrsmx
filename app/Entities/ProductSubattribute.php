@@ -3,7 +3,7 @@
 namespace App\Entities;
 
 use App\Model\{
-    Dictionary\LuProductSubattributesAdapter as LuProductSubattributes
+    Dictionary\DictProductSubattributesAdapter as DictProductSubattributes
 };
 
 class ProductSubattribute
@@ -30,7 +30,7 @@ class ProductSubattribute
 
         $attributeId = $subattribute::ATTRIBUTE_ID;
 
-        $this->setId(LuProductSubattributes::where('attribute_id', $attributeId)
+        $this->setId(DictProductSubattributes::where('attribute_id', $attributeId)
                                             ->where('value', $values['value'])
                                             ->first()
                                             ->id);

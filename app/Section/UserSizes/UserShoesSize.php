@@ -7,7 +7,7 @@ use EBM\Field\Field;
 use App\Entities\ProductCategory;
 
 use App\Model\{
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories
 };
 
 class UserShoesSize extends AbstractUserSizesSection
@@ -24,7 +24,7 @@ class UserShoesSize extends AbstractUserSizesSection
 
         $userSizes = $quiz->userSizes;
 
-        $shoeSizes = new ProductCategory(LuProductCategories::SIZE_SHOES);
+        $shoeSizes = new ProductCategory(DictProductCategories::SIZE_SHOES);
 
         $this->addField('shoes')
             ->setModel($userSizes)

@@ -7,14 +7,14 @@ use App\Form\Traits\InputOptionsTrait;
 
 use App\Model\{
     User\UserPreferredBodyPartsAdapter as UserPreferredBodyParts,
-    Dictionary\LuProductCategoriesAdapter as LuProductCategories
+    Dictionary\DictProductCategoriesAdapter as DictProductCategories
 };
 
 class BodyType extends UserPreferredBodyParts implements InputOptionsContract
 {
     use InputOptionsTrait;
 
-    const CATEGORY_ID = LuProductCategories::BODY_TYPE;
+    const CATEGORY_ID = DictProductCategories::BODY_TYPE;
 
     const COLUMN = 'body_type';
 
