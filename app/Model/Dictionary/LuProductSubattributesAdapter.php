@@ -3,7 +3,7 @@
 namespace App\Model\Dictionary;
 
 use App\Model\{
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes,
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes,
     User\Style\Colors,
     User\Style\Prints,
     User\Style\Fabrics,

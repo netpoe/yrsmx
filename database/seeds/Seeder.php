@@ -14,7 +14,7 @@ use App\Model\{
     User\UserStyleAdapter as UserStyle,
     User\Info\GenderId,
     Dictionary\LuProductCategoriesAdapter as LuProductCategories,
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes
 };
 
 use App\Util\DateTimeUtil;
@@ -49,7 +49,7 @@ class Seeder extends DatabaseSeeder
 
     public function createQuiz(Int $outfitTypeKey): Quiz
     {
-        $outfitType = new ProductAttribute(LuProductAttributes::OUTFIT_TYPE);
+        $outfitType = new ProductAttribute(DictProductAttributes::OUTFIT_TYPE);
 
         $quiz = Quiz::create([
             'user_id' => $this->user->id,
@@ -100,7 +100,7 @@ class Seeder extends DatabaseSeeder
     public function setQuizUserPreferredBodyParts()
     {
         $bodyType = new ProductCategory(LuProductCategories::BODY_TYPE);
-        $bodyParts = new ProductAttribute(LuProductAttributes::BODY_PART);
+        $bodyParts = new ProductAttribute(DictProductAttributes::BODY_PART);
         $bodyPartsModel = $bodyParts->getSubattributeModelName();
 
         UserPreferredBodyParts::unguard();
@@ -149,14 +149,14 @@ class Seeder extends DatabaseSeeder
 
     public function setUserStyle()
     {
-        $colors = new ProductAttribute(LuProductAttributes::COLORS);
-        $prints = new ProductAttribute(LuProductAttributes::PRINTS);
-        $fabrics = new ProductAttribute(LuProductAttributes::FABRICS);
-        $words = new ProductAttribute(LuProductAttributes::WORDS);
+        $colors = new ProductAttribute(DictProductAttributes::COLORS);
+        $prints = new ProductAttribute(DictProductAttributes::PRINTS);
+        $fabrics = new ProductAttribute(DictProductAttributes::FABRICS);
+        $words = new ProductAttribute(DictProductAttributes::WORDS);
         $clothes = new ProductCategory(LuProductCategories::TYPE);
         $accessories = new ProductCategory(LuProductCategories::ACCESSORIES);
         $shoes = new ProductCategory(LuProductCategories::SHOES);
-        $jewelry = new ProductAttribute(LuProductAttributes::JEWELRY);
+        $jewelry = new ProductAttribute(DictProductAttributes::JEWELRY);
         $risk = new ProductCategory(LuProductCategories::RISK);
 
         UserStyle::unguard();

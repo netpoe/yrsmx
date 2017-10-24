@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 
 use App\Model\{
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes
 };
 
 class LuProductSubattributesSeeder extends Seeder
@@ -17,7 +17,7 @@ class LuProductSubattributesSeeder extends Seeder
      */
     public function run()
     {
-        foreach (LuProductAttributes::getOptions() as $attribute) {
+        foreach (DictProductAttributes::getOptions() as $attribute) {
             $subattribute = $attribute['subattribute'];
             foreach ($subattribute::getOptions() as $option) {
                 $insert = [

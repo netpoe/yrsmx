@@ -8,14 +8,14 @@ use App\Form\{
 };
 
 use App\Model\{
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes
 };
 
 class OutfitTypeAdapter extends OutfitType implements InputOptionsContract
 {
     use InputOptionsTrait;
 
-    const ATTRIBUTE_ID = LuProductAttributes::OUTFIT_TYPE;
+    const ATTRIBUTE_ID = DictProductAttributes::OUTFIT_TYPE;
 
     const COLUMN = 'outfit_type';
 

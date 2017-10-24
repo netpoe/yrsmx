@@ -12,7 +12,7 @@ use App\Entities\{
 
 use App\Model\{
     User\UserStyleAdapter,
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes
 };
 
 class Jewelry extends UserStyleAdapter
@@ -21,7 +21,7 @@ class Jewelry extends UserStyleAdapter
     use InputOptionsTrait;
     use IsSubattributeTrait;
 
-    const ATTRIBUTE_ID = LuProductAttributes::JEWELRY;
+    const ATTRIBUTE_ID = DictProductAttributes::JEWELRY;
 
     const COLUMN = 'jewelry';
 

@@ -19,7 +19,7 @@ use App\Model\{
     User\UserProductsAdapter as UserProducts,
     Dictionary\LuProductCategoriesAdapter as LuProductCategories,
     Dictionary\LuProductSubcategoriesAdapter as LuProductSubcategories,
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes,
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes,
     Dictionary\LuProductSubattributesAdapter as LuProductSubattributes,
     User\Style\Clothes,
     User\UserOutfitsAdapter as UserOutfits,
@@ -183,8 +183,8 @@ class UserProductsService
         $this->productsCollection->each(function($product, $key){
             $matchingProducts = new Collection;
 
-            foreach (LuProductAttributes::getOptions() as $attr) {
-                if ($attr['key'] != LuProductAttributes::BODY_PART) {
+            foreach (DictProductAttributes::getOptions() as $attr) {
+                if ($attr['key'] != DictProductAttributes::BODY_PART) {
                     $attribute = new ProductAttribute($attr['key']);
 
                     $subattributeModelName = $attribute->getSubattributeModelName();

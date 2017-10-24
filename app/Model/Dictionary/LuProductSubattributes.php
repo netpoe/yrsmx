@@ -12,6 +12,6 @@ class LuProductSubattributes extends Model
 
     public function attribute()
     {
-        return $this->hasOne(\App\Model\Dictionary\LuProductAttributesAdapter::class, 'id', 'attribute_id');
+        return $this->hasOne(\App\Model\Dictionary\DictProductAttributesAdapter::class, 'id', 'attribute_id');
     }
 }

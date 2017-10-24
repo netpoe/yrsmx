@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLuProductAttributes extends Migration
+class CreateDictProductAttributes extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateLuProductAttributes extends Migration
      */
     public function up()
     {
-        Schema::create('lu_product_attributes', function (Blueprint $table) {
+        Schema::create('dict_product_attributes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
         });
@@ -26,6 +26,6 @@ class CreateLuProductAttributes extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lu_product_attributes');
+        Schema::dropIfExists('dict_product_attributes');
     }
 }

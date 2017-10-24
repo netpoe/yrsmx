@@ -15,7 +15,7 @@ use App\Model\{
     User\PreferredBodyParts\BodyPart
 };
 
-class LuProductAttributesAdapter extends LuProductAttributes implements InputOptionsContract
+class DictProductAttributesAdapter extends DictProductAttributes implements InputOptionsContract
 {
     use InputOptionsTrait;
 

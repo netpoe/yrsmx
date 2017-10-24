@@ -18,7 +18,7 @@ use App\Model\{
     Dictionary\LuProductSubcategoriesAdapter as LuProductSubcategories,
     Dictionary\LuProductCategoriesAdapter as LuProductCategories,
     Dictionary\LuProductSubattributesAdapter as LuProductSubattributes,
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes
 };
 
 class ProductsController extends Controller
@@ -159,13 +159,13 @@ class ProductsController extends Controller
         ];
 
         $attributes = [
-            'colors' => new ProductAttribute(LuProductAttributes::COLORS),
-            'prints' => new ProductAttribute(LuProductAttributes::PRINTS),
-            'fabrics' => new ProductAttribute(LuProductAttributes::FABRICS),
-            'words' => new ProductAttribute(LuProductAttributes::WORDS),
-            'jewelry' => new ProductAttribute(LuProductAttributes::JEWELRY),
-            'bodyPart' => new ProductAttribute(LuProductAttributes::BODY_PART),
-            'outfitType' => new ProductAttribute(LuProductAttributes::OUTFIT_TYPE),
+            'colors' => new ProductAttribute(DictProductAttributes::COLORS),
+            'prints' => new ProductAttribute(DictProductAttributes::PRINTS),
+            'fabrics' => new ProductAttribute(DictProductAttributes::FABRICS),
+            'words' => new ProductAttribute(DictProductAttributes::WORDS),
+            'jewelry' => new ProductAttribute(DictProductAttributes::JEWELRY),
+            'bodyPart' => new ProductAttribute(DictProductAttributes::BODY_PART),
+            'outfitType' => new ProductAttribute(DictProductAttributes::OUTFIT_TYPE),
         ];
 
         return view('admin.products.classify', [

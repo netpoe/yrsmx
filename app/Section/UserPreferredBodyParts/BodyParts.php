@@ -7,7 +7,7 @@ use App\Section\AbstractUserPreferredBodyPartsSection;
 use App\Entities\ProductAttribute;
 
 use App\Model\{
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes
 };
 
 class BodyParts extends AbstractUserPreferredBodyPartsSection
@@ -26,7 +26,7 @@ class BodyParts extends AbstractUserPreferredBodyPartsSection
 
         $userPreferredBodyParts = $quiz->userPreferredBodyParts;
 
-        $this->bodyPartsAttribute = new ProductAttribute(LuProductAttributes::BODY_PART);
+        $this->bodyPartsAttribute = new ProductAttribute(DictProductAttributes::BODY_PART);
 
         $bodyPartsModel = $this->bodyPartsAttribute->getSubattributeModelName();
 

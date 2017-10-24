@@ -7,7 +7,7 @@ use EBM\Field\Field;
 
 use App\Model\{
     Dictionary\DictAddressCountriesAdapter as DictAddressCountries,
-    Dictionary\LuAddressStatesAdapter as LuAddressStates
+    Dictionary\DictAddressStatesAdapter as DictAddressStates
 };
 
 use App\Entities\ProductAttribute;
@@ -32,7 +32,7 @@ class ShippingAddressForm extends AbstractBaseForm
         $this->addField('state_id')
             ->setLabel('Estado')
             ->setType(Field::TYPE_SELECT)
-            ->setOptions(LuAddressStates::getOptions())
+            ->setOptions(DictAddressStates::getOptions())
             ->required();
 
         $this->addField('zip_code')

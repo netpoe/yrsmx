@@ -7,7 +7,7 @@ use App\Quiz\AbstractUIQuiz;
 use App\Model\{
     Outfit\OutfitTypeAdapter as OutfitType,
     UserAdapter as User,
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes
 };
 
 use App\Entities\ProductAttribute;
@@ -24,7 +24,7 @@ class QuizFactory
             throw new \Exception("No outfit_type found for user [$user->id]");
         }
 
-        $outfitType = new ProductAttribute(LuProductAttributes::OUTFIT_TYPE);
+        $outfitType = new ProductAttribute(DictProductAttributes::OUTFIT_TYPE);
 
         $subattribute = $outfitType->getSubattributeById($outfitTypeId);
 

@@ -21,7 +21,7 @@ class CreateLuProductSubattributes extends Migration
         });
 
         Schema::table('lu_product_subattributes', function (Blueprint $table) {
-            $table->foreign('attribute_id')->references('id')->on('lu_product_attributes');
+            $table->foreign('attribute_id')->references('id')->on('dict_product_attributes');
         });
     }
 

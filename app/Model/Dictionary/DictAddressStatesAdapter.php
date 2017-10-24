@@ -11,7 +11,7 @@ use App\Model\{
     Dictionary\DictAddressCountriesAdapter as DictAddressCountries
 };
 
-class LuAddressStatesAdapter extends LuAddressStates implements InputOptionsContract
+class DictAddressStatesAdapter extends DictAddressStates implements InputOptionsContract
 {
     use InputOptionsTrait;
 

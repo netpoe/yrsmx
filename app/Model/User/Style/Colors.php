@@ -12,7 +12,7 @@ use App\Entities\{
 
 use App\Model\{
     User\UserStyleAdapter,
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes
 };
 
 class Colors extends UserStyleAdapter
@@ -21,7 +21,7 @@ class Colors extends UserStyleAdapter
     use InputOptionsTrait;
     use IsSubattributeTrait;
 
-    const ATTRIBUTE_ID = LuProductAttributes::COLORS;
+    const ATTRIBUTE_ID = DictProductAttributes::COLORS;
 
     const COLUMN = 'colors';
 

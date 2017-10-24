@@ -12,7 +12,7 @@ use App\Entities\{
 
 use App\Model\{
     User\UserStyleAdapter,
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes
 };
 
 class Words extends UserStyleAdapter
@@ -21,7 +21,7 @@ class Words extends UserStyleAdapter
     use InputOptionsTrait;
     use IsSubattributeTrait;
 
-    const ATTRIBUTE_ID = LuProductAttributes::WORDS;
+    const ATTRIBUTE_ID = DictProductAttributes::WORDS;
 
     const COLUMN = 'words';
 

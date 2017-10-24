@@ -7,7 +7,7 @@ use App\Section\AbstractUserStyleSection;
 use App\Entities\ProductAttribute;
 
 use App\Model\{
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes
 };
 
 class Fabrics extends AbstractUserStyleSection
@@ -24,7 +24,7 @@ class Fabrics extends AbstractUserStyleSection
 
         $userStyle = $quiz->userStyle;
 
-        $fabrics = new ProductAttribute(LuProductAttributes::FABRICS);
+        $fabrics = new ProductAttribute(DictProductAttributes::FABRICS);
 
         $this->addField('fabrics')
             ->setModel($userStyle)

@@ -4,7 +4,7 @@ namespace App\Entities;
 
 use App\Model\{
     Dictionary\LuProductSubattributesAdapter as LuProductSubattributes,
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes
 };
 
 class ProductAttribute
@@ -37,9 +37,9 @@ class ProductAttribute
     {
         $this->setId($attributeId);
 
-        $this->setName(LuProductAttributes::OPTIONS[$attributeId]['value']);
+        $this->setName(DictProductAttributes::OPTIONS[$attributeId]['value']);
 
-        $this->setSubattributeModelName(LuProductAttributes::OPTIONS[$attributeId]['subattribute']);
+        $this->setSubattributeModelName(DictProductAttributes::OPTIONS[$attributeId]['subattribute']);
 
         $subattribute = $this->getSubattributeModelName();
 

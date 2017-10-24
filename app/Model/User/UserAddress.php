@@ -27,6 +27,6 @@ class UserAddress extends Model
 
     public function state()
     {
-        return $this->hasOne(\App\Model\Dictionary\LuAddressStatesAdapter::class, 'id', 'state_id');
+        return $this->hasOne(\App\Model\Dictionary\DictAddressStatesAdapter::class, 'id', 'state_id');
     }
 }

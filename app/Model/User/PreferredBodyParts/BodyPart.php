@@ -7,7 +7,7 @@ use App\Form\Contract\InputOptionsContract;
 use App\Form\Traits\InputOptionsTrait;
 
 use App\Model\{
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes,
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes,
     User\UserPreferredBodyPartsAdapter as UserPreferredBodyParts
 };
 
@@ -15,7 +15,7 @@ class BodyPart extends UserPreferredBodyParts implements InputOptionsContract
 {
     use InputOptionsTrait;
 
-    const ATTRIBUTE_ID = LuProductAttributes::BODY_PART;
+    const ATTRIBUTE_ID = DictProductAttributes::BODY_PART;
 
     const THIGHS = 1;
     const CALVES = 2;

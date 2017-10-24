@@ -19,7 +19,7 @@ use App\Model\{
     Product\ProductsAttributesAdapter as ProductsAttributes,
     Dictionary\LuProductCategoriesAdapter as LuProductCategories,
     Dictionary\LuProductSubcategoriesAdapter as LuProductSubcategories,
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes,
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes,
     Dictionary\LuProductSubattributesAdapter as LuProductSubattributes,
     User\Style\Clothes,
     User\PreferredBodyParts\BodyType,
@@ -87,31 +87,31 @@ class ProductsWithAttributesAndCategoriesSeeder extends Seeder
 
             $this->shuffleProductSubcategories($product, (new ProductCategory(LuProductCategories::RISK))->subcategories());
 
-            $attribute = new ProductAttribute(LuProductAttributes::COLORS);
+            $attribute = new ProductAttribute(DictProductAttributes::COLORS);
             $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
             $this->addProductAttributes($product, $attribute, $subattributeIds);
 
-            $attribute = new ProductAttribute(LuProductAttributes::PRINTS);
+            $attribute = new ProductAttribute(DictProductAttributes::PRINTS);
             $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
             $this->addProductAttributes($product, $attribute, $subattributeIds);
 
-            $attribute = new ProductAttribute(LuProductAttributes::FABRICS);
+            $attribute = new ProductAttribute(DictProductAttributes::FABRICS);
             $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
             $this->addProductAttributes($product, $attribute, $subattributeIds);
 
-            $attribute = new ProductAttribute(LuProductAttributes::WORDS);
+            $attribute = new ProductAttribute(DictProductAttributes::WORDS);
             $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
             $this->addProductAttributes($product, $attribute, $subattributeIds);
 
-            $attribute = new ProductAttribute(LuProductAttributes::BODY_PART);
+            $attribute = new ProductAttribute(DictProductAttributes::BODY_PART);
             $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
             $this->addProductAttributes($product, $attribute, $subattributeIds);
 
-            $attribute = new ProductAttribute(LuProductAttributes::JEWELRY);
+            $attribute = new ProductAttribute(DictProductAttributes::JEWELRY);
             $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
             $this->addProductAttributes($product, $attribute, $subattributeIds);
 
-            $attribute = new ProductAttribute(LuProductAttributes::OUTFIT_TYPE);
+            $attribute = new ProductAttribute(DictProductAttributes::OUTFIT_TYPE);
             $subattributeIds = $this->shuffleProductSubattributes($product, $attribute);
             $this->addProductAttributes($product, $attribute, $subattributeIds);
         }

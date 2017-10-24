@@ -7,7 +7,7 @@ use EBM\Field\Field;
 
 use App\Model\{
     OutfitType,
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes
 };
 
 use App\Entities\ProductAttribute;
@@ -23,7 +23,7 @@ class NewQuizForm extends AbstractBaseForm
 
     public function setFields()
     {
-        $outfitType = new ProductAttribute(LuProductAttributes::OUTFIT_TYPE);
+        $outfitType = new ProductAttribute(DictProductAttributes::OUTFIT_TYPE);
 
         $this->addField('outfit_type')
             ->setLabel('¿Qué tipo de outfit buscas?')

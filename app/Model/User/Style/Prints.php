@@ -12,7 +12,7 @@ use App\Entities\{
 
 use App\Model\{
     User\UserStyleAdapter,
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes
 };
 
 class Prints extends UserStyleAdapter
@@ -21,7 +21,7 @@ class Prints extends UserStyleAdapter
     use InputOptionsTrait;
     use IsSubattributeTrait;
 
-    const ATTRIBUTE_ID = LuProductAttributes::PRINTS;
+    const ATTRIBUTE_ID = DictProductAttributes::PRINTS;
 
     const COLUMN = 'prints';
 

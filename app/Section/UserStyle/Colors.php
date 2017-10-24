@@ -7,7 +7,7 @@ use App\Section\AbstractUserStyleSection;
 use App\Entities\ProductAttribute;
 
 use App\Model\{
-    Dictionary\LuProductAttributesAdapter as LuProductAttributes
+    Dictionary\DictProductAttributesAdapter as DictProductAttributes
 };
 
 class Colors extends AbstractUserStyleSection
@@ -24,7 +24,7 @@ class Colors extends AbstractUserStyleSection
 
         $userStyle = $quiz->userStyle;
 
-        $colors = new ProductAttribute(LuProductAttributes::COLORS);
+        $colors = new ProductAttribute(DictProductAttributes::COLORS);
 
         $this->addField('colors')
             ->setModel($userStyle)

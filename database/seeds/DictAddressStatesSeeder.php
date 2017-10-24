@@ -4,9 +4,9 @@ use Illuminate\Database\Seeder;
 
 use App\Model\Dictionary\DictAddressCountriesAdapter;
 
-class LuAddressStatesSeeder extends Seeder
+class DictAddressStatesSeeder extends Seeder
 {
-    const TABLE = 'lu_address_states';
+    const TABLE = 'dict_address_states';
 
     /**
      * Run the database seeds.
