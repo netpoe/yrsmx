@@ -6,9 +6,9 @@ use App\Model\{
     Dictionary\DictProductCategoriesAdapter as DictProductCategories
 };
 
-class LuProductSubcategoriesSeeder extends Seeder
+class DictProductSubcategoriesSeeder extends Seeder
 {
-    const TABLE = 'lu_product_subcategories';
+    const TABLE = 'dict_product_subcategories';
 
     /**
      * Run the database seeds.

@@ -18,7 +18,7 @@ use App\Model\{
     Product\ProductsCategoriesAdapter as ProductsCategories,
     Product\ProductsAttributesAdapter as ProductsAttributes,
     Dictionary\DictProductCategoriesAdapter as DictProductCategories,
-    Dictionary\LuProductSubcategoriesAdapter as LuProductSubcategories,
+    Dictionary\DictProductSubcategoriesAdapter as DictProductSubcategories,
     Dictionary\DictProductAttributesAdapter as DictProductAttributes,
     Dictionary\DictProductSubattributesAdapter as DictProductSubattributes,
     User\Style\Clothes,

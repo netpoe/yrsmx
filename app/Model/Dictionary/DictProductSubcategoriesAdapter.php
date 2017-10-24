@@ -22,7 +22,7 @@ use App\Model\{
     User\Sizes\SkirtSizes
 };
 
-class LuProductSubcategoriesAdapter extends LuProductSubcategories
+class DictProductSubcategoriesAdapter extends DictProductSubcategories
 {
     const SUBCATEGORIES = [
         Clothes::class, // CATEGORY::TYPE

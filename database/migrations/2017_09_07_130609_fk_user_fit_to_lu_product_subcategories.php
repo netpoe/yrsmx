@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class FkUserFitToLuProductSubcategories extends Migration
+class FkUserFitToDictProductSubcategories extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,10 @@ class FkUserFitToLuProductSubcategories extends Migration
     public function up()
     {
         Schema::table('user_fit', function (Blueprint $table) {
-            $table->foreign('upper_part_fit')->references('id')->on('lu_product_subcategories');
-            $table->foreign('lower_part_fit')->references('id')->on('lu_product_subcategories');
-            $table->foreign('pants_fit_shape')->references('id')->on('lu_product_subcategories');
-            $table->foreign('pants_fit_hips')->references('id')->on('lu_product_subcategories');
+            $table->foreign('upper_part_fit')->references('id')->on('dict_product_subcategories');
+            $table->foreign('lower_part_fit')->references('id')->on('dict_product_subcategories');
+            $table->foreign('pants_fit_shape')->references('id')->on('dict_product_subcategories');
+            $table->foreign('pants_fit_hips')->references('id')->on('dict_product_subcategories');
         });
     }
 

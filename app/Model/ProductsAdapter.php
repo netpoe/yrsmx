@@ -49,8 +49,8 @@ class ProductsAdapter extends Products
 
     public function subcategories()
     {
-        return \App\Model\Dictionary\LuProductSubcategoriesAdapter::join(
-            'products_categories', 'products_categories.subcategory_id', 'lu_product_subcategories.id')
+        return \App\Model\Dictionary\DictProductSubcategoriesAdapter::join(
+            'products_categories', 'products_categories.subcategory_id', 'dict_product_subcategories.id')
             ->where('products_categories.product_id', $this->id)
             ->get();
     }

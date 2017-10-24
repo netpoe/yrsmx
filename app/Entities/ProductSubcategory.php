@@ -3,7 +3,7 @@
 namespace App\Entities;
 
 use App\Model\{
-    Dictionary\LuProductSubcategoriesAdapter as LuProductSubcategories
+    Dictionary\DictProductSubcategoriesAdapter as DictProductSubcategories
 };
 
 class ProductSubcategory
@@ -32,7 +32,7 @@ class ProductSubcategory
 
         $categoryId = $subcategory::CATEGORY_ID;
 
-        $this->setId(LuProductSubcategories::where('category_id', $categoryId)
+        $this->setId(DictProductSubcategories::where('category_id', $categoryId)
                                             ->where('value', $values['value'])
                                             ->first()
                                             ->id);
