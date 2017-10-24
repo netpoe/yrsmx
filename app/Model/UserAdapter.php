@@ -6,7 +6,7 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use App\Model\User\UserAddressAdapter as UserAddress;
 use App\Model\User\UserInfoAdapter as UserInfo;
-use App\Model\Dictionary\LuUserRole;
+use App\Model\Dictionary\DictUserRole;
 
 class UserAdapter extends User
 {
@@ -104,8 +104,8 @@ class UserAdapter extends User
      */
     public function isAdmin(): bool
     {
-        return $this->role_id === LuUserRole::SUPER_ADMIN ||
-                $this->role_id === LuUserRole::ADMIN;
+        return $this->role_id === DictUserRole::SUPER_ADMIN ||
+                $this->role_id === DictUserRole::ADMIN;
     }
 
     /**

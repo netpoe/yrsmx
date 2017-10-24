@@ -7,7 +7,7 @@ use Faker\Factory as FakerFactory;
 
 use App\Model\{
     UserAdapter as User,
-    Dictionary\LuUserRole,
+    Dictionary\DictUserRole,
     User\UserInfoAdapter as UserInfo
 };
 
@@ -27,7 +27,7 @@ class SuperAdminUserSeeder extends Seeder
         $user = User::create([
             'email' => $email,
             'password' => Hash::make(self::PWD),
-            'role_id' => LuUserRole::SUPER_ADMIN,
+            'role_id' => DictUserRole::SUPER_ADMIN,
             ]);
 
         UserInfo::create([

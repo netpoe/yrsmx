@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLuUserRoles extends Migration
+class CreateDictUserRoles extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateLuUserRoles extends Migration
      */
     public function up()
     {
-        Schema::create('lu_user_roles', function (Blueprint $table) {
+        Schema::create('dict_user_role', function (Blueprint $table) {
             $table->increments('id');
             $table->string('role')->unique();
         });
@@ -26,6 +26,6 @@ class CreateLuUserRoles extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lu_user_roles');
+        Schema::dropIfExists('dict_user_role');
     }
 }

@@ -14,7 +14,7 @@ class FkRoleIdToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreign('role_id')->references('id')->on('lu_user_roles');
+            $table->foreign('role_id')->references('id')->on('dict_user_role');
         });
     }
 

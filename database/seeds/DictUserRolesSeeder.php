@@ -1,27 +1,27 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Model\Dictionary\LuUserRole;
+use App\Model\Dictionary\DictUserRole;
 
-class LuUserRolesSeeder extends Seeder
+class DictUserRolesSeeder extends Seeder
 {
-    const TABLE = 'lu_user_roles';
+    const TABLE = 'dict_user_role';
 
     const INSERT = [
         [
-            'role' => LuUserRole::SUPER_ADMIN,
+            'role' => DictUserRole::SUPER_ADMIN,
         ],
         [
-            'role' => LuUserRole::ADMIN,
+            'role' => DictUserRole::ADMIN,
         ],
         [
-            'role' => LuUserRole::CLIENT,
+            'role' => DictUserRole::CLIENT,
         ],
         [
-            'role' => LuUserRole::DEALER,
+            'role' => DictUserRole::DEALER,
         ],
         [
-            'role' => LuUserRole::DISTRIBUTOR,
+            'role' => DictUserRole::DISTRIBUTOR,
         ],
     ];
 

@@ -4,9 +4,9 @@ namespace App\Model\Dictionary;
 
 use Illuminate\Database\Eloquent\Model;
 
-class LuUserRole extends Model
+class DictUserRole extends Model
 {
-    protected $table = 'lu_user_roles';
+    protected $table = 'dict_user_role';
 
     public $timestamps = false;
 

@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 use App\Model\{
     UserAdapter as User,
-    LuUserRole
+    DictUserRole
 };
 
 abstract class TestCase extends BaseTestCase
@@ -15,7 +15,7 @@ abstract class TestCase extends BaseTestCase
 
     public function getUserWithCompleteCasualWearQuiz()
     {
-        $users = User::where('role_id', LuUserRole::CLIENT)->get();
+        $users = User::where('role_id', DictUserRole::CLIENT)->get();
 
         $user = $users->filter(function($user){
             return $user->getLatestQuiz()->isCasualWearQuiz();
